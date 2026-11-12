@@ -46,24 +46,51 @@ export function Zine({ initial, canSave }: { initial: ZineDoc; canSave: boolean 
 }
 
 /* ---------- Reading: the zine as one folded strip ----------
-   The pages behave like an accordion-folded sheet. Closed, the cover sits alone in the middle. Each press pulls the
-   strip one page to the left, like a conveyor: the page leaving on the left folds flat away at its crease while the
-   next page unfolds out from behind the crease on the right. Pages stay flat and square the whole time; only the
-   creases move. Previous runs the same motion backwards. */
-type Panel = { page: number; w: number; fold: "none" | "out" | "in" };   // w: shown width as a share of a page (cos of the fold angle)
+   The pages behave like an accordion-folded sheet that was never pressed flat (like M.J.'s zine in the craft scans):
+   every page leans a few degrees, alternately, so the fold inside a spread sinks in (valley) and the fold between one
+   spread and the next stands up (ridge). Closed, the cover lies flat in the middle. Each press pulls the strip one page
+   to the left like a conveyor: the page leaving on the left swings shut behind its crease while the next page swings
+   open from behind the crease on the right. Previous runs the same motion backwards. */
+type Panel = { page: number; a: number };   // a: angle about the page's left edge, degrees; + means the right edge leans away
+
+const TILT = 11;
+/** How page p leans when the zine is open. The edge between page k and k+1 is a valley when k is odd, a ridge when even. */
+const rest = (p: number) => (p % 2 === 1 ? TILT : -TILT);
 
 function layout(n: number, s: number, single: boolean): Panel[] {
-  if (single) return [{ page: s, w: 1, fold: "none" }];
-  if (s === 0) return [{ page: 0, w: 1, fold: "none" }];
-  if (s >= n) return [{ page: n - 1, w: 1, fold: "none" }];
-  return [{ page: s - 1, w: 1, fold: "none" }, { page: s, w: 1, fold: "none" }];
+  if (single) return [{ page: s, a: s === 0 || s === n - 1 ? 0 : rest(s) * 0.5 }];
+  if (s === 0) return [{ page: 0, a: 0 }];
+  if (s >= n) return [{ page: n - 1, a: 0 }];
+  return [{ page: s - 1, a: rest(s - 1) }, { page: s, a: rest(s) }];
 }
-/** Panels part-way (t from 0 to 1) through the move from spread s to s+1. Shown widths always add up, so nothing jumps. */
+/** Panels part-way (t from 0 to 1) through the move from spread s to s+1. */
 function between(n: number, s: number, t: number, single: boolean): Panel[] {
-  if (single) return [{ page: s, w: 1 - t, fold: "out" }, { page: s + 1, w: t, fold: "in" }];
-  if (s === 0) return [{ page: 0, w: 1, fold: "none" }, { page: 1, w: t, fold: "in" }];                       // opening
-  if (s + 1 >= n) return [{ page: n - 2, w: 1 - t, fold: "out" }, { page: n - 1, w: 1, fold: "none" }];          // closing
-  return [{ page: s - 1, w: 1 - t, fold: "out" }, { page: s, w: 1, fold: "none" }, { page: s + 1, w: t, fold: "in" }];
+  const out = (p: number) => ({ page: p, a: rest(p) * (1 - t) - 90 * t });     // folding shut behind its right-hand crease
+  const inn = (p: number, to = rest(p)) => ({ page: p, a: 90 * (1 - t) + to * t }); // unfolding from behind its left-hand crease
+  if (single) {
+    const r = (p: number) => (p === 0 || p === n - 1 ? 0 : rest(p) * 0.5);
+    return [{ page: s, a: r(s) * (1 - t) - 90 * t }, inn(s + 1, r(s + 1))];
+  }
+  if (s === 0) return [{ page: 0, a: rest(0) * t }, inn(1)];                              // opening: the cover lifts into its lean
+  if (s + 1 >= n) return [out(n - 2), { page: n - 1, a: rest(n - 1) * (1 - t) }];          // closing: the back cover settles flat
+  return [out(s - 1), { page: s, a: rest(s) }, inn(s + 1)];
+}
+/** Lay the panels out as one connected chain in 3D, in page-widths. Returns each panel's left edge (x, z) plus the
+    shown width, centred so the zine stays in the middle of the screen. */
+function chain(panels: Panel[]) {
+  const rad = (d: number) => (d * Math.PI) / 180;
+  let x = 0, z = 0;
+  const pts = panels.map((p) => {
+    const c = Math.cos(rad(p.a)), sn = Math.sin(rad(p.a));
+    const o = { ...p, x, z, w: c, mz: z - sn / 2 };
+    x += c; z -= sn;
+    return o;
+  });
+  const total = x;
+  // depth anchor: midpoint of the pages, weighted by how much of each is showing (so nothing jumps between frames)
+  const wsum = pts.reduce((q, o) => q + o.w, 0) || 1;
+  const zc = pts.reduce((q, o) => q + o.mz * o.w, 0) / wsum;
+  return { total, items: pts.map((o) => ({ ...o, z: o.z - zc })) };
 }
 const ease = (t: number) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2);
 
@@ -97,31 +124,26 @@ function Book({ doc, onEdit }: { doc: ZineDoc; onEdit?: () => void }) {
   });
 
   const panels = move ? between(n, move.from, move.t, single) : layout(n, s, single);
-  const total = panels.reduce((a, p) => a + p.w, 0);
-  let x = 0;
+  const { total, items } = chain(panels);
   return (
     <section className="zinefull" aria-label="The zine" aria-roledescription="book">
       <a className="zcorner home" href="/" aria-label="Back to the site">×</a>
       {onEdit && <button type="button" className="zcorner edit" onClick={onEdit}>Edit</button>}
       <div className={`zarea${single ? " single" : ""}`} style={{ ["--ratio" as string]: doc.ratio, ["--span" as string]: total }}>
         <div className="strip">
-          {panels.map((p) => {
-            const left = x; x += p.w;
-            if (p.w <= 0.001) return null;
-            const ang = (Math.acos(Math.min(1, p.w)) * 180) / Math.PI;     // how far this page is folded
+          {items.map((p) => {
+            if (p.w <= 0.002) return null;
+            const sn = Math.sin((p.a * Math.PI) / 180);
             const style: React.CSSProperties = {
-              left: `calc(var(--pw) * ${p.fold === "out" ? left + p.w - 1 : left})`,   // a page folding away is pinned at its right-hand crease
-              transformOrigin: p.fold === "out" ? "right center" : "left center",
-              transform: p.fold === "none" ? undefined : `scaleX(${p.w})`,
-              ["--dark" as string]: Math.sin((ang * Math.PI) / 180) * 0.55,
+              left: `calc(var(--pw) * ${p.x})`,
+              transform: `translateZ(calc(var(--pw) * ${p.z})) rotateY(${p.a}deg)`,
+              // the edge leaning away from you falls into shadow; the edge coming toward you catches a little light
+              ["--shl" as string]: Math.max(0, -sn) * 1.1,
+              ["--shr" as string]: Math.max(0, sn) * 1.1,
+              ["--lit" as string]: Math.abs(sn) * 0.6,
             };
-            // Creases alternate like a folded zine: the fold inside a spread (page 2|3, 4|5 …, the binding) is a soft
-            // valley; the fold between one spread and the next (cover|2, 3|4 …) is a sharp outward ridge.
-            const kind = (a: number) => (a % 2 === 1 ? "valley" : "ridge");               // edge between page a and a+1
-            const idx = panels.indexOf(p);
-            const cl = idx > 0 ? ` l-${kind(p.page - 1)}` : "", cr = idx < panels.length - 1 ? ` r-${kind(p.page)}` : "";
             return (
-              <div key={p.page} className={`panel fold-${p.fold}${cl}${cr}`} style={style}>
+              <div key={p.page} className="panel" style={style}>
                 <div className="sheet"><PageView page={doc.pages[p.page]} ratio={doc.ratio} /></div>
               </div>
             );
