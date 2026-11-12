@@ -251,35 +251,52 @@ footer p{margin:0;max-width:72ch}
 
 /* The zine: a book of pages that flip, and a barebones page editor (components/Zine.tsx). A page is 100 units wide. */
 .zine{display:grid;gap:22px}
-.zhead{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;padding-top:28px}
-.zhead h1{font-size:clamp(34px,5vw,54px)}
-.bookwrap{position:relative;width:min(100%, calc(150vh / var(--ratio)));margin-inline:auto;overflow:hidden;padding:14px 0 54px}
-.book{position:relative;width:100%;aspect-ratio:2 / var(--ratio);perspective:2600px;transition:transform .7s cubic-bezier(.3,.1,.3,1)}
-.bookwrap.single{width:min(100%, calc(72vh / var(--ratio)))}
-.bookwrap.single .book{width:200%}
-.leaf{position:absolute;top:0;left:50%;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;
-  transition:transform .8s cubic-bezier(.3,.1,.3,1)}
-.leaf.flipped{transform:rotateY(-180deg)}
-.face{position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;overflow:hidden;background:#fffdf9;
-  box-shadow:0 6px 22px rgba(27,16,55,.22)}
-.face.back{transform:rotateY(180deg)}
-.face::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg, rgba(0,0,0,.16), transparent 9%)}
-.face.back::after{background:linear-gradient(270deg, rgba(0,0,0,.16), transparent 9%)}
-@media (prefers-reduced-motion:reduce){.leaf,.book{transition:none}}
-.turn{all:unset;box-sizing:border-box;position:absolute;bottom:8px;width:38px;height:38px;border-radius:50%;display:grid;place-content:center;
-  background:var(--paper);color:var(--ink);border:1.5px solid var(--line);font-size:18px;cursor:pointer}
-.turn.next{right:8px}.turn.prev{left:8px}
-.turn:hover{border-color:var(--pink);color:var(--pink)}
-.turn:disabled{opacity:.3;cursor:default}
-.turn:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
-.zcount{margin:0;text-align:center;font-size:14px;color:var(--muted)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* Reading view: the zine takes the whole screen, lying on the retreat rug. */
+/* Reading view: just the magazine, as big as the screen allows, on a plain surface. */
+.zinefull{position:fixed;inset:0;z-index:200;display:grid;place-items:center;overflow:hidden;background:#e9e4da}
+/* One page is --pw wide. The area is as wide as the pages showing (--span, set every frame while the strip moves);
+   the arrows hang off its sides, so they sit beside the cover when it's closed and beside the spread when open. */
+.zinefull{--gx:clamp(70px, 8vw, 120px);--gy:clamp(14px, 3vh, 32px)}
+.zarea{--pw:min(calc((100vw - 2 * var(--gx)) / 2), calc((100dvh - 2 * var(--gy)) / var(--ratio)));position:relative;width:calc(var(--pw) * var(--span, 1));height:calc(var(--pw) * var(--ratio))}
+.zarea.single{--pw:min(calc(100vw - 2 * var(--gx)), calc((100dvh - 2 * var(--gy)) / var(--ratio)))}
+.strip{position:absolute;inset:0}
+.panel{position:absolute;top:0;width:var(--pw);height:100%}
+.sheet{position:absolute;inset:0;overflow:hidden;background:#f6f1e7;box-shadow:0 2px 12px rgba(0,0,0,.14)}
+/* paper: grain cropped from one of the retreat's watercolor scans */
+.sheet::before{content:"";position:absolute;inset:0;z-index:50;pointer-events:none;background:url("/paper.jpg") 0 0 / 400px 400px;mix-blend-mode:multiply;opacity:.85}
+/* creases: a soft dip where a page meets its neighbour, and shade on a page as it folds away */
+.panel::after{content:"";position:absolute;inset:0;z-index:60;pointer-events:none}
+.panel.crease-r::after{background:linear-gradient(270deg, rgba(60,40,20,.22), rgba(60,40,20,.05) 4%, transparent 10%)}
+.panel.crease-l::after{background:linear-gradient(90deg, rgba(60,40,20,.22), rgba(60,40,20,.05) 4%, transparent 10%)}
+.panel.crease-lr::after{background:linear-gradient(90deg, rgba(60,40,20,.22), transparent 10%, transparent 90%, rgba(60,40,20,.22))}
+.panel.fold-out::after{background:linear-gradient(90deg, rgba(30,20,10,calc(var(--dark) * .6)), rgba(30,20,10,var(--dark)))}
+.panel.fold-in::after{background:linear-gradient(90deg, rgba(30,20,10,var(--dark)), rgba(30,20,10,calc(var(--dark) * .45)))}
+/* retro arrows: chunky stickers with a hard offset shadow, bobbing just off each side of the zine */
+.turn{all:unset;box-sizing:border-box;position:absolute;top:50%;z-index:20;width:clamp(48px, 5vw, 66px);aspect-ratio:1;display:grid;place-content:center;cursor:pointer;
+  background:#ffd23f;color:#1b1037;border:3px solid #1b1037;border-radius:50%;box-shadow:4px 4px 0 #1b1037;
+  font:900 clamp(20px, 2.2vw, 28px)/1 "Arial Black", Impact, system-ui, sans-serif;
+  translate:0 -50%;animation:zbob 2.6s ease-in-out infinite;transition:transform .12s, box-shadow .12s, opacity .2s}
+.turn.prev{right:calc(100% + clamp(10px, 1.6vw, 26px));background:#ff8fb1;animation-delay:-1.3s}
+.turn.next{left:calc(100% + clamp(10px, 1.6vw, 26px))}
+.turn:hover{transform:rotate(-8deg) scale(1.08)}
+.turn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 #1b1037}
+.turn:disabled{opacity:.28;cursor:default;transform:none}
+@keyframes zbob{0%,100%{translate:0 -50%}50%{translate:0 calc(-50% - 9px)}}
+@media (max-width:520px){.zinefull{--gx:14px;--gy:70px}.turn{top:auto;bottom:-62px;translate:none;animation:none}.turn.prev{right:auto;left:0}.turn.next{left:auto;right:0}}
+@media (prefers-reduced-motion:reduce){.turn{animation:none}}
+.turn:focus-visible,.zcorner:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+.zcorner{all:unset;box-sizing:border-box;position:absolute;top:10px;z-index:5;cursor:pointer;color:rgba(27,16,55,.55);font:600 14px/1 var(--f-body);padding:9px 12px;border-radius:999px}
+.zcorner:hover{color:#1b1037;background:rgba(255,255,255,.7)}
+.zcorner.home{left:12px;font-size:22px;padding:6px 12px}
+.zcorner.edit{right:12px}
 .zpage{position:relative;width:100%;height:100%;overflow:hidden;container-type:inline-size}
 .zpage.blank{background:#f3ede3}
 .zitem{position:absolute}
 .zitem img{display:block;width:100%;height:100%;-webkit-user-drag:none;user-select:none}
 .ztext{width:100%;height:100%;margin:0;padding:0;border:0;background:transparent;line-height:1.15;white-space:pre-wrap;overflow-wrap:anywhere;resize:none;outline:none;overflow:visible}
 textarea.ztext{overflow:hidden}
-.zsheetwrap{width:min(100%, calc(78vh / var(--ratio)), 620px);margin-inline:auto;aspect-ratio:1 / var(--ratio);box-shadow:0 6px 22px rgba(27,16,55,.22)}
+.zsheetwrap{width:min(100%, calc(80vh / var(--ratio)), 760px);margin-inline:auto;aspect-ratio:1 / var(--ratio);box-shadow:0 6px 22px rgba(27,16,55,.22)}
 .zsheet{overflow:visible;touch-action:none}
 .zine.editing .zitem{cursor:grab;user-select:none}
 .zine.editing .zitem.sel{outline:2px solid var(--pink);outline-offset:1px}

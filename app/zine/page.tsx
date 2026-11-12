@@ -10,7 +10,7 @@ const PLAN = ["OVERHEARD RITHM", "A ZINE", "What this is", "DAY 1", "DAY 1", "Hu
 const starter = (): ZineDoc => ({
   ratio: 8.5 / 5.5,
   pages: PLAN.map((t, i) => ({
-    id: `p${i + 1}`, bg: "#fffdf9",
+    id: `p${i + 1}`, bg: "#f8f3ea",
     items: [{ id: `p${i + 1}-t`, type: "text" as const, x: 50, y: 14, w: 80, h: 12, rot: 0, z: 1, text: t, font: "Arial", size: i === 0 ? 9 : 6, color: "#1b1037", bold: true, italic: false, align: "center" as const }],
   })),
 });

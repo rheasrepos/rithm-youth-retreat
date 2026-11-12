@@ -45,44 +45,88 @@ export function Zine({ initial, canSave }: { initial: ZineDoc; canSave: boolean 
     : <Book doc={doc} onEdit={canEdit ? () => setEditing(true) : undefined} />;
 }
 
-/* ---------- Reading: a book whose leaves flip ---------- */
+/* ---------- Reading: the zine as one folded strip ----------
+   The pages behave like an accordion-folded sheet. Closed, the cover sits alone in the middle. Each press pulls the
+   strip one page to the left, like a conveyor: the page leaving on the left folds flat away at its crease while the
+   next page unfolds out from behind the crease on the right. Pages stay flat and square the whole time; only the
+   creases move. Previous runs the same motion backwards. */
+type Panel = { page: number; w: number; fold: "none" | "out" | "in" };   // w: shown width as a share of a page (cos of the fold angle)
+
+function layout(n: number, s: number, single: boolean): Panel[] {
+  if (single) return [{ page: s, w: 1, fold: "none" }];
+  if (s === 0) return [{ page: 0, w: 1, fold: "none" }];
+  if (s >= n) return [{ page: n - 1, w: 1, fold: "none" }];
+  return [{ page: s - 1, w: 1, fold: "none" }, { page: s, w: 1, fold: "none" }];
+}
+/** Panels part-way (t from 0 to 1) through the move from spread s to s+1. Shown widths always add up, so nothing jumps. */
+function between(n: number, s: number, t: number, single: boolean): Panel[] {
+  if (single) return [{ page: s, w: 1 - t, fold: "out" }, { page: s + 1, w: t, fold: "in" }];
+  if (s === 0) return [{ page: 0, w: 1, fold: "none" }, { page: 1, w: t, fold: "in" }];                       // opening
+  if (s + 1 >= n) return [{ page: n - 2, w: 1 - t, fold: "out" }, { page: n - 1, w: 1, fold: "none" }];          // closing
+  return [{ page: s - 1, w: 1 - t, fold: "out" }, { page: s, w: 1, fold: "none" }, { page: s + 1, w: t, fold: "in" }];
+}
+const ease = (t: number) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2);
+
 function Book({ doc, onEdit }: { doc: ZineDoc; onEdit?: () => void }) {
-  const n = doc.pages.length, leaves = Math.ceil(n / 2);
-  const [page, setPage] = useState(0);            // the page in view (the right-hand one when two are showing)
+  const n = doc.pages.length;
+  const [s, setS] = useState(0);                    // 0 = cover alone; k = pages k-1 | k; n = last page alone
+  const [move, setMove] = useState<{ from: number; t: number; dir: 1 | -1 } | null>(null);
   const [single, setSingle] = useState(false);
+  const raf = useRef(0);
   useEffect(() => {
-    const mq = window.matchMedia("(max-width: 700px)"); const f = () => setSingle(mq.matches);
+    const mq = window.matchMedia("(max-width: 700px), (orientation: portrait)"); const f = () => setSingle(mq.matches);
     f(); mq.addEventListener("change", f); return () => mq.removeEventListener("change", f);
   }, []);
-  const flipped = Math.ceil(page / 2);            // leaves turned so far
-  const last = single ? n - 1 : (leaves) * 2;
-  const next = () => setPage((p) => Math.min(last, single ? p + 1 : (Math.ceil(p / 2) + 1) * 2));
-  const prev = () => setPage((p) => Math.max(0, single ? p - 1 : (Math.ceil(p / 2) - 1) * 2));
-  const atEnd = single ? page >= n - 1 : flipped >= leaves;
-  // Closed on the cover the book sits centred on its right half; closed on the back, on its left half.
-  const shift = single ? (page % 2 === 1 ? "0%" : "-50%") : flipped === 0 ? "-25%" : flipped === leaves ? "25%" : "0%";
-  const label = single || flipped === 0 || flipped === leaves
-    ? `Page ${Math.min(n, (single ? page : flipped === 0 ? 0 : n - 1) + 1)} of ${n}`
-    : `Pages ${flipped * 2}–${Math.min(n, flipped * 2 + 1)} of ${n}`;
+  useEffect(() => { const o = document.body.style.overflow; document.body.style.overflow = "hidden"; return () => { document.body.style.overflow = o; cancelAnimationFrame(raf.current); }; }, []);
+  const last = single ? n - 1 : n;
+  const step = (dir: 1 | -1) => {
+    if (move) return;
+    const to = s + dir; if (to < 0 || to > last) return;
+    const from = dir > 0 ? s : to;                   // a move is always described as from → from+1, played forwards or backwards
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches, dur = reduce ? 1 : 850, t0 = performance.now();
+    const tick = (now: number) => {
+      const k = Math.min(1, (now - t0) / dur);
+      if (k < 1) { setMove({ from, dir, t: dir > 0 ? ease(k) : 1 - ease(k) }); raf.current = requestAnimationFrame(tick); }
+      else { setMove(null); setS(to); }
+    };
+    raf.current = requestAnimationFrame(tick);
+  };
+  useEffect(() => {
+    const k = (e: KeyboardEvent) => { if (e.key === "ArrowRight") step(1); if (e.key === "ArrowLeft") step(-1); };
+    window.addEventListener("keydown", k); return () => window.removeEventListener("keydown", k);
+  });
+
+  const panels = move ? between(n, move.from, move.t, single) : layout(n, s, single);
+  const total = panels.reduce((a, p) => a + p.w, 0);
+  let x = 0;
   return (
-    <section className="zine" aria-label="The zine" onKeyDown={(e) => { if (e.key === "ArrowRight") next(); if (e.key === "ArrowLeft") prev(); }}>
-      <div className="zhead">
-        <h1>The <em>zine</em></h1>
-        {onEdit && <button type="button" className="btn ghost" onClick={onEdit}>Edit the zine</button>}
-      </div>
-      <div className={`bookwrap${single ? " single" : ""}`} style={{ ["--ratio" as string]: doc.ratio }}>
-        <div className="book" style={{ transform: `translateX(${shift})` }}>
-          {Array.from({ length: leaves }, (_, i) => (
-            <div key={i} className={`leaf${i < flipped ? " flipped" : ""}`} style={{ zIndex: i < flipped ? i + 1 : leaves - i }}>
-              <div className="face front"><PageView page={doc.pages[i * 2]} ratio={doc.ratio} /></div>
-              <div className="face back"><PageView page={doc.pages[i * 2 + 1]} ratio={doc.ratio} /></div>
-            </div>
-          ))}
+    <section className="zinefull" aria-label="The zine" aria-roledescription="book">
+      <a className="zcorner home" href="/" aria-label="Back to the site">×</a>
+      {onEdit && <button type="button" className="zcorner edit" onClick={onEdit}>Edit</button>}
+      <div className={`zarea${single ? " single" : ""}`} style={{ ["--ratio" as string]: doc.ratio, ["--span" as string]: total }}>
+        <div className="strip">
+          {panels.map((p) => {
+            const left = x; x += p.w;
+            if (p.w <= 0.001) return null;
+            const ang = (Math.acos(Math.min(1, p.w)) * 180) / Math.PI;     // how far this page is folded
+            const style: React.CSSProperties = {
+              left: `calc(var(--pw) * ${p.fold === "out" ? left + p.w - 1 : left})`,   // a page folding away is pinned at its right-hand crease
+              transformOrigin: p.fold === "out" ? "right center" : "left center",
+              transform: p.fold === "none" ? undefined : `scaleX(${p.w})`,
+              ["--dark" as string]: Math.sin((ang * Math.PI) / 180) * 0.55,
+            };
+            const crease = !single && panels.length > 1 ? (p === panels[0] ? "r" : p === panels[panels.length - 1] ? "l" : "lr") : "";
+            return (
+              <div key={p.page} className={`panel fold-${p.fold} crease-${crease}`} style={style}>
+                <div className="sheet"><PageView page={doc.pages[p.page]} ratio={doc.ratio} /></div>
+              </div>
+            );
+          })}
         </div>
-        <button type="button" className="turn prev" onClick={prev} disabled={page === 0} aria-label="Previous page">←</button>
-        <button type="button" className="turn next" onClick={next} disabled={atEnd} aria-label="Next page">→</button>
+        <button type="button" className="turn prev" onClick={() => step(-1)} disabled={s === 0 || !!move} aria-label="Previous page">◀</button>
+        <button type="button" className="turn next" onClick={() => step(1)} disabled={s === last || !!move} aria-label="Next page">▶</button>
       </div>
-      <p className="zcount" role="status">{label}</p>
+      <p className="sr-only" role="status">{s === 0 ? "Cover" : `Page ${Math.min(n, s + 1)} of ${n}`}</p>
     </section>
   );
 }
@@ -171,7 +215,7 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
           <span className="eyebrow">Page {pi + 1} of {doc.pages.length}</span>
           <button type="button" className="btn ghost" onClick={() => { setPi(Math.max(0, pi - 1)); setSel(null); }} disabled={pi === 0} aria-label="Previous page">←</button>
           <button type="button" className="btn ghost" onClick={() => { setPi(Math.min(doc.pages.length - 1, pi + 1)); setSel(null); }} disabled={pi === doc.pages.length - 1} aria-label="Next page">→</button>
-          <button type="button" className="btn ghost" onClick={() => { setDoc((d) => { const p = [...d.pages]; p.splice(pi + 1, 0, { id: `p${uid()}`, bg: "#fffdf9", items: [] }); return { ...d, pages: p }; }); setPi(pi + 1); setSel(null); }}>Add page</button>
+          <button type="button" className="btn ghost" onClick={() => { setDoc((d) => { const p = [...d.pages]; p.splice(pi + 1, 0, { id: `p${uid()}`, bg: "#f8f3ea", items: [] }); return { ...d, pages: p }; }); setPi(pi + 1); setSel(null); }}>Add page</button>
           <button type="button" className="btn ghost" onClick={() => movePage(pi - 1)} disabled={pi === 0}>Move earlier</button>
           <button type="button" className="btn ghost" onClick={() => movePage(pi + 1)} disabled={pi === doc.pages.length - 1}>Move later</button>
           <button type="button" className="btn ghost" disabled={doc.pages.length < 2 || page.items.length > 0} title={page.items.length ? "Empty the page first" : ""} onClick={() => { setDoc((d) => ({ ...d, pages: d.pages.filter((_, i) => i !== pi) })); setPi(Math.max(0, pi - 1)); }}>Delete page</button>
