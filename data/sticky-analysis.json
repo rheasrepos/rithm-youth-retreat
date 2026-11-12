@@ -1,0 +1,761 @@
+{
+ "notes": 165,
+ "hidden_excluded": 5,
+ "kinds": {
+  "concern": 103,
+  "working_on": 37,
+  "other": 25
+ },
+ "by_domain": {
+  "Relationships & Personal Life": 36,
+  "Community & Belonging": 20,
+  "Physical Spaces & Nature": 14,
+  "Policy & Institutions": 13,
+  "Culture, Art & Storytelling": 27,
+  "School & Learning": 18,
+  "Workplace & Careers": 18,
+  "Tech & Product Design": 19
+ },
+ "kind_by_domain": {
+  "Relationships & Personal Life": {
+   "concern": 25,
+   "working_on": 2,
+   "other": 9
+  },
+  "Community & Belonging": {
+   "concern": 12,
+   "working_on": 6,
+   "other": 2
+  },
+  "Physical Spaces & Nature": {
+   "concern": 7,
+   "working_on": 3,
+   "other": 4
+  },
+  "Policy & Institutions": {
+   "concern": 11,
+   "working_on": 2
+  },
+  "Culture, Art & Storytelling": {
+   "concern": 13,
+   "working_on": 9,
+   "other": 5
+  },
+  "School & Learning": {
+   "concern": 10,
+   "working_on": 5,
+   "other": 3
+  },
+  "Workplace & Careers": {
+   "concern": 15,
+   "working_on": 1,
+   "other": 2
+  },
+  "Tech & Product Design": {
+   "concern": 10,
+   "working_on": 9
+  }
+ },
+ "words_per_note": {
+  "median": 11,
+  "min": 1,
+  "max": 81
+ },
+ "top_words": [
+  [
+   "ai",
+   40
+  ],
+  [
+   "people",
+   23
+  ],
+  [
+   "connection",
+   12
+  ],
+  [
+   "human",
+   11
+  ],
+  [
+   "space",
+   11
+  ],
+  [
+   "community",
+   11
+  ],
+  [
+   "friend",
+   10
+  ],
+  [
+   "young",
+   8
+  ],
+  [
+   "work",
+   8
+  ],
+  [
+   "media",
+   7
+  ],
+  [
+   "relationship",
+   6
+  ],
+  [
+   "technology",
+   6
+  ],
+  [
+   "experience",
+   6
+  ],
+  [
+   "school",
+   6
+  ],
+  [
+   "talking",
+   5
+  ],
+  [
+   "know",
+   5
+  ],
+  [
+   "create",
+   5
+  ],
+  [
+   "online",
+   4
+  ],
+  [
+   "social",
+   4
+  ],
+  [
+   "connected",
+   4
+  ],
+  [
+   "connect",
+   4
+  ],
+  [
+   "building",
+   4
+  ],
+  [
+   "hour",
+   4
+  ],
+  [
+   "away",
+   4
+  ],
+  [
+   "conversations",
+   4
+  ],
+  [
+   "become",
+   4
+  ],
+  [
+   "creative",
+   4
+  ],
+  [
+   "third",
+   4
+  ],
+  [
+   "institutions",
+   4
+  ],
+  [
+   "program",
+   4
+  ]
+ ],
+ "top_pairs": [
+  [
+   "human connection",
+   7
+  ],
+  [
+   "third space",
+   4
+  ],
+  [
+   "social media",
+   3
+  ],
+  [
+   "ai safety",
+   3
+  ],
+  [
+   "office hour",
+   3
+  ],
+  [
+   "dating app",
+   2
+  ],
+  [
+   "mental health",
+   2
+  ],
+  [
+   "data centers",
+   2
+  ],
+  [
+   "promote human",
+   2
+  ],
+  [
+   "young people",
+   2
+  ],
+  [
+   "ai companies",
+   2
+  ],
+  [
+   "ai tool",
+   2
+  ],
+  [
+   "ai agents",
+   2
+  ]
+ ],
+ "cross_cutting": [
+  [
+   "people",
+   8,
+   23
+  ],
+  [
+   "ai",
+   7,
+   40
+  ],
+  [
+   "human",
+   7,
+   11
+  ],
+  [
+   "connection",
+   6,
+   12
+  ],
+  [
+   "community",
+   6,
+   11
+  ],
+  [
+   "young",
+   6,
+   8
+  ],
+  [
+   "space",
+   5,
+   11
+  ],
+  [
+   "friend",
+   5,
+   10
+  ],
+  [
+   "work",
+   5,
+   8
+  ],
+  [
+   "technology",
+   5,
+   6
+  ],
+  [
+   "experience",
+   5,
+   6
+  ],
+  [
+   "know",
+   4,
+   5
+  ],
+  [
+   "create",
+   4,
+   5
+  ],
+  [
+   "connected",
+   4,
+   4
+  ],
+  [
+   "connect",
+   4,
+   4
+  ],
+  [
+   "conversations",
+   4,
+   4
+  ]
+ ],
+ "distinctive_by_domain": {
+  "Relationships & Personal Life": [
+   [
+    "relationship",
+    1.89,
+    6
+   ],
+   [
+    "dating",
+    1.49,
+    3
+   ],
+   [
+    "close",
+    1.49,
+    3
+   ],
+   [
+    "people",
+    1.39,
+    12
+   ],
+   [
+    "app",
+    1.22,
+    2
+   ],
+   [
+    "men",
+    1.22,
+    2
+   ]
+  ],
+  "Community & Belonging": [
+   [
+    "club",
+    1.44,
+    2
+   ],
+   [
+    "shared",
+    1.16,
+    2
+   ],
+   [
+    "work",
+    0.46,
+    2
+   ],
+   [
+    "friend",
+    0.35,
+    2
+   ],
+   [
+    "connection",
+    0.31,
+    2
+   ],
+   [
+    "community",
+    0.31,
+    2
+   ]
+  ],
+  "Physical Spaces & Nature": [
+   [
+    "third",
+    2.08,
+    4
+   ],
+   [
+    "space",
+    1.5,
+    5
+   ],
+   [
+    "centers",
+    1.47,
+    2
+   ],
+   [
+    "nature",
+    1.47,
+    2
+   ],
+   [
+    "creating",
+    1.47,
+    2
+   ],
+   [
+    "access",
+    1.2,
+    2
+   ]
+  ],
+  "Policy & Institutions": [
+   [
+    "policy",
+    2.05,
+    4
+   ],
+   [
+    "institutions",
+    2.05,
+    4
+   ],
+   [
+    "well-being",
+    1.45,
+    2
+   ],
+   [
+    "help",
+    1.17,
+    2
+   ],
+   [
+    "type",
+    1.17,
+    2
+   ],
+   [
+    "safety",
+    1.17,
+    2
+   ]
+  ],
+  "Culture, Art & Storytelling": [
+   [
+    "art",
+    1.93,
+    4
+   ],
+   [
+    "music",
+    1.67,
+    3
+   ],
+   [
+    "resistance",
+    1.36,
+    2
+   ],
+   [
+    "deeply",
+    1.36,
+    2
+   ],
+   [
+    "vinyl",
+    1.36,
+    2
+   ],
+   [
+    "marketing",
+    1.36,
+    2
+   ]
+  ],
+  "School & Learning": [
+   [
+    "school",
+    2.45,
+    6
+   ],
+   [
+    "value",
+    1.58,
+    4
+   ],
+   [
+    "system",
+    1.47,
+    3
+   ],
+   [
+    "professors",
+    1.41,
+    2
+   ],
+   [
+    "classroom",
+    1.41,
+    2
+   ],
+   [
+    "college",
+    1.11,
+    2
+   ]
+  ],
+  "Workplace & Careers": [
+   [
+    "career",
+    1.97,
+    4
+   ],
+   [
+    "job",
+    1.97,
+    4
+   ],
+   [
+    "networking",
+    1.39,
+    2
+   ],
+   [
+    "tool",
+    1.09,
+    2
+   ],
+   [
+    "myself",
+    1.09,
+    2
+   ],
+   [
+    "away",
+    0.88,
+    2
+   ]
+  ],
+  "Tech & Product Design": [
+   [
+    "agents",
+    1.41,
+    2
+   ],
+   [
+    "chatbot",
+    1.12,
+    2
+   ],
+   [
+    "impact",
+    1.12,
+    2
+   ],
+   [
+    "ai",
+    1.0,
+    10
+   ],
+   [
+    "online",
+    0.92,
+    2
+   ],
+   [
+    "social",
+    0.92,
+    2
+   ]
+  ]
+ },
+ "concern_words": [
+  [
+   "talking",
+   0.87,
+   5
+  ],
+  [
+   "know",
+   0.87,
+   5
+  ],
+  [
+   "social",
+   0.78,
+   4
+  ],
+  [
+   "connected",
+   0.78,
+   4
+  ],
+  [
+   "hour",
+   0.78,
+   4
+  ],
+  [
+   "away",
+   0.78,
+   4
+  ],
+  [
+   "become",
+   0.78,
+   4
+  ],
+  [
+   "policy",
+   0.78,
+   4
+  ],
+  [
+   "behind",
+   0.78,
+   4
+  ],
+  [
+   "career",
+   0.78,
+   4
+  ],
+  [
+   "job",
+   0.78,
+   4
+  ],
+  [
+   "in-person",
+   0.67,
+   3
+  ]
+ ],
+ "working_on_words": [
+  [
+   "ai",
+   1.47,
+   18
+  ],
+  [
+   "writing",
+   1.47,
+   3
+  ],
+  [
+   "power",
+   1.47,
+   3
+  ],
+  [
+   "safety",
+   1.47,
+   3
+  ],
+  [
+   "impact",
+   1.47,
+   3
+  ],
+  [
+   "create",
+   1.43,
+   4
+  ],
+  [
+   "young",
+   1.26,
+   5
+  ],
+  [
+   "value",
+   1.21,
+   4
+  ],
+  [
+   "local",
+   1.2,
+   2
+  ],
+  [
+   "affects",
+   1.2,
+   2
+  ],
+  [
+   "future",
+   1.2,
+   2
+  ],
+  [
+   "advance",
+   1.2,
+   2
+  ]
+ ],
+ "words_used_once": 536,
+ "distinct_words": 690,
+ "harm_timeframe": {
+  "totals": {
+   "N": 31,
+   "L": 44,
+   "X": 21,
+   "E": 4,
+   "F": 3
+  },
+  "by_domain": {
+   "Relationships & Personal Life": {
+    "N": 8,
+    "L": 17
+   },
+   "Community & Belonging": {
+    "L": 4,
+    "N": 2,
+    "X": 6
+   },
+   "Physical Spaces & Nature": {
+    "L": 2,
+    "E": 1,
+    "N": 2,
+    "X": 2
+   },
+   "Policy & Institutions": {
+    "N": 5,
+    "F": 2,
+    "X": 4
+   },
+   "Culture, Art & Storytelling": {
+    "N": 5,
+    "L": 3,
+    "X": 4,
+    "E": 1
+   },
+   "School & Learning": {
+    "L": 6,
+    "N": 2,
+    "X": 2
+   },
+   "Workplace & Careers": {
+    "L": 9,
+    "X": 2,
+    "N": 3,
+    "E": 1
+   },
+   "Tech & Product Design": {
+    "N": 4,
+    "L": 3,
+    "F": 1,
+    "E": 1,
+    "X": 1
+   }
+  }
+ }
+}

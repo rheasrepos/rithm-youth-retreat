@@ -13,7 +13,7 @@ export default async function Home() {
     <>
       <header className="hero">
         <h1>Find who&apos;s working on <em className="ul">what you care about<svg viewBox="0 0 300 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8 C 60 2, 140 3, 200 6 S 280 9, 297 4" /></svg></em></h1>
-        <p className="lede">At the October retreat, young changemakers wrote what worries them on sticky notes across eight parts of life. Every note is quoted here <em>word for word</em>. Next to each one: the organizations in the Rithm network with real, linked work on it, and the problems nobody has picked up yet.</p>
+        <p className="lede">At the October retreat, young changemakers wrote what worries them on sticky notes across eight parts of life. Every note is quoted here <em>word for word</em>. Next to each one: the organizations in the Rithm network with real, linked work on it, and the problems nobody has picked up yet. It builds on <a href="https://readymag.website/u918716038/6521655/" target="_blank" rel="noopener">Rithm&apos;s existing work ↗</a>.</p>
         <SearchBox index={index} />
         <div className="legend">
           <span><span className="vb">Verified</span> a named project, report, product or law we could link to</span>
