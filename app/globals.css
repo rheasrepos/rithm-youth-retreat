@@ -265,13 +265,17 @@ footer p{margin:0;max-width:72ch}
 .sheet{position:absolute;inset:0;overflow:hidden;background:#f6f1e7;box-shadow:0 2px 12px rgba(0,0,0,.14)}
 /* paper: grain cropped from one of the retreat's watercolor scans */
 .sheet::before{content:"";position:absolute;inset:0;z-index:50;pointer-events:none;background:url("/paper.jpg") 0 0 / 400px 400px;mix-blend-mode:multiply;opacity:.85}
-/* creases: a soft dip where a page meets its neighbour, and shade on a page as it folds away */
-.panel::after{content:"";position:absolute;inset:0;z-index:60;pointer-events:none}
-.panel.crease-r::after{background:linear-gradient(270deg, rgba(60,40,20,.22), rgba(60,40,20,.05) 4%, transparent 10%)}
-.panel.crease-l::after{background:linear-gradient(90deg, rgba(60,40,20,.22), rgba(60,40,20,.05) 4%, transparent 10%)}
-.panel.crease-lr::after{background:linear-gradient(90deg, rgba(60,40,20,.22), transparent 10%, transparent 90%, rgba(60,40,20,.22))}
-.panel.fold-out::after{background:linear-gradient(90deg, rgba(30,20,10,calc(var(--dark) * .6)), rgba(30,20,10,var(--dark)))}
-.panel.fold-in::after{background:linear-gradient(90deg, rgba(30,20,10,var(--dark)), rgba(30,20,10,calc(var(--dark) * .45)))}
+/* creases. Valley (the binding inside a spread): a soft shadow sinking into the fold from both pages.
+   Ridge (the fold between one spread and the next): a crisp bright edge on one page and a thin hard shadow on the other. */
+.panel::after{content:"";position:absolute;inset:0;z-index:60;pointer-events:none;background:var(--cl, none), var(--cr, none)}
+.panel.l-valley{--cl:linear-gradient(90deg, rgba(60,40,20,.26), rgba(60,40,20,.08) 4%, transparent 11%)}
+.panel.r-valley{--cr:linear-gradient(270deg, rgba(60,40,20,.26), rgba(60,40,20,.08) 4%, transparent 11%)}
+.panel.l-ridge{--cl:linear-gradient(90deg, rgba(255,255,255,.95), rgba(255,255,255,.35) .5%, transparent 2.2%)}
+.panel.r-ridge{--cr:linear-gradient(270deg, rgba(40,25,10,.38), rgba(40,25,10,.16) .5%, transparent 1.6%)}
+/* shade on a page as it folds away or unfolds */
+.panel::before{content:"";position:absolute;inset:0;z-index:61;pointer-events:none;opacity:0}
+.panel.fold-out::before{opacity:1;background:linear-gradient(90deg, rgba(30,20,10,calc(var(--dark) * .6)), rgba(30,20,10,var(--dark)))}
+.panel.fold-in::before{opacity:1;background:linear-gradient(90deg, rgba(30,20,10,var(--dark)), rgba(30,20,10,calc(var(--dark) * .45)))}
 /* retro arrows: chunky stickers with a hard offset shadow, bobbing just off each side of the zine */
 .turn{all:unset;box-sizing:border-box;position:absolute;top:50%;z-index:20;width:clamp(48px, 5vw, 66px);aspect-ratio:1;display:grid;place-content:center;cursor:pointer;
   background:#ffd23f;color:#1b1037;border:3px solid #1b1037;border-radius:50%;box-shadow:4px 4px 0 #1b1037;

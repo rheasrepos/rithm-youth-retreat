@@ -115,9 +115,13 @@ function Book({ doc, onEdit }: { doc: ZineDoc; onEdit?: () => void }) {
               transform: p.fold === "none" ? undefined : `scaleX(${p.w})`,
               ["--dark" as string]: Math.sin((ang * Math.PI) / 180) * 0.55,
             };
-            const crease = !single && panels.length > 1 ? (p === panels[0] ? "r" : p === panels[panels.length - 1] ? "l" : "lr") : "";
+            // Creases alternate like a folded zine: the fold inside a spread (page 2|3, 4|5 …, the binding) is a soft
+            // valley; the fold between one spread and the next (cover|2, 3|4 …) is a sharp outward ridge.
+            const kind = (a: number) => (a % 2 === 1 ? "valley" : "ridge");               // edge between page a and a+1
+            const idx = panels.indexOf(p);
+            const cl = idx > 0 ? ` l-${kind(p.page - 1)}` : "", cr = idx < panels.length - 1 ? ` r-${kind(p.page)}` : "";
             return (
-              <div key={p.page} className={`panel fold-${p.fold} crease-${crease}`} style={style}>
+              <div key={p.page} className={`panel fold-${p.fold}${cl}${cr}`} style={style}>
                 <div className="sheet"><PageView page={doc.pages[p.page]} ratio={doc.ratio} /></div>
               </div>
             );
