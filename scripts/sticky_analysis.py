@@ -50,7 +50,10 @@ def words(text: str):
 tok = {s["id"]: words(s["text"]) for s in notes}
 # fold simple plurals into the singular when both appear ("app"/"apps")
 vocab = collections.Counter(w for ws in tok.values() for w in ws)
+ROOTS = {w: "connection" for w in ("connect", "connects", "connected", "connecting", "connection", "connections", "connectedness", "connectivity", "disconnect", "disconnected")}
+ROOTS.update({"disconnect": "disconnection", "disconnected": "disconnection", "disconnection": "disconnection"})   # forms of one root count as one word
 def fold(w):
+    if w in ROOTS: return ROOTS[w]
     if w.endswith("ies") and w[:-3] + "y" in vocab: return w[:-3] + "y"
     if w.endswith("s") and not w.endswith(("ss", "us", "is")) and w[:-1] in vocab: return w[:-1]
     return w
@@ -112,7 +115,11 @@ result = {
 (ROOT / "data/sticky-analysis.json").write_text(json.dumps(result, indent=1, default=dict))
 
 # ---------- chart pages ----------
-INK, PAPER, MUTED, ACCENT = "#1b1037", "#f8f3ea", "#7a7186", "#e0457b"
+INK, PAPER, MUTED = "#1b1037", "#f8f3ea", "#7a7186"   # ink for text
+# palette: deeper versions of the sticky-note colours, so marks read on cream paper (checked for colour-blind separation)
+BLUE, ORANGE, PURPLE, GREEN, YELLOW = "#1a7fb0", "#d4730f", "#8a4fb0", "#4f9a2c", "#e3b21c"
+WORRY, DOING, BOTHC = BLUE, ORANGE, PURPLE
+ACCENT = DOING
 OUT = ROOT / "public/zine/analysis"; OUT.mkdir(parents=True, exist_ok=True)
 plt.rcParams.update({"font.family": "DejaVu Sans", "text.color": INK, "axes.labelcolor": INK, "xtick.color": MUTED, "ytick.color": INK,
                      "axes.edgecolor": MUTED, "font.size": 13})
@@ -134,13 +141,13 @@ def save(fig, name):
     fig.savefig(OUT / name, facecolor=PAPER); plt.close(fig)
 
 # 1. how many notes per part of life, split into "worries" vs "already working on"
-fig = page("Where our worries landed", "Sticky notes per part of life. Dark: a concern. Pink: something\nsomeone is already working on. Light: everything else.")
+fig = page("Where our worries landed", "Sticky notes per part of life. Blue: a concern. Orange: something\nsomeone is already working on. Yellow: everything else.")
 ax = fig.add_axes([0.42, 0.1, 0.52, 0.76])
 order = sorted(dname, key=lambda d: -len(by_dom[d]))
 y = list(range(len(order)))[::-1]
 c = [kind_dom[d]["concern"] for d in order]; w_ = [kind_dom[d]["working_on"] for d in order]; o = [kind_dom[d]["other"] for d in order]
-ax.barh(y, c, color=INK, height=0.62); ax.barh(y, w_, left=c, color=ACCENT, height=0.62, edgecolor=PAPER, linewidth=2)
-ax.barh(y, o, left=[a + b for a, b in zip(c, w_)], color="#cfc6d8", height=0.62, edgecolor=PAPER, linewidth=2)
+ax.barh(y, c, color=WORRY, height=0.62); ax.barh(y, w_, left=c, color=DOING, height=0.62, edgecolor=PAPER, linewidth=2)
+ax.barh(y, o, left=[a + b for a, b in zip(c, w_)], color=YELLOW, height=0.62, edgecolor=PAPER, linewidth=2)
 ax.set_yticks(y); ax.set_yticklabels([dname[d].replace(" & ", " &\n") for d in order])
 for yy, d in zip(y, order): ax.text(len(by_dom[d]) + 0.5, yy, str(len(by_dom[d])), va="center", fontsize=11)
 for s in ("top", "right", "bottom"): ax.spines[s].set_visible(False)
@@ -150,14 +157,14 @@ save(fig, "01-where-worries-landed.png")
 # 2. most-used words
 fig = page("The words we kept writing", "How many notes use each word (common words like \"the\" and\n\"want\" left out; plurals counted with the singular).")
 top = df.most_common(18)
-bars(fig.add_axes([0.3, 0.08, 0.62, 0.78]), [w for w, _ in top], [v for _, v in top])
+bars(fig.add_axes([0.3, 0.08, 0.62, 0.78]), [w for w, _ in top], [v for _, v in top], color=GREEN)
 save(fig, "02-words-we-kept-writing.png")
 
 # 3. words that cross the most parts of life
 fig = page("Worries that cross every line", "Words that show up in the most different parts of life\n(out of 8), with how many notes use them.")
 cc = cross[:14]
-ax = fig.add_axes([0.3, 0.08, 0.62, 0.78])
-bars(ax, [f"{w}  ({n} notes)" for w, _, n in cc], [k for _, k, _ in cc], color=ACCENT)
+ax = fig.add_axes([0.4, 0.08, 0.52, 0.78])
+bars(ax, [f"{w}  ({n} notes)" for w, _, n in cc], [k for _, k, _ in cc], color=PURPLE)
 ax.set_xlim(0, 8.8)
 save(fig, "03-across-every-line.png")
 
@@ -169,7 +176,7 @@ for i, d in enumerate(dname):
     top3 = [x for x in distinct[d] if x[1] > 0][:4]
     if top3:
         yy = list(range(len(top3)))[::-1]
-        ax.barh(yy, [x[1] for x in top3], color=INK, height=0.6)
+        ax.barh(yy, [x[1] for x in top3], color=BLUE, height=0.6)
         ax.set_yticks(yy); ax.set_yticklabels([x[0] for x in top3], fontsize=10)
     ax.text(-0.42, 1.12, dname[d], transform=ax.transAxes, fontsize=11, fontweight="bold")
     for s in ("top", "right", "bottom"): ax.spines[s].set_visible(False)
@@ -179,7 +186,7 @@ save(fig, "04-what-each-corner-sounds-like.png")
 # 5. worries vs work
 fig = page("Worrying vs. doing", "Words that lean toward notes about a concern (left) versus\nnotes about what someone is already working on (right).\nBar = number of notes. (\"working\" itself is left out everywhere:\nit just echoes the prompt.)")
 ax1 = fig.add_axes([0.2, 0.08, 0.27, 0.7]); ax2 = fig.add_axes([0.68, 0.08, 0.27, 0.7])
-for ax, data, col, ttl in ((ax1, result["concern_words"][:10], INK, "worry"), (ax2, result["working_on_words"][:10], ACCENT, "doing")):
+for ax, data, col, ttl in ((ax1, result["concern_words"][:10], WORRY, "worry"), (ax2, result["working_on_words"][:10], DOING, "doing")):
     data = sorted(data, key=lambda x: -x[2])
     bars(ax, [x[0] for x in data], [x[2] for x in data], color=col); ax.set_title(ttl, fontsize=13, loc="left", fontweight="bold")
 save(fig, "05-worrying-vs-doing.png")
@@ -191,15 +198,15 @@ ax = fig.add_axes([0.08, 0.1, 0.86, 0.74])
 order = sorted(dname, key=lambda d: -(kind_dom[d]["concern"] + kind_dom[d]["working_on"]))
 y = list(range(len(order)))[::-1]
 cv = [kind_dom[d]["concern"] for d in order]; wv = [kind_dom[d]["working_on"] for d in order]
-ax.barh(y, [-v for v in cv], color=INK, height=0.5); ax.barh(y, wv, color=ACCENT, height=0.5)
+ax.barh(y, [-v for v in cv], color=WORRY, height=0.5); ax.barh(y, wv, color=DOING, height=0.5)
 for yy, d, c_, w2 in zip(y, order, cv, wv):
     ax.text(0, yy + 0.36, dname[d], ha="center", fontsize=10.5, fontweight="bold")
     ax.text(-c_ - 0.4, yy - 0.05, str(c_), ha="right", va="center", fontsize=11)
     ax.text(w2 + 0.4, yy - 0.05, str(w2), ha="left", va="center", fontsize=11)
 m_ = max(cv + wv) + 3
 ax.set_xlim(-m_, m_); ax.set_ylim(-0.6, len(order) - 0.1); ax.axvline(0, color=MUTED, lw=1)
-ax.text(-m_, len(order) - 0.05, "worried about", fontsize=12, color=INK, fontweight="bold")
-ax.text(m_, len(order) - 0.05, "working on it", fontsize=12, color=ACCENT, fontweight="bold", ha="right")
+ax.text(-m_, len(order) - 0.05, "worried about", fontsize=12, color=WORRY, fontweight="bold")
+ax.text(m_, len(order) - 0.05, "working on it", fontsize=12, color=DOING, fontweight="bold", ha="right")
 ax.axis("off")
 save(fig, "06-whos-worried-whos-on-it.png")
 
@@ -209,7 +216,7 @@ tf_path = ROOT / "data/harm-timeframe.csv"
 if tf_path.exists():
     tf = list(csv.DictReader(tf_path.open()))
     STEPS = [("L", "happening to me now"), ("N", "happening in the world now"), ("E", "starting / getting worse"), ("F", "might happen in future")]
-    SHADES = ["#1b1037", "#5b4d80", "#9a8fb4", "#d3cbe0"]
+    SHADES = [PURPLE, BLUE, GREEN, YELLOW]
     cnt = {d: collections.Counter(r["timeframe"] for r in tf if r["domain"] == d) for d in dname}
     tot = collections.Counter(r["timeframe"] for r in tf)
     fig = page("What we fear is already here", f"Each of the {sum(tot[k] for k, _ in STEPS)} notes naming a harm, sorted by when it happens.\n"
@@ -237,6 +244,70 @@ if tf_path.exists():
     ax2.set_xticks([]); ax2.set_facecolor(PAPER); ax2.tick_params(axis="y", length=0)
     save(fig, "07-already-here.png")
     result["harm_timeframe"] = {"totals": tot, "by_domain": {dname[d]: cnt[d] for d in dname}}
+    (ROOT / "data/sticky-analysis.json").write_text(json.dumps(result, indent=1, default=dict))
+
+# 8. word cloud: size = how many notes use the word; colour = whether those notes are worries or work already under way
+try:
+    from wordcloud import WordCloud          # pip install wordcloud
+    from matplotlib import font_manager
+    freq = dict(df)
+    phr = {" ".join(k): v for k, v in bigr.items() if v >= 2}
+    for ph, v in phr.items():                # keep repeated phrases ("human connection") whole
+        freq[ph] = v
+        for w in ph.split():
+            if w in freq: freq[w] = max(0, freq[w] - v)
+    freq = {w: v for w, v in freq.items() if v >= 2}
+    low = {s["id"]: " ".join(fold(ALIAS.get(x, x)) for x in re.findall(r"[a-z][a-z'\-]*", clean(s["text"]).lower())) for s in notes}
+    def lean(w):
+        hits = [s for s in notes if (f" {w} " in f" {low[s['id']]} ")] if " " in w else [s for s in notes if w in tok[s["id"]]]
+        c = sum(s["kind"] == "concern" for s in hits); k = sum(s["kind"] == "working_on" for s in hits)
+        return c, k
+    # colour follows size: rare words in the darkest colour (so small text stays readable), the most-used in yellow
+    SIZE_STEPS = [(11, YELLOW), (6, ORANGE), (4, GREEN), (3, PURPLE), (0, BLUE)]
+    def colour_by_size(word, **_):
+        v = freq.get(word, 0)
+        return next(c for lo, c in SIZE_STEPS if v >= lo)
+    def colour_by_lean(word, **_):
+        c, k = lean(word)
+        if c + k == 0: return MUTED
+        r = c / (c + k)
+        return WORRY if r >= 0.7 else DOING if r <= 0.4 else BOTHC
+    bold = font_manager.findfont(font_manager.FontProperties(family="DejaVu Sans", weight="bold"))
+    wc = WordCloud(width=1800, height=1900, background_color=PAPER, font_path=bold, prefer_horizontal=0.85, relative_scaling=0.55,
+                   min_font_size=22, max_font_size=360, margin=6, color_func=colour_by_size, random_state=7).generate_from_frequencies(freq)
+    fig = page("What we wrote, all at once", "Bigger and warmer = more notes use it. Yellow: 11+ notes, orange: 6-10,\ngreen: 4-5, purple: 3, blue: 2. Repeated phrases kept whole.")
+    ax = fig.add_axes([0.05, 0.06, 0.9, 0.77]); ax.imshow(wc.to_array(), interpolation="bilinear"); ax.axis("off")
+    save(fig, "08-what-we-wrote.png")
+    result["word_cloud"] = sorted(freq.items(), key=lambda x: -x[1])
+except ImportError:
+    print("word cloud image skipped: pip install wordcloud")
+
+# data for the interactive cloud on the site (/words): each word, which notes use it, and the words it travels with
+if True:
+    freq = dict(df)
+    phr = {" ".join(k): v for k, v in bigr.items() if v >= 2}
+    for ph, v in phr.items():
+        freq[ph] = v
+        for w in ph.split():
+            if w in freq: freq[w] = max(0, freq[w] - v)
+    low = {s["id"]: " " + " ".join(fold(ALIAS.get(x, x)) for x in re.findall(r"[a-z][a-z'\-]*", clean(s["text"]).lower())) + " " for s in notes}
+    solo = {}
+    for s_ in notes:                       # each note's words with kept phrases taken out
+        t = low[s_["id"]]
+        for ph in sorted(phr, key=len, reverse=True): t = t.replace(f" {ph} ", " | ")
+        solo[s_["id"]] = set(t.split())
+    def hits(w):
+        return [s for s in notes if f" {w} " in low[s["id"]]] if " " in w else [s for s in notes if w in solo[s["id"]]]
+    words_ = [w for w, v in freq.items() if v >= 2]
+    ids = {w: [s["id"] for s in hits(w)] for w in words_}
+    cloud = []
+    for w in words_:
+        hs = hits(w)
+        co = collections.Counter(o for o in words_ if o != w and o not in w.split() and w not in o.split() for s in hs if s["id"] in ids[o])
+        cloud.append({"w": w, "n": len(hs), "concern": sum(s["kind"] == "concern" for s in hs), "working_on": sum(s["kind"] == "working_on" for s in hs),
+                      "domains": sorted({s["domain_id"] for s in hs}), "ids": ids[w], "co": [o for o, _ in co.most_common(6)]})
+    cloud.sort(key=lambda x: -x["n"])
+    (ROOT / "data/word-cloud.json").write_text(json.dumps(cloud, indent=0))
     (ROOT / "data/sticky-analysis.json").write_text(json.dumps(result, indent=1, default=dict))
 
 # ---------- summary ----------

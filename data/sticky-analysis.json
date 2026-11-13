@@ -72,7 +72,7 @@
   ],
   [
    "connection",
-   12
+   20
   ],
   [
    "human",
@@ -139,14 +139,6 @@
    4
   ],
   [
-   "connected",
-   4
-  ],
-  [
-   "connect",
-   4
-  ],
-  [
    "building",
    4
   ],
@@ -180,6 +172,14 @@
   ],
   [
    "program",
+   4
+  ],
+  [
+   "art",
+   4
+  ],
+  [
+   "behind",
    4
   ]
  ],
@@ -256,7 +256,7 @@
   [
    "connection",
    6,
-   12
+   20
   ],
   [
    "community",
@@ -302,16 +302,6 @@
    "create",
    4,
    5
-  ],
-  [
-   "connected",
-   4,
-   4
-  ],
-  [
-   "connect",
-   4,
-   4
   ],
   [
    "conversations",
@@ -374,14 +364,14 @@
     2
    ],
    [
-    "connection",
+    "community",
     0.31,
     2
    ],
    [
-    "community",
-    0.31,
-    2
+    "people",
+    0.13,
+    3
    ]
   ],
   "Physical Spaces & Nature": [
@@ -594,11 +584,6 @@
    4
   ],
   [
-   "connected",
-   0.78,
-   4
-  ],
-  [
    "hour",
    0.78,
    4
@@ -635,6 +620,11 @@
   ],
   [
    "in-person",
+   0.67,
+   3
+  ],
+  [
+   "scary",
    0.67,
    3
   ]
@@ -702,7 +692,7 @@
   ]
  ],
  "words_used_once": 536,
- "distinct_words": 690,
+ "distinct_words": 688,
  "harm_timeframe": {
   "totals": {
    "N": 31,
@@ -757,5 +747,615 @@
     "X": 1
    }
   }
- }
+ },
+ "word_cloud": [
+  [
+   "ai",
+   31
+  ],
+  [
+   "people",
+   21
+  ],
+  [
+   "connection",
+   13
+  ],
+  [
+   "community",
+   11
+  ],
+  [
+   "friend",
+   10
+  ],
+  [
+   "work",
+   8
+  ],
+  [
+   "space",
+   7
+  ],
+  [
+   "human connection",
+   7
+  ],
+  [
+   "relationship",
+   6
+  ],
+  [
+   "young",
+   6
+  ],
+  [
+   "technology",
+   6
+  ],
+  [
+   "experience",
+   6
+  ],
+  [
+   "school",
+   6
+  ],
+  [
+   "talking",
+   5
+  ],
+  [
+   "know",
+   5
+  ],
+  [
+   "create",
+   5
+  ],
+  [
+   "online",
+   4
+  ],
+  [
+   "building",
+   4
+  ],
+  [
+   "media",
+   4
+  ],
+  [
+   "away",
+   4
+  ],
+  [
+   "conversations",
+   4
+  ],
+  [
+   "become",
+   4
+  ],
+  [
+   "creative",
+   4
+  ],
+  [
+   "institutions",
+   4
+  ],
+  [
+   "program",
+   4
+  ],
+  [
+   "art",
+   4
+  ],
+  [
+   "behind",
+   4
+  ],
+  [
+   "system",
+   4
+  ],
+  [
+   "career",
+   4
+  ],
+  [
+   "third space",
+   4
+  ],
+  [
+   "scary",
+   3
+  ],
+  [
+   "in-person",
+   3
+  ],
+  [
+   "scared",
+   3
+  ],
+  [
+   "close",
+   3
+  ],
+  [
+   "big",
+   3
+  ],
+  [
+   "group",
+   3
+  ],
+  [
+   "chatbot",
+   3
+  ],
+  [
+   "emotions",
+   3
+  ],
+  [
+   "give",
+   3
+  ],
+  [
+   "life",
+   3
+  ],
+  [
+   "person",
+   3
+  ],
+  [
+   "right",
+   3
+  ],
+  [
+   "interested",
+   3
+  ],
+  [
+   "writing",
+   3
+  ],
+  [
+   "others",
+   3
+  ],
+  [
+   "myself",
+   3
+  ],
+  [
+   "learning",
+   3
+  ],
+  [
+   "shared",
+   3
+  ],
+  [
+   "world",
+   3
+  ],
+  [
+   "sport",
+   3
+  ],
+  [
+   "access",
+   3
+  ],
+  [
+   "support",
+   3
+  ],
+  [
+   "event",
+   3
+  ],
+  [
+   "value",
+   3
+  ],
+  [
+   "opportunity",
+   3
+  ],
+  [
+   "policy",
+   3
+  ],
+  [
+   "type",
+   3
+  ],
+  [
+   "college",
+   3
+  ],
+  [
+   "power",
+   3
+  ],
+  [
+   "instead",
+   3
+  ],
+  [
+   "trust",
+   3
+  ],
+  [
+   "music",
+   3
+  ],
+  [
+   "best",
+   3
+  ],
+  [
+   "research",
+   3
+  ],
+  [
+   "job",
+   3
+  ],
+  [
+   "impact",
+   3
+  ],
+  [
+   "social media",
+   3
+  ],
+  [
+   "ai safety",
+   3
+  ],
+  [
+   "office hour",
+   3
+  ],
+  [
+   "human",
+   2
+  ],
+  [
+   "men",
+   2
+  ],
+  [
+   "ask",
+   2
+  ],
+  [
+   "initiate",
+   2
+  ],
+  [
+   "believe",
+   2
+  ],
+  [
+   "boundaries",
+   2
+  ],
+  [
+   "force",
+   2
+  ],
+  [
+   "back",
+   2
+  ],
+  [
+   "anything",
+   2
+  ],
+  [
+   "taking",
+   2
+  ],
+  [
+   "reach",
+   2
+  ],
+  [
+   "huge",
+   2
+  ],
+  [
+   "generation",
+   2
+  ],
+  [
+   "well",
+   2
+  ],
+  [
+   "relate",
+   2
+  ],
+  [
+   "live",
+   2
+  ],
+  [
+   "city",
+   2
+  ],
+  [
+   "actually",
+   2
+  ],
+  [
+   "asking",
+   2
+  ],
+  [
+   "push",
+   2
+  ],
+  [
+   "communal",
+   2
+  ],
+  [
+   "whole",
+   2
+  ],
+  [
+   "sit",
+   2
+  ],
+  [
+   "guidance",
+   2
+  ],
+  [
+   "weirdness",
+   2
+  ],
+  [
+   "turn",
+   2
+  ],
+  [
+   "hate",
+   2
+  ],
+  [
+   "individuality",
+   2
+  ],
+  [
+   "appreciate",
+   2
+  ],
+  [
+   "real",
+   2
+  ],
+  [
+   "care",
+   2
+  ],
+  [
+   "deep",
+   2
+  ],
+  [
+   "established",
+   2
+  ],
+  [
+   "culture",
+   2
+  ],
+  [
+   "either",
+   2
+  ],
+  [
+   "park",
+   2
+  ],
+  [
+   "love",
+   2
+  ],
+  [
+   "club",
+   2
+  ],
+  [
+   "local",
+   2
+  ],
+  [
+   "affects",
+   2
+  ],
+  [
+   "future",
+   2
+  ],
+  [
+   "advance",
+   2
+  ],
+  [
+   "wonder",
+   2
+  ],
+  [
+   "see",
+   2
+  ],
+  [
+   "room",
+   2
+  ],
+  [
+   "nature",
+   2
+  ],
+  [
+   "within",
+   2
+  ],
+  [
+   "creating",
+   2
+  ],
+  [
+   "gathering",
+   2
+  ],
+  [
+   "planning",
+   2
+  ],
+  [
+   "showing",
+   2
+  ],
+  [
+   "male",
+   2
+  ],
+  [
+   "stop",
+   2
+  ],
+  [
+   "public",
+   2
+  ],
+  [
+   "well-being",
+   2
+  ],
+  [
+   "help",
+   2
+  ],
+  [
+   "material",
+   2
+  ],
+  [
+   "left",
+   2
+  ],
+  [
+   "means",
+   2
+  ],
+  [
+   "resistance",
+   2
+  ],
+  [
+   "deeply",
+   2
+  ],
+  [
+   "fixing",
+   2
+  ],
+  [
+   "starting",
+   2
+  ],
+  [
+   "companies",
+   2
+  ],
+  [
+   "marketing",
+   2
+  ],
+  [
+   "getting",
+   2
+  ],
+  [
+   "run",
+   2
+  ],
+  [
+   "classroom",
+   2
+  ],
+  [
+   "professors",
+   2
+  ],
+  [
+   "professional",
+   2
+  ],
+  [
+   "question",
+   2
+  ],
+  [
+   "interacting",
+   2
+  ],
+  [
+   "networking",
+   2
+  ],
+  [
+   "friction",
+   2
+  ],
+  [
+   "sad",
+   2
+  ],
+  [
+   "dating app",
+   2
+  ],
+  [
+   "mental health",
+   2
+  ],
+  [
+   "data centers",
+   2
+  ],
+  [
+   "promote human",
+   2
+  ],
+  [
+   "young people",
+   2
+  ],
+  [
+   "ai companies",
+   2
+  ],
+  [
+   "ai tool",
+   2
+  ],
+  [
+   "ai agents",
+   2
+  ]
+ ]
 }

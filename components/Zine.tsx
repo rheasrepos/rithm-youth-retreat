@@ -1,5 +1,5 @@
 "use client";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { memo, useCallback, useEffect, useRef, useState } from "react";
 
 /** A page is 100 units wide and 100 × ratio tall. Items are placed by their centre. Text size is in the same units. */
 export interface ZineItem {
@@ -26,14 +26,14 @@ function ItemBody({ it }: { it: ZineItem }) {
   return <div className="ztext" style={{ fontFamily: stack(it.font), fontSize: `${it.size ?? 4}cqw`, color: it.color, fontWeight: it.bold ? 700 : 400, fontStyle: it.italic ? "italic" : "normal", textAlign: it.align }}>{it.text}</div>;
 }
 /** A page as readers see it. */
-function PageView({ page, ratio }: { page?: ZinePage; ratio: number }) {
+const PageView = memo(function PageView({ page, ratio }: { page?: ZinePage; ratio: number }) {
   if (!page) return <div className="zpage blank" />;
   return (
     <div className="zpage" style={{ background: page.bg }}>
       {page.items.map((it) => <div key={it.id} className={`zitem ${it.type}`} style={itemStyle(it, ratio)}><ItemBody it={it} /></div>)}
     </div>
   );
-}
+});
 
 export function Zine({ initial, canSave }: { initial: ZineDoc; canSave: boolean }) {
   const [doc, setDoc] = useState<ZineDoc>(initial);
@@ -51,7 +51,7 @@ export function Zine({ initial, canSave }: { initial: ZineDoc; canSave: boolean 
    spread and the next stands up (ridge). Closed, the cover lies flat in the middle. Each press pulls the strip one page
    to the left like a conveyor: the page leaving on the left swings shut behind its crease while the next page swings
    open from behind the crease on the right. Previous runs the same motion backwards. */
-type Panel = { page: number; a: number };   // a: angle about the page's left edge, degrees; + means the right edge leans away
+type Panel = { page: number; a: number; bend?: number };   // bend: how loosely the crease on this page's left curves   // a: angle about the page's left edge, degrees; + means the right edge leans away
 
 const TILT = 11;
 /** How page p leans when the zine is open. The edge between page k and k+1 is a valley when k is odd, a ridge when even. */
@@ -65,33 +65,67 @@ function layout(n: number, s: number, single: boolean): Panel[] {
 }
 /** Panels part-way (t from 0 to 1) through the move from spread s to s+1. */
 function between(n: number, s: number, t: number, single: boolean): Panel[] {
+  // while a crease is moving the paper rolls over it in a looser curve, then settles back into a tight fold
+  const loose = BEND + 0.17 * Math.sin(Math.PI * t);
   const out = (p: number) => ({ page: p, a: rest(p) * (1 - t) - 90 * t });     // folding shut behind its right-hand crease
-  const inn = (p: number, to = rest(p)) => ({ page: p, a: 90 * (1 - t) + to * t }); // unfolding from behind its left-hand crease
+  const inn = (p: number, to = rest(p)) => ({ page: p, a: 90 * (1 - t) + to * t, bend: loose }); // unfolding from behind its left-hand crease
   if (single) {
     const r = (p: number) => (p === 0 || p === n - 1 ? 0 : rest(p) * 0.5);
     return [{ page: s, a: r(s) * (1 - t) - 90 * t }, inn(s + 1, r(s + 1))];
   }
   if (s === 0) return [{ page: 0, a: rest(0) * t }, inn(1)];                              // opening: the cover lifts into its lean
-  if (s + 1 >= n) return [out(n - 2), { page: n - 1, a: rest(n - 1) * (1 - t) }];          // closing: the back cover settles flat
-  return [out(s - 1), { page: s, a: rest(s) }, inn(s + 1)];
+  if (s + 1 >= n) return [out(n - 2), { page: n - 1, a: rest(n - 1) * (1 - t), bend: loose }];          // closing: the back cover settles flat
+  return [out(s - 1), { page: s, a: rest(s), bend: loose }, inn(s + 1)];
 }
-/** Lay the panels out as one connected chain in 3D, in page-widths. Returns each panel's left edge (x, z) plus the
-    shown width, centred so the zine stays in the middle of the screen. */
-function chain(panels: Panel[]) {
-  const rad = (d: number) => (d * Math.PI) / 180;
-  let x = 0, z = 0;
-  const pts = panels.map((p) => {
-    const c = Math.cos(rad(p.a)), sn = Math.sin(rad(p.a));
-    const o = { ...p, x, z, w: c, mz: z - sn / 2 };
-    x += c; z -= sn;
-    return o;
-  });
-  const total = x;
-  // depth anchor: midpoint of the pages, weighted by how much of each is showing (so nothing jumps between frames)
-  const wsum = pts.reduce((q, o) => q + o.w, 0) || 1;
-  const zc = pts.reduce((q, o) => q + o.mz * o.w, 0) / wsum;
-  return { total, items: pts.map((o) => ({ ...o, z: o.z - zc })) };
+/* The strip is drawn as thin vertical slices so the paper can bend: away from the creases a page is flat, and over a
+   short stretch either side of each crease the angle eases from one page's lean to the next, so folds are rounded
+   like real unpressed paper rather than knife-sharp hinges. An outward (ridge) crease catches a highlight along its
+   curve; an inward (valley) crease falls into soft shadow. */
+const BEND = 0.07;     // half-width of the curved band around a crease, in page widths
+const BEND_SLICES = 9; // slices across each half of that band
+const smooth = (x: number) => (x <= 0 ? 0 : x >= 1 ? 1 : x * x * (3 - 2 * x));
+type Slice = { key: string; page: number; v0: number; v1: number; x: number; z: number; w: number; a: number; eL: number; eR: number };
+
+function slices(panels: Panel[]) {
+  const m = panels.length;
+  const bendOf = (i: number) => Math.min(0.3, panels[i]?.bend ?? BEND);
+  const angleAt = (u: number) => {                         // u: position along the strip, in page widths
+    let a = panels[0].a;
+    for (let i = 1; i < m; i++) { const b = bendOf(i); a += (panels[i].a - panels[i - 1].a) * smooth((u - i + b) / (2 * b)); }
+    return a;
+  };
+  // light from the front, a little from the left; plus a highlight or shadow wherever the paper curves
+  const light = (u: number) => {
+    const a = (angleAt(u) * Math.PI) / 180;
+    const diffuse = (Math.cos(a) - 0.35 * Math.sin(a)) / 1.06;
+    const e = BEND * 0.6, curv = angleAt(Math.min(m, u + e)) - angleAt(Math.max(0, u - e));   // degrees turned nearby
+    const ridge = Math.max(0, Math.min(1, curv / 50)), valley = Math.max(0, Math.min(1, -curv / 50));
+    return (0.94 - diffuse) * 0.9 + valley * 0.32 - ridge * 0.4;      // > 0 darker, < 0 brighter
+  };
+  // cut points along the strip
+  const cuts: number[] = [0];
+  for (let i = 0; i < m; i++) {
+    const bl = i === 0 ? 0 : bendOf(i), br = i === m - 1 ? 0 : bendOf(i + 1);
+    const lo = i === 0 ? [] : Array.from({ length: BEND_SLICES }, (_, k) => i + (bl * (k + 1)) / BEND_SLICES);
+    const hi = i === m - 1 ? [] : Array.from({ length: BEND_SLICES }, (_, k) => i + 1 - br + (br * k) / BEND_SLICES);
+    cuts.push(...lo, ...hi, i + 1);
+  }
+  const uniq = [...new Set(cuts.map((c) => Math.round(c * 1e6) / 1e6))].sort((p, q) => p - q);
+  let x = 0, z = 0, mzs = 0, ws = 0;
+  const out: Slice[] = [];
+  for (let k = 0; k < uniq.length - 1; k++) {
+    const u0 = uniq[k], u1 = uniq[k + 1], len = u1 - u0;
+    const i = Math.min(m - 1, Math.floor(u0 + 1e-9));
+    const a = angleAt((u0 + u1) / 2), r = (a * Math.PI) / 180;
+    const w = Math.cos(r) * len, dz = -Math.sin(r) * len;
+    out.push({ key: `${panels[i].page}-${k}`, page: panels[i].page, v0: u0 - i, v1: u1 - i, x, z, w, a, eL: light(u0), eR: light(u1) });
+    mzs += (z + dz / 2) * Math.abs(w); ws += Math.abs(w);
+    x += w; z += dz;
+  }
+  const zc = ws ? mzs / ws : 0;
+  return { total: x, items: out.map((o) => ({ ...o, z: o.z - zc })) };
 }
+const tone = (v: number) => (v >= 0 ? `rgba(40,26,12,${Math.min(0.42, v).toFixed(3)})` : `rgba(255,252,244,${Math.min(0.55, -v).toFixed(3)})`);
 const ease = (t: number) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2);
 
 function Book({ doc, onEdit }: { doc: ZineDoc; onEdit?: () => void }) {
@@ -124,27 +158,25 @@ function Book({ doc, onEdit }: { doc: ZineDoc; onEdit?: () => void }) {
   });
 
   const panels = move ? between(n, move.from, move.t, single) : layout(n, s, single);
-  const { total, items } = chain(panels);
+  const { total, items } = slices(panels);
   return (
     <section className="zinefull" aria-label="The zine" aria-roledescription="book">
       <a className="zcorner home" href="/" aria-label="Back to the site">×</a>
       {onEdit && <button type="button" className="zcorner edit" onClick={onEdit}>Edit</button>}
       <div className={`zarea${single ? " single" : ""}`} style={{ ["--ratio" as string]: doc.ratio, ["--span" as string]: total }}>
+        <div className="zground" />
         <div className="strip">
           {items.map((p) => {
-            if (p.w <= 0.002) return null;
-            const sn = Math.sin((p.a * Math.PI) / 180);
+            if (p.w <= 0.0005) return null;
             const style: React.CSSProperties = {
               left: `calc(var(--pw) * ${p.x})`,
+              width: `calc(var(--pw) * ${p.v1 - p.v0} + 1.5px)`,   // a hair of overlap hides seams between slices
               transform: `translateZ(calc(var(--pw) * ${p.z})) rotateY(${p.a}deg)`,
-              // the edge leaning away from you falls into shadow; the edge coming toward you catches a little light
-              ["--shl" as string]: Math.max(0, -sn) * 1.1,
-              ["--shr" as string]: Math.max(0, sn) * 1.1,
-              ["--lit" as string]: Math.abs(sn) * 0.6,
+              ["--tone" as string]: `linear-gradient(90deg, ${tone(p.eL)}, ${tone(p.eR)})`,
             };
             return (
-              <div key={p.page} className="panel" style={style}>
-                <div className="sheet"><PageView page={doc.pages[p.page]} ratio={doc.ratio} /></div>
+              <div key={p.key} className="slice" style={style}>
+                <div className="sheet" style={{ left: `calc(var(--pw) * ${-p.v0})` }}><PageView page={doc.pages[p.page]} ratio={doc.ratio} /></div>
               </div>
             );
           })}

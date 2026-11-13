@@ -19,15 +19,19 @@ export async function POST(req: Request) {
   try { body = await req.json(); } catch { return NextResponse.json({ error: "Bad request" }, { status: 400 }); }
   if (clean(body.website, 10)) return NextResponse.json({ ok: true }); // honeypot: pretend success
 
-  const name = clean(body.name, 120), email = clean(body.email, 200), message = clean(body.message, 2000);
-  if (!name || !email || !message) return NextResponse.json({ error: "Name, email and a short description are required." }, { status: 400 });
-  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return NextResponse.json({ error: "That email doesn't look right." }, { status: 400 });
+  const type = clean(body.type, 40) || "other";
+  // a sticky note added on the word cloud is anonymous, like the notes at the retreat
+  const anon = type === "sticky";
+  const name = anon ? "anonymous (word cloud)" : clean(body.name, 120), email = anon ? "" : clean(body.email, 200), message = clean(body.message, anon ? 280 : 2000);
+  if (anon && !message) return NextResponse.json({ error: "Write something on the note first." }, { status: 400 });
+  if (!anon && (!name || !email || !message)) return NextResponse.json({ error: "Name, email and a short description are required." }, { status: 400 });
+  if (!anon && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return NextResponse.json({ error: "That email doesn't look right." }, { status: 400 });
   const url = clean(body.url, 500);
   if (url && !/^https?:\/\//i.test(url)) return NextResponse.json({ error: "Links must start with http:// or https://" }, { status: 400 });
 
   const row = {
     timestamp: new Date().toISOString(),
-    type: clean(body.type, 40) || "other",
+    type,
     name, email,
     org: [clean(body.org_id, 60), clean(body.org, 200), clean(body.role, 120)].filter(Boolean).join(" · "),
     url,

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "What young changemakers wrote at the Rithm retreat, word for word, and who in the network is already working on each concern.",
 };
 
-export const READYMAG = "https://readymag.website/u918716038/6521655/";
+const READYMAG = "https://readymag.website/u918716038/6521655/";
 const EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "info@therithmproject.org";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -26,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="topnav">
               <Link href="/">Map</Link>
               <Link href="/wall">The wall</Link>
+              <Link href="/words">The words</Link>
               <Link href="/zine">The zine</Link>
               <Link href="/untapped">Untapped problems</Link>
               <Link href="/people">Everyone</Link>

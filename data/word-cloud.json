@@ -1,0 +1,3474 @@
+[
+{
+"w": "ai",
+"n": 33,
+"concern": 19,
+"working_on": 13,
+"domains": [
+"com",
+"cul",
+"pol",
+"rel",
+"sch",
+"tec",
+"wor"
+],
+"ids": [
+"rel19",
+"rel13",
+"rel04",
+"rel16",
+"rel17",
+"rel08",
+"com12",
+"pol08",
+"pol13",
+"pol09",
+"pol02",
+"cul10",
+"cul04",
+"cul23",
+"cul14",
+"cul13",
+"cul01",
+"cul11",
+"cul18",
+"cul19",
+"cul26",
+"sch04",
+"sch05",
+"sch13",
+"wor03",
+"wor15",
+"wor17",
+"tec09",
+"tec03",
+"tec04",
+"tec18",
+"tec14",
+"tec13"
+],
+"co": [
+"people",
+"online",
+"space",
+"friend",
+"building",
+"talking"
+]
+},
+{
+"w": "people",
+"n": 21,
+"concern": 14,
+"working_on": 5,
+"domains": [
+"com",
+"cul",
+"phy",
+"pol",
+"rel",
+"sch",
+"tec",
+"wor"
+],
+"ids": [
+"rel01",
+"rel40",
+"rel27",
+"rel12",
+"rel28",
+"rel11",
+"rel13",
+"rel14",
+"rel10",
+"com13",
+"com15",
+"com10",
+"phy01",
+"phy09",
+"pol09",
+"pol02",
+"cul07",
+"cul11",
+"sch13",
+"wor07",
+"tec14"
+],
+"co": [
+"ai",
+"connection",
+"close",
+"online",
+"space",
+"huge"
+]
+},
+{
+"w": "connection",
+"n": 13,
+"concern": 10,
+"working_on": 2,
+"domains": [
+"com",
+"phy",
+"rel",
+"sch",
+"tec",
+"wor"
+],
+"ids": [
+"rel22",
+"rel40",
+"rel18",
+"rel24",
+"com20",
+"phy01",
+"phy04",
+"sch14",
+"sch06",
+"wor07",
+"wor01",
+"tec20",
+"tec14"
+],
+"co": [
+"people",
+"online",
+"reach",
+"relate",
+"professors",
+"human"
+]
+},
+{
+"w": "friend",
+"n": 10,
+"concern": 7,
+"working_on": 2,
+"domains": [
+"com",
+"cul",
+"rel",
+"sch",
+"wor"
+],
+"ids": [
+"rel28",
+"rel04",
+"rel25",
+"rel17",
+"com04",
+"com20",
+"cul08",
+"cul17",
+"sch16",
+"wor16"
+],
+"co": [
+"ai",
+"sit",
+"know",
+"connection",
+"online",
+"in-person"
+]
+},
+{
+"w": "community",
+"n": 10,
+"concern": 4,
+"working_on": 5,
+"domains": [
+"com",
+"cul",
+"phy",
+"pol",
+"sch",
+"tec"
+],
+"ids": [
+"com06",
+"com08",
+"phy04",
+"phy06",
+"pol05",
+"pol01",
+"pol11",
+"cul25",
+"sch17",
+"tec17"
+],
+"co": [
+"third space",
+"connection",
+"space",
+"young",
+"group",
+"building"
+]
+},
+{
+"w": "work",
+"n": 8,
+"concern": 4,
+"working_on": 2,
+"domains": [
+"com",
+"cul",
+"phy",
+"tec",
+"wor"
+],
+"ids": [
+"com03",
+"phy09",
+"cul04",
+"cul20",
+"wor05",
+"wor16",
+"wor10",
+"tec17"
+],
+"co": [
+"people",
+"space",
+"huge",
+"friend",
+"building",
+"ai"
+]
+},
+{
+"w": "space",
+"n": 7,
+"concern": 4,
+"working_on": 2,
+"domains": [
+"com",
+"cul",
+"phy",
+"pol",
+"rel"
+],
+"ids": [
+"rel40",
+"com10",
+"phy03",
+"pol11",
+"cul10",
+"cul23",
+"cul20"
+],
+"co": [
+"creative",
+"people",
+"ai",
+"connection",
+"taking",
+"reach"
+]
+},
+{
+"w": "human connection",
+"n": 7,
+"concern": 4,
+"working_on": 1,
+"domains": [
+"com",
+"rel",
+"sch",
+"tec",
+"wor"
+],
+"ids": [
+"rel38",
+"rel27",
+"rel20",
+"com09",
+"sch01",
+"wor10",
+"tec06"
+],
+"co": [
+"people",
+"force",
+"relationship",
+"huge",
+"chatbot",
+"technology"
+]
+},
+{
+"w": "relationship",
+"n": 6,
+"concern": 4,
+"working_on": 0,
+"domains": [
+"rel",
+"wor"
+],
+"ids": [
+"rel29",
+"rel35",
+"rel16",
+"rel20",
+"rel33",
+"wor14"
+],
+"co": [
+"force",
+"person",
+"in-person",
+"initiate",
+"scared",
+"back"
+]
+},
+{
+"w": "young",
+"n": 6,
+"concern": 2,
+"working_on": 4,
+"domains": [
+"com",
+"cul",
+"phy",
+"rel"
+],
+"ids": [
+"rel18",
+"rel30",
+"com07",
+"phy12",
+"cul01",
+"cul25"
+],
+"co": [
+"connection",
+"back",
+"generation",
+"well",
+"relate",
+"live"
+]
+},
+{
+"w": "experience",
+"n": 6,
+"concern": 3,
+"working_on": 1,
+"domains": [
+"cul",
+"pol",
+"rel",
+"sch",
+"wor"
+],
+"ids": [
+"rel09",
+"pol07",
+"pol06",
+"cul09",
+"sch13",
+"wor06"
+],
+"co": [
+"people",
+"building",
+"ai",
+"technology",
+"media",
+"know"
+]
+},
+{
+"w": "school",
+"n": 6,
+"concern": 3,
+"working_on": 2,
+"domains": [
+"sch"
+],
+"ids": [
+"sch02",
+"sch15",
+"sch14",
+"sch13",
+"sch18",
+"sch01"
+],
+"co": [
+"system",
+"connection",
+"people",
+"taking",
+"building",
+"ai"
+]
+},
+{
+"w": "talking",
+"n": 5,
+"concern": 5,
+"working_on": 0,
+"domains": [
+"cul",
+"rel",
+"sch"
+],
+"ids": [
+"rel11",
+"cul14",
+"cul13",
+"cul12",
+"sch06"
+],
+"co": [
+"ai",
+"connection",
+"human",
+"people",
+"chatbot",
+"actually"
+]
+},
+{
+"w": "technology",
+"n": 5,
+"concern": 5,
+"working_on": 0,
+"domains": [
+"com",
+"pol",
+"rel",
+"tec"
+],
+"ids": [
+"rel35",
+"com11",
+"pol07",
+"tec11",
+"tec06"
+],
+"co": [
+"human",
+"relationship",
+"chatbot",
+"experience",
+"male",
+"value"
+]
+},
+{
+"w": "know",
+"n": 5,
+"concern": 5,
+"working_on": 0,
+"domains": [
+"pol",
+"rel",
+"tec",
+"wor"
+],
+"ids": [
+"rel25",
+"rel17",
+"pol06",
+"wor17",
+"tec20"
+],
+"co": [
+"friend",
+"ai",
+"whole",
+"connection",
+"human",
+"scary"
+]
+},
+{
+"w": "create",
+"n": 5,
+"concern": 1,
+"working_on": 4,
+"domains": [
+"com",
+"cul",
+"sch",
+"wor"
+],
+"ids": [
+"com10",
+"cul02",
+"cul25",
+"sch03",
+"wor02"
+],
+"co": [
+"creative",
+"advance",
+"opportunity",
+"scary",
+"people",
+"space"
+]
+},
+{
+"w": "human",
+"n": 4,
+"concern": 3,
+"working_on": 0,
+"domains": [
+"cul",
+"tec"
+],
+"ids": [
+"cul14",
+"cul06",
+"tec20",
+"tec06"
+],
+"co": [
+"connection",
+"talking",
+"chatbot",
+"ai",
+"technology",
+"know"
+]
+},
+{
+"w": "online",
+"n": 4,
+"concern": 3,
+"working_on": 1,
+"domains": [
+"com",
+"rel",
+"tec"
+],
+"ids": [
+"rel01",
+"com20",
+"tec09",
+"tec14"
+],
+"co": [
+"connection",
+"in-person",
+"people",
+"ai",
+"scary",
+"men"
+]
+},
+{
+"w": "building",
+"n": 4,
+"concern": 1,
+"working_on": 3,
+"domains": [
+"rel",
+"sch",
+"tec"
+],
+"ids": [
+"rel30",
+"sch13",
+"tec14",
+"tec17"
+],
+"co": [
+"people",
+"ai",
+"connection",
+"online",
+"young",
+"live"
+]
+},
+{
+"w": "media",
+"n": 4,
+"concern": 2,
+"working_on": 2,
+"domains": [
+"cul"
+],
+"ids": [
+"cul03",
+"cul09",
+"cul01",
+"cul20"
+],
+"co": [
+"trust",
+"back",
+"anything",
+"space",
+"young",
+"ai"
+]
+},
+{
+"w": "away",
+"n": 4,
+"concern": 4,
+"working_on": 0,
+"domains": [
+"phy",
+"rel",
+"wor"
+],
+"ids": [
+"rel26",
+"phy14",
+"wor05",
+"wor18"
+],
+"co": [
+"right",
+"myself",
+"world",
+"work",
+"access",
+"value"
+]
+},
+{
+"w": "conversations",
+"n": 4,
+"concern": 1,
+"working_on": 3,
+"domains": [
+"cul",
+"rel",
+"sch",
+"wor"
+],
+"ids": [
+"rel08",
+"cul11",
+"sch08",
+"wor12"
+],
+"co": [
+"ai",
+"people",
+"live",
+"turn",
+"interested",
+"public"
+]
+},
+{
+"w": "become",
+"n": 4,
+"concern": 4,
+"working_on": 0,
+"domains": [
+"com",
+"cul",
+"wor"
+],
+"ids": [
+"com04",
+"cul04",
+"cul07",
+"wor01"
+],
+"co": [
+"connection",
+"people",
+"reach",
+"friend",
+"ai",
+"weirdness"
+]
+},
+{
+"w": "creative",
+"n": 4,
+"concern": 1,
+"working_on": 3,
+"domains": [
+"com",
+"cul",
+"wor"
+],
+"ids": [
+"com10",
+"cul23",
+"cul20",
+"wor02"
+],
+"co": [
+"space",
+"create",
+"advance",
+"people",
+"ai",
+"media"
+]
+},
+{
+"w": "institutions",
+"n": 4,
+"concern": 3,
+"working_on": 1,
+"domains": [
+"pol"
+],
+"ids": [
+"pol12",
+"pol10",
+"pol06",
+"pol04"
+],
+"co": [
+"know",
+"experience",
+"established",
+"support",
+"policy",
+"well-being"
+]
+},
+{
+"w": "program",
+"n": 4,
+"concern": 1,
+"working_on": 3,
+"domains": [
+"pol",
+"sch",
+"tec"
+],
+"ids": [
+"pol12",
+"sch18",
+"tec01",
+"tec14"
+],
+"co": [
+"connection",
+"online",
+"people",
+"building",
+"ai",
+"policy"
+]
+},
+{
+"w": "art",
+"n": 4,
+"concern": 3,
+"working_on": 0,
+"domains": [
+"cul"
+],
+"ids": [
+"cul27",
+"cul02",
+"cul16",
+"cul21"
+],
+"co": [
+"scary",
+"right",
+"world",
+"create",
+"left",
+"means"
+]
+},
+{
+"w": "system",
+"n": 4,
+"concern": 1,
+"working_on": 2,
+"domains": [
+"sch",
+"tec"
+],
+"ids": [
+"sch15",
+"sch10",
+"sch01",
+"tec04"
+],
+"co": [
+"school",
+"ai",
+"appreciate",
+"future",
+"room",
+"value"
+]
+},
+{
+"w": "career",
+"n": 4,
+"concern": 4,
+"working_on": 0,
+"domains": [
+"wor"
+],
+"ids": [
+"wor14",
+"wor05",
+"wor07",
+"wor03"
+],
+"co": [
+"networking",
+"connection",
+"people",
+"relationship",
+"relate",
+"ai"
+]
+},
+{
+"w": "third space",
+"n": 4,
+"concern": 1,
+"working_on": 3,
+"domains": [
+"phy"
+],
+"ids": [
+"phy14",
+"phy04",
+"phy06",
+"phy12"
+],
+"co": [
+"community",
+"connection",
+"young",
+"group",
+"away",
+"access"
+]
+},
+{
+"w": "scary",
+"n": 3,
+"concern": 3,
+"working_on": 0,
+"domains": [
+"cul",
+"rel",
+"wor"
+],
+"ids": [
+"rel01",
+"cul02",
+"wor17"
+],
+"co": [
+"men",
+"online",
+"in-person",
+"people",
+"ai",
+"life"
+]
+},
+{
+"w": "in-person",
+"n": 3,
+"concern": 3,
+"working_on": 0,
+"domains": [
+"com",
+"rel"
+],
+"ids": [
+"rel01",
+"rel16",
+"com20"
+],
+"co": [
+"online",
+"connection",
+"scary",
+"men",
+"people",
+"relationship"
+]
+},
+{
+"w": "scared",
+"n": 3,
+"concern": 3,
+"working_on": 0,
+"domains": [
+"com",
+"rel"
+],
+"ids": [
+"rel22",
+"rel29",
+"com16"
+],
+"co": [
+"initiate",
+"connection",
+"believe",
+"boundaries",
+"force",
+"back"
+]
+},
+{
+"w": "close",
+"n": 3,
+"concern": 3,
+"working_on": 0,
+"domains": [
+"rel"
+],
+"ids": [
+"rel12",
+"rel28",
+"rel13"
+],
+"co": [
+"people",
+"friend",
+"big",
+"group",
+"ai",
+"give"
+]
+},
+{
+"w": "big",
+"n": 3,
+"concern": 2,
+"working_on": 1,
+"domains": [
+"phy",
+"rel",
+"tec"
+],
+"ids": [
+"rel28",
+"phy01",
+"tec18"
+],
+"co": [
+"people",
+"connection",
+"close",
+"friend",
+"group",
+"city"
+]
+},
+{
+"w": "group",
+"n": 3,
+"concern": 2,
+"working_on": 1,
+"domains": [
+"com",
+"phy",
+"rel"
+],
+"ids": [
+"rel28",
+"com01",
+"phy06"
+],
+"co": [
+"people",
+"close",
+"friend",
+"big",
+"hate",
+"community"
+]
+},
+{
+"w": "chatbot",
+"n": 3,
+"concern": 3,
+"working_on": 0,
+"domains": [
+"rel",
+"tec"
+],
+"ids": [
+"rel11",
+"tec07",
+"tec06"
+],
+"co": [
+"human",
+"people",
+"talking",
+"actually",
+"technology",
+"instead"
+]
+},
+{
+"w": "emotions",
+"n": 3,
+"concern": 3,
+"working_on": 0,
+"domains": [
+"cul",
+"pol",
+"rel"
+],
+"ids": [
+"rel19",
+"pol03",
+"cul24"
+],
+"co": [
+"ai",
+"give",
+"access",
+"policy",
+"type",
+"help"
+]
+},
+{
+"w": "give",
+"n": 3,
+"concern": 3,
+"working_on": 0,
+"domains": [
+"cul",
+"rel",
+"sch"
+],
+"ids": [
+"rel13",
+"cul24",
+"sch11"
+],
+"co": [
+"people",
+"close",
+"ai",
+"emotions",
+"life",
+"best"
+]
+},
+{
+"w": "life",
+"n": 3,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"rel",
+"wor"
+],
+"ids": [
+"rel13",
+"rel33",
+"wor17"
+],
+"co": [
+"ai",
+"scary",
+"people",
+"relationship",
+"close",
+"give"
+]
+},
+{
+"w": "person",
+"n": 3,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"rel",
+"wor"
+],
+"ids": [
+"rel04",
+"rel33",
+"wor14"
+],
+"co": [
+"relationship",
+"friend",
+"ai",
+"life",
+"asking",
+"myself"
+]
+},
+{
+"w": "right",
+"n": 3,
+"concern": 3,
+"working_on": 0,
+"domains": [
+"cul",
+"pol",
+"rel"
+],
+"ids": [
+"rel26",
+"pol05",
+"cul02"
+],
+"co": [
+"scary",
+"away",
+"community",
+"create",
+"art",
+"deeply"
+]
+},
+{
+"w": "interested",
+"n": 3,
+"concern": 0,
+"working_on": 2,
+"domains": [
+"cul",
+"rel"
+],
+"ids": [
+"rel08",
+"rel09",
+"cul18"
+],
+"co": [
+"ai",
+"conversations",
+"experience",
+"best"
+]
+},
+{
+"w": "writing",
+"n": 3,
+"concern": 0,
+"working_on": 3,
+"domains": [
+"cul",
+"rel"
+],
+"ids": [
+"rel07",
+"cul26",
+"cul17"
+],
+"co": [
+"friend",
+"ai",
+"power",
+"music"
+]
+},
+{
+"w": "others",
+"n": 3,
+"concern": 1,
+"working_on": 0,
+"domains": [
+"phy",
+"rel",
+"wor"
+],
+"ids": [
+"rel20",
+"phy03",
+"wor03"
+],
+"co": [
+"force",
+"relationship",
+"space",
+"ai",
+"asking",
+"learning"
+]
+},
+{
+"w": "myself",
+"n": 3,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"rel",
+"wor"
+],
+"ids": [
+"rel33",
+"wor05",
+"wor11"
+],
+"co": [
+"relationship",
+"life",
+"person",
+"away",
+"work",
+"value"
+]
+},
+{
+"w": "learning",
+"n": 3,
+"concern": 2,
+"working_on": 1,
+"domains": [
+"com",
+"sch",
+"wor"
+],
+"ids": [
+"com04",
+"sch13",
+"wor03"
+],
+"co": [
+"ai",
+"people",
+"friend",
+"building",
+"asking",
+"experience"
+]
+},
+{
+"w": "shared",
+"n": 3,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"com",
+"wor"
+],
+"ids": [
+"com04",
+"com17",
+"wor06"
+],
+"co": [
+"friend",
+"experience",
+"learning",
+"become"
+]
+},
+{
+"w": "world",
+"n": 3,
+"concern": 3,
+"working_on": 0,
+"domains": [
+"com",
+"cul",
+"wor"
+],
+"ids": [
+"com16",
+"cul16",
+"wor18"
+],
+"co": [
+"scared",
+"away",
+"either",
+"art",
+"fixing",
+"run"
+]
+},
+{
+"w": "sport",
+"n": 3,
+"concern": 1,
+"working_on": 0,
+"domains": [
+"com",
+"cul",
+"phy"
+],
+"ids": [
+"com18",
+"phy09",
+"cul06"
+],
+"co": [
+"human",
+"people",
+"huge",
+"work",
+"showing"
+]
+},
+{
+"w": "access",
+"n": 3,
+"concern": 3,
+"working_on": 0,
+"domains": [
+"phy",
+"pol"
+],
+"ids": [
+"phy14",
+"phy11",
+"pol03"
+],
+"co": [
+"emotions",
+"away",
+"policy",
+"type",
+"help",
+"third space"
+]
+},
+{
+"w": "support",
+"n": 3,
+"concern": 2,
+"working_on": 1,
+"domains": [
+"cul",
+"phy",
+"pol"
+],
+"ids": [
+"phy06",
+"pol10",
+"cul23"
+],
+"co": [
+"space",
+"group",
+"ai",
+"community",
+"creative",
+"see"
+]
+},
+{
+"w": "event",
+"n": 3,
+"concern": 1,
+"working_on": 1,
+"domains": [
+"phy",
+"pol",
+"tec"
+],
+"ids": [
+"phy02",
+"pol01",
+"tec13"
+],
+"co": [
+"ai",
+"community",
+"planning",
+"opportunity",
+"policy",
+"well-being"
+]
+},
+{
+"w": "value",
+"n": 3,
+"concern": 2,
+"working_on": 1,
+"domains": [
+"pol",
+"sch",
+"wor"
+],
+"ids": [
+"pol07",
+"sch10",
+"wor05"
+],
+"co": [
+"technology",
+"away",
+"experience",
+"myself",
+"future",
+"work"
+]
+},
+{
+"w": "opportunity",
+"n": 3,
+"concern": 1,
+"working_on": 2,
+"domains": [
+"pol",
+"sch",
+"wor"
+],
+"ids": [
+"pol01",
+"sch03",
+"wor02"
+],
+"co": [
+"create",
+"community",
+"creative",
+"advance",
+"event",
+"policy"
+]
+},
+{
+"w": "policy",
+"n": 3,
+"concern": 3,
+"working_on": 0,
+"domains": [
+"pol"
+],
+"ids": [
+"pol01",
+"pol12",
+"pol03"
+],
+"co": [
+"well-being",
+"emotions",
+"community",
+"access",
+"event",
+"opportunity"
+]
+},
+{
+"w": "type",
+"n": 3,
+"concern": 3,
+"working_on": 0,
+"domains": [
+"pol",
+"tec"
+],
+"ids": [
+"pol03",
+"pol11",
+"tec05"
+],
+"co": [
+"space",
+"emotions",
+"community",
+"access",
+"planning",
+"policy"
+]
+},
+{
+"w": "college",
+"n": 3,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"pol",
+"sch"
+],
+"ids": [
+"pol10",
+"sch07",
+"sch16"
+],
+"co": [
+"friend",
+"communal",
+"support",
+"institutions",
+"interacting",
+"young people"
+]
+},
+{
+"w": "power",
+"n": 3,
+"concern": 0,
+"working_on": 3,
+"domains": [
+"cul",
+"pol",
+"sch"
+],
+"ids": [
+"pol04",
+"cul26",
+"sch18"
+],
+"co": [
+"ai",
+"writing",
+"institutions",
+"program",
+"school",
+"ai safety"
+]
+},
+{
+"w": "instead",
+"n": 3,
+"concern": 2,
+"working_on": 1,
+"domains": [
+"pol",
+"tec",
+"wor"
+],
+"ids": [
+"pol02",
+"wor15",
+"tec06"
+],
+"co": [
+"ai",
+"human",
+"people",
+"chatbot",
+"technology",
+"guidance"
+]
+},
+{
+"w": "trust",
+"n": 3,
+"concern": 2,
+"working_on": 1,
+"domains": [
+"cul",
+"tec"
+],
+"ids": [
+"cul03",
+"cul09",
+"tec03"
+],
+"co": [
+"media",
+"anything",
+"ai",
+"experience",
+"research",
+"impact"
+]
+},
+{
+"w": "music",
+"n": 3,
+"concern": 1,
+"working_on": 1,
+"domains": [
+"cul"
+],
+"ids": [
+"cul10",
+"cul17",
+"cul05"
+],
+"co": [
+"space",
+"friend",
+"ai",
+"writing",
+"fixing"
+]
+},
+{
+"w": "behind",
+"n": 3,
+"concern": 3,
+"working_on": 0,
+"domains": [
+"cul",
+"sch",
+"tec"
+],
+"ids": [
+"cul12",
+"sch02",
+"tec20"
+],
+"co": [
+"connection",
+"human",
+"taking",
+"talking",
+"know",
+"wonder"
+]
+},
+{
+"w": "best",
+"n": 3,
+"concern": 2,
+"working_on": 1,
+"domains": [
+"cul",
+"sch",
+"wor"
+],
+"ids": [
+"cul18",
+"sch11",
+"wor15"
+],
+"co": [
+"ai",
+"give",
+"guidance",
+"interested",
+"instead",
+"sad"
+]
+},
+{
+"w": "research",
+"n": 3,
+"concern": 0,
+"working_on": 2,
+"domains": [
+"sch",
+"tec"
+],
+"ids": [
+"sch10",
+"sch17",
+"tec03"
+],
+"co": [
+"ai",
+"community",
+"future",
+"value",
+"trust",
+"system"
+]
+},
+{
+"w": "job",
+"n": 3,
+"concern": 3,
+"working_on": 0,
+"domains": [
+"wor"
+],
+"ids": [
+"wor11",
+"wor12",
+"wor01"
+],
+"co": [
+"connection",
+"reach",
+"turn",
+"conversations",
+"myself",
+"become"
+]
+},
+{
+"w": "impact",
+"n": 3,
+"concern": 0,
+"working_on": 3,
+"domains": [
+"tec",
+"wor"
+],
+"ids": [
+"wor02",
+"tec01",
+"tec03"
+],
+"co": [
+"ai",
+"create",
+"creative",
+"advance",
+"opportunity",
+"program"
+]
+},
+{
+"w": "social media",
+"n": 3,
+"concern": 3,
+"working_on": 0,
+"domains": [
+"rel",
+"tec"
+],
+"ids": [
+"rel25",
+"tec19",
+"tec16"
+],
+"co": [
+"friend",
+"communal",
+"whole",
+"sit",
+"know",
+"getting"
+]
+},
+{
+"w": "ai safety",
+"n": 3,
+"concern": 0,
+"working_on": 3,
+"domains": [
+"pol",
+"tec"
+],
+"ids": [
+"pol04",
+"pol02",
+"tec01"
+],
+"co": [
+"people",
+"care",
+"affects",
+"showing",
+"institutions",
+"program"
+]
+},
+{
+"w": "office hour",
+"n": 3,
+"concern": 3,
+"working_on": 0,
+"domains": [
+"sch",
+"wor"
+],
+"ids": [
+"sch06",
+"sch12",
+"wor15"
+],
+"co": [
+"connection",
+"talking",
+"ai",
+"guidance",
+"material",
+"instead"
+]
+},
+{
+"w": "men",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"rel"
+],
+"ids": [
+"rel01",
+"rel39"
+],
+"co": [
+"scary",
+"online",
+"in-person",
+"people",
+"ask"
+]
+},
+{
+"w": "ask",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"rel",
+"sch"
+],
+"ids": [
+"rel39",
+"sch05"
+],
+"co": [
+"men",
+"ai",
+"question"
+]
+},
+{
+"w": "initiate",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"rel"
+],
+"ids": [
+"rel22",
+"rel29"
+],
+"co": [
+"scared",
+"connection",
+"believe",
+"boundaries",
+"force",
+"back"
+]
+},
+{
+"w": "believe",
+"n": 2,
+"concern": 1,
+"working_on": 0,
+"domains": [
+"rel"
+],
+"ids": [
+"rel22",
+"rel10"
+],
+"co": [
+"connection",
+"people",
+"initiate",
+"scared",
+"boundaries",
+"real"
+]
+},
+{
+"w": "boundaries",
+"n": 2,
+"concern": 1,
+"working_on": 0,
+"domains": [
+"rel",
+"wor"
+],
+"ids": [
+"rel22",
+"wor08"
+],
+"co": [
+"connection",
+"initiate",
+"scared",
+"believe",
+"within"
+]
+},
+{
+"w": "force",
+"n": 2,
+"concern": 1,
+"working_on": 0,
+"domains": [
+"rel"
+],
+"ids": [
+"rel29",
+"rel20"
+],
+"co": [
+"relationship",
+"initiate",
+"scared",
+"back",
+"anything",
+"others"
+]
+},
+{
+"w": "back",
+"n": 2,
+"concern": 1,
+"working_on": 1,
+"domains": [
+"cul",
+"rel"
+],
+"ids": [
+"rel29",
+"cul01"
+],
+"co": [
+"initiate",
+"scared",
+"force",
+"relationship",
+"anything",
+"young"
+]
+},
+{
+"w": "anything",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"cul",
+"rel"
+],
+"ids": [
+"rel29",
+"cul03"
+],
+"co": [
+"initiate",
+"scared",
+"force",
+"back",
+"relationship",
+"media"
+]
+},
+{
+"w": "taking",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"rel",
+"sch"
+],
+"ids": [
+"rel40",
+"sch02"
+],
+"co": [
+"connection",
+"people",
+"reach",
+"space",
+"wonder",
+"left"
+]
+},
+{
+"w": "reach",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"rel",
+"wor"
+],
+"ids": [
+"rel40",
+"wor01"
+],
+"co": [
+"connection",
+"people",
+"taking",
+"space",
+"become",
+"love"
+]
+},
+{
+"w": "huge",
+"n": 2,
+"concern": 1,
+"working_on": 0,
+"domains": [
+"phy",
+"rel"
+],
+"ids": [
+"rel27",
+"phy09"
+],
+"co": [
+"people",
+"sport",
+"work",
+"showing",
+"human connection"
+]
+},
+{
+"w": "generation",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"rel",
+"tec"
+],
+"ids": [
+"rel18",
+"tec08"
+],
+"co": [
+"connection",
+"young",
+"well",
+"relate",
+"sad"
+]
+},
+{
+"w": "well",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"phy",
+"rel"
+],
+"ids": [
+"rel18",
+"phy10"
+],
+"co": [
+"connection",
+"young",
+"generation",
+"relate",
+"nature"
+]
+},
+{
+"w": "relate",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"rel",
+"wor"
+],
+"ids": [
+"rel18",
+"wor07"
+],
+"co": [
+"connection",
+"people",
+"young",
+"generation",
+"well",
+"means"
+]
+},
+{
+"w": "live",
+"n": 2,
+"concern": 1,
+"working_on": 1,
+"domains": [
+"cul",
+"rel"
+],
+"ids": [
+"rel30",
+"cul11"
+],
+"co": [
+"people",
+"young",
+"building",
+"city",
+"ai",
+"conversations"
+]
+},
+{
+"w": "city",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"phy",
+"rel"
+],
+"ids": [
+"rel30",
+"phy01"
+],
+"co": [
+"connection",
+"people",
+"young",
+"big",
+"live",
+"building"
+]
+},
+{
+"w": "actually",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"pol",
+"rel"
+],
+"ids": [
+"rel11",
+"pol08"
+],
+"co": [
+"people",
+"talking",
+"chatbot",
+"ai",
+"stop"
+]
+},
+{
+"w": "asking",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"rel",
+"wor"
+],
+"ids": [
+"rel04",
+"wor03"
+],
+"co": [
+"ai",
+"friend",
+"person",
+"others",
+"learning",
+"help"
+]
+},
+{
+"w": "push",
+"n": 2,
+"concern": 1,
+"working_on": 1,
+"domains": [
+"cul",
+"rel"
+],
+"ids": [
+"rel16",
+"cul01"
+],
+"co": [
+"ai",
+"in-person",
+"back",
+"relationship",
+"young",
+"media"
+]
+},
+{
+"w": "communal",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"rel",
+"sch"
+],
+"ids": [
+"rel25",
+"sch07"
+],
+"co": [
+"friend",
+"whole",
+"sit",
+"know",
+"college",
+"social media"
+]
+},
+{
+"w": "whole",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"rel",
+"wor"
+],
+"ids": [
+"rel25",
+"wor17"
+],
+"co": [
+"know",
+"scary",
+"friend",
+"ai",
+"life",
+"communal"
+]
+},
+{
+"w": "sit",
+"n": 2,
+"concern": 1,
+"working_on": 1,
+"domains": [
+"cul",
+"rel"
+],
+"ids": [
+"rel25",
+"cul08"
+],
+"co": [
+"friend",
+"communal",
+"whole",
+"know",
+"getting",
+"social media"
+]
+},
+{
+"w": "guidance",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"rel",
+"wor"
+],
+"ids": [
+"rel17",
+"wor15"
+],
+"co": [
+"ai",
+"friend",
+"know",
+"instead",
+"best",
+"sad"
+]
+},
+{
+"w": "weirdness",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"cul",
+"rel"
+],
+"ids": [
+"rel14",
+"cul07"
+],
+"co": [
+"people",
+"individuality",
+"turn",
+"hate",
+"become"
+]
+},
+{
+"w": "turn",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"rel",
+"wor"
+],
+"ids": [
+"rel14",
+"wor12"
+],
+"co": [
+"people",
+"weirdness",
+"hate",
+"individuality",
+"conversations",
+"job"
+]
+},
+{
+"w": "hate",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"com",
+"rel"
+],
+"ids": [
+"rel14",
+"com01"
+],
+"co": [
+"people",
+"group",
+"weirdness",
+"turn",
+"individuality"
+]
+},
+{
+"w": "individuality",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"cul",
+"rel"
+],
+"ids": [
+"rel14",
+"cul07"
+],
+"co": [
+"people",
+"weirdness",
+"turn",
+"hate",
+"become"
+]
+},
+{
+"w": "appreciate",
+"n": 2,
+"concern": 0,
+"working_on": 0,
+"domains": [
+"rel",
+"sch"
+],
+"ids": [
+"rel05",
+"sch01"
+],
+"co": [
+"school",
+"system",
+"human connection",
+"promote human"
+]
+},
+{
+"w": "real",
+"n": 2,
+"concern": 1,
+"working_on": 0,
+"domains": [
+"rel",
+"tec"
+],
+"ids": [
+"rel10",
+"tec09"
+],
+"co": [
+"online",
+"people",
+"believe",
+"ai",
+"care"
+]
+},
+{
+"w": "care",
+"n": 2,
+"concern": 0,
+"working_on": 1,
+"domains": [
+"pol",
+"rel"
+],
+"ids": [
+"rel10",
+"pol02"
+],
+"co": [
+"people",
+"believe",
+"ai",
+"real",
+"affects",
+"showing"
+]
+},
+{
+"w": "deep",
+"n": 2,
+"concern": 1,
+"working_on": 0,
+"domains": [
+"cul",
+"rel"
+],
+"ids": [
+"rel24",
+"cul14"
+],
+"co": [
+"connection",
+"human",
+"talking",
+"ai",
+"established"
+]
+},
+{
+"w": "established",
+"n": 2,
+"concern": 1,
+"working_on": 0,
+"domains": [
+"pol",
+"rel"
+],
+"ids": [
+"rel24",
+"pol06"
+],
+"co": [
+"connection",
+"know",
+"experience",
+"deep",
+"institutions"
+]
+},
+{
+"w": "culture",
+"n": 2,
+"concern": 1,
+"working_on": 1,
+"domains": [
+"com",
+"cul"
+],
+"ids": [
+"com06",
+"cul20"
+],
+"co": [
+"space",
+"media",
+"community",
+"creative",
+"work"
+]
+},
+{
+"w": "either",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"com",
+"tec"
+],
+"ids": [
+"com16",
+"tec12"
+],
+"co": [
+"scared",
+"world",
+"ai companies"
+]
+},
+{
+"w": "park",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"com",
+"phy"
+],
+"ids": [
+"com14",
+"phy05"
+],
+"co": []
+},
+{
+"w": "love",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"com",
+"wor"
+],
+"ids": [
+"com15",
+"wor01"
+],
+"co": [
+"connection",
+"people",
+"reach",
+"become",
+"job"
+]
+},
+{
+"w": "club",
+"n": 2,
+"concern": 1,
+"working_on": 1,
+"domains": [
+"com"
+],
+"ids": [
+"com19",
+"com02"
+],
+"co": [
+"local"
+]
+},
+{
+"w": "local",
+"n": 2,
+"concern": 0,
+"working_on": 2,
+"domains": [
+"com",
+"cul"
+],
+"ids": [
+"com02",
+"cul25"
+],
+"co": [
+"young",
+"community",
+"club",
+"create"
+]
+},
+{
+"w": "affects",
+"n": 2,
+"concern": 0,
+"working_on": 2,
+"domains": [
+"com",
+"pol"
+],
+"ids": [
+"com09",
+"pol02"
+],
+"co": [
+"people",
+"ai",
+"care",
+"showing",
+"material",
+"instead"
+]
+},
+{
+"w": "future",
+"n": 2,
+"concern": 0,
+"working_on": 2,
+"domains": [
+"com",
+"sch"
+],
+"ids": [
+"com10",
+"sch10"
+],
+"co": [
+"people",
+"space",
+"create",
+"creative",
+"advance",
+"value"
+]
+},
+{
+"w": "advance",
+"n": 2,
+"concern": 0,
+"working_on": 2,
+"domains": [
+"com",
+"wor"
+],
+"ids": [
+"com10",
+"wor02"
+],
+"co": [
+"create",
+"creative",
+"people",
+"space",
+"future",
+"opportunity"
+]
+},
+{
+"w": "wonder",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"phy",
+"sch"
+],
+"ids": [
+"phy01",
+"sch02"
+],
+"co": [
+"connection",
+"people",
+"taking",
+"big",
+"city",
+"see"
+]
+},
+{
+"w": "see",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"cul",
+"phy"
+],
+"ids": [
+"phy01",
+"cul23"
+],
+"co": [
+"connection",
+"people",
+"space",
+"big",
+"city",
+"ai"
+]
+},
+{
+"w": "room",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"phy",
+"sch"
+],
+"ids": [
+"phy01",
+"sch15"
+],
+"co": [
+"connection",
+"people",
+"big",
+"city",
+"wonder",
+"see"
+]
+},
+{
+"w": "nature",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"phy"
+],
+"ids": [
+"phy13",
+"phy10"
+],
+"co": [
+"well",
+"data centers"
+]
+},
+{
+"w": "within",
+"n": 2,
+"concern": 0,
+"working_on": 1,
+"domains": [
+"phy",
+"wor"
+],
+"ids": [
+"phy04",
+"wor08"
+],
+"co": [
+"connection",
+"boundaries",
+"community",
+"creating",
+"third space"
+]
+},
+{
+"w": "creating",
+"n": 2,
+"concern": 0,
+"working_on": 1,
+"domains": [
+"phy"
+],
+"ids": [
+"phy04",
+"phy03"
+],
+"co": [
+"connection",
+"space",
+"others",
+"community",
+"within",
+"third space"
+]
+},
+{
+"w": "gathering",
+"n": 2,
+"concern": 0,
+"working_on": 2,
+"domains": [
+"phy",
+"sch"
+],
+"ids": [
+"phy06",
+"sch13"
+],
+"co": [
+"people",
+"group",
+"building",
+"ai",
+"experience",
+"learning"
+]
+},
+{
+"w": "planning",
+"n": 2,
+"concern": 1,
+"working_on": 0,
+"domains": [
+"phy",
+"pol"
+],
+"ids": [
+"phy02",
+"pol11"
+],
+"co": [
+"space",
+"community",
+"event",
+"type"
+]
+},
+{
+"w": "showing",
+"n": 2,
+"concern": 0,
+"working_on": 1,
+"domains": [
+"phy",
+"pol"
+],
+"ids": [
+"phy09",
+"pol02"
+],
+"co": [
+"people",
+"huge",
+"ai",
+"care",
+"sport",
+"affects"
+]
+},
+{
+"w": "male",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"pol",
+"sch"
+],
+"ids": [
+"pol07",
+"sch09"
+],
+"co": [
+"technology",
+"experience",
+"value",
+"classroom"
+]
+},
+{
+"w": "stop",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"cul",
+"pol"
+],
+"ids": [
+"pol08",
+"cul13"
+],
+"co": [
+"ai",
+"talking",
+"actually"
+]
+},
+{
+"w": "public",
+"n": 2,
+"concern": 1,
+"working_on": 1,
+"domains": [
+"pol",
+"sch"
+],
+"ids": [
+"pol13",
+"sch08"
+],
+"co": [
+"ai",
+"conversations",
+"starting"
+]
+},
+{
+"w": "well-being",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"pol"
+],
+"ids": [
+"pol01",
+"pol12"
+],
+"co": [
+"policy",
+"community",
+"event",
+"opportunity",
+"institutions",
+"program"
+]
+},
+{
+"w": "help",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"pol",
+"wor"
+],
+"ids": [
+"pol03",
+"wor03"
+],
+"co": [
+"ai",
+"emotions",
+"asking",
+"others",
+"learning",
+"access"
+]
+},
+{
+"w": "material",
+"n": 2,
+"concern": 1,
+"working_on": 1,
+"domains": [
+"pol",
+"sch"
+],
+"ids": [
+"pol02",
+"sch06"
+],
+"co": [
+"connection",
+"people",
+"talking",
+"ai",
+"care",
+"affects"
+]
+},
+{
+"w": "left",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"cul",
+"sch"
+],
+"ids": [
+"cul27",
+"sch02"
+],
+"co": [
+"taking",
+"wonder",
+"art",
+"means",
+"resistance",
+"behind"
+]
+},
+{
+"w": "means",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"cul",
+"wor"
+],
+"ids": [
+"cul27",
+"wor07"
+],
+"co": [
+"connection",
+"people",
+"relate",
+"left",
+"art",
+"resistance"
+]
+},
+{
+"w": "resistance",
+"n": 2,
+"concern": 1,
+"working_on": 1,
+"domains": [
+"cul"
+],
+"ids": [
+"cul27",
+"cul19"
+],
+"co": [
+"ai",
+"left",
+"art",
+"means",
+"marketing"
+]
+},
+{
+"w": "deeply",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"cul"
+],
+"ids": [
+"cul02",
+"cul04"
+],
+"co": [
+"scary",
+"ai",
+"right",
+"become",
+"create",
+"work"
+]
+},
+{
+"w": "fixing",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"cul",
+"wor"
+],
+"ids": [
+"cul10",
+"wor18"
+],
+"co": [
+"space",
+"ai",
+"away",
+"world",
+"music",
+"run"
+]
+},
+{
+"w": "starting",
+"n": 2,
+"concern": 1,
+"working_on": 1,
+"domains": [
+"cul",
+"sch"
+],
+"ids": [
+"cul23",
+"sch08"
+],
+"co": [
+"space",
+"ai",
+"conversations",
+"creative",
+"see",
+"support"
+]
+},
+{
+"w": "marketing",
+"n": 2,
+"concern": 0,
+"working_on": 2,
+"domains": [
+"cul"
+],
+"ids": [
+"cul01",
+"cul19"
+],
+"co": [
+"ai",
+"back",
+"young",
+"push",
+"media",
+"resistance"
+]
+},
+{
+"w": "getting",
+"n": 2,
+"concern": 1,
+"working_on": 1,
+"domains": [
+"cul",
+"tec"
+],
+"ids": [
+"cul08",
+"tec19"
+],
+"co": [
+"friend",
+"sit",
+"social media"
+]
+},
+{
+"w": "run",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"sch",
+"wor"
+],
+"ids": [
+"sch14",
+"wor18"
+],
+"co": [
+"connection",
+"away",
+"world",
+"fixing",
+"school",
+"classroom"
+]
+},
+{
+"w": "classroom",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"sch"
+],
+"ids": [
+"sch14",
+"sch09"
+],
+"co": [
+"connection",
+"male",
+"school",
+"run",
+"professors"
+]
+},
+{
+"w": "professors",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"sch"
+],
+"ids": [
+"sch14",
+"sch06"
+],
+"co": [
+"connection",
+"talking",
+"material",
+"school",
+"run",
+"classroom"
+]
+},
+{
+"w": "professional",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"sch",
+"wor"
+],
+"ids": [
+"sch12",
+"wor07"
+],
+"co": [
+"connection",
+"people",
+"relate",
+"means",
+"networking",
+"career"
+]
+},
+{
+"w": "question",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"sch",
+"wor"
+],
+"ids": [
+"sch05",
+"wor03"
+],
+"co": [
+"ai",
+"ask",
+"asking",
+"others",
+"learning",
+"help"
+]
+},
+{
+"w": "interacting",
+"n": 2,
+"concern": 1,
+"working_on": 0,
+"domains": [
+"sch",
+"wor"
+],
+"ids": [
+"sch16",
+"wor14"
+],
+"co": [
+"relationship",
+"friend",
+"person",
+"college",
+"networking",
+"career"
+]
+},
+{
+"w": "networking",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"wor"
+],
+"ids": [
+"wor14",
+"wor07"
+],
+"co": [
+"career",
+"connection",
+"people",
+"relationship",
+"relate",
+"person"
+]
+},
+{
+"w": "friction",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"tec",
+"wor"
+],
+"ids": [
+"wor03",
+"tec06"
+],
+"co": [
+"human",
+"chatbot",
+"ai",
+"asking",
+"technology",
+"others"
+]
+},
+{
+"w": "sad",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"tec",
+"wor"
+],
+"ids": [
+"wor15",
+"tec08"
+],
+"co": [
+"generation",
+"ai",
+"guidance",
+"instead",
+"best",
+"office hour"
+]
+},
+{
+"w": "dating app",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"rel"
+],
+"ids": [
+"rel38",
+"rel36"
+],
+"co": [
+"human connection"
+]
+},
+{
+"w": "data centers",
+"n": 2,
+"concern": 2,
+"working_on": 0,
+"domains": [
+"phy"
+],
+"ids": [
+"phy08",
+"phy13"
+],
+"co": [
+"nature"
+]
+},
+{
+"w": "promote human",
+"n": 2,
+"concern": 1,
+"working_on": 0,
+"domains": [
+"pol",
+"sch"
+],
+"ids": [
+"pol01",
+"sch01"
+],
+"co": [
+"appreciate",
+"community",
+"event",
+"opportunity",
+"policy",
+"well-being"
+]
+},
+{
+"w": "young people",
+"n": 2,
+"concern": 1,
+"working_on": 1,
+"domains": [
+"pol",
+"wor"
+],
+"ids": [
+"pol10",
+"wor02"
+],
+"co": [
+"create",
+"creative",
+"advance",
+"support",
+"opportunity",
+"institutions"
+]
+},
+{
+"w": "ai companies",
+"n": 2,
+"concern": 1,
+"working_on": 1,
+"domains": [
+"sch",
+"tec"
+],
+"ids": [
+"sch18",
+"tec12"
+],
+"co": [
+"either",
+"program",
+"power",
+"school"
+]
+},
+{
+"w": "ai agents",
+"n": 2,
+"concern": 1,
+"working_on": 1,
+"domains": [
+"tec"
+],
+"ids": [
+"tec05",
+"tec15"
+],
+"co": [
+"type"
+]
+},
+{
+"w": "companies",
+"n": 1,
+"concern": 1,
+"working_on": 0,
+"domains": [
+"tec"
+],
+"ids": [
+"tec11"
+],
+"co": [
+"technology"
+]
+},
+{
+"w": "mental health",
+"n": 1,
+"concern": 1,
+"working_on": 0,
+"domains": [
+"rel"
+],
+"ids": [
+"rel21"
+],
+"co": []
+},
+{
+"w": "ai tool",
+"n": 1,
+"concern": 1,
+"working_on": 0,
+"domains": [
+"wor"
+],
+"ids": [
+"wor16"
+],
+"co": [
+"friend",
+"work"
+]
+}
+]
