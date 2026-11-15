@@ -79,7 +79,8 @@ export default async function WallPage() {
 
   /* Polaroids: any image in public/polaroids/ is picked up and scattered on the rug. */
   let polaFiles: string[] = [];
-  try { polaFiles = readdirSync(path.join(process.cwd(), "public", "polaroids")).filter((f) => /\.(webp|jpe?g|png)$/i.test(f)).sort(); } catch { /* optional folder */ }
+  const SHOW_POLAROIDS = false; // set to true to scatter the Polaroids on the rug again
+  if (SHOW_POLAROIDS) try { polaFiles = readdirSync(path.join(process.cwd(), "public", "polaroids")).filter((f) => /\.(webp|jpe?g|png)$/i.test(f)).sort(); } catch { /* optional folder */ }
   const pr = rng("polaroids"); const cols = 4, rowsN = Math.max(1, Math.ceil(polaFiles.length / cols));
   const slots = polaFiles.map((_, i) => i).sort(() => pr() - 0.5);
   polaFiles.forEach((f, i) => {
