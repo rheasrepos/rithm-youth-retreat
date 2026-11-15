@@ -6,6 +6,7 @@ export interface ZineItem {
   id: string; type: "image" | "text";
   x: number; y: number; w: number; h: number; rot: number; z: number;
   src?: string; text?: string; font?: string; size?: number; color?: string; bold?: boolean; italic?: boolean; align?: "left" | "center" | "right";
+  lock?: boolean;   // pinned in the editor so it can't be picked up by accident; readers see no difference
 }
 export interface ZinePage { id: string; bg: string; items: ZineItem[] }
 export interface ZineDoc { ratio: number; pages: ZinePage[] }
@@ -189,24 +190,67 @@ function Book({ doc, onEdit }: { doc: ZineDoc; onEdit?: () => void }) {
   );
 }
 
-/* ---------- Editing: one page at a time ---------- */
-type Drag = { mode: "move" | "size" | "turn"; id: string; px: number; py: number; start: ZineItem; cx: number; cy: number };
+/* ---------- Editing ----------
+   One page is active (editable) at a time; the pages either side can be shown next to it so a spread reads as it will
+   in the zine. Click a neighbouring page to work on it. */
+type Corner = "nw" | "ne" | "sw" | "se";
+type Drag = (
+  | { mode: "move"; ids: string[]; lead: string; px: number; py: number; starts: Record<string, ZineItem> }
+  | { mode: "size"; id: string; start: ZineItem; corner: Corner }
+  | { mode: "turn"; id: string; cx: number; cy: number }
+  | { mode: "box"; x0: number; y0: number; add: string[]; hit?: string }
+) & { moved?: boolean };
+const SNAP = 0.8;                                   // how close (in page units) an edge has to be before it snaps
+const rad = (d: number) => (d * Math.PI) / 180;
+const median = (v: number[]) => { const s = [...v].sort((a, b) => a - b); return s.length ? s[Math.floor(s.length / 2)] : 0; };
+/** Half the width and height of the box an item takes up on the page, allowing for its rotation. */
+const half = (it: ZineItem) => { const c = Math.abs(Math.cos(rad(it.rot))), s = Math.abs(Math.sin(rad(it.rot))); return { hw: (it.w * c + it.h * s) / 2, hh: (it.w * s + it.h * c) / 2 }; };
+/** Resize to a new width; images keep their shape. */
+const widen = (it: ZineItem, w: number): Partial<ZineItem> => (it.type === "image" ? { w: r2(w), h: r2((it.h * w) / it.w) } : { w: r2(w) });
+
+function Num({ label, value, step = 0.5, onChange }: { label: string; value: number; step?: number; onChange: (v: number) => void }) {
+  return <label className="num">{label}<input type="number" step={step} value={value} onChange={(e) => { const v = parseFloat(e.target.value); if (Number.isFinite(v)) onChange(v); }} /></label>;
+}
 
 function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<React.SetStateAction<ZineDoc>>; done: () => void }) {
   const [pi, setPi] = useState(0);
-  const [sel, setSel] = useState<string | null>(null);
+  const [sel, setSel] = useState<string[]>([]);
   const [typing, setTyping] = useState<string | null>(null);
   const [msg, setMsg] = useState("");
+  const [view, setView] = useState(1);              // how many pages to show side by side
+  const [first, setFirst] = useState(0);            // the leftmost page on show
+  const [clip, setClip] = useState(true);           // hide whatever hangs off the page, as the reader will see it
+  const [guides, setGuides] = useState<{ x?: number; y?: number } | null>(null);
+  const [box, setBox] = useState<{ x0: number; y0: number; x1: number; y1: number } | null>(null);
   const sheet = useRef<HTMLDivElement>(null);
   const drag = useRef<Drag | null>(null);
-  const page = doc.pages[Math.min(pi, doc.pages.length - 1)];
+  const past = useRef<ZineDoc[]>([]);
+  const live = useRef(doc); live.current = doc;
+  const n = doc.pages.length, cp = Math.min(pi, n - 1);
+  const page = doc.pages[cp];
   const H = 100 * doc.ratio;
-  const cur = page.items.find((i) => i.id === sel) ?? null;
+  const picked = page.items.filter((i) => sel.includes(i.id));
+  const cur = picked.length === 1 ? picked[0] : null;
 
-  const setPage = useCallback((fn: (p: ZinePage) => ZinePage) => setDoc((d) => ({ ...d, pages: d.pages.map((p, i) => (i === pi ? fn(p) : p)) })), [pi, setDoc]);
+  useEffect(() => { try { const v = Number(localStorage.getItem("zine-view")); if (v === 2 || v === 4) setView(v); } catch { /* fine */ } }, []);
+  const count = Math.min(view, n), s0 = Math.max(0, Math.min(first, n - count));
+  const start = cp < s0 ? cp : cp >= s0 + count ? cp - count + 1 : s0;
+  useEffect(() => { if (start !== first) setFirst(start); }, [start, first]);
+  const go = (to: number) => { setPi(Math.max(0, Math.min(n - 1, to))); setSel([]); setTyping(null); };
+  const show = (v: number) => { setView(v); try { localStorage.setItem("zine-view", String(v)); } catch { /* fine */ } };
+
+  /** Remember the zine as it is now, so the next change can be undone. */
+  const keep = () => { past.current.push(live.current); if (past.current.length > 80) past.current.shift(); };
+  const undo = () => { const p = past.current.pop(); if (p) { setDoc(p); setSel([]); setTyping(null); } };
+
+  const setPage = useCallback((fn: (p: ZinePage) => ZinePage) => setDoc((d) => ({ ...d, pages: d.pages.map((p, i) => (i === cp ? fn(p) : p)) })), [cp, setDoc]);
   const patch = useCallback((id: string, c: Partial<ZineItem>) => setPage((p) => ({ ...p, items: p.items.map((it) => (it.id === id ? { ...it, ...c } : it)) })), [setPage]);
+  /** Change every selected item in one undoable step. */
+  const each = (fn: (it: ZineItem) => Partial<ZineItem>, pinnedToo = true) => { keep(); setPage((p) => ({ ...p, items: p.items.map((it) => (sel.includes(it.id) && (pinnedToo || !it.lock) ? { ...it, ...fn(it) } : it)) })); };
+  const edit = (id: string, c: Partial<ZineItem>) => { keep(); patch(id, c); };
   const topZ = () => Math.max(0, ...page.items.map((i) => i.z)) + 1;
-  const add = (it: Omit<ZineItem, "id" | "z" | "rot" | "x" | "y">) => { const id = uid(); setPage((p) => ({ ...p, items: [...p.items, { ...it, id, x: 50, y: H / 2, rot: 0, z: topZ() }] })); setSel(id); };
+  const add = (it: Omit<ZineItem, "id" | "z" | "rot" | "x" | "y">) => { const id = uid(); keep(); setPage((p) => ({ ...p, items: [...p.items, { ...it, id, x: 50, y: H / 2, rot: 0, z: topZ() }] })); setSel([id]); };
+  const remove = () => { if (!sel.length) return; keep(); setPage((p) => ({ ...p, items: p.items.filter((i) => !sel.includes(i.id)) })); setSel([]); };
 
   const addImage = useCallback(async (file: File) => {
     let src = "";
@@ -227,57 +271,160 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
       if (files.length) { e.preventDefault(); files.forEach((f) => void addImage(f)); }
     };
     const onKey = (e: KeyboardEvent) => {
-      if (typing || !sel || (e.target as HTMLElement)?.closest("input,select,textarea")) return;
-      const it = page.items.find((i) => i.id === sel); if (!it) return;
+      if (typing || (e.target as HTMLElement)?.closest("input,select,textarea")) return;
+      const mod = e.metaKey || e.ctrlKey, key = e.key.toLowerCase();
+      if (mod && key === "z") { e.preventDefault(); undo(); return; }
+      if (mod && key === "a") { e.preventDefault(); setSel(page.items.filter((i) => !i.lock).map((i) => i.id)); return; }
+      if (e.key === "Escape") { setSel([]); return; }
+      if (mod || !sel.length) return;
       const s = e.shiftKey ? 2 : 0.5;
-      const k: Record<string, Partial<ZineItem>> = { ArrowLeft: { x: r2(it.x - s) }, ArrowRight: { x: r2(it.x + s) }, ArrowUp: { y: r2(it.y - s) }, ArrowDown: { y: r2(it.y + s) }, "[": { rot: it.rot - 5 }, "]": { rot: it.rot + 5 } };
-      if (k[e.key]) { e.preventDefault(); patch(sel, k[e.key]); }
-      if (e.key === "Delete" || e.key === "Backspace") { e.preventDefault(); setPage((p) => ({ ...p, items: p.items.filter((i) => i.id !== sel) })); setSel(null); }
+      const mv = ({ ArrowLeft: [-s, 0], ArrowRight: [s, 0], ArrowUp: [0, -s], ArrowDown: [0, s] } as Record<string, number[]>)[e.key];
+      if (mv) { e.preventDefault(); each((it) => ({ x: r2(it.x + mv[0]), y: r2(it.y + mv[1]) }), false); return; }
+      if (e.key === "[" || e.key === "]") { e.preventDefault(); each((it) => ({ rot: it.rot + (e.key === "[" ? -5 : 5) })); return; }
+      if (e.key === "{" || e.key === "}") { e.preventDefault(); each((it) => ({ rot: it.rot + (e.key === "{" ? -1 : 1) })); return; }
+      if ("-_=+".includes(e.key)) { e.preventDefault(); const k = 1 + (e.key === "-" || e.key === "_" ? -1 : 1) * (e.shiftKey ? 0.01 : 0.05); each((it) => ({ w: r2(it.w * k), h: r2(it.h * k) })); return; }
+      if (e.key === "Delete" || e.key === "Backspace") { e.preventDefault(); remove(); }
     };
     document.addEventListener("paste", onPaste); document.addEventListener("keydown", onKey);
     return () => { document.removeEventListener("paste", onPaste); document.removeEventListener("keydown", onKey); };
-  }, [addImage, page.items, patch, sel, setPage, typing]);
+  }); // re-bound every render so the handlers always see the current page and selection
 
-  const begin = (e: React.PointerEvent, it: ZineItem, mode: Drag["mode"]) => {
+  const toPage = (e: React.PointerEvent) => { const b = sheet.current!.getBoundingClientRect(), u = b.width / 100; return { x: (e.clientX - b.left) / u, y: (e.clientY - b.top) / u, u, b }; };
+  const beginMove = (e: React.PointerEvent, it: ZineItem) => {
     if (typing === it.id) return;
+    e.preventDefault(); e.stopPropagation();
+    if (it.lock) {   // pinned: dragging from it draws a selection box instead of moving it; a plain click selects it
+      setTyping(null); sheet.current!.setPointerCapture(e.pointerId);
+      const p = toPage(e);
+      drag.current = { mode: "box", x0: p.x, y0: p.y, add: e.shiftKey ? sel : [], hit: it.id };
+      return;
+    }
+    if (e.shiftKey) { setSel((s) => (s.includes(it.id) ? s.filter((x) => x !== it.id) : [...s, it.id])); return; }
+    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+    const ids = sel.includes(it.id) ? sel : [it.id];
+    if (!sel.includes(it.id)) { setSel([it.id]); setTyping(null); }
+    drag.current = { mode: "move", ids, lead: it.id, px: e.clientX, py: e.clientY, starts: Object.fromEntries(page.items.filter((i) => ids.includes(i.id)).map((i) => [i.id, i])) };
+  };
+  const beginHandle = (e: React.PointerEvent, it: ZineItem, corner?: Corner) => {
     e.preventDefault(); e.stopPropagation(); (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
-    const b = sheet.current!.getBoundingClientRect(), u = b.width / 100;
-    setSel(it.id); drag.current = { mode, id: it.id, px: e.clientX, py: e.clientY, start: it, cx: b.left + it.x * u, cy: b.top + it.y * u };
+    const p = toPage(e);
+    drag.current = corner ? { mode: "size", id: it.id, start: it, corner } : { mode: "turn", id: it.id, cx: p.b.left + it.x * p.u, cy: p.b.top + it.y * p.u };
+  };
+  const beginBox = (e: React.PointerEvent) => {
+    const t = e.target as HTMLElement;
+    if (t !== e.currentTarget && !t.classList.contains("zclip")) return;
+    setTyping(null); e.currentTarget.setPointerCapture(e.pointerId);
+    const p = toPage(e);
+    drag.current = { mode: "box", x0: p.x, y0: p.y, add: e.shiftKey ? sel : [] };
+    if (!e.shiftKey) setSel([]);
   };
   const moveP = (e: React.PointerEvent) => {
     const d = drag.current; if (!d || !sheet.current) return;
-    const u = sheet.current.getBoundingClientRect().width / 100, s = d.start;
-    if (d.mode === "move") patch(d.id, { x: r2(s.x + (e.clientX - d.px) / u), y: r2(s.y + (e.clientY - d.py) / u) });
-    else if (d.mode === "turn") {
+    const p = toPage(e);
+    if (d.mode === "box") {
+      if (!d.moved && Math.hypot(p.x - d.x0, p.y - d.y0) < 0.6) return;
+      d.moved = true;
+      const l = Math.min(d.x0, p.x), r = Math.max(d.x0, p.x), t = Math.min(d.y0, p.y), b = Math.max(d.y0, p.y);
+      setBox({ x0: l, y0: t, x1: r, y1: b });
+      setSel([...new Set([...d.add, ...page.items.filter((i) => !i.lock && i.x >= l && i.x <= r && i.y >= t && i.y <= b).map((i) => i.id)])]);
+      return;
+    }
+    if (!d.moved) { keep(); d.moved = true; }
+    if (d.mode === "move") {
+      let dx = (e.clientX - d.px) / p.u, dy = (e.clientY - d.py) / p.u;
+      const g: { x?: number; y?: number } = {};
+      if (!e.altKey) {
+        // snap the dragged item's edges and centre to the page's and to every other item's
+        const s = d.starts[d.lead], { hw, hh } = half(s), xs = [0, 50, 100], ys = [0, H / 2, H];
+        for (const o of page.items) { if (d.ids.includes(o.id)) continue; const h = half(o); xs.push(o.x - h.hw, o.x, o.x + h.hw); ys.push(o.y - h.hh, o.y, o.y + h.hh); }
+        const near = (c: number, hf: number, lines: number[]) => { let best = SNAP, line: number | undefined; for (const off of [-hf, 0, hf]) for (const L of lines) { const dd = L - (c + off); if (Math.abs(dd) < Math.abs(best)) { best = dd; line = L; } } return line === undefined ? null : { d: best, line }; };
+        const bx = near(s.x + dx, hw, xs), by = near(s.y + dy, hh, ys);
+        if (bx) { dx += bx.d; g.x = bx.line; }
+        if (by) { dy += by.d; g.y = by.line; }
+      }
+      setGuides(g.x !== undefined || g.y !== undefined ? g : null);
+      setPage((pg) => ({ ...pg, items: pg.items.map((it) => (d.starts[it.id] ? { ...it, x: r2(d.starts[it.id].x + dx), y: r2(d.starts[it.id].y + dy) } : it)) }));
+    } else if (d.mode === "turn") {
       let a = (Math.atan2(e.clientY - d.cy, e.clientX - d.cx) * 180) / Math.PI + 90;
       a = ((a + 540) % 360) - 180; const snap = Math.round(a / 90) * 90; patch(d.id, { rot: Math.abs(a - snap) < 4 ? snap : Math.round(a) });
     } else {
-      const t = (-s.rot * Math.PI) / 180, dx = e.clientX - d.cx, dy = e.clientY - d.cy;   // pointer in the item's own axes
-      let w = Math.max(4, (2 * Math.abs(dx * Math.cos(t) - dy * Math.sin(t))) / u), h = Math.max(3, (2 * Math.abs(dx * Math.sin(t) + dy * Math.cos(t))) / u);
-      if (s.type === "image" && !e.shiftKey) { const k = Math.max(w / s.w, h / s.h); w = s.w * k; h = s.h * k; }
-      patch(d.id, { w: r2(w), h: r2(h) });
+      // the corner opposite the one being dragged stays put
+      const s = d.start, sx = d.corner[1] === "e" ? 1 : -1, sy = d.corner[0] === "s" ? 1 : -1, c = Math.cos(rad(s.rot)), sn = Math.sin(rad(s.rot));
+      const ax = s.x - (sx * s.w / 2) * c + (sy * s.h / 2) * sn, ay = s.y - (sx * s.w / 2) * sn - (sy * s.h / 2) * c;
+      const vx = p.x - ax, vy = p.y - ay;
+      let w = sx * (vx * c + vy * sn), h = sy * (-vx * sn + vy * c);          // pointer measured along the item's own sides
+      if (s.type === "image" && !e.shiftKey) { const k = Math.max(3 / s.w, (w * s.w + h * s.h) / (s.w * s.w + s.h * s.h)); w = s.w * k; h = s.h * k; }   // follow the diagonal
+      else { w = Math.max(3, w); h = Math.max(2, h); }
+      patch(d.id, { w: r2(w), h: r2(h), x: r2(ax + (sx * w / 2) * c - (sy * h / 2) * sn), y: r2(ay + (sx * w / 2) * sn + (sy * h / 2) * c) });
     }
   };
+  const endP = () => { const d = drag.current; if (d?.mode === "box" && !d.moved && d.hit) setSel([...d.add.filter((x) => x !== d.hit), d.hit]); drag.current = null; setGuides(null); setBox(null); };
 
-  const movePage = (to: number) => { if (to < 0 || to >= doc.pages.length) return; setDoc((d) => { const p = [...d.pages]; const [x] = p.splice(pi, 1); p.splice(to, 0, x); return { ...d, pages: p }; }); setPi(to); };
+  /* ----- arranging several items at once ----- */
+  const align = (how: "left" | "centre" | "right" | "top" | "middle" | "bottom") => {
+    if (picked.length < 2) return;
+    const bx = picked.map((it) => ({ it, ...half(it) }));
+    const L = Math.min(...bx.map((b) => b.it.x - b.hw)), R = Math.max(...bx.map((b) => b.it.x + b.hw)), T = Math.min(...bx.map((b) => b.it.y - b.hh)), B = Math.max(...bx.map((b) => b.it.y + b.hh));
+    each((it) => { const { hw, hh } = half(it); return how === "left" ? { x: r2(L + hw) } : how === "right" ? { x: r2(R - hw) } : how === "centre" ? { x: r2((L + R) / 2) } : how === "top" ? { y: r2(T + hh) } : how === "bottom" ? { y: r2(B - hh) } : { y: r2((T + B) / 2) }; });
+  };
+  const sameWidth = () => { if (picked.length < 2) return; const W = median(picked.map((i) => i.w)); each((it) => widen(it, W)); };
+  /** Equal gaps between the selected items, left to right or top to bottom; the two end items stay where they are. */
+  const space = (across: boolean) => {
+    if (picked.length < 3) return;
+    const pos = (it: ZineItem) => (across ? it.x : it.y), ext = (it: ZineItem) => (across ? half(it).hw : half(it).hh);
+    const order = [...picked].sort((a, b) => pos(a) - pos(b));
+    const lo = pos(order[0]) - ext(order[0]), hi = pos(order[order.length - 1]) + ext(order[order.length - 1]);
+    const gap = (hi - lo - order.reduce((t, it) => t + 2 * ext(it), 0)) / (order.length - 1);
+    const to: Record<string, number> = {}; let at = lo;
+    for (const it of order) { to[it.id] = r2(at + ext(it)); at += 2 * ext(it) + gap; }
+    each((it) => (across ? { x: to[it.id] } : { y: to[it.id] }));
+  };
+  /** Rows as they roughly are now, made exact: one width, even gutters, rows stacked with the same gutter. */
+  const tidy = () => {
+    if (picked.length < 2) return;
+    const W0 = median(picked.map((i) => i.w)), rowGap = median(picked.map((i) => i.h)) * 0.5;
+    const rows: ZineItem[][] = [];
+    for (const it of [...picked].sort((a, b) => a.y - b.y)) { const r = rows[rows.length - 1]; if (r && it.y - r.reduce((t, q) => t + q.y, 0) / r.length < rowGap) r.push(it); else rows.push([it]); }
+    rows.forEach((r) => r.sort((a, b) => a.x - b.x));
+    const L = Math.min(...picked.map((i) => i.x - i.w / 2)), R = Math.max(...picked.map((i) => i.x + i.w / 2)), T = Math.min(...picked.map((i) => i.y - i.h / 2));
+    const cols = Math.max(...rows.map((r) => r.length));
+    let W = W0, g = cols > 1 ? (R - L - cols * W) / (cols - 1) : 1.5;
+    if (g < 1) { g = 1; W = cols > 1 ? (R - L - (cols - 1) * g) / cols : W0; }
+    const to: Record<string, Partial<ZineItem>> = {}; let top = T;
+    for (const r of rows) {
+      const hs = r.map((it) => (it.type === "image" ? (it.h * W) / it.w : it.h)), rh = Math.max(...hs);
+      r.forEach((it, c) => { to[it.id] = { ...widen(it, W), x: r2(L + W / 2 + c * (W + g)), y: r2(top + rh / 2), rot: 0 }; });
+      top += rh + g;
+    }
+    each((it) => to[it.id] ?? {});
+  };
+
+  const movePage = (to: number) => { if (to < 0 || to >= n) return; keep(); setDoc((d) => { const p = [...d.pages]; const [x] = p.splice(cp, 1); p.splice(to, 0, x); return { ...d, pages: p }; }); setPi(to); };
   const download = () => { const url = URL.createObjectURL(new Blob([JSON.stringify(doc, null, 1) + "\n"], { type: "application/json" })); const a = document.createElement("a"); a.href = url; a.download = "zine.json"; a.click(); URL.revokeObjectURL(url); };
   const save = async () => {
     try { const r = await fetch("/api/zine", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(doc) }); if (r.ok) { setMsg("Saved to data/zine.json."); return; } } catch { /* download instead */ }
     download(); setMsg("This copy of the site can't write files, so zine.json was downloaded. Put it in the repo's data folder.");
   };
+  const textStyle = (it: ZineItem): React.CSSProperties => ({ fontFamily: stack(it.font), fontSize: `${it.size ?? 4}cqw`, color: it.color, fontWeight: it.bold ? 700 : 400, fontStyle: it.italic ? "italic" : "normal", textAlign: it.align });
+  const many = picked.length > 1, pinned = picked.length > 0 && picked.every((i) => i.lock), locked = page.items.some((i) => i.lock);
 
   return (
     <section className="zine editing" aria-label="Zine editor">
       <div className="ztools" role="toolbar" aria-label="Zine tools">
         <div className="tgroup">
-          <span className="eyebrow">Page {pi + 1} of {doc.pages.length}</span>
-          <button type="button" className="btn ghost" onClick={() => { setPi(Math.max(0, pi - 1)); setSel(null); }} disabled={pi === 0} aria-label="Previous page">←</button>
-          <button type="button" className="btn ghost" onClick={() => { setPi(Math.min(doc.pages.length - 1, pi + 1)); setSel(null); }} disabled={pi === doc.pages.length - 1} aria-label="Next page">→</button>
-          <button type="button" className="btn ghost" onClick={() => { setDoc((d) => { const p = [...d.pages]; p.splice(pi + 1, 0, { id: `p${uid()}`, bg: "#f8f3ea", items: [] }); return { ...d, pages: p }; }); setPi(pi + 1); setSel(null); }}>Add page</button>
-          <button type="button" className="btn ghost" onClick={() => movePage(pi - 1)} disabled={pi === 0}>Move earlier</button>
-          <button type="button" className="btn ghost" onClick={() => movePage(pi + 1)} disabled={pi === doc.pages.length - 1}>Move later</button>
-          <button type="button" className="btn ghost" disabled={doc.pages.length < 2 || page.items.length > 0} title={page.items.length ? "Empty the page first" : ""} onClick={() => { setDoc((d) => ({ ...d, pages: d.pages.filter((_, i) => i !== pi) })); setPi(Math.max(0, pi - 1)); }}>Delete page</button>
+          <span className="eyebrow">Page {cp + 1} of {n}</span>
+          <button type="button" className="btn ghost" onClick={() => go(cp - 1)} disabled={cp === 0} aria-label="Previous page">←</button>
+          <button type="button" className="btn ghost" onClick={() => go(cp + 1)} disabled={cp === n - 1} aria-label="Next page">→</button>
+          <button type="button" className="btn ghost" onClick={() => { keep(); setDoc((d) => { const p = [...d.pages]; p.splice(cp + 1, 0, { id: `p${uid()}`, bg: "#f8f3ea", items: [] }); return { ...d, pages: p }; }); go(cp + 1); }}>Add page</button>
+          <button type="button" className="btn ghost" onClick={() => movePage(cp - 1)} disabled={cp === 0}>Move earlier</button>
+          <button type="button" className="btn ghost" onClick={() => movePage(cp + 1)} disabled={cp === n - 1}>Move later</button>
+          <button type="button" className="btn ghost" disabled={n < 2 || page.items.length > 0} title={page.items.length ? "Empty the page first" : ""} onClick={() => { keep(); setDoc((d) => ({ ...d, pages: d.pages.filter((_, i) => i !== cp) })); go(cp - 1); }}>Delete page</button>
           <label className="swatch">Paper <input type="color" value={page.bg} onChange={(e) => setPage((p) => ({ ...p, bg: e.target.value }))} /></label>
+        </div>
+        <div className="tgroup">
+          <span className="eyebrow">Show</span>
+          {[1, 2, 4].map((v) => <button key={v} type="button" className="btn ghost" aria-pressed={view === v} onClick={() => show(v)}>{v === 1 ? "1 page" : `${v} pages`}</button>)}
+          <button type="button" className="btn ghost" aria-pressed={clip} onClick={() => setClip(!clip)} title="Hide whatever hangs off the edge of the page, the way readers will see it">Trim to page</button>
         </div>
         <div className="tgroup">
           <span className="eyebrow">Add</span>
@@ -286,54 +433,94 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
           <span className="thint">or paste an image (⌘V), or drop one on the page</span>
         </div>
         <div className="tgroup">
-          <span className="eyebrow">Selected</span>
+          <span className="eyebrow">{many ? `${picked.length} selected` : "Selected"}</span>
           {cur?.type === "text" && (
             <>
-              <select aria-label="Font" value={cur.font} onChange={(e) => patch(cur.id, { font: e.target.value })}>{FONTS.map((f) => <option key={f}>{f}</option>)}</select>
-              <button type="button" className="btn ghost" onClick={() => patch(cur.id, { size: r2(Math.max(1, (cur.size ?? 4) - 0.5)) })} aria-label="Smaller text">A−</button>
-              <button type="button" className="btn ghost" onClick={() => patch(cur.id, { size: r2((cur.size ?? 4) + 0.5) })} aria-label="Larger text">A+</button>
-              <button type="button" className="btn ghost" aria-pressed={!!cur.bold} onClick={() => patch(cur.id, { bold: !cur.bold })}><b>B</b></button>
-              <button type="button" className="btn ghost" aria-pressed={!!cur.italic} onClick={() => patch(cur.id, { italic: !cur.italic })}><i>I</i></button>
-              <select aria-label="Alignment" value={cur.align} onChange={(e) => patch(cur.id, { align: e.target.value as ZineItem["align"] })}><option value="left">Left</option><option value="center">Centre</option><option value="right">Right</option></select>
+              <select aria-label="Font" value={cur.font} onChange={(e) => edit(cur.id, { font: e.target.value })}>{FONTS.map((f) => <option key={f}>{f}</option>)}</select>
+              <button type="button" className="btn ghost" onClick={() => edit(cur.id, { size: r2(Math.max(1, (cur.size ?? 4) - 0.5)) })} aria-label="Smaller text">A−</button>
+              <button type="button" className="btn ghost" onClick={() => edit(cur.id, { size: r2((cur.size ?? 4) + 0.5) })} aria-label="Larger text">A+</button>
+              <button type="button" className="btn ghost" aria-pressed={!!cur.bold} onClick={() => edit(cur.id, { bold: !cur.bold })}><b>B</b></button>
+              <button type="button" className="btn ghost" aria-pressed={!!cur.italic} onClick={() => edit(cur.id, { italic: !cur.italic })}><i>I</i></button>
+              <select aria-label="Alignment" value={cur.align} onChange={(e) => edit(cur.id, { align: e.target.value as ZineItem["align"] })}><option value="left">Left</option><option value="center">Centre</option><option value="right">Right</option></select>
               <label className="swatch">Colour <input type="color" value={cur.color ?? "#000000"} onChange={(e) => patch(cur.id, { color: e.target.value })} /></label>
             </>
           )}
-          <button type="button" className="btn ghost" disabled={!cur} onClick={() => cur && patch(cur.id, { rot: 0 })}>Straighten</button>
-          <button type="button" className="btn ghost" disabled={!cur} onClick={() => cur && patch(cur.id, { z: topZ() })}>To front</button>
-          <button type="button" className="btn ghost" disabled={!cur} onClick={() => cur && patch(cur.id, { z: Math.min(0, ...page.items.map((i) => i.z)) - 1 })}>To back</button>
-          <button type="button" className="btn ghost" disabled={!cur} onClick={() => { if (!cur) return; const id = uid(); setPage((p) => ({ ...p, items: [...p.items, { ...cur, id, x: cur.x + 4, y: cur.y + 4, z: topZ() }] })); setSel(id); }}>Duplicate</button>
-          <button type="button" className="btn ghost" disabled={!cur} onClick={() => { setPage((p) => ({ ...p, items: p.items.filter((i) => i.id !== sel) })); setSel(null); }}>Delete</button>
+          {cur && (
+            <>
+              <Num label="Width" value={cur.w} onChange={(v) => edit(cur.id, widen(cur, Math.max(1, v)))} />
+              <Num label="Across" value={cur.x} onChange={(v) => edit(cur.id, { x: v })} />
+              <Num label="Down" value={cur.y} onChange={(v) => edit(cur.id, { y: v })} />
+              <Num label="Turn" value={cur.rot} step={1} onChange={(v) => edit(cur.id, { rot: v })} />
+            </>
+          )}
+          <button type="button" className="btn ghost" disabled={!picked.length} onClick={() => each(() => ({ rot: 0 }))}>Straighten</button>
+          <button type="button" className="btn ghost" disabled={!cur} onClick={() => cur && edit(cur.id, { z: topZ() })}>To front</button>
+          <button type="button" className="btn ghost" disabled={!cur} onClick={() => cur && edit(cur.id, { z: Math.min(0, ...page.items.map((i) => i.z)) - 1 })}>To back</button>
+          <button type="button" className="btn ghost" disabled={!cur} onClick={() => { if (!cur) return; const id = uid(); keep(); setPage((p) => ({ ...p, items: [...p.items, { ...cur, id, x: cur.x + 4, y: cur.y + 4, z: topZ() }] })); setSel([id]); }}>Duplicate</button>
+          <button type="button" className="btn ghost" disabled={!picked.length} title="Pin in place so it can't be dragged by accident (good for backgrounds). Click a pinned item to select it, then Unpin." onClick={() => { const on = !pinned; each(() => ({ lock: on })); if (on) setSel([]); }}>{pinned ? "Unpin" : "Pin"}</button>
+          <button type="button" className="btn ghost" disabled={!locked} onClick={() => { keep(); setPage((p) => ({ ...p, items: p.items.map((i) => (i.lock ? { ...i, lock: false } : i)) })); }}>Unpin all</button>
+          <button type="button" className="btn ghost" disabled={!picked.length} onClick={remove}>Delete</button>
+        </div>
+        <div className="tgroup">
+          <span className="eyebrow">Arrange</span>
+          <button type="button" className="btn ghost" disabled={!many} onClick={tidy} title="Keep the rows as they are, but make every item the same width with even gaps">Tidy into grid</button>
+          <button type="button" className="btn ghost" disabled={!many} onClick={sameWidth}>Same width</button>
+          <button type="button" className="btn ghost" disabled={picked.length < 3} onClick={() => space(true)}>Space across</button>
+          <button type="button" className="btn ghost" disabled={picked.length < 3} onClick={() => space(false)}>Space down</button>
+          {(["left", "centre", "right", "top", "middle", "bottom"] as const).map((h) => <button key={h} type="button" className="btn ghost" disabled={!many} onClick={() => align(h)}>{h[0].toUpperCase() + h.slice(1)}</button>)}
         </div>
         <div className="tgroup">
           <button type="button" className="btn" onClick={() => void save()}>Save zine</button>
           <button type="button" className="btn ghost" onClick={download}>Download file</button>
+          <button type="button" className="btn ghost" onClick={undo}>Undo</button>
           <button type="button" className="btn ghost" onClick={done}>Done</button>
         </div>
-        <p className="thint">Drag to move. Drag the corner dot to resize (hold Shift on an image to squash it) and the top dot to rotate. Double-click a text box to type.</p>
+        <p className="thint">Drag to move; edges snap to the page and to other items (hold Option to turn that off). Drag any corner to resize: the opposite corner stays put, and Shift squashes an image. Shift-click or drag across empty paper to select several, ⌘A for everything, ⌘Z to undo. Keys: arrows nudge, − and = shrink and grow, [ and ] rotate. Double-click a text box to type.</p>
         <p className="tmsg" role="status">{msg}</p>
       </div>
 
-      <div className="zsheetwrap" style={{ ["--ratio" as string]: doc.ratio }}>
-        <div className="zpage zsheet" ref={sheet} style={{ background: page.bg }} onPointerMove={moveP} onPointerUp={() => { drag.current = null; }} onPointerCancel={() => { drag.current = null; }}
-          onPointerDown={(e) => { if (e.target === e.currentTarget) { setSel(null); setTyping(null); } }}
-          onDragOver={(e) => e.preventDefault()} onDrop={(e) => { e.preventDefault(); [...e.dataTransfer.files].filter((f) => f.type.startsWith("image/")).forEach((f) => void addImage(f)); }}>
-          {page.items.map((it) => (
-            <div key={it.id} className={`zitem ${it.type}${sel === it.id ? " sel" : ""}${typing === it.id ? " typing" : ""}`} style={itemStyle(it, doc.ratio)}
-              onPointerDown={(e) => begin(e, it, "move")} onDoubleClick={() => { if (it.type === "text") { setTyping(it.id); setSel(it.id); } }}>
-              {it.type === "text" && typing === it.id ? (
-                <textarea className="ztext" autoFocus value={it.text ?? ""} onChange={(e) => patch(it.id, { text: e.target.value })} onBlur={() => setTyping(null)}
-                  onPointerDown={(e) => e.stopPropagation()}
-                  style={{ fontFamily: stack(it.font), fontSize: `${it.size ?? 4}cqw`, color: it.color, fontWeight: it.bold ? 700 : 400, fontStyle: it.italic ? "italic" : "normal", textAlign: it.align }} />
-              ) : <ItemBody it={it} />}
-              {sel === it.id && typing !== it.id && (
-                <>
-                  <span className="hdl turn" onPointerDown={(e) => begin(e, it, "turn")} aria-hidden="true" />
-                  <span className="hdl size" onPointerDown={(e) => begin(e, it, "size")} aria-hidden="true" />
-                </>
-              )}
+      <div className={`zspread${count > 1 ? " multi" : ""}`} style={{ ["--ratio" as string]: doc.ratio, ["--n" as string]: count }}>
+        {doc.pages.slice(start, start + count).map((pg, k) => {
+          const i = start + k;
+          if (i !== cp) return (
+            <div key={pg.id} className="zsheetwrap zother" role="button" tabIndex={0} aria-label={`Edit page ${i + 1}`} onClick={() => go(i)} onKeyDown={(e) => { if (e.key === "Enter") go(i); }}>
+              <PageView page={pg} ratio={doc.ratio} /><span className="zpno">Page {i + 1}</span>
             </div>
-          ))}
-        </div>
+          );
+          return (
+            <div key={pg.id} className="zsheetwrap zactive">
+              <div className="zpage zsheet" ref={sheet} style={{ background: page.bg }} onPointerDown={beginBox} onPointerMove={moveP} onPointerUp={endP} onPointerCancel={endP}
+                onDragOver={(e) => e.preventDefault()} onDrop={(e) => { e.preventDefault(); [...e.dataTransfer.files].filter((f) => f.type.startsWith("image/")).forEach((f) => void addImage(f)); }}>
+                <div className={`zclip${clip ? " on" : ""}`}>
+                  {page.items.map((it) => (
+                    <div key={it.id} className={`zitem ${it.type}${it.lock ? " locked" : ""}${typing === it.id ? " typing" : ""}`} style={itemStyle(it, doc.ratio)}
+                      onPointerDown={(e) => beginMove(e, it)} onDoubleClick={() => { if (it.type === "text") { keep(); setTyping(it.id); setSel([it.id]); } }}>
+                      {it.type === "text" && typing === it.id ? (
+                        <textarea className="ztext" autoFocus value={it.text ?? ""} onChange={(e) => patch(it.id, { text: e.target.value })} onBlur={() => setTyping(null)} onPointerDown={(e) => e.stopPropagation()} style={textStyle(it)} />
+                      ) : <ItemBody it={it} />}
+                    </div>
+                  ))}
+                </div>
+                <div className="zover" aria-hidden="true">
+                  {picked.map((it) => typing === it.id ? null : (
+                    <div key={it.id} className={`zframe${it.lock ? " locked" : ""}`} style={{ ...itemStyle(it, doc.ratio), zIndex: undefined }}>
+                      {cur && !cur.lock && (
+                        <>
+                          <span className="hdl turn" onPointerDown={(e) => beginHandle(e, it)} />
+                          {(["nw", "ne", "sw", "se"] as const).map((c) => <span key={c} className={`hdl ${c}`} onPointerDown={(e) => beginHandle(e, it, c)} />)}
+                        </>
+                      )}
+                    </div>
+                  ))}
+                  {guides?.x !== undefined && <span className="zguide v" style={{ left: `${guides.x}%` }} />}
+                  {guides?.y !== undefined && <span className="zguide h" style={{ top: `${(guides.y / H) * 100}%` }} />}
+                  {box && <span className="zbox" style={{ left: `${box.x0}%`, top: `${(box.y0 / H) * 100}%`, width: `${box.x1 - box.x0}%`, height: `${((box.y1 - box.y0) / H) * 100}%` }} />}
+                </div>
+              </div>
+              <span className="zpno">Page {i + 1}</span>
+            </div>
+          );
+        })}
       </div>
     </section>
   );
