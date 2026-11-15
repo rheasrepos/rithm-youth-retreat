@@ -1,5 +1,5 @@
 {
- "ratio": 1.2142857142857142,
+ "ratio": 1.5454545454545454,
  "pages": [
   {
    "id": "p1",
@@ -27,24 +27,29 @@
   {
    "id": "p2",
    "bg": "#f8f3ea",
+   "items": [
+    {
+     "type": "image",
+     "src": "/zine/mwh5ipsjv71a7.jpg",
+     "w": 154.33,
+     "h": 119.76,
+     "id": "b5zn2d9",
+     "x": 77.16,
+     "y": 60.76,
+     "rot": 0,
+     "z": 1
+    }
+   ]
+  },
+  {
+   "id": "pyege1da",
+   "bg": "#f8f3ea",
    "items": []
   },
   {
    "id": "p7k43j3w",
    "bg": "#efeaeb",
-   "items": [
-    {
-     "type": "image",
-     "src": "/zine/mwg68geckzmka.jpg",
-     "w": 110.59,
-     "h": 180.91,
-     "id": "lg9mu5q",
-     "x": 44.02,
-     "y": 57.56,
-     "rot": 0,
-     "z": 1
-    }
-   ]
+   "items": []
   },
   {
    "id": "p3",
@@ -52,14 +57,14 @@
    "items": [
     {
      "type": "image",
-     "src": "/zine/mwg6cs4crstdp.jpg",
-     "w": 92.83,
-     "h": 149.44,
-     "id": "7eg5mjd",
-     "x": 42.41,
-     "y": 51.37,
+     "src": "/zine/mwh5hnekmpiv4.jpg",
+     "w": 89.69,
+     "h": 144.37,
+     "id": "yhmhxb2",
+     "x": 50,
+     "y": 64.27,
      "rot": 0,
-     "z": 2
+     "z": 1
     }
    ]
   },
@@ -557,7 +562,7 @@
      "y": 31.54,
      "rot": 77,
      "z": -1,
-     "lock": true
+     "lock": false
     }
    ]
   }

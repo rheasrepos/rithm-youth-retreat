@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
 import { CopyEmail } from "@/components/CopyEmail";
+import { RouteTint } from "@/components/RouteTint";
 
 export const metadata: Metadata = {
   title: { default: "Rithm Youth Retreat", template: "%s · Rithm Youth Retreat" },
@@ -17,9 +18,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@400;700&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Hanken+Grotesk:ital,wght@0,400;0,700;1,400&display=swap" />
       </head>
       <body>
+        <RouteTint />
         <div className="wrap">
           <nav>
             <a className="brand" href="https://www.therithmproject.org/" target="_blank" rel="noopener">The Rithm Project</a>

@@ -11,7 +11,7 @@ export interface ZineItem {
 export interface ZinePage { id: string; bg: string; items: ZineItem[] }
 export interface ZineDoc { ratio: number; pages: ZinePage[] }
 
-const FONTS = ["Arial", "Georgia", "Courier New", "Bradley Hand", "Impact", "Playfair Display", "Lato"];
+const FONTS = ["Space Grotesk", "Hanken Grotesk", "Arial", "Courier New", "Impact", "Georgia"];
 const stack = (f?: string) => `"${f ?? "Arial"}", ${f === "Georgia" || f === "Playfair Display" ? "serif" : f === "Courier New" ? "monospace" : f === "Bradley Hand" ? "cursive" : "Arial, sans-serif"}`;
 const uid = () => Math.random().toString(36).slice(2, 9);
 const r2 = (n: number) => Math.round(n * 100) / 100;
