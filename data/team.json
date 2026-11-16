@@ -1,0 +1,218 @@
+{
+ "_how": "Fill in name, crew and did for each Polaroid (did = something they did or said at the retreat). Leave name empty to show the photo with no caption. Add names to the credits lists.",
+ "people": [
+  {
+   "id": "p01",
+   "photo": "/polaroids/p01.webp",
+   "name": "",
+   "crew": "",
+   "did": ""
+  },
+  {
+   "id": "p02",
+   "photo": "/polaroids/p02.webp",
+   "name": "",
+   "crew": "",
+   "did": ""
+  },
+  {
+   "id": "p03",
+   "photo": "/polaroids/p03.webp",
+   "name": "",
+   "crew": "",
+   "did": ""
+  },
+  {
+   "id": "p04",
+   "photo": "/polaroids/p04.webp",
+   "name": "",
+   "crew": "",
+   "did": ""
+  },
+  {
+   "id": "p05",
+   "photo": "/polaroids/p05.webp",
+   "name": "",
+   "crew": "",
+   "did": ""
+  },
+  {
+   "id": "p06",
+   "photo": "/polaroids/p06.webp",
+   "name": "",
+   "crew": "",
+   "did": ""
+  },
+  {
+   "id": "p07",
+   "photo": "/polaroids/p07.webp",
+   "name": "",
+   "crew": "",
+   "did": ""
+  },
+  {
+   "id": "p08",
+   "photo": "/polaroids/p08.webp",
+   "name": "",
+   "crew": "",
+   "did": ""
+  },
+  {
+   "id": "p09",
+   "photo": "/polaroids/p09.webp",
+   "name": "",
+   "crew": "",
+   "did": ""
+  },
+  {
+   "id": "p10",
+   "photo": "/polaroids/p10.webp",
+   "name": "",
+   "crew": "",
+   "did": ""
+  },
+  {
+   "id": "p11",
+   "photo": "/polaroids/p11.webp",
+   "name": "",
+   "crew": "",
+   "did": ""
+  },
+  {
+   "id": "p12",
+   "photo": "/polaroids/p12.webp",
+   "name": "",
+   "crew": "",
+   "did": ""
+  },
+  {
+   "id": "p13",
+   "photo": "/polaroids/p13.webp",
+   "name": "",
+   "crew": "",
+   "did": ""
+  },
+  {
+   "id": "p14",
+   "photo": "/polaroids/p14.webp",
+   "name": "",
+   "crew": "",
+   "did": ""
+  },
+  {
+   "id": "p15",
+   "photo": "/polaroids/p15.webp",
+   "name": "",
+   "crew": "",
+   "did": ""
+  },
+  {
+   "id": "p16",
+   "photo": "/polaroids/p16.webp",
+   "name": "",
+   "crew": "",
+   "did": ""
+  },
+  {
+   "id": "p17",
+   "photo": "/polaroids/p17.webp",
+   "name": "",
+   "crew": "",
+   "did": ""
+  },
+  {
+   "id": "p18",
+   "photo": "/polaroids/p18.webp",
+   "name": "",
+   "crew": "",
+   "did": ""
+  },
+  {
+   "id": "p19",
+   "photo": "/polaroids/p19.webp",
+   "name": "",
+   "crew": "",
+   "did": ""
+  },
+  {
+   "id": "p20",
+   "photo": "/polaroids/p20.webp",
+   "name": "",
+   "crew": "",
+   "did": ""
+  },
+  {
+   "id": "p21",
+   "photo": "/polaroids/p21.webp",
+   "name": "",
+   "crew": "",
+   "did": ""
+  },
+  {
+   "id": "p22",
+   "photo": "/polaroids/p22.webp",
+   "name": "",
+   "crew": "",
+   "did": ""
+  },
+  {
+   "id": "p23",
+   "photo": "/polaroids/p23.webp",
+   "name": "",
+   "crew": "",
+   "did": ""
+  },
+  {
+   "id": "p24",
+   "photo": "/polaroids/p24.webp",
+   "name": "",
+   "crew": "",
+   "did": ""
+  },
+  {
+   "id": "p25",
+   "photo": "/polaroids/p25.webp",
+   "name": "",
+   "crew": "",
+   "did": ""
+  }
+ ],
+ "credits": [
+  {
+   "role": "Zine and site",
+   "names": [
+    "Rhea Madhogarhia"
+   ]
+  },
+  {
+   "role": "Story & Momentum committee",
+   "names": [
+    "Rhea Madhogarhia",
+    "Celine Qin",
+    "Nahom Sisay"
+   ]
+  },
+  {
+   "role": "Food Crew",
+   "names": []
+  },
+  {
+   "role": "Connection Crew",
+   "names": []
+  },
+  {
+   "role": "Organizers",
+   "names": [
+    "Kash",
+    "Hannah"
+   ]
+  },
+  {
+   "role": "With thanks",
+   "names": [
+    "Allison",
+    "Michelle"
+   ]
+  }
+ ]
+}

@@ -32,6 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Link href="/zine">The zine</Link>
               <Link href="/untapped">Untapped problems</Link>
               <Link href="/people">Everyone</Link>
+              <Link href="/team">Team</Link>
               <Link href="/submit">Add yourself / claim a note</Link>
               <a href={READYMAG} target="_blank" rel="noopener">Rithm&apos;s work ↗</a>
             </div>

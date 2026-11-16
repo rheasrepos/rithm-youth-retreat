@@ -404,3 +404,41 @@ nav::after{background:var(--tab);height:6px}
 nav .topnav a:nth-child(1){--c:#e0a82e} nav .topnav a:nth-child(2){--c:#8f7fd0} nav .topnav a:nth-child(3){--c:#f0cf5a}
 nav .topnav a:nth-child(4){--c:#7fb08f} nav .topnav a:nth-child(5){--c:#e07a3f} nav .topnav a:nth-child(6){--c:#6f9bd6}
 nav .topnav a:nth-child(7){--c:#d77f93} nav .topnav a:nth-child(8){--c:#f3e8cc}
+
+/* ---- Zine building blocks: flipbooks and retro window boxes ---- */
+.zitem.flip{overflow:hidden;background:#2b2755}
+.zitem img.zflip{position:absolute;inset:0;object-fit:cover}
+.zwin{width:100%;height:100%;display:flex;flex-direction:column;background:#fbf4e0;border:.4cqw solid #2b2755;box-shadow:.9cqw .9cqw 0 #2b2755}
+.zwinbar{display:flex;align-items:center;gap:.7cqw;padding:.6cqw 1cqw;background:#2b2755;color:#f3e8cc;font:700 2.4cqw/1.1 var(--f-display);letter-spacing:.02em;flex:none}
+.zwinbar span{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.zwinbar i{width:1.8cqw;height:1.8cqw;border:.3cqw solid #f3e8cc;flex:none}
+.zwinbar i:last-child{background:#e0a82e;border-color:#e0a82e}
+.zwin .ztext{flex:1;height:auto;padding:1.4cqw 1.6cqw;overflow:hidden}
+.ztools .swatch input.wintitle{width:150px;height:30px;font:inherit;font-size:14px;padding:0 8px;border:1.5px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink)}
+
+/* ---- Team page: a wall of Polaroids; press one for that person's card ---- */
+:root[data-page="team"]{--bg:#d8cfe6;--paper:#efe9f6;--line:#b0a2cc;--pink:#b5521b;--pink-soft:#f3d5b2;--tab:#b79be0}
+nav .topnav a:nth-child(7){--c:#b79be0} nav .topnav a:nth-child(8){--c:#d77f93} nav .topnav a:nth-child(9){--c:#f3e8cc}
+.teamgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:26px 20px;padding:0;margin:0;list-style:none}
+.teamcard{all:unset;box-sizing:border-box;display:block;width:100%;cursor:pointer;transform:rotate(var(--r,0deg));transition:transform .15s ease}
+.teamcard:hover,.teamcard:focus-visible{transform:rotate(0deg) translateY(-4px)}
+.teamcard:focus-visible{outline:3px solid var(--pink);outline-offset:4px}
+.teamcard img{display:block;width:100%;height:auto;box-shadow:3px 4px 0 var(--ink)}
+.teamcard .cap{display:block;margin-top:8px;font:700 15px/1.2 var(--f-display);min-height:1.2em}
+.teamcard .crew{display:block;font-size:13px;color:var(--muted)}
+.teamdlg{border:3px solid var(--ink);padding:0;background:var(--paper);color:var(--ink);max-width:min(720px,92vw);box-shadow:8px 8px 0 var(--ink)}
+.teamdlg::backdrop{background:rgba(43,39,85,.55)}
+.teamdlg .bar{display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--ink);color:var(--bg);font:700 15px var(--f-display)}
+.teamdlg .bar span{flex:1}
+.teamdlg .bar button{all:unset;cursor:pointer;width:22px;height:22px;display:grid;place-content:center;background:var(--sun);color:#1b1037;font-weight:700}
+.teamdlg .bar button:focus-visible{outline:2px solid var(--bg);outline-offset:2px}
+.teamdlg .body{display:grid;grid-template-columns:minmax(140px,220px) 1fr;gap:20px;padding:20px}
+.teamdlg .body img{width:100%;height:auto;box-shadow:3px 4px 0 var(--ink)}
+.teamdlg h3{font-size:26px;margin-bottom:4px}
+.teamdlg .did{font-size:18px;margin:12px 0 0}
+.teamdlg .todo{color:var(--muted);font-style:italic}
+@media (max-width:560px){.teamdlg .body{grid-template-columns:1fr}}
+.credits{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.credits div{background:var(--paper);border:1.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink);padding:12px 14px}
+.credits h3{font-size:16px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.credits p{margin:0}

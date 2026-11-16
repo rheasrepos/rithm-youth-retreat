@@ -3,9 +3,11 @@ import { memo, useCallback, useEffect, useRef, useState } from "react";
 
 /** A page is 100 units wide and 100 × ratio tall. Items are placed by their centre. Text size is in the same units. */
 export interface ZineItem {
-  id: string; type: "image" | "text";
+  id: string; type: "image" | "text" | "flip";
   x: number; y: number; w: number; h: number; rot: number; z: number;
   src?: string; text?: string; font?: string; size?: number; color?: string; bold?: boolean; italic?: boolean; align?: "left" | "center" | "right";
+  srcs?: string[]; speed?: number;   // flip: a set of photos shown one after another, like a flipbook; speed is milliseconds per photo
+  win?: boolean; title?: string;      // text: draw it as a little retro window with a title bar
   lock?: boolean;   // pinned in the editor so it can't be picked up by accident; readers see no difference
 }
 export interface ZinePage { id: string; bg: string; items: ZineItem[] }
@@ -19,7 +21,28 @@ const r2 = (n: number) => Math.round(n * 100) / 100;
 function itemStyle(it: ZineItem, ratio: number): React.CSSProperties {
   return { left: `${it.x}%`, top: `${(it.y / (100 * ratio)) * 100}%`, width: `${it.w}cqw`, height: `${it.h}cqw`, zIndex: it.z, transform: `translate(-50%,-50%) rotate(${it.rot}deg)` };
 }
+const pic = (it: ZineItem) => it.type === "image" || it.type === "flip";
+/** A stack of photos that takes turns, like thumbing a flipbook. Holds still for people who ask for less motion. */
+function Flip({ srcs, speed }: { srcs: string[]; speed?: number }) {
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    if (srcs.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const t = setInterval(() => setI((n) => (n + 1) % srcs.length), Math.max(120, speed ?? 450));
+    return () => clearInterval(t);
+  }, [srcs.length, speed]);
+  // eslint-disable-next-line @next/next/no-img-element
+  return <>{srcs.map((s, k) => <img key={k} src={s} alt="" draggable={false} className="zflip" style={{ opacity: k === i % srcs.length ? 1 : 0 }} />)}</>;
+}
 function ItemBody({ it }: { it: ZineItem }) {
+  if (it.type === "flip") return <Flip srcs={it.srcs ?? []} speed={it.speed} />;
+  if (it.type === "text" && it.win) {
+    return (
+      <div className="zwin">
+        <div className="zwinbar"><span>{it.title || "Overheard"}</span><i /><i /><i /></div>
+        <div className="ztext" style={{ fontFamily: stack(it.font), fontSize: `${it.size ?? 4}cqw`, color: it.color, fontWeight: it.bold ? 700 : 400, fontStyle: it.italic ? "italic" : "normal", textAlign: it.align }}>{it.text}</div>
+      </div>
+    );
+  }
   if (it.type === "image") {
     // eslint-disable-next-line @next/next/no-img-element
     return <img src={it.src} alt="" draggable={false} />;
@@ -206,7 +229,7 @@ const median = (v: number[]) => { const s = [...v].sort((a, b) => a - b); return
 /** Half the width and height of the box an item takes up on the page, allowing for its rotation. */
 const half = (it: ZineItem) => { const c = Math.abs(Math.cos(rad(it.rot))), s = Math.abs(Math.sin(rad(it.rot))); return { hw: (it.w * c + it.h * s) / 2, hh: (it.w * s + it.h * c) / 2 }; };
 /** Resize to a new width; images keep their shape. */
-const widen = (it: ZineItem, w: number): Partial<ZineItem> => (it.type === "image" ? { w: r2(w), h: r2((it.h * w) / it.w) } : { w: r2(w) });
+const widen = (it: ZineItem, w: number): Partial<ZineItem> => (pic(it) ? { w: r2(w), h: r2((it.h * w) / it.w) } : { w: r2(w) });
 
 function Num({ label, value, step = 0.5, onChange }: { label: string; value: number; step?: number; onChange: (v: number) => void }) {
   return <label className="num">{label}<input type="number" step={step} value={value} onChange={(e) => { const v = parseFloat(e.target.value); if (Number.isFinite(v)) onChange(v); }} /></label>;
@@ -252,18 +275,33 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
   const add = (it: Omit<ZineItem, "id" | "z" | "rot" | "x" | "y">) => { const id = uid(); keep(); setPage((p) => ({ ...p, items: [...p.items, { ...it, id, x: 50, y: H / 2, rot: 0, z: topZ() }] })); setSel([id]); };
   const remove = () => { if (!sel.length) return; keep(); setPage((p) => ({ ...p, items: p.items.filter((i) => !sel.includes(i.id)) })); setSel([]); };
 
-  const addImage = useCallback(async (file: File) => {
+  /** Puts a picture file in public/zine (or inside the zine file when the site can't save) and says where it went. */
+  const store = async (file: File): Promise<string | null> => {
     let src = "";
     try {
       const body = new FormData(); body.append("file", file);
       const r = await fetch("/api/zine", { method: "POST", body }); const j = await r.json().catch(() => null);
-      if (r.ok && j?.path) src = j.path; else if (j?.reason && j.reason !== "read-only") { setMsg(j.reason); return; }
+      if (r.ok && j?.path) src = j.path; else if (j?.reason && j.reason !== "read-only") { setMsg(j.reason); return null; }
     } catch { /* keep it inside the file instead */ }
     if (!src) src = await new Promise<string>((res) => { const fr = new FileReader(); fr.onload = () => res(String(fr.result)); fr.readAsDataURL(file); });
-    const dim = await new Promise<{ w: number; h: number }>((res) => { const im = new Image(); im.onload = () => res({ w: im.naturalWidth, h: im.naturalHeight }); im.onerror = () => res({ w: 1, h: 1 }); im.src = src; });
+    return src;
+  };
+  const measure = (src: string) => new Promise<{ w: number; h: number }>((res) => { const im = new Image(); im.onload = () => res({ w: im.naturalWidth, h: im.naturalHeight }); im.onerror = () => res({ w: 1, h: 1 }); im.src = src; });
+  const addImage = useCallback(async (file: File) => {
+    const src = await store(file); if (!src) return;
+    const dim = await measure(src);
     const w = 60, h = r2(Math.min(H * 0.8, (w * dim.h) / dim.w));
     add({ type: "image", src, w: r2((h * dim.w) / dim.h), h });
   }, [H, page.items]); // eslint-disable-line react-hooks/exhaustive-deps
+  /** Several photos become one flipbook, in file-name order; its frame takes the shape of the first photo. */
+  const addFlip = async (files: File[]) => {
+    const srcs: string[] = [];
+    for (const f of [...files].sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }))) { const src = await store(f); if (src) srcs.push(src); }
+    if (!srcs.length) return;
+    const dim = await measure(srcs[0]);
+    const w = 60, h = r2(Math.min(H * 0.8, (w * dim.h) / dim.w));
+    add({ type: "flip", srcs, speed: 450, w: r2((h * dim.w) / dim.h), h });
+  };
 
   useEffect(() => {
     const onPaste = (e: ClipboardEvent) => {
@@ -353,7 +391,7 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
       const ax = s.x - (sx * s.w / 2) * c + (sy * s.h / 2) * sn, ay = s.y - (sx * s.w / 2) * sn - (sy * s.h / 2) * c;
       const vx = p.x - ax, vy = p.y - ay;
       let w = sx * (vx * c + vy * sn), h = sy * (-vx * sn + vy * c);          // pointer measured along the item's own sides
-      if (s.type === "image" && !e.shiftKey) { const k = Math.max(3 / s.w, (w * s.w + h * s.h) / (s.w * s.w + s.h * s.h)); w = s.w * k; h = s.h * k; }   // follow the diagonal
+      if (pic(s) && !e.shiftKey) { const k = Math.max(3 / s.w, (w * s.w + h * s.h) / (s.w * s.w + s.h * s.h)); w = s.w * k; h = s.h * k; }   // follow the diagonal
       else { w = Math.max(3, w); h = Math.max(2, h); }
       patch(d.id, { w: r2(w), h: r2(h), x: r2(ax + (sx * w / 2) * c - (sy * h / 2) * sn), y: r2(ay + (sx * w / 2) * sn + (sy * h / 2) * c) });
     }
@@ -392,7 +430,7 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
     if (g < 1) { g = 1; W = cols > 1 ? (R - L - (cols - 1) * g) / cols : W0; }
     const to: Record<string, Partial<ZineItem>> = {}; let top = T;
     for (const r of rows) {
-      const hs = r.map((it) => (it.type === "image" ? (it.h * W) / it.w : it.h)), rh = Math.max(...hs);
+      const hs = r.map((it) => (pic(it) ? (it.h * W) / it.w : it.h)), rh = Math.max(...hs);
       r.forEach((it, c) => { to[it.id] = { ...widen(it, W), x: r2(L + W / 2 + c * (W + g)), y: r2(top + rh / 2), rot: 0 }; });
       top += rh + g;
     }
@@ -429,6 +467,8 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
         <div className="tgroup">
           <span className="eyebrow">Add</span>
           <button type="button" className="btn ghost" onClick={() => add({ type: "text", w: 60, h: 14, text: "Text", font: "Arial", size: 5, color: "#1b1037", bold: false, italic: false, align: "left" })}>Text box</button>
+          <button type="button" className="btn ghost" onClick={() => add({ type: "text", win: true, title: "Overheard", w: 64, h: 30, text: "Type what was said here.", font: "Space Grotesk", size: 3.6, color: "#2b2755", bold: false, italic: false, align: "left" })}>Window box</button>
+          <label className="btn ghost filebtn">Flipbook…<input type="file" accept="image/*" multiple onChange={(e) => { void addFlip([...(e.target.files ?? [])]); e.target.value = ""; }} /></label>
           <label className="btn ghost filebtn">Image…<input type="file" accept="image/*" multiple onChange={(e) => { [...(e.target.files ?? [])].forEach((f) => void addImage(f)); e.target.value = ""; }} /></label>
           <span className="thint">or paste an image (⌘V), or drop one on the page</span>
         </div>
@@ -443,6 +483,15 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
               <button type="button" className="btn ghost" aria-pressed={!!cur.italic} onClick={() => edit(cur.id, { italic: !cur.italic })}><i>I</i></button>
               <select aria-label="Alignment" value={cur.align} onChange={(e) => edit(cur.id, { align: e.target.value as ZineItem["align"] })}><option value="left">Left</option><option value="center">Centre</option><option value="right">Right</option></select>
               <label className="swatch">Colour <input type="color" value={cur.color ?? "#000000"} onChange={(e) => patch(cur.id, { color: e.target.value })} /></label>
+              <button type="button" className="btn ghost" aria-pressed={!!cur.win} onClick={() => edit(cur.id, { win: !cur.win })}>Window</button>
+              {cur.win && <label className="swatch">Title <input type="text" className="wintitle" value={cur.title ?? ""} placeholder="Overheard" onChange={(e) => patch(cur.id, { title: e.target.value })} /></label>}
+            </>
+          )}
+          {cur?.type === "flip" && (
+            <>
+              <span className="eyebrow">{cur.srcs?.length ?? 0} photos</span>
+              <Num label="Speed (ms)" value={cur.speed ?? 450} step={50} onChange={(v) => edit(cur.id, { speed: Math.max(120, v) })} />
+              <label className="btn ghost filebtn">Add photos…<input type="file" accept="image/*" multiple onChange={async (e) => { const fs = [...(e.target.files ?? [])]; e.target.value = ""; const more: string[] = []; for (const f of fs) { const src = await store(f); if (src) more.push(src); } if (more.length) edit(cur.id, { srcs: [...(cur.srcs ?? []), ...more] }); }} /></label>
             </>
           )}
           {cur && (
