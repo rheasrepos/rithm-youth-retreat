@@ -13,7 +13,7 @@ export async function GET(req: Request) {
   const ok = secret && (url.searchParams.get("secret") === secret || auth === `Bearer ${secret}`);
   if (!ok) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   revalidateTag("sheet");
-  ["/", "/untapped", "/people", "/submit"].forEach((p) => revalidatePath(p));
+  ["/", "/submit"].forEach((p) => revalidatePath(p));
   revalidatePath("/domain/[id]", "page");
   revalidatePath("/org/[id]", "page");
   return NextResponse.json({ ok: true, at: new Date().toISOString() });

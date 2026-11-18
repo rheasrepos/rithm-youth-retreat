@@ -5,8 +5,8 @@
   --bg:#f3e8cc; --paper:#fbf4e0; --ink:#2b2755; --muted:#5a5484; --line:#d6c79f;
   --pink:#b5521b; --pink-ink:#fff8ea; --pink-soft:#f3d5b2; --sun:#e0a82e; --peach:#7b72b0;
   --sel:#2b2755; --sel-ink:#f3e8cc;
-  --f-display:"Space Grotesk", "Helvetica Neue", Arial, sans-serif;
-  --f-body:"Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --f-display:Arial, "Helvetica Neue", Helvetica, sans-serif;
+  --f-body:Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 /* One look for everyone: the site no longer switches to a dark version with the computer's setting.
    A dark version is still available by putting data-theme="dark" on <html>. */
@@ -257,7 +257,7 @@ footer p{margin:0;max-width:72ch}
 .zinefull{position:fixed;inset:0;z-index:200;display:grid;place-items:center;overflow:hidden;background:#e9e4da}
 /* One page is --pw wide. The area is as wide as the pages showing (--span, set every frame while the strip moves);
    the arrows hang off its sides, so they sit beside the cover when it's closed and beside the spread when open. */
-.zinefull{--gx:clamp(70px, 8vw, 120px);--gy:clamp(14px, 3vh, 32px)}
+.zinefull{--gx:clamp(34px, 4vw, 56px);--gy:8px}
 .zarea{--pw:min(calc((100vw - 2 * var(--gx)) / 2), calc((100dvh - 2 * var(--gy)) / var(--ratio)));position:relative;width:calc(var(--pw) * var(--span, 1));height:calc(var(--pw) * var(--ratio))}
 .zarea.single{--pw:min(calc(100vw - 2 * var(--gx)), calc((100dvh - 2 * var(--gy)) / var(--ratio)))}
 .strip{position:absolute;inset:0;perspective:calc(var(--pw) * 5);perspective-origin:50% 45%;transform-style:preserve-3d}
@@ -269,25 +269,20 @@ footer p{margin:0;max-width:72ch}
 .zground{position:absolute;left:3%;right:3%;bottom:-2%;height:10%;border-radius:50%;background:rgba(40,25,10,.28);filter:blur(16px)}
 /* paper: grain cropped from one of the retreat's watercolor scans */
 .sheet::before{content:"";position:absolute;inset:0;z-index:50;pointer-events:none;background:url("/paper.jpg") 0 0 / 400px 400px;mix-blend-mode:multiply;opacity:.85}
-/* retro arrows: chunky stickers with a hard offset shadow, bobbing just off each side of the zine */
-.turn{all:unset;box-sizing:border-box;position:absolute;top:50%;z-index:20;width:clamp(48px, 5vw, 66px);aspect-ratio:1;display:grid;place-content:center;cursor:pointer;
-  background:#1a7fb0;color:#fff;border:3px solid #1b1037;border-radius:50%;box-shadow:4px 4px 0 #1b1037;
-  font:900 clamp(20px, 2.2vw, 28px)/1 "Arial Black", Impact, system-ui, sans-serif;
-  translate:0 -50%;animation:zbob 2.6s ease-in-out infinite;transition:transform .12s, box-shadow .12s, opacity .2s}
-.turn.prev{right:calc(100% + clamp(10px, 1.6vw, 26px));background:#3f8424;animation-delay:-1.3s}
-.turn.next{left:calc(100% + clamp(10px, 1.6vw, 26px))}
-.turn:hover{transform:rotate(-8deg) scale(1.08)}
-.turn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 #1b1037}
-.turn:disabled{opacity:.28;cursor:default;transform:none}
-@keyframes zbob{0%,100%{translate:0 -50%}50%{translate:0 calc(-50% - 9px)}}
-@media (max-width:520px){.zinefull{--gx:14px;--gy:70px}.turn{top:auto;bottom:-62px;translate:none;animation:none}.turn.prev{right:auto;left:0}.turn.next{left:auto;right:0}}
-@media (prefers-reduced-motion:reduce){.turn{animation:none}}
+/* page-turn arrows: plain carets pinned to the edges of the screen */
+.turn{all:unset;box-sizing:border-box;position:fixed;top:72px;bottom:72px;z-index:4;width:var(--gx);display:grid;place-content:center;cursor:pointer;
+  color:#2b2755;font:400 clamp(40px, 5vw, 64px)/1 var(--f-display);opacity:.6;transition:opacity .15s}
+.turn.prev{left:0}
+.turn.next{right:0}
+.turn:hover{opacity:1}
+.turn:disabled{opacity:.15;cursor:default}
+@media (max-width:520px){.zinefull{--gx:30px;--gy:44px}}
 .turn:focus-visible,.zcorner:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
-.zcorner{all:unset;box-sizing:border-box;position:absolute;top:10px;z-index:5;cursor:pointer;color:rgba(27,16,55,.55);font:600 14px/1 var(--f-body);padding:9px 12px;border-radius:999px}
+.zcorner{all:unset;box-sizing:border-box;position:absolute;top:10px;z-index:30;cursor:pointer;color:rgba(27,16,55,.55);font:600 14px/1 var(--f-body);padding:9px 12px;border-radius:999px}
 .zcorner:hover{color:#1b1037;background:rgba(255,255,255,.7)}
 .zcorner.home{left:12px;font-size:22px;padding:6px 12px}
 .zcorner.edit{right:12px}
-.zpage{position:relative;width:100%;height:100%;overflow:hidden;container-type:inline-size}
+.zpage{position:relative;width:100%;height:100%;overflow:hidden;container-type:inline-size;isolation:isolate}
 .zpage.blank{background:#f3ede3}
 .zitem{position:absolute}
 .zitem img{display:block;width:100%;height:100%;-webkit-user-drag:none;user-select:none}
@@ -408,6 +403,12 @@ nav .topnav a:nth-child(7){--c:#d77f93} nav .topnav a:nth-child(8){--c:#f3e8cc}
 /* ---- Zine building blocks: flipbooks and retro window boxes ---- */
 .zitem.flip{overflow:hidden;background:#2b2755}
 .zitem img.zflip{position:absolute;inset:0;object-fit:cover}
+.zterm{width:100%;height:100%;display:flex;flex-direction:column;background:#fff;color:#000;border-radius:1.1cqw;overflow:hidden;box-shadow:0 0 0 .12cqw rgba(0,0,0,.28),0 1.2cqw 3cqw rgba(0,0,0,.28)}
+.ztermbar{position:relative;flex:none;display:flex;align-items:center;gap:.8cqw;height:3.6cqw;padding:0 1.3cqw;background:linear-gradient(#ececec,#dedede);border-bottom:.12cqw solid #c4c4c4}
+.ztermbar i{width:1.3cqw;height:1.3cqw;border-radius:50%;background:#ff5f57;flex:none}
+.ztermbar i:nth-child(2){background:#febc2e}.ztermbar i:nth-child(3){background:#28c840}
+.ztermbar span{position:absolute;left:0;right:0;text-align:center;font:600 1.5cqw/1 -apple-system,"Helvetica Neue",Arial,sans-serif;color:#4d4d4d;pointer-events:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 9cqw}
+.ztermtext{flex:1;padding:1cqw 1.3cqw;font-family:"SF Mono",Menlo,Monaco,"Courier New",monospace;line-height:1.3;white-space:pre-wrap;overflow-wrap:anywhere;overflow:hidden}
 .zwin{width:100%;height:100%;display:flex;flex-direction:column;background:#fbf4e0;border:.4cqw solid #2b2755;box-shadow:.9cqw .9cqw 0 #2b2755}
 .zwinbar{display:flex;align-items:center;gap:.7cqw;padding:.6cqw 1cqw;background:#2b2755;color:#f3e8cc;font:700 2.4cqw/1.1 var(--f-display);letter-spacing:.02em;flex:none}
 .zwinbar span{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -455,7 +456,7 @@ div.ai-generated *{text-decoration:underline dashed;text-decoration-thickness:1p
 .ai-figure.ai-wait.ai-in{transition:opacity .5s ease}
 html.hide-ai .ai-generated{filter:blur(4px);user-select:none}
 html.hide-ai .ai-figure>figcaption{display:none}
-.aichip{position:fixed;left:max(12px,env(safe-area-inset-left,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:50;font:600 13px var(--f-body);color:var(--ink);background:var(--paper);border:1.5px solid var(--ink);box-shadow:2px 2px 0 var(--ink);padding:6px 10px;cursor:pointer}
+.aichip{position:fixed;right:max(12px,env(safe-area-inset-right,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:50;font:600 13px var(--f-body);color:var(--ink);background:var(--paper);border:1.5px solid var(--ink);box-shadow:2px 2px 0 var(--ink);padding:6px 10px;cursor:pointer}
 html.hide-ai .aichip .ai-generated{filter:none}
 .aichip:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
 @media (prefers-reduced-motion:reduce){.ai-wait{opacity:1;clip-path:none}}
@@ -486,3 +487,95 @@ html.hide-ai .aichip .ai-generated{filter:none}
 @keyframes zorbs{from{scale:.72;opacity:.55}to{scale:1.12;opacity:1}}
 .zine.editing .zitem.orbit{outline:1px dashed color-mix(in srgb,var(--ink) 30%,transparent)}
 @media (prefers-reduced-motion:reduce){.zorbit span{animation:none}}
+
+/* the wall: regrouping views. Notes glide to their new spots when the grouping changes. */
+.wallq{font-family:var(--f-display);font-weight:700;font-size:clamp(20px,2.6vw,30px);line-height:1.15;color:var(--pink);margin:10px 0 6px;max-width:26ch}
+.wallviews{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;margin:0 0 12px}
+.wallviews .btn{padding:8px 14px;font-size:15px}
+.wallviews .btn:disabled{opacity:.4;cursor:default}
+.wallviews .btn[aria-pressed="true"]{background:var(--sel);color:var(--sel-ink);border-color:var(--sel)}
+.wallviews .thint{flex-basis:100%;margin:2px 0 0;font-size:14px;color:var(--muted);max-width:70ch;min-height:1.4em}
+.rug:not(.editing) .item{transition:transform .18s ease,left 1.2s cubic-bezier(.3,.7,.2,1),top 1.2s cubic-bezier(.3,.7,.2,1)}
+.rug.pulling .item{transition:transform .18s ease}
+.rug .rugcanvas{transition:aspect-ratio .6s ease}
+.rug .item.label.grab{cursor:grab;touch-action:none}
+.rug.pulling .item.label.grab{cursor:grabbing}
+.rug:not(.view-placed) .item.label{min-height:0;padding:.5cqw .6cqw;font-size:1.25cqw;background:#fdfcf8;box-shadow:0 0 0 .25cqw #2b2755}
+@media (prefers-reduced-motion:reduce){.rug:not(.editing) .item,.rug .rugcanvas{transition:none}}
+.wallnotes{margin:44px 0 10px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px;align-items:start}
+.wallnotes .eyebrow{grid-column:1/-1}
+.wallnotes blockquote{margin:0;padding:14px 16px;background:var(--paper);border:1.5px solid var(--line);border-left:6px solid var(--pink);font-size:16px;line-height:1.45;color:var(--ink);overflow-wrap:anywhere}
+.wallnotes blockquote.short{font-family:var(--f-display);font-weight:700;font-size:22px;line-height:1.15}
+.aidisc{max-width:68ch;margin:10px 0 40px;font-size:17px;line-height:1.6}
+.aidisc h2{font-family:var(--f-display);font-size:22px;margin:26px 0 6px}
+.aidisc ul{padding-left:1.2em;display:grid;gap:8px}
+.aidisc .ai-generated{text-decoration-color:color-mix(in srgb,var(--ink) 35%,transparent)}
+.loginform{max-width:420px;display:grid;gap:8px;margin:8px 0 60px}
+.loginform label{font-weight:700;font-size:15px}
+.loginrow{display:flex;gap:8px;flex-wrap:wrap}
+.loginrow input{flex:1;min-width:0;font:inherit;font-size:17px;padding:10px 14px;border:1.5px solid var(--line);border-radius:999px;background:var(--paper);color:var(--ink)}
+.loginrow input:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+.loginmsg{margin:0;min-height:1.4em;color:#b3261e;font-size:15px}
+.loginform .thint{margin:0;font-size:14px;color:var(--muted)}
+
+/* zine: the whole story as a pop-up; the log-in corner for visitors */
+.zcorner.story{left:64px;background:rgba(255,255,255,.55)}
+.zcorner.home.login + .zcorner.edit + .zcorner.story,.zcorner.home.login + .zcorner.story{left:150px}
+.storytext mark{background:#f6dd8a;color:inherit;padding:2px 0}
+.zcorner.home.login{font-size:14px;padding:9px 12px}
+.storydlg{border:0;padding:0;background:transparent;max-width:min(720px,calc(100vw - 24px));width:100%;max-height:calc(100vh - 32px);overflow:visible}
+.storydlg::backdrop{background:rgba(20,12,40,.6)}
+.storybody{display:flex;flex-direction:column;max-height:calc(100vh - 48px);background:#fbf4e0;border:3px solid #2b2755;box-shadow:8px 8px 0 #2b2755}
+.storybody .zwinbar{font-size:16px;padding:8px 12px;gap:8px}
+.storybody .zwinbar button{all:unset;cursor:pointer;width:26px;height:26px;line-height:24px;text-align:center;background:#e0a82e;color:#2b2755;font-weight:700}
+.storybody .zwinbar button:focus-visible{outline:3px solid #fff;outline-offset:1px}
+.storytext{overflow:auto;padding:18px 20px;white-space:pre-wrap;font:17px/1.6 var(--f-body);color:#2b2755;overflow-wrap:anywhere}
+.ztools .storyedit{flex-basis:100%;display:grid;gap:6px;font-size:14px;color:var(--muted)}
+.ztools .storyedit textarea{width:100%;min-height:240px;font:15px/1.5 var(--f-body);padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);resize:vertical}
+:root[data-page="login"] .topnav{display:none}
+.jump{margin:14px 0 0;font-size:15px}
+.jump a{color:var(--pink);font-weight:700}
+#untapped,#everyone,#mapTitle{scroll-margin-top:16px}
+
+/* zine editor: the quote bank beside the page */
+.zquotes .zqall{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted)}
+.zqlist{overflow:auto;min-height:0;display:grid;gap:6px;align-content:start}
+.zq{all:unset;box-sizing:border-box;display:grid;gap:4px;padding:8px 9px;border:1.5px solid var(--line);border-left:5px solid var(--muted);border-radius:6px;background:var(--bg);cursor:grab;font-size:13.5px;line-height:1.35;color:var(--ink);overflow-wrap:anywhere}
+.zq:hover{border-color:var(--pink)}
+.zq:focus-visible{outline:2px solid var(--pink);outline-offset:1px}
+.zq small{font-size:11.5px;color:var(--muted)}
+.zq.k-sticky{border-left-color:#e0a82e}.zq.k-transcript{border-left-color:#6f9bd6}.zq.k-notebook,.zq.k-rhea{border-left-color:#8f7fd0}.zq.k-summary{border-left-color:#1aa37a}.zq.k-slide{border-left-color:#888}
+
+
+/* zine paper: a scan of a real ruled notebook page (public/paper-moleskine.jpg), the old grain, or flat colour */
+.zinefull[data-paper="none"] .sheet::before{display:none}
+/* the real page sits under everything on the page (photos and text boxes cover its lines), not over it */
+.zinefull[data-paper="page"] .sheet::before{display:none}
+.zinefull[data-paper="page"] .zpage::before,.zine.editing[data-paper="page"] .zother .zpage::before,.zine.editing[data-paper="page"] .zsheet .zclip::before{content:"";position:absolute;inset:0;z-index:-9999;pointer-events:none;background:url("/paper-moleskine.jpg") center / 100% 100% no-repeat;mix-blend-mode:multiply}
+.ztools .pswatch{display:inline-block;width:14px;height:14px;margin-right:6px;border:1px solid var(--ink);vertical-align:-2px}
+.zine.editing .zitem.spilled{pointer-events:none;cursor:default}
+.zcrop{position:relative;width:100%;height:100%;overflow:hidden}
+.zitem .zcrop img{max-width:none}
+.zcheck{flex-basis:100%;font-size:14px;color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;max-height:220px;overflow:auto}
+.zcheck ul{margin:6px 0 0;padding-left:1.1em;display:grid;gap:3px}
+.zcheck button{all:unset;cursor:pointer;color:var(--pink);font-weight:700;text-decoration:underline}
+
+/* zine: a domain's pile of sticky notes around its index card; in the reader each note can be pressed */
+.zitem .zpile{position:relative;width:100%;height:100%}
+.zitem .zpile img{position:absolute;height:auto;filter:drop-shadow(0 .2cqw .3cqw rgba(0,0,0,.3))}
+.zitem .zmap{position:relative;width:100%;height:100%}
+.zitem .zmap img{position:absolute;height:auto;filter:drop-shadow(0 .2cqw .3cqw rgba(0,0,0,.3));transition:left .9s ease,top .9s ease,width .9s ease,transform .9s ease}
+.zmap .zmnote{position:absolute;display:block;transition:left .9s ease,top .9s ease,width .9s ease,transform .9s ease}
+.zitem .zmap .zmnote img{position:static;display:block;width:100%;transition:none}
+.zmap .zmnote.dot{aspect-ratio:1;border-radius:50%;border:.18cqw solid #fff;box-shadow:0 .1cqw .3cqw rgba(0,0,0,.35)}
+.zinefull .zmnote.dot:hover{outline-offset:.1cqw}
+.zmap .zmcurves{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.55;pointer-events:none;overflow:visible}
+.zmap .zmviews{position:absolute;left:0;right:0;top:0;z-index:700;display:flex;flex-wrap:wrap;justify-content:center;gap:.7cqw}
+.zmap .zmviews button{font:700 1.75cqw/1 Arial,sans-serif;padding:.55cqw 1cqw;border:.22cqw solid #2b2755;border-radius:0;background:#fff;color:#2b2755;cursor:pointer}
+.zmap .zmviews button[aria-pressed="true"]{background:#2b2755;color:#fff}
+.zmap .zmword{position:absolute;z-index:600;transform:translate(-50%,-50%);font:700 1.7cqw/1.1 Arial,sans-serif;padding:.4cqw .8cqw;background:#fff;border:.28cqw solid currentColor;white-space:nowrap;user-select:none;touch-action:none}
+.zmap .zmword.grab{cursor:grab}
+.zmap .zmword.grab:active{cursor:grabbing}
+@media (prefers-reduced-motion:reduce){.zitem .zmap img{transition:none}}
+.zinefull .zsticky{cursor:pointer}
+.zinefull .zsticky:hover{outline:.4cqw solid #2b2755;outline-offset:.2cqw}

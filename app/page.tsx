@@ -3,6 +3,7 @@ import { SearchBox } from "@/components/SearchBox";
 import { getModel } from "@/lib/data";
 import { AI } from "@/components/AI";
 import { buildIndex } from "@/lib/search";
+import { EveryoneSection, UntappedSection } from "@/components/MapSections";
 
 export const revalidate = 3600;
 
@@ -19,8 +20,9 @@ export default async function Home() {
         <div className="legend">
           <span><span className="vb">Verified</span> a named project, report, product or law we could link to</span>
           <span><span className="vb" style={{ background: "transparent", color: "var(--muted)", border: "1px solid var(--line)" }}>Nearby</span> works in the area, but nothing specific to this note</span>
-          <span><Link href="/untapped" style={{ color: "var(--pink)", fontWeight: 700 }}>{untapped} untapped problems →</Link></span>
+          <span><a href="#untapped" style={{ color: "var(--pink)", fontWeight: 700 }}>{untapped} untapped problems ↓</a></span>
         </div>
+        <p className="jump"><span className="eyebrow">On this page</span> <a href="#mapTitle">The eight domains</a> · <a href="#untapped">Untapped problems</a> · <a href="#everyone">Everyone in the network</a></p>
       </header>
 
       <section className="mapsec" aria-labelledby="mapTitle">
@@ -47,6 +49,8 @@ export default async function Home() {
           })}
         </div>
       </section>
+      <UntappedSection m={m} />
+      <EveryoneSection m={m} />
       <p className="status">Data loaded from {m.loadedFrom === "sheet" ? "the network sheet" : "the bundled seed file"}; refreshed nightly and whenever the Rithm team approves a submission.</p>
     </>
   );

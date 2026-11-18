@@ -21,5 +21,5 @@ export default function ZinePage() {
     const f = path.join(process.cwd(), "data", "zine.json");
     if (existsSync(f)) doc = JSON.parse(readFileSync(f, "utf8")) as ZineDoc;
   } catch { /* fall back to the starter */ }
-  return <Zine initial={doc} canSave={process.env.NODE_ENV === "development"} />;
+  return <Zine initial={doc} canSave={process.env.NODE_ENV === "development"} gated={!!process.env.SITE_PASSWORD} />;
 }

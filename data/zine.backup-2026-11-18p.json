@@ -1,0 +1,7678 @@
+{
+ "ratio": 1.5454545454545454,
+ "pages": [
+  {
+   "id": "p1",
+   "bg": "#2b2755",
+   "items": [
+    {
+     "id": "p1-t",
+     "type": "text",
+     "x": 50,
+     "y": 8,
+     "w": 80,
+     "h": 5,
+     "rot": 0,
+     "z": 1,
+     "text": "OVERHEARD RITHM",
+     "font": "Arial",
+     "size": 3.4,
+     "color": "#e0a82e",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "e8x177p",
+     "type": "text",
+     "x": 50,
+     "y": 22,
+     "w": 96,
+     "h": 15.6,
+     "rot": -2,
+     "z": 3,
+     "text": "WHAT HAPPENS",
+     "font": "Impact",
+     "size": 13,
+     "color": "#f3e8cc",
+     "bold": false,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "3atjf5v",
+     "type": "text",
+     "x": 50,
+     "y": 33,
+     "w": 96,
+     "h": 6.6,
+     "rot": 0,
+     "z": 3,
+     "text": "when you put",
+     "font": "Arial",
+     "size": 5.5,
+     "color": "#e0a82e",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "iq2tapo",
+     "type": "text",
+     "x": 50,
+     "y": 43,
+     "w": 96,
+     "h": 14.4,
+     "rot": 1.5,
+     "z": 3,
+     "text": "A BUNCH OF",
+     "font": "Impact",
+     "size": 12,
+     "color": "#f0a04b",
+     "bold": false,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "u0qbbmv",
+     "type": "text",
+     "x": 50,
+     "y": 56,
+     "w": 96,
+     "h": 14.4,
+     "rot": -1,
+     "z": 3,
+     "text": "YOUNG PEOPLE",
+     "font": "Impact",
+     "size": 12,
+     "color": "#f3e8cc",
+     "bold": false,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "lcvx2rg",
+     "type": "text",
+     "x": 50,
+     "y": 66,
+     "w": 96,
+     "h": 6.6,
+     "rot": 0,
+     "z": 3,
+     "text": "who think a lot about",
+     "font": "Arial",
+     "size": 5.5,
+     "color": "#e0a82e",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "edkp8l4",
+     "type": "text",
+     "x": 50,
+     "y": 84,
+     "w": 96,
+     "h": 36,
+     "rot": 3,
+     "z": 3,
+     "text": "AI",
+     "font": "Impact",
+     "size": 30,
+     "color": "#e0a82e",
+     "bold": false,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "pfnchsw",
+     "type": "text",
+     "x": 50,
+     "y": 106,
+     "w": 96,
+     "h": 9,
+     "rot": 0,
+     "z": 3,
+     "text": "to talk about AI",
+     "font": "Arial",
+     "size": 7.5,
+     "color": "#f3e8cc",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "23ben4v",
+     "type": "text",
+     "x": 50,
+     "y": 115,
+     "w": 96,
+     "h": 9,
+     "rot": 0,
+     "z": 3,
+     "text": "and what it means",
+     "font": "Arial",
+     "size": 7.5,
+     "color": "#f3e8cc",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "p55qvfb",
+     "type": "text",
+     "x": 50,
+     "y": 127,
+     "w": 96,
+     "h": 13.8,
+     "rot": -1.5,
+     "z": 3,
+     "text": "IN THEIR LIVES",
+     "font": "Impact",
+     "size": 11.5,
+     "color": "#f0a04b",
+     "bold": false,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "nqtnd17",
+     "type": "text",
+     "x": 50,
+     "y": 141,
+     "w": 96,
+     "h": 14.4,
+     "rot": 2,
+     "z": 3,
+     "text": "& AT LARGE?",
+     "font": "Impact",
+     "size": 12,
+     "color": "#f3e8cc",
+     "bold": false,
+     "italic": false,
+     "align": "center"
+    }
+   ]
+  },
+  {
+   "id": "pyqh1cy7",
+   "bg": "#fdfef9",
+   "items": [
+    {
+     "type": "image",
+     "src": "/zine/mwlkfiulfy53y.jpg",
+     "w": 100.19,
+     "h": 154.03,
+     "id": "9ub651g",
+     "x": 50.09,
+     "y": 77.01,
+     "rot": 0,
+     "z": -5,
+     "lock": true
+    },
+    {
+     "id": "jhq2f5a",
+     "type": "text",
+     "x": 50,
+     "y": 12,
+     "w": 84,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "Before this weekend",
+     "font": "Arial",
+     "size": 6,
+     "color": "#2b2755",
+     "bold": true,
+     "italic": false,
+     "align": "center",
+     "ai": true
+    },
+    {
+     "id": "ycuuvh1",
+     "type": "text",
+     "x": 50,
+     "y": 36,
+     "w": 86,
+     "h": 26,
+     "rot": 0,
+     "z": 3,
+     "text": "[What we were asking at the first summit in April: AI and our relationships, policy, government and laws, the elections, the fears and the hopes. Framing only, in your words. No quotes from the April notebook.]",
+     "font": "Arial",
+     "size": 2.5,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "win": true,
+     "title": "The first summit: Rhea writes",
+     "ai": true
+    },
+    {
+     "id": "jxnvqqo",
+     "type": "text",
+     "x": 50,
+     "y": 84,
+     "w": 86,
+     "h": 55,
+     "rot": 0,
+     "z": 5,
+     "text": "What happens when you bring the blood of people who grew up with technology and are being it have been affected by in their daily life technology is fundamentally apart of who we are generation generation alpha millennials technology has impacted the beginning parts of our lives the parts of our lives learning is the most accelerated they’re obviously some things going wrong. Students are not learning to critically statistic this year. Students are cheating on exams in a more accessible way that it’s always been but also AI has given us great educational resources and has made accessibility of Corish of a lot of AI companies whether that’s the form of greenwashing we won’t speak on that here . But we brought around 25 people from the ages of 18 to 25 to talk about what it’s like to think about AI and a critical way and simultaneously have it be integrated into your life easily so because we are a digital ones..",
+     "font": "Arial",
+     "size": 2.5,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "win": true,
+     "title": "Ways to think about co-creation"
+    }
+   ]
+  },
+  {
+   "id": "pzygo58f",
+   "bg": "#fdfef9",
+   "items": [
+    {
+     "type": "image",
+     "src": "/zine/mwh5hnekmpiv4.jpg",
+     "w": 89.69,
+     "h": 144.37,
+     "id": "yhmhxb2",
+     "x": 50,
+     "y": 81.79818181818182,
+     "rot": 0,
+     "z": -5,
+     "lock": true
+    },
+    {
+     "id": "xc086h0",
+     "type": "text",
+     "x": 50,
+     "y": 12,
+     "w": 84,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "Arriving",
+     "font": "Arial",
+     "size": 6,
+     "color": "#2b2755",
+     "bold": true,
+     "italic": false,
+     "align": "center",
+     "ai": true
+    },
+    {
+     "id": "9f65oai",
+     "type": "text",
+     "x": 50,
+     "y": 42,
+     "w": 86,
+     "h": 43.5,
+     "rot": 0,
+     "z": 5,
+     "text": "At the first ever Rithm, youth leader, Summit we welcome to cohort fellows and establish members of the Rithm community to see what would happen when the Rithm project had a summit with only young people in the room. Here’s what we talked about steps for action and resources we’d like to offer as our work for the of Notes transcripts, recording physical media, art inference, and analysis by the Rithm youth leaders we will provide citations with necessary, but this is mostly about how technical youth leaders and leaders across all sectors, but young and obviously influenced by technology. We can’t study literature and not have a problem for all over education like anthropic, CEO or whatever the fuck..",
+     "font": "Arial",
+     "size": 2.5,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "win": true,
+     "title": "Who was in the room"
+    },
+    {
+     "id": "0u72v8x",
+     "type": "text",
+     "x": 50,
+     "y": 72,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 2,
+     "text": "[Arrival, welcome, house agreements, home groups and dinner. Photos from the arrival folder go here.]",
+     "font": "Arial",
+     "size": 2.6,
+     "color": "#5a5484",
+     "bold": false,
+     "italic": true,
+     "align": "left",
+     "ai": true
+    }
+   ]
+  },
+  {
+   "id": "p5",
+   "bg": "#fdfef9",
+   "items": [
+    {
+     "id": "4nkxrfu",
+     "type": "text",
+     "x": 50,
+     "y": 63.2,
+     "w": 86,
+     "h": 66.5,
+     "rot": 0,
+     "z": 5,
+     "text": "it’s about how they are feeling when it comes to technology to bpro and anti it at the same time. Do you need to take a stance to lead? Is it possible to effectively lead in the gray and what is the importance of the gray, the idea of the black box has been around since we started studying human behavior and that human connection and how we connect other people and think about our problems and the people in our loss human data is embedded in the systems that we used to understand computational systems as well just making just trying to make sense of all of it even matter is it productive for research? is it productive in all parts of our lives what should AI be used for if it is the technology of the future that will probably make a lot of people’s lives better who are the Voices? we don’t talk about what are the communities that don’t care about this issue as much as we do and thus the decisions we make it scale may affect them in unintended ways for finding tree is that all the ugly mess the ones that need to be obstructed upon to create things like computational theory and the same action is refined categories.",
+     "font": "Arial",
+     "size": 2.5,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "win": true,
+     "title": "Leading in the gray"
+    }
+   ]
+  },
+  {
+   "id": "p8",
+   "bg": "#fdfef9",
+   "items": [
+    {
+     "id": "p8-t",
+     "type": "text",
+     "x": 50,
+     "y": 17.818181818181817,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "Youth Leadership Identity",
+     "font": "Arial",
+     "size": 6,
+     "color": "#2b2755",
+     "bold": true,
+     "italic": false,
+     "align": "center",
+     "ai": true
+    },
+    {
+     "id": "h1o962i",
+     "type": "text",
+     "x": 50,
+     "y": 30,
+     "w": 84,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "Glenda + Chris",
+     "font": "Arial",
+     "size": 5,
+     "color": "#2b2755",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "811rdqk",
+     "type": "text",
+     "x": 50,
+     "y": 60.3,
+     "w": 86,
+     "h": 40.6,
+     "rot": 0,
+     "z": 5,
+     "text": "Saturday morning at the YMCA, 9:30 to 11:30. Workshop: Youth Leadership Identity.\n\n[Your words about Glenda and Chris go here.]\n\nWhat was on the screen:\nWhat role did you fill in your family?\nThe child enters the room with the leader\nThe 11 C's\nCircle of C's: Where am I now?\nFrom understanding into embodiment",
+     "font": "Arial",
+     "size": 2.5,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "win": true,
+     "title": "Glenda + Chris",
+     "ai": true
+    },
+    {
+     "id": "kcw35x9",
+     "type": "text",
+     "x": 50,
+     "y": 100.1,
+     "w": 70,
+     "h": 29.1,
+     "rot": 0,
+     "z": 5,
+     "text": "“I was not the golden child” – Glenda\n\nLeading w/o losing yourself!\n\nTo be a witness: burden, privilege? both?\n\nwe were all children once",
+     "font": "Arial",
+     "size": 2.5,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "win": true,
+     "title": "From my notebook"
+    },
+    {
+     "id": "z6hwiiz",
+     "type": "text",
+     "x": 50,
+     "y": 134,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 2,
+     "text": "[Flipbook goes here: Odist's chair game. Open the Photo library, ⌘-click the photos in order, then Flipbook.]",
+     "font": "Arial",
+     "size": 2.6,
+     "color": "#5a5484",
+     "bold": false,
+     "italic": true,
+     "align": "left",
+     "ai": true
+    },
+    {
+     "id": "tdjl1yk",
+     "type": "text",
+     "x": 50,
+     "y": 121,
+     "w": 86,
+     "h": 9,
+     "rot": 0,
+     "z": 4,
+     "text": "What happens when we stop to breathe? And think? And reflect ? What comes u",
+     "font": "Arial",
+     "size": 3.2,
+     "color": "#2b2755",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    }
+   ]
+  },
+  {
+   "id": "p9",
+   "bg": "#fdfef9",
+   "items": [
+    {
+     "id": "p9-t",
+     "type": "text",
+     "x": 50,
+     "y": 17.818181818181817,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "Ecosystem mapping",
+     "font": "Arial",
+     "size": 6,
+     "color": "#2b2755",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "8l8f09e",
+     "type": "text",
+     "x": 50,
+     "y": 66.1,
+     "w": 86,
+     "h": 72.2,
+     "rot": 0,
+     "z": 5,
+     "text": "Wall wall was born out of ecosystem mapping and ecosystem mapping was an exercise brought on by Kash and Hannah to talk about the eight domains project. This issue a few connection with the AI if you can call that an issue and we’re like a value, but I also sent from the room as the narrator here is that the value of the Rithm project to us was that it expressed to value it, tied us to the value of wanting to preserve some things even though we’re really OK with change, you are a generation that is OK with change and want to enact it as well. We don’t we’re not necessarily protesting to be conservative but instead to embrace future where we have the things that we still admire about today.. OK this missed a lot of my message but we ended off by saying we don’t. We’re not necessarily progressive conservative but instead to embrace future, we have that we still admire about today right and there’s beauty in that admiration assuring and there’s also real want and fear and hope also like happiness like I think it is like the love that we had that we’re willing to retire. It’s actually not built out a few, but I think it’s so strong. It’s not people acting out of fear or guilt. It’s about people that feel so gracious for the lives that they’ve been given us far",
+     "font": "Arial",
+     "size": 2.5,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "win": true,
+     "title": "The Wall"
+    }
+   ]
+  },
+  {
+   "id": "p1s54vdd",
+   "bg": "#fdfef9",
+   "items": [
+    {
+     "id": "i4625ik",
+     "type": "text",
+     "x": 50,
+     "y": 12,
+     "w": 84,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "The Wall",
+     "font": "Arial",
+     "size": 6,
+     "color": "#2b2755",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "sppbszg",
+     "type": "text",
+     "x": 50,
+     "y": 40,
+     "w": 86,
+     "h": 34.9,
+     "rot": 0,
+     "z": 5,
+     "text": "and so we said this things about human connection today and we said what are the things that you’re fearful of and then furthermore, we talk about what are the things that we’re looking that we think is a good solution you know we can divide this up into which of these projects or technical and which one of them or not if you want to categorize them to pro or anti AI, but it doesn’t matter. We get this from the data from us just putting down as as we could for me the narrator this is an exercise in improv.",
+     "font": "Arial",
+     "size": 2.5,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "win": true,
+     "title": "What we love, what we fear"
+    },
+    {
+     "id": "078rvrz",
+     "type": "map",
+     "x": 50,
+     "y": 107.5,
+     "w": 96,
+     "h": 92,
+     "rot": 0,
+     "z": 2,
+     "title": "Every note",
+     "notes": [
+      {
+       "id": "rel38",
+       "src": "/zine/stickies/relationships_and_personal_life_38.webp",
+       "x": 0.1803,
+       "y": 0.2412,
+       "w": 0.0367,
+       "rot": -0.3,
+       "z": 12,
+       "text": "1. Dating apps negatively impacting human connection",
+       "dom": "rel",
+       "m": [
+        0.209,
+        0.69
+       ],
+       "sim": [
+        0.373,
+        0.04,
+        0.087,
+        -0.058,
+        0.039,
+        0.044,
+        0.05,
+        0.061
+       ]
+      },
+      {
+       "id": "rel01",
+       "src": "/zine/stickies/relationships_and_personal_life_01.webp",
+       "x": 0.1557,
+       "y": 0.4024,
+       "w": 0.0367,
+       "rot": 0,
+       "z": 35,
+       "text": "men online are creepy and [crossed out] approaching ppl IRL feels scary/ intrusive",
+       "dom": "rel",
+       "m": [
+        0.251,
+        0.658
+       ],
+       "sim": [
+        0.22,
+        0.072,
+        0.102,
+        -0.056,
+        0.069,
+        -0.019,
+        0.057,
+        -0.013
+       ]
+      },
+      {
+       "id": "rel39",
+       "src": "/zine/stickies/relationships_and_personal_life_39.webp",
+       "x": 0.2833,
+       "y": 0.2873,
+       "w": 0.0367,
+       "rot": -10,
+       "z": 18,
+       "text": "1. proliferation of porn hyper-sexualizes women + makes men less confident to ask women out",
+       "dom": "rel",
+       "m": [
+        0.148,
+        0.639
+       ],
+       "sim": [
+        0.199,
+        0.027,
+        0.087,
+        0.047,
+        0.086,
+        0.056,
+        0.05,
+        -0.008
+       ]
+      },
+      {
+       "id": "rel37",
+       "src": "/zine/stickies/relationships_and_personal_life_37.webp",
+       "x": 0.1284,
+       "y": 0.2358,
+       "w": 0.0367,
+       "rot": 22.0,
+       "z": 11,
+       "text": "1. Mysogyny + uptick in gender-based violence",
+       "dom": "rel",
+       "m": [
+        0.125,
+        0.581
+       ],
+       "sim": [
+        0.208,
+        0.199,
+        0.112,
+        0.136,
+        0.205,
+        0.133,
+        0.073,
+        -0.025
+       ]
+      },
+      {
+       "id": "rel31",
+       "src": "/zine/stickies/relationships_and_personal_life_31.webp",
+       "x": 0.1116,
+       "y": 0.1658,
+       "w": 0.0367,
+       "rot": -5,
+       "z": 2,
+       "text": "anti-hinge! I want to be in more social enviroment for relatnshps to arise",
+       "dom": "rel",
+       "m": [
+        0.12,
+        0.302
+       ],
+       "sim": [
+        0.202,
+        0.33,
+        0.228,
+        0.1,
+        0.2,
+        0.271,
+        0.228,
+        0.138
+       ]
+      },
+      {
+       "id": "rel36",
+       "src": "/zine/stickies/relationships_and_personal_life_36.webp",
+       "x": 0.3225,
+       "y": 0.22,
+       "w": 0.0367,
+       "rot": -16.2,
+       "z": 9,
+       "text": "I don't want to use a dating app, because:",
+       "dom": "rel",
+       "m": [
+        0.201,
+        0.701
+       ],
+       "sim": [
+        0.3,
+        0.03,
+        0.076,
+        -0.052,
+        0.062,
+        0.079,
+        0.019,
+        -0.009
+       ]
+      },
+      {
+       "id": "rel22",
+       "src": "/zine/stickies/relationships_and_personal_life_22.webp",
+       "x": 0.2743,
+       "y": 0.1691,
+       "w": 0.0367,
+       "rot": -15,
+       "z": 6,
+       "text": "I'm scared to initiate [because - crossed out] connection/ friendships sometimes, because I falsely believe I might be crossing boundaries just by doing that.",
+       "dom": "rel",
+       "m": [
+        0.418,
+        0.722
+       ],
+       "sim": [
+        0.302,
+        0.099,
+        0.034,
+        -0.096,
+        0.05,
+        0.055,
+        -0.007,
+        -0.062
+       ]
+      },
+      {
+       "id": "rel29",
+       "src": "/zine/stickies/relationships_and_personal_life_29.webp",
+       "x": 0.2761,
+       "y": 0.2443,
+       "w": 0.0367,
+       "rot": -15,
+       "z": 17,
+       "text": "I feel like I'm more organic in terms of relationships, don't like to force anything. If feels natural, then I'll initiate but I'm scared of not hearing back",
+       "dom": "rel",
+       "m": [
+        0.441,
+        0.74
+       ],
+       "sim": [
+        0.284,
+        0.046,
+        0.153,
+        -0.033,
+        0.022,
+        0.012,
+        -0.053,
+        -0.028
+       ]
+      },
+      {
+       "id": "rel40",
+       "src": "/zine/stickies/relationships_and_personal_life_40.webp",
+       "x": 0.2849,
+       "y": 0.201,
+       "w": 0.0367,
+       "rot": -18,
+       "z": 30,
+       "text": "I feel the most connected to people who reach out to me first. I think I'm normally isolated, introverted, until I'm prompted, otherwise I feel like I'm taking too much space.",
+       "dom": "rel",
+       "m": [
+        0.436,
+        0.703
+       ],
+       "sim": [
+        0.27,
+        0.278,
+        0.176,
+        -0.074,
+        0.012,
+        0.026,
+        0.003,
+        -0.021
+       ]
+      },
+      {
+       "id": "rel27",
+       "src": "/zine/stickies/relationships_and_personal_life_27.webp",
+       "x": 0.2027,
+       "y": 0.3453,
+       "w": 0.0367,
+       "rot": 5,
+       "z": 20,
+       "text": "① I wish there were more people like me... a huge aspect of human connection is relatability",
+       "dom": "rel",
+       "m": [
+        0.383,
+        0.683
+       ],
+       "sim": [
+        0.321,
+        0.271,
+        0.196,
+        -0.061,
+        0.158,
+        0.112,
+        0.086,
+        0.061
+       ]
+      },
+      {
+       "id": "rel18",
+       "src": "/zine/stickies/relationships_and_personal_life_18.webp",
+       "x": 0.3074,
+       "y": 0.254,
+       "w": 0.0367,
+       "rot": -3,
+       "z": 34,
+       "text": "sometimes don't connect/relate to peers my own age as well as youth rep/rep of my generation",
+       "dom": "rel",
+       "m": [
+        0.176,
+        0.485
+       ],
+       "sim": [
+        0.27,
+        0.289,
+        0.012,
+        0.039,
+        0.031,
+        0.08,
+        0.056,
+        0.019
+       ]
+      },
+      {
+       "id": "rel12",
+       "src": "/zine/stickies/relationships_and_personal_life_12.webp",
+       "x": 0.2509,
+       "y": 0.2864,
+       "w": 0.0367,
+       "rot": 10,
+       "z": 3,
+       "text": "I feel closer to people than people feel close to me",
+       "dom": "rel",
+       "m": [
+        0.445,
+        0.661
+       ],
+       "sim": [
+        0.193,
+        0.279,
+        0.149,
+        -0.072,
+        -0.037,
+        0.024,
+        0.023,
+        -0.016
+       ]
+      },
+      {
+       "id": "rel28",
+       "src": "/zine/stickies/relationships_and_personal_life_28.webp",
+       "x": 0.3055,
+       "y": 0.1622,
+       "w": 0.0367,
+       "rot": -28,
+       "z": 16,
+       "text": "Are big friend groups (7+ people) genuinely that close w/ each other? I'm jealous and I crave for that, even if it's performative",
+       "dom": "rel",
+       "m": [
+        0.414,
+        0.603
+       ],
+       "sim": [
+        0.173,
+        0.229,
+        0.001,
+        -0.124,
+        0.037,
+        0.032,
+        0.01,
+        0
+       ]
+      },
+      {
+       "id": "rel30",
+       "src": "/zine/stickies/relationships_and_personal_life_30.webp",
+       "x": 0.2197,
+       "y": 0.2353,
+       "w": 0.0367,
+       "rot": -5,
+       "z": 27,
+       "text": "I feel constricted in building rela- tionships because I don't live in a \"young\" city",
+       "dom": "rel",
+       "m": [
+        0.16,
+        0.456
+       ],
+       "sim": [
+        0.27,
+        0.348,
+        0.141,
+        0.091,
+        0.141,
+        0.183,
+        0.113,
+        -0.018
+       ]
+      },
+      {
+       "id": "rel11",
+       "src": "/zine/stickies/relationships_and_personal_life_11.webp",
+       "x": 0.2611,
+       "y": 0.3174,
+       "w": 0.0367,
+       "rot": 12,
+       "z": 5,
+       "text": "ppl ^actually think that talking to a chatbot is LITERALLY MORE useful than therapy.",
+       "dom": "rel",
+       "m": [
+        0.729,
+        0.541
+       ],
+       "sim": [
+        0.12,
+        0.098,
+        0.02,
+        -0.032,
+        0.066,
+        0.094,
+        0.074,
+        0.086
+       ]
+      },
+      {
+       "id": "rel19",
+       "src": "/zine/stickies/relationships_and_personal_life_19.webp",
+       "x": 0.2428,
+       "y": 0.2521,
+       "w": 0.0367,
+       "rot": 72,
+       "z": 28,
+       "text": "Telling AI your emotions and it making you feel good",
+       "dom": "rel",
+       "m": [
+        0.711,
+        0.274
+       ],
+       "sim": [
+        0.165,
+        0.07,
+        0.072,
+        0.046,
+        0.156,
+        0.173,
+        0.148,
+        0.149
+       ]
+      },
+      {
+       "id": "rel13",
+       "src": "/zine/stickies/relationships_and_personal_life_13.webp",
+       "x": 0.078,
+       "y": 0.229,
+       "w": 0.0367,
+       "rot": -1.7,
+       "z": 10,
+       "text": "Questioning the nuance of what people say because the close people in my life give me mixed signals.. so I asked AI",
+       "dom": "rel",
+       "m": [
+        0.727,
+        0.313
+       ],
+       "sim": [
+        0.276,
+        0.182,
+        0.102,
+        0.036,
+        0.061,
+        0.091,
+        0.094,
+        0.108
+       ]
+      },
+      {
+       "id": "rel04",
+       "src": "/zine/stickies/relationships_and_personal_life_04.webp",
+       "x": 0.3193,
+       "y": 0.1064,
+       "w": 0.0367,
+       "rot": -155,
+       "z": 23,
+       "text": "What were convos you would have had in person that are now w/ AI ?asking friends this",
+       "dom": "rel",
+       "m": [
+        0.717,
+        0.354
+       ],
+       "sim": [
+        0.258,
+        0.124,
+        0.09,
+        0.022,
+        0.164,
+        0.161,
+        0.112,
+        0.087
+       ]
+      },
+      {
+       "id": "rel21",
+       "src": "/zine/stickies/relationships_and_personal_life_21.webp",
+       "x": 0.2714,
+       "y": 0.0987,
+       "w": 0.0367,
+       "rot": 22,
+       "z": 22,
+       "text": "the operationalization of our mental health - mental health solutions don't come from text.",
+       "dom": "rel",
+       "m": [
+        0.771,
+        0.576
+       ],
+       "sim": [
+        0.121,
+        0.133,
+        0.036,
+        0.038,
+        0.045,
+        0.035,
+        0.06,
+        0.012
+       ]
+      },
+      {
+       "id": "rel35",
+       "src": "/zine/stickies/relationships_and_personal_life_35.webp",
+       "x": 0.1161,
+       "y": 0.2024,
+       "w": 0.0367,
+       "rot": -8,
+       "z": 29,
+       "text": "some tech now is now mediating my relationships → making them frictionless.",
+       "dom": "rel",
+       "m": [
+        0.66,
+        0.592
+       ],
+       "sim": [
+        0.395,
+        0.145,
+        0.16,
+        0.125,
+        0.091,
+        0.218,
+        0.285,
+        0.411
+       ]
+      },
+      {
+       "id": "rel16",
+       "src": "/zine/stickies/relationships_and_personal_life_16.webp",
+       "x": 0.2364,
+       "y": 0.1257,
+       "w": 0.0367,
+       "rot": -5,
+       "z": 24,
+       "text": "Ive strained my long distance relationship because of the push of AI mediated relations because. I now focus on my IRL relationships.",
+       "dom": "rel",
+       "m": [
+        0.332,
+        0.677
+       ],
+       "sim": [
+        0.438,
+        0.135,
+        0.105,
+        0.084,
+        0.172,
+        0.171,
+        0.135,
+        0.104
+       ]
+      },
+      {
+       "id": "rel25",
+       "src": "/zine/stickies/relationships_and_personal_life_25.webp",
+       "x": 0.1675,
+       "y": 0.3239,
+       "w": 0.0367,
+       "rot": 23.0,
+       "z": 15,
+       "text": "I am not sure about how I feel about communal screen time. On weekends, when me and my friends spend a whole day together every time around 6pm we go to one of our homes, sit down on a couch and open TikTok/Insta individually and for an hour just not talk, before we get ready to go out. I don't have social media so I watch my friend's screen, but I don't know if I like this because it recharges everyone.",
+       "dom": "rel",
+       "m": [
+        0.44,
+        0.585
+       ],
+       "sim": [
+        0.215,
+        0.158,
+        0.031,
+        -0.097,
+        0.064,
+        0.078,
+        0.063,
+        0.125
+       ]
+      },
+      {
+       "id": "rel17",
+       "src": "/zine/stickies/relationships_and_personal_life_17.webp",
+       "x": 0.3023,
+       "y": 0.3195,
+       "w": 0.0367,
+       "rot": 22,
+       "z": 19,
+       "text": "I struggle to know how to be there for friends who are being heavily impacted by AI - They go to me for guidance but I feel unequiped",
+       "dom": "rel",
+       "m": [
+        0.658,
+        0.374
+       ],
+       "sim": [
+        0.124,
+        0.157,
+        0.028,
+        0.067,
+        0.043,
+        0.106,
+        0.043,
+        0.052
+       ]
+      },
+      {
+       "id": "rel14",
+       "src": "/zine/stickies/relationships_and_personal_life_14.webp",
+       "x": 0.1866,
+       "y": 0.1247,
+       "w": 0.0367,
+       "rot": 0,
+       "z": 26,
+       "text": "I hate when people [crossed out] tokenize their own or my individuality and → weirdness ↑ turn it into I ♥ weirdness",
+       "dom": "rel",
+       "m": [
+        0,
+        0.571
+       ],
+       "sim": [
+        0.156,
+        0.267,
+        0.06,
+        -0.085,
+        0.076,
+        0.098,
+        0.088,
+        0.053
+       ]
+      },
+      {
+       "id": "rel26",
+       "src": "/zine/stickies/relationships_and_personal_life_26.webp",
+       "x": 0.2161,
+       "y": 0.2958,
+       "w": 0.0367,
+       "rot": -55,
+       "z": 31,
+       "text": "1. Trans rights being stripped away",
+       "dom": "rel",
+       "m": [
+        1,
+        0.597
+       ],
+       "sim": [
+        0.044,
+        0.215,
+        0.009,
+        0.1,
+        0.121,
+        0.097,
+        0.114,
+        0.082
+       ]
+      },
+      {
+       "id": "rel08",
+       "src": "/zine/stickies/relationships_and_personal_life_08.webp",
+       "x": 0.2736,
+       "y": 0.3346,
+       "w": 0.0367,
+       "rot": 22,
+       "z": 33,
+       "text": "I'm interested in depolarizing conversations about AI",
+       "dom": "rel",
+       "m": [
+        0.767,
+        0.247
+       ],
+       "sim": [
+        0.121,
+        0.066,
+        0.084,
+        0.205,
+        0.18,
+        0.172,
+        0.149,
+        0.141
+       ]
+      },
+      {
+       "id": "rel07",
+       "src": "/zine/stickies/relationships_and_personal_life_07.webp",
+       "x": 0.149,
+       "y": 0.1625,
+       "w": 0.0367,
+       "rot": -103.1,
+       "z": 7,
+       "text": "Letter- writing",
+       "dom": "rel",
+       "m": [
+        0.854,
+        0.544
+       ],
+       "sim": [
+        0.209,
+        0.21,
+        0.131,
+        0.17,
+        0.181,
+        0.283,
+        0.282,
+        0.153
+       ]
+      },
+      {
+       "id": "rel02",
+       "src": "/zine/stickies/relationships_and_personal_life_02.webp",
+       "x": 0.1975,
+       "y": 0.2819,
+       "w": 0.0367,
+       "rot": -62,
+       "z": 4,
+       "text": "FRIENSHIP",
+       "dom": "rel",
+       "m": [
+        0.351,
+        0.616
+       ],
+       "sim": [
+        0.413,
+        0.267,
+        0.198,
+        0.068,
+        0.202,
+        0.258,
+        0.135,
+        0.106
+       ]
+      },
+      {
+       "id": "rel05",
+       "src": "/zine/stickies/relationships_and_personal_life_05.webp",
+       "x": 0.2408,
+       "y": 0.1953,
+       "w": 0.0367,
+       "rot": -15,
+       "z": 21,
+       "text": "I appreciate having a missed call to return",
+       "dom": "rel",
+       "m": [
+        0.155,
+        0.862
+       ],
+       "sim": [
+        0.021,
+        -0.027,
+        0.063,
+        -0.039,
+        0.011,
+        0.045,
+        0.029,
+        0.019
+       ]
+      },
+      {
+       "id": "rel09",
+       "src": "/zine/stickies/relationships_and_personal_life_09.webp",
+       "x": 0.2294,
+       "y": 0.3507,
+       "w": 0.0367,
+       "rot": 90,
+       "z": 32,
+       "text": "I'm not interested in complaining (very dif than sharing experiences)",
+       "dom": "rel",
+       "m": [
+        0.301,
+        0.809
+       ],
+       "sim": [
+        0.268,
+        0.245,
+        0.07,
+        -0.01,
+        0.241,
+        0.19,
+        0.123,
+        0.144
+       ]
+      },
+      {
+       "id": "rel10",
+       "src": "/zine/stickies/relationships_and_personal_life_10.webp",
+       "x": 0.1968,
+       "y": 0.4024,
+       "w": 0.0367,
+       "rot": 0,
+       "z": 36,
+       "text": "I am pulled towards people that care unconditionally. I want people to believe that real kindness exists.",
+       "dom": "rel",
+       "m": [
+        0.414,
+        0.886
+       ],
+       "sim": [
+        0.145,
+        0.185,
+        0.069,
+        -0.006,
+        0.034,
+        -0.011,
+        -0.008,
+        -0.004
+       ]
+      },
+      {
+       "id": "rel20",
+       "src": "/zine/stickies/relationships_and_personal_life_20.webp",
+       "x": 0.2294,
+       "y": 0.2455,
+       "w": 0.0367,
+       "rot": 5,
+       "z": 1,
+       "text": "Relationships forces you to assess the quality of your human connection with others",
+       "dom": "rel",
+       "m": [
+        0.362,
+        0.696
+       ],
+       "sim": [
+        0.521,
+        0.272,
+        0.176,
+        0.015,
+        0.126,
+        0.088,
+        0.13,
+        0.095
+       ]
+      },
+      {
+       "id": "rel24",
+       "src": "/zine/stickies/relationships_and_personal_life_24.webp",
+       "x": 0.2797,
+       "y": 0.1333,
+       "w": 0.0367,
+       "rot": -15,
+       "z": 25,
+       "text": "I have ^established & maintained deep eldership due to digital connection tools",
+       "dom": "rel",
+       "m": [
+        0.631,
+        0.701
+       ],
+       "sim": [
+        0.193,
+        0.214,
+        0.065,
+        0.075,
+        0.104,
+        0.187,
+        0.245,
+        0.26
+       ]
+      },
+      {
+       "id": "rel32",
+       "src": "/zine/stickies/relationships_and_personal_life_32.webp",
+       "x": 0.2395,
+       "y": 0.157,
+       "w": 0.0367,
+       "rot": -25.2,
+       "z": 8,
+       "text": "Groupchats [illegible]",
+       "dom": "rel",
+       "m": [
+        0.276,
+        0.379
+       ],
+       "sim": [
+        0.192,
+        0.324,
+        0.123,
+        0.063,
+        0.14,
+        0.218,
+        0.193,
+        0.155
+       ]
+      },
+      {
+       "id": "rel33",
+       "src": "/zine/stickies/relationships_and_personal_life_33.webp",
+       "x": 0.1047,
+       "y": 0.2716,
+       "w": 0.0367,
+       "rot": 10.5,
+       "z": 13,
+       "text": "Relationship & person life touch, allowing myself to be loved * listening and communicat[crossed out]ing",
+       "dom": "rel",
+       "m": [
+        0.343,
+        0.735
+       ],
+       "sim": [
+        0.593,
+        0.3,
+        0.212,
+        0.049,
+        0.273,
+        0.204,
+        0.235,
+        0.161
+       ]
+      },
+      {
+       "id": "rel34",
+       "src": "/zine/stickies/relationships_and_personal_life_34.webp",
+       "x": 0.1466,
+       "y": 0.2752,
+       "w": 0.0367,
+       "rot": 9.5,
+       "z": 14,
+       "text": "DATING",
+       "dom": "rel",
+       "m": [
+        0.182,
+        0.724
+       ],
+       "sim": [
+        0.533,
+        0.154,
+        0.158,
+        0.071,
+        0.193,
+        0.291,
+        0.23,
+        0.114
+       ]
+      },
+      {
+       "id": "cul03",
+       "src": "/zine/stickies/culture_art_and_storytelling_03.webp",
+       "x": 0.5975,
+       "y": 0.2896,
+       "w": 0.0367,
+       "rot": -13,
+       "z": 6,
+       "text": "6. Media being owned by billionaires + monopolists makes me feel like I can't trust anything",
+       "dom": "cul",
+       "m": [
+        0.557,
+        0.53
+       ],
+       "sim": [
+        0.052,
+        0.132,
+        -0.038,
+        0.122,
+        0.115,
+        0.087,
+        0.107,
+        0.092
+       ]
+      },
+      {
+       "id": "cul09",
+       "src": "/zine/stickies/culture_art_and_storytelling_09.webp",
+       "x": 0.4686,
+       "y": 0.3112,
+       "w": 0.0367,
+       "rot": -5,
+       "z": 21,
+       "text": "6. I've had bad experiences w/ media exploiting my lived experience + eroded trust",
+       "dom": "cul",
+       "m": [
+        0.546,
+        0.536
+       ],
+       "sim": [
+        0.273,
+        0.171,
+        0.043,
+        0.05,
+        0.201,
+        0.148,
+        0.14,
+        0.104
+       ]
+      },
+      {
+       "id": "cul27",
+       "src": "/zine/stickies/culture_art_and_storytelling_27.webp",
+       "x": 0.5226,
+       "y": 0.3715,
+       "w": 0.0367,
+       "rot": -8,
+       "z": 24,
+       "text": "6. Art is one of the only means of resistance left",
+       "dom": "cul",
+       "m": [
+        0.929,
+        0.436
+       ],
+       "sim": [
+        0.061,
+        0.169,
+        0.112,
+        0.083,
+        0.384,
+        0.196,
+        0.172,
+        0.158
+       ]
+      },
+      {
+       "id": "cul02",
+       "src": "/zine/stickies/culture_art_and_storytelling_02.webp",
+       "x": 0.4908,
+       "y": 0.1746,
+       "w": 0.0367,
+       "rot": 8,
+       "z": 17,
+       "text": "It is hard to create art right now, because it is scary to think deeply. Especially now.",
+       "dom": "cul",
+       "m": [
+        0.892,
+        0.449
+       ],
+       "sim": [
+        0.107,
+        0.056,
+        0.131,
+        -0.033,
+        0.412,
+        0.165,
+        0.166,
+        0.104
+       ]
+      },
+      {
+       "id": "cul10",
+       "src": "/zine/stickies/culture_art_and_storytelling_10.webp",
+       "x": 0.4514,
+       "y": 0.1892,
+       "w": 0.0367,
+       "rot": -3,
+       "z": 18,
+       "text": "• AI makes me want to dive deeper into Vinyl * Fixing with vinyl * Music as [crossed out] Curated space.",
+       "dom": "cul",
+       "m": [
+        0.575,
+        0.279
+       ],
+       "sim": [
+        0.1,
+        0.136,
+        0.205,
+        0.127,
+        0.208,
+        0.167,
+        0.147,
+        0.212
+       ]
+      },
+      {
+       "id": "cul04",
+       "src": "/zine/stickies/culture_art_and_storytelling_04.webp",
+       "x": 0.5207,
+       "y": 0.2788,
+       "w": 0.0367,
+       "rot": -17.7,
+       "z": 11,
+       "text": "because of so much AI slop I've become more motivated to learn the work of great writers deeply",
+       "dom": "cul",
+       "m": [
+        0.649,
+        0.278
+       ],
+       "sim": [
+        0.079,
+        0.078,
+        0.032,
+        0.014,
+        0.241,
+        0.248,
+        0.128,
+        0.052
+       ]
+      },
+      {
+       "id": "cul24",
+       "src": "/zine/stickies/culture_art_and_storytelling_24.webp",
+       "x": 0.573,
+       "y": 0.2001,
+       "w": 0.0367,
+       "rot": -17,
+       "z": 23,
+       "text": "calligraphy! slowing down give words more emotions",
+       "dom": "cul",
+       "m": [
+        0.877,
+        0.514
+       ],
+       "sim": [
+        0.112,
+        0.063,
+        0.035,
+        -0.027,
+        0.235,
+        0.146,
+        0.163,
+        0.083
+       ]
+      },
+      {
+       "id": "cul23",
+       "src": "/zine/stickies/culture_art_and_storytelling_23.webp",
+       "x": 0.6053,
+       "y": 0.253,
+       "w": 0.0367,
+       "rot": -25,
+       "z": 25,
+       "text": "As a creative, AI concerns me because I see support for creative spaces starting to cease",
+       "dom": "cul",
+       "m": [
+        0.623,
+        0.253
+       ],
+       "sim": [
+        0.092,
+        0.23,
+        0.247,
+        0.084,
+        0.342,
+        0.198,
+        0.156,
+        0.251
+       ]
+      },
+      {
+       "id": "cul16",
+       "src": "/zine/stickies/culture_art_and_storytelling_16.webp",
+       "x": 0.5625,
+       "y": 0.3042,
+       "w": 0.0367,
+       "rot": -25,
+       "z": 20,
+       "text": "I'm frustrated by the efficiency mindset infiltrating the art world",
+       "dom": "cul",
+       "m": [
+        0.899,
+        0.434
+       ],
+       "sim": [
+        0.092,
+        0.168,
+        0.099,
+        0.173,
+        0.349,
+        0.2,
+        0.245,
+        0.265
+       ]
+      },
+      {
+       "id": "cul07",
+       "src": "/zine/stickies/culture_art_and_storytelling_07.webp",
+       "x": 0.5695,
+       "y": 0.1426,
+       "w": 0.0367,
+       "rot": -8,
+       "z": 26,
+       "text": "ppl are tokenizing weirdness and individuality such that it has become a trend.",
+       "dom": "cul",
+       "m": [
+        0.008,
+        0.572
+       ],
+       "sim": [
+        0.126,
+        0.21,
+        0.047,
+        -0.023,
+        0.134,
+        0.11,
+        0.123,
+        0.065
+       ]
+      },
+      {
+       "id": "cul14",
+       "src": "/zine/stickies/culture_art_and_storytelling_14.webp",
+       "x": 0.5669,
+       "y": 0.2631,
+       "w": 0.0367,
+       "rot": 8,
+       "z": 5,
+       "text": "Talking deep to AI but not a human",
+       "dom": "cul",
+       "m": [
+        0.776,
+        0.333
+       ],
+       "sim": [
+        0.046,
+        0.066,
+        0.046,
+        0.052,
+        0.095,
+        0.108,
+        0.065,
+        0.031
+       ]
+      },
+      {
+       "id": "cul13",
+       "src": "/zine/stickies/culture_art_and_storytelling_13.webp",
+       "x": 0.428,
+       "y": 0.2797,
+       "w": 0.0367,
+       "rot": -5.5,
+       "z": 12,
+       "text": "I can't stop talking about AI.",
+       "dom": "cul",
+       "m": [
+        0.779,
+        0.289
+       ],
+       "sim": [
+        0.03,
+        0.074,
+        0.122,
+        0.114,
+        0.182,
+        0.147,
+        0.092,
+        0.146
+       ]
+      },
+      {
+       "id": "cul12",
+       "src": "/zine/stickies/culture_art_and_storytelling_12.webp",
+       "x": 0.4494,
+       "y": 0.2255,
+       "w": 0.0367,
+       "rot": 0.0,
+       "z": 2,
+       "text": "Talking about hot-takes and seeing the why behind them",
+       "dom": "cul",
+       "m": [
+        0.103,
+        0.664
+       ],
+       "sim": [
+        0.108,
+        0.126,
+        0.238,
+        0.127,
+        0.175,
+        0.153,
+        0.149,
+        0.086
+       ]
+      },
+      {
+       "id": "cul01",
+       "src": "/zine/stickies/culture_art_and_storytelling_01.webp",
+       "x": 0.5744,
+       "y": 0.3557,
+       "w": 0.0367,
+       "rot": -46.7,
+       "z": 13,
+       "text": "I am: b: Training youth to go on the media to push back on AI companies' marketing messaging",
+       "dom": "cul",
+       "m": [
+        0.573,
+        0.216
+       ],
+       "sim": [
+        0.13,
+        0.206,
+        0.056,
+        0.153,
+        0.261,
+        0.318,
+        0.292,
+        0.26
+       ]
+      },
+      {
+       "id": "cul11",
+       "src": "/zine/stickies/culture_art_and_storytelling_11.webp",
+       "x": 0.4637,
+       "y": 0.2704,
+       "w": 0.0367,
+       "rot": -8,
+       "z": 8,
+       "text": "I'm working on: conversations about AI in peoples lives",
+       "dom": "cul",
+       "m": [
+        0.755,
+        0.262
+       ],
+       "sim": [
+        0.246,
+        0.217,
+        0.149,
+        0.183,
+        0.246,
+        0.246,
+        0.248,
+        0.2
+       ]
+      },
+      {
+       "id": "cul18",
+       "src": "/zine/stickies/culture_art_and_storytelling_18.webp",
+       "x": 0.4462,
+       "y": 0.2467,
+       "w": 0.0367,
+       "rot": -25,
+       "z": 22,
+       "text": "I'm interested in storytelling and how best to communicate about AI",
+       "dom": "cul",
+       "m": [
+        0.799,
+        0.25
+       ],
+       "sim": [
+        0.147,
+        0.092,
+        0.12,
+        0.105,
+        0.466,
+        0.217,
+        0.148,
+        0.135
+       ]
+      },
+      {
+       "id": "cul19",
+       "src": "/zine/stickies/culture_art_and_storytelling_19.webp",
+       "x": 0.6246,
+       "y": 0.3238,
+       "w": 0.0367,
+       "rot": -37.5,
+       "z": 14,
+       "text": "6. I'm seeding resistance movements: - AI Detoxes - going analog - anti-AI marketing",
+       "dom": "cul",
+       "m": [
+        0.587,
+        0.194
+       ],
+       "sim": [
+        0.059,
+        0.11,
+        0.114,
+        0.106,
+        0.135,
+        0.201,
+        0.161,
+        0.24
+       ]
+      },
+      {
+       "id": "cul20",
+       "src": "/zine/stickies/culture_art_and_storytelling_20.webp",
+       "x": 0.5741,
+       "y": 0.2211,
+       "w": 0.0367,
+       "rot": -23.7,
+       "z": 3,
+       "text": "Fourdoto ↘ Creative Media work Spaces that conserve creativity. and culture",
+       "dom": "cul",
+       "m": [
+        0.472,
+        0.305
+       ],
+       "sim": [
+        0.13,
+        0.335,
+        0.185,
+        0.062,
+        0.562,
+        0.244,
+        0.335,
+        0.24
+       ]
+      },
+      {
+       "id": "cul25",
+       "src": "/zine/stickies/culture_art_and_storytelling_25.webp",
+       "x": 0.6447,
+       "y": 0.2704,
+       "w": 0.0367,
+       "rot": -20,
+       "z": 19,
+       "text": "A PSA Film Fellowship for local youth to create stories about and affirming to their community",
+       "dom": "cul",
+       "m": [
+        0.411,
+        0.329
+       ],
+       "sim": [
+        0.171,
+        0.314,
+        0.097,
+        0.083,
+        0.374,
+        0.24,
+        0.155,
+        0.073
+       ]
+      },
+      {
+       "id": "cul26",
+       "src": "/zine/stickies/culture_art_and_storytelling_26.webp",
+       "x": 0.5075,
+       "y": 0.1296,
+       "w": 0.0367,
+       "rot": -4.0,
+       "z": 9,
+       "text": "Writing on concentration of power in AI for American Intelligence } Pirate Wires",
+       "dom": "cul",
+       "m": [
+        0.72,
+        0.062
+       ],
+       "sim": [
+        0.029,
+        0.034,
+        0.003,
+        0.129,
+        0.074,
+        0.076,
+        0.077,
+        0.175
+       ]
+      },
+      {
+       "id": "cul08",
+       "src": "/zine/stickies/culture_art_and_storytelling_08.webp",
+       "x": 0.5966,
+       "y": 0.1654,
+       "w": 0.0367,
+       "rot": -30,
+       "z": 16,
+       "text": "Working on getting my friends to sit in unanswered thoughts",
+       "dom": "cul",
+       "m": [
+        0.518,
+        0.428
+       ],
+       "sim": [
+        0.12,
+        0.2,
+        0.023,
+        -0.038,
+        0.016,
+        0.13,
+        0.039,
+        -0.022
+       ]
+      },
+      {
+       "id": "cul17",
+       "src": "/zine/stickies/culture_art_and_storytelling_17.webp",
+       "x": 0.5415,
+       "y": 0.171,
+       "w": 0.0367,
+       "rot": 3,
+       "z": 15,
+       "text": "reading and collaborating on my friends writing + music",
+       "dom": "cul",
+       "m": [
+        0.478,
+        0.458
+       ],
+       "sim": [
+        0.168,
+        0.239,
+        0.031,
+        -0.063,
+        0.246,
+        0.281,
+        0.176,
+        0.137
+       ]
+      },
+      {
+       "id": "cul05",
+       "src": "/zine/stickies/culture_art_and_storytelling_05.webp",
+       "x": 0.5118,
+       "y": 0.2951,
+       "w": 0.0367,
+       "rot": 15,
+       "z": 27,
+       "text": "MUSIC",
+       "dom": "cul",
+       "m": [
+        0.082,
+        0.778
+       ],
+       "sim": [
+        0.267,
+        0.215,
+        0.204,
+        0.147,
+        0.367,
+        0.418,
+        0.3,
+        0.205
+       ]
+      },
+      {
+       "id": "cul06",
+       "src": "/zine/stickies/culture_art_and_storytelling_06.webp",
+       "x": 0.4733,
+       "y": 0.254,
+       "w": 0.0367,
+       "rot": 6,
+       "z": 7,
+       "text": "concerts / sports collective human spirit",
+       "dom": "cul",
+       "m": [
+        0.077,
+        0.808
+       ],
+       "sim": [
+        0.166,
+        0.328,
+        0.172,
+        0.04,
+        0.341,
+        0.153,
+        0.243,
+        0.074
+       ]
+      },
+      {
+       "id": "cul15",
+       "src": "/zine/stickies/culture_art_and_storytelling_15.webp",
+       "x": 0.4812,
+       "y": 0.2738,
+       "w": 0.0367,
+       "rot": 0,
+       "z": 1,
+       "text": "taste",
+       "dom": "cul",
+       "m": [
+        0.082,
+        0.748
+       ],
+       "sim": [
+        0.264,
+        0.285,
+        0.18,
+        0.118,
+        0.243,
+        0.282,
+        0.203,
+        0.213
+       ]
+      },
+      {
+       "id": "cul21",
+       "src": "/zine/stickies/culture_art_and_storytelling_21.webp",
+       "x": 0.5066,
+       "y": 0.3468,
+       "w": 0.0367,
+       "rot": -8,
+       "z": 4,
+       "text": "I ♥ ART!",
+       "dom": "cul",
+       "m": [
+        0.611,
+        0
+       ],
+       "sim": [
+        0.18,
+        0.152,
+        0.094,
+        0.024,
+        0.458,
+        0.232,
+        0.207,
+        0.221
+       ]
+      },
+      {
+       "id": "cul22",
+       "src": "/zine/stickies/culture_art_and_storytelling_22.webp",
+       "x": 0.6322,
+       "y": 0.2101,
+       "w": 0.0367,
+       "rot": 4.6,
+       "z": 10,
+       "text": "understanding how coupled our lay understanding of cognition is tied to the theory of computation?",
+       "dom": "cul",
+       "m": [
+        0.933,
+        0.203
+       ],
+       "sim": [
+        0.062,
+        0.092,
+        0.173,
+        0.102,
+        0.027,
+        0.231,
+        0.148,
+        0.184
+       ]
+      },
+      {
+       "id": "com04",
+       "src": "/zine/stickies/community_and_belonging_04.webp",
+       "x": 0.7576,
+       "y": 0.3546,
+       "w": 0.0367,
+       "rot": 0,
+       "z": 16,
+       "text": "I'm in class, but I don't think shared learning is occurring. It feels like the stranger-to- friend pipeline has become murky/challenging",
+       "dom": "com",
+       "m": [
+        0.383,
+        0.538
+       ],
+       "sim": [
+        0.227,
+        0.262,
+        0.07,
+        0.023,
+        0.115,
+        0.441,
+        0.171,
+        0.049
+       ]
+      },
+      {
+       "id": "com13",
+       "src": "/zine/stickies/community_and_belonging_13.webp",
+       "x": 0.829,
+       "y": 0.2791,
+       "w": 0.0367,
+       "rot": 0,
+       "z": 3,
+       "text": "texting people is stressful.",
+       "dom": "com",
+       "m": [
+        0.781,
+        0.545
+       ],
+       "sim": [
+        0.216,
+        0.106,
+        0.031,
+        -0.025,
+        0.073,
+        0.138,
+        0.169,
+        0.107
+       ]
+      },
+      {
+       "id": "com11",
+       "src": "/zine/stickies/community_and_belonging_11.webp",
+       "x": 0.7944,
+       "y": 0.1703,
+       "w": 0.0367,
+       "rot": -8,
+       "z": 12,
+       "text": "We are in an insecurity epidemic, technology is worsening it.",
+       "dom": "com",
+       "m": [
+        0.635,
+        0.575
+       ],
+       "sim": [
+        0.14,
+        0.129,
+        0.067,
+        0.186,
+        0.083,
+        0.218,
+        0.157,
+        0.278
+       ]
+      },
+      {
+       "id": "com06",
+       "src": "/zine/stickies/community_and_belonging_06.webp",
+       "x": 0.7999,
+       "y": 0.2395,
+       "w": 0.0367,
+       "rot": -3,
+       "z": 5,
+       "text": "4. Convenience culture - doordash - amazon - instacart → decrease community reliance",
+       "dom": "com",
+       "m": [
+        0.063,
+        0.259
+       ],
+       "sim": [
+        0.151,
+        0.398,
+        0.076,
+        0.197,
+        0.283,
+        0.108,
+        0.087,
+        0.192
+       ]
+      },
+      {
+       "id": "com01",
+       "src": "/zine/stickies/community_and_belonging_01.webp",
+       "x": 0.8401,
+       "y": 0.2359,
+       "w": 0.0367,
+       "rot": 2,
+       "z": 8,
+       "text": "I hate when all a group does is bond through complaint",
+       "dom": "com",
+       "m": [
+        0.285,
+        0.842
+       ],
+       "sim": [
+        0.051,
+        0.235,
+        -0.006,
+        0.059,
+        0.036,
+        0.072,
+        -0.012,
+        0.029
+       ]
+      },
+      {
+       "id": "com16",
+       "src": "/zine/stickies/community_and_belonging_16.webp",
+       "x": 0.7889,
+       "y": 0.264,
+       "w": 0.0367,
+       "rot": 78,
+       "z": 4,
+       "text": "we are either grieving about politics, or laughing [crossed out] by forgetting it. Maybe we're scared to merge the two inseparable worlds",
+       "dom": "com",
+       "m": [
+        0.421,
+        0.232
+       ],
+       "sim": [
+        0.105,
+        0.175,
+        0.092,
+        0.128,
+        0.209,
+        0.118,
+        0.071,
+        -0.026
+       ]
+      },
+      {
+       "id": "com14",
+       "src": "/zine/stickies/community_and_belonging_14.webp",
+       "x": 0.8221,
+       "y": 0.1465,
+       "w": 0.0367,
+       "rot": -10,
+       "z": 7,
+       "text": "Daily walks at the park enable me to meet many neighbors",
+       "dom": "com",
+       "m": [
+        0.093,
+        0.39
+       ],
+       "sim": [
+        0.217,
+        0.273,
+        0.163,
+        -0.027,
+        0.106,
+        0.157,
+        0.114,
+        -0.065
+       ]
+      },
+      {
+       "id": "com15",
+       "src": "/zine/stickies/community_and_belonging_15.webp",
+       "x": 0.7854,
+       "y": 0.1847,
+       "w": 0.0367,
+       "rot": 3,
+       "z": 1,
+       "text": "I love stopping people I recognize",
+       "dom": "com",
+       "m": [
+        0.421,
+        0.836
+       ],
+       "sim": [
+        0.13,
+        0.184,
+        0.06,
+        -0.02,
+        0.094,
+        0.125,
+        0.076,
+        0.022
+       ]
+      },
+      {
+       "id": "com20",
+       "src": "/zine/stickies/community_and_belonging_20.webp",
+       "x": 0.8912,
+       "y": 0.2106,
+       "w": 0.0367,
+       "rot": 3,
+       "z": 14,
+       "text": "HYBRID, I have connection in-person and online w/ friends, family, and mentors",
+       "dom": "com",
+       "m": [
+        0.612,
+        0.719
+       ],
+       "sim": [
+        0.424,
+        0.239,
+        0.118,
+        0.015,
+        0.131,
+        0.238,
+        0.284,
+        0.208
+       ]
+      },
+      {
+       "id": "com17",
+       "src": "/zine/stickies/community_and_belonging_17.webp",
+       "x": 0.8974,
+       "y": 0.176,
+       "w": 0.0367,
+       "rot": 8,
+       "z": 2,
+       "text": "Shared passions Interests",
+       "dom": "com",
+       "m": [
+        0.297,
+        0.747
+       ],
+       "sim": [
+        0.425,
+        0.296,
+        0.119,
+        0.11,
+        0.209,
+        0.21,
+        0.265,
+        0.084
+       ]
+      },
+      {
+       "id": "com18",
+       "src": "/zine/stickies/community_and_belonging_18.webp",
+       "x": 0.7502,
+       "y": 0.2423,
+       "w": 0.0367,
+       "rot": -22,
+       "z": 9,
+       "text": "Sports (playing & watching)",
+       "dom": "com",
+       "m": [
+        0.091,
+        0.835
+       ],
+       "sim": [
+        0.281,
+        0.183,
+        0.168,
+        0.099,
+        0.338,
+        0.382,
+        0.376,
+        0.168
+       ]
+      },
+      {
+       "id": "com19",
+       "src": "/zine/stickies/community_and_belonging_19.webp",
+       "x": 0.7537,
+       "y": 0.3029,
+       "w": 0.0367,
+       "rot": 17,
+       "z": 11,
+       "text": "Book Club",
+       "dom": "com",
+       "m": [
+        0.306,
+        0.299
+       ],
+       "sim": [
+        0.276,
+        0.327,
+        0.149,
+        0.082,
+        0.232,
+        0.334,
+        0.235,
+        0.159
+       ]
+      },
+      {
+       "id": "com02",
+       "src": "/zine/stickies/community_and_belonging_02.webp",
+       "x": 0.7792,
+       "y": 0.2207,
+       "w": 0.0367,
+       "rot": 12,
+       "z": 13,
+       "text": "Knitting Club I started at local library",
+       "dom": "com",
+       "m": [
+        0.319,
+        0.295
+       ],
+       "sim": [
+        0.191,
+        0.23,
+        0.098,
+        0.036,
+        0.228,
+        0.186,
+        0.185,
+        0.099
+       ]
+      },
+      {
+       "id": "com08",
+       "src": "/zine/stickies/community_and_belonging_08.webp",
+       "x": 0.8856,
+       "y": 0.1558,
+       "w": 0.0367,
+       "rot": -18,
+       "z": 15,
+       "text": "Convivir Fund as a community organization",
+       "dom": "com",
+       "m": [
+        0.065,
+        0.189
+       ],
+       "sim": [
+        0.023,
+        0.327,
+        0.076,
+        0.21,
+        0.139,
+        0.072,
+        0.058,
+        0.069
+       ]
+      },
+      {
+       "id": "com09",
+       "src": "/zine/stickies/community_and_belonging_09.webp",
+       "x": 0.7987,
+       "y": 0.3546,
+       "w": 0.0367,
+       "rot": 0,
+       "z": 17,
+       "text": "IM WORKING ON HOW INFRASTRUCTURE AFFECTS HUMAN CONNECTION",
+       "dom": "com",
+       "m": [
+        0.586,
+        0.638
+       ],
+       "sim": [
+        0.208,
+        0.242,
+        0.186,
+        0.187,
+        0.126,
+        0.237,
+        0.28,
+        0.302
+       ]
+      },
+      {
+       "id": "com10",
+       "src": "/zine/stickies/community_and_belonging_10.webp",
+       "x": 0.8398,
+       "y": 0.3546,
+       "w": 0.0367,
+       "rot": 0,
+       "z": 18,
+       "text": "I am inclined to create spaces, where people can be creative and responsible for their future to advance without the marathon",
+       "dom": "com",
+       "m": [
+        0.252,
+        0.224
+       ],
+       "sim": [
+        0.173,
+        0.316,
+        0.335,
+        0.112,
+        0.249,
+        0.237,
+        0.267,
+        0.148
+       ]
+      },
+      {
+       "id": "com07",
+       "src": "/zine/stickies/community_and_belonging_07.webp",
+       "x": 0.8711,
+       "y": 0.2798,
+       "w": 0.0367,
+       "rot": -25,
+       "z": 10,
+       "text": "↗ capable leaders directly with marginalized & underserved youth ↘ healing",
+       "dom": "com",
+       "m": [
+        0.393,
+        0.366
+       ],
+       "sim": [
+        0.163,
+        0.252,
+        -0.038,
+        0.161,
+        0.254,
+        0.19,
+        0.141,
+        0.017
+       ]
+      },
+      {
+       "id": "com05",
+       "src": "/zine/stickies/community_and_belonging_05.webp",
+       "x": 0.8795,
+       "y": 0.2323,
+       "w": 0.0367,
+       "rot": -5,
+       "z": 6,
+       "text": "RITHM whatsapp!",
+       "dom": "com",
+       "m": [
+        0.297,
+        0.392
+       ],
+       "sim": [
+        0.133,
+        0.078,
+        -0.032,
+        0.002,
+        0.146,
+        0.161,
+        0.148,
+        0.141
+       ]
+      },
+      {
+       "id": "com03",
+       "src": "/zine/stickies/community_and_belonging_03.webp",
+       "x": 0.8809,
+       "y": 0.3546,
+       "w": 0.0367,
+       "rot": 0,
+       "z": 19,
+       "text": "1) Experiencing 2) work being done 3) work to be done.",
+       "dom": "com",
+       "m": [
+        0.192,
+        0.361
+       ],
+       "sim": [
+        0.195,
+        0.269,
+        0.176,
+        0.156,
+        0.218,
+        0.321,
+        0.411,
+        0.245
+       ]
+      },
+      {
+       "id": "com12",
+       "src": "/zine/stickies/community_and_belonging_12.webp",
+       "x": 0.922,
+       "y": 0.3546,
+       "w": 0.0367,
+       "rot": 0,
+       "z": 20,
+       "text": "AI summarizing legal documents",
+       "dom": "com",
+       "m": [
+        0.903,
+        0.115
+       ],
+       "sim": [
+        0.021,
+        0.107,
+        0.03,
+        0.126,
+        0.031,
+        0.042,
+        0.077,
+        0.119
+       ]
+      },
+      {
+       "id": "wor14",
+       "src": "/zine/stickies/workplace_and_careers_14.webp",
+       "x": 0.1217,
+       "y": 0.5656,
+       "w": 0.0367,
+       "rot": 106.1,
+       "z": 7,
+       "text": "I feel like the networking neccesary for a career just makes relationships so transactional - I feel like a burden if I'm not stratigically beneficial to the person I'm interacting w/",
+       "dom": "wor",
+       "m": [
+        0.556,
+        0.689
+       ],
+       "sim": [
+        0.407,
+        0.217,
+        0.093,
+        0.019,
+        0.126,
+        0.201,
+        0.333,
+        0.158
+       ]
+      },
+      {
+       "id": "wor09",
+       "src": "/zine/stickies/workplace_and_careers_09.webp",
+       "x": 0.193,
+       "y": 0.6652,
+       "w": 0.0367,
+       "rot": -10.8,
+       "z": 17,
+       "text": "3. Philanthropy + fundraising feels forced + non- authentic",
+       "dom": "wor",
+       "m": [
+        0.359,
+        0.913
+       ],
+       "sim": [
+        0.089,
+        0.287,
+        -0.046,
+        0.084,
+        0.14,
+        0.047,
+        0.088,
+        -0.006
+       ]
+      },
+      {
+       "id": "wor04",
+       "src": "/zine/stickies/workplace_and_careers_04.webp",
+       "x": 0.1577,
+       "y": 0.4975,
+       "w": 0.0367,
+       "rot": 84.6,
+       "z": 4,
+       "text": "Too much performance. I feel like I'm practicing the same lines.",
+       "dom": "wor",
+       "m": [
+        0.921,
+        0.516
+       ],
+       "sim": [
+        0.049,
+        0.007,
+        0.055,
+        0.022,
+        0.007,
+        0.14,
+        0.05,
+        0.074
+       ]
+      },
+      {
+       "id": "wor05",
+       "src": "/zine/stickies/workplace_and_careers_05.webp",
+       "x": 0.1876,
+       "y": 0.6331,
+       "w": 0.0367,
+       "rot": -8,
+       "z": 13,
+       "text": "Work & career just feels like I'm selling myself away, sacrificing my values & wellbeing",
+       "dom": "wor",
+       "m": [
+        0.559,
+        0.821
+       ],
+       "sim": [
+        0.321,
+        0.222,
+        0.022,
+        -0.016,
+        0.151,
+        0.199,
+        0.469,
+        0.118
+       ]
+      },
+      {
+       "id": "wor07",
+       "src": "/zine/stickies/workplace_and_careers_07.webp",
+       "x": 0.2713,
+       "y": 0.5668,
+       "w": 0.0367,
+       "rot": -11.3,
+       "z": 8,
+       "text": "As an early career professional, I view networking not only as a means to an end, but as a way to connect with people I can relate to",
+       "dom": "wor",
+       "m": [
+        0.569,
+        0.683
+       ],
+       "sim": [
+        0.411,
+        0.316,
+        0.137,
+        0.059,
+        0.23,
+        0.294,
+        0.419,
+        0.258
+       ]
+      },
+      {
+       "id": "wor11",
+       "src": "/zine/stickies/workplace_and_careers_11.webp",
+       "x": 0.2045,
+       "y": 0.4814,
+       "w": 0.0367,
+       "rot": -90,
+       "z": 14,
+       "text": "⑥ I don't have a job & I'm terrif- ied to add myself to an already over- saturized market...",
+       "dom": "wor",
+       "m": [
+        0.608,
+        0.841
+       ],
+       "sim": [
+        0.091,
+        0.017,
+        0.005,
+        0.038,
+        -0.026,
+        0.182,
+        0.277,
+        0.249
+       ]
+      },
+      {
+       "id": "wor12",
+       "src": "/zine/stickies/workplace_and_careers_12.webp",
+       "x": 0.2846,
+       "y": 0.608,
+       "w": 0.0367,
+       "rot": -12.5,
+       "z": 18,
+       "text": "struggling to turn helpful conversations into an actual job",
+       "dom": "wor",
+       "m": [
+        0.778,
+        0.654
+       ],
+       "sim": [
+        0.171,
+        0.114,
+        -0.026,
+        0.002,
+        0.105,
+        0.141,
+        0.396,
+        0.143
+       ]
+      },
+      {
+       "id": "wor01",
+       "src": "/zine/stickies/workplace_and_careers_01.webp",
+       "x": 0.2371,
+       "y": 0.5087,
+       "w": 0.0367,
+       "rot": -90,
+       "z": 11,
+       "text": "I NEED JOB JOB I LOVE so my coworkers can become connected and reach our goals",
+       "dom": "wor",
+       "m": [
+        0.609,
+        0.803
+       ],
+       "sim": [
+        0.183,
+        0.135,
+        -0.006,
+        0.007,
+        0.157,
+        0.285,
+        0.492,
+        0.171
+       ]
+      },
+      {
+       "id": "wor13",
+       "src": "/zine/stickies/workplace_and_careers_13.webp",
+       "x": 0.1542,
+       "y": 0.5599,
+       "w": 0.0367,
+       "rot": 5.0,
+       "z": 15,
+       "text": "disconnection in hiring/recruitment ex: Hirevue, ATS",
+       "dom": "wor",
+       "m": [
+        0.694,
+        0.675
+       ],
+       "sim": [
+        0.054,
+        0.081,
+        0.016,
+        0.052,
+        0.039,
+        0.124,
+        0.296,
+        0.154
+       ]
+      },
+      {
+       "id": "wor03",
+       "src": "/zine/stickies/workplace_and_careers_03.webp",
+       "x": 0.1267,
+       "y": 0.524,
+       "w": 0.0367,
+       "rot": -5.2,
+       "z": 6,
+       "text": "Question: How to balance the \"workplace and career\" use of AI while preserving learning and the friction of learning and asking for help from others.",
+       "dom": "wor",
+       "m": [
+        0.724,
+        0.214
+       ],
+       "sim": [
+        0.177,
+        0.189,
+        0.026,
+        0.114,
+        0.14,
+        0.367,
+        0.442,
+        0.176
+       ]
+      },
+      {
+       "id": "wor15",
+       "src": "/zine/stickies/workplace_and_careers_15.webp",
+       "x": 0.1166,
+       "y": 0.6235,
+       "w": 0.0367,
+       "rot": 35,
+       "z": 12,
+       "text": "Sometimes I'm so insecure that I can't pursue mentorship and guidance, and instead of going to things like office hours I use AI, and it makes me sad but its the best I've got",
+       "dom": "wor",
+       "m": [
+        0.637,
+        0.398
+       ],
+       "sim": [
+        0.203,
+        0.07,
+        -0.067,
+        0.072,
+        -0.034,
+        0.197,
+        0.223,
+        0.105
+       ]
+      },
+      {
+       "id": "wor16",
+       "src": "/zine/stickies/workplace_and_careers_16.webp",
+       "x": 0.195,
+       "y": 0.508,
+       "w": 0.0367,
+       "rot": 0,
+       "z": 1,
+       "text": "my friends @ work think they aren't using their brains (Ai tool to Ai tool)",
+       "dom": "wor",
+       "m": [
+        0.661,
+        0.332
+       ],
+       "sim": [
+        0.026,
+        0.082,
+        -0.023,
+        0.004,
+        0.046,
+        0.166,
+        0.137,
+        0.131
+       ]
+      },
+      {
+       "id": "wor17",
+       "src": "/zine/stickies/workplace_and_careers_17.webp",
+       "x": 0.2445,
+       "y": 0.6593,
+       "w": 0.0367,
+       "rot": -14.4,
+       "z": 10,
+       "text": "I have AI organize my life plans/trajectory because it distills it to be less convoluted, which comforts me, even though I know its less whole, less accurate, less me, but less scary, more legible.",
+       "dom": "wor",
+       "m": [
+        0.687,
+        0.25
+       ],
+       "sim": [
+        0.236,
+        0.126,
+        0.154,
+        0.174,
+        0.134,
+        0.221,
+        0.195,
+        0.156
+       ]
+      },
+      {
+       "id": "wor10",
+       "src": "/zine/stickies/workplace_and_careers_10.webp",
+       "x": 0.2493,
+       "y": 0.6139,
+       "w": 0.0367,
+       "rot": -9.1,
+       "z": 9,
+       "text": "3. covid → remote work ↓human connection",
+       "dom": "wor",
+       "m": [
+        0.674,
+        0.748
+       ],
+       "sim": [
+        0.045,
+        -0.019,
+        -0.061,
+        -0.016,
+        0.016,
+        0.039,
+        0.131,
+        0.001
+       ]
+      },
+      {
+       "id": "wor18",
+       "src": "/zine/stickies/workplace_and_careers_18.webp",
+       "x": 0.143,
+       "y": 0.6331,
+       "w": 0.0367,
+       "rot": 35,
+       "z": 3,
+       "text": "Sometimes fixing the world seems so overwhelming that I just want to run away",
+       "dom": "wor",
+       "m": [
+        0.499,
+        0.819
+       ],
+       "sim": [
+        0.177,
+        0.154,
+        0.12,
+        0.054,
+        0.133,
+        0.114,
+        0.129,
+        0.013
+       ]
+      },
+      {
+       "id": "wor02",
+       "src": "/zine/stickies/workplace_and_careers_02.webp",
+       "x": 0.2787,
+       "y": 0.5162,
+       "w": 0.0367,
+       "rot": 1.7,
+       "z": 5,
+       "text": "A creative workforce opportunity for young people to create content for existing initatives to build portfolios and advance the impact",
+       "dom": "wor",
+       "m": [
+        0.443,
+        0.311
+       ],
+       "sim": [
+        0.106,
+        0.2,
+        0.092,
+        0.01,
+        0.352,
+        0.332,
+        0.326,
+        0.255
+       ]
+      },
+      {
+       "id": "wor06",
+       "src": "/zine/stickies/workplace_and_careers_06.webp",
+       "x": 0.1476,
+       "y": 0.6004,
+       "w": 0.0367,
+       "rot": 0.5,
+       "z": 16,
+       "text": "Shared experiences ; identities",
+       "dom": "wor",
+       "m": [
+        0.308,
+        0.785
+       ],
+       "sim": [
+        0.445,
+        0.437,
+        0.18,
+        0.106,
+        0.363,
+        0.24,
+        0.285,
+        0.212
+       ]
+      },
+      {
+       "id": "wor08",
+       "src": "/zine/stickies/workplace_and_careers_08.webp",
+       "x": 0.2127,
+       "y": 0.613,
+       "w": 0.0367,
+       "rot": -3,
+       "z": 2,
+       "text": "I Like that you can be selfish within reasonable boundaries.",
+       "dom": "wor",
+       "m": [
+        0.431,
+        0.891
+       ],
+       "sim": [
+        0.244,
+        0.272,
+        0.121,
+        0.06,
+        0.014,
+        0.073,
+        0.074,
+        0.018
+       ]
+      },
+      {
+       "id": "tec12",
+       "src": "/zine/stickies/tech_and_product_design_12.webp",
+       "x": 0.4319,
+       "y": 0.5731,
+       "w": 0.0367,
+       "rot": 10.3,
+       "z": 11,
+       "text": "5. Inevitability narratives of AI companies 'Either use it or fall behind'. I have no choice",
+       "dom": "tec",
+       "m": [
+        0.638,
+        0.201
+       ],
+       "sim": [
+        0.113,
+        0.121,
+        0.087,
+        0.224,
+        0.217,
+        0.135,
+        0.186,
+        0.261
+       ]
+      },
+      {
+       "id": "tec11",
+       "src": "/zine/stickies/tech_and_product_design_11.webp",
+       "x": 0.49,
+       "y": 0.6192,
+       "w": 0.0367,
+       "rot": 19.1,
+       "z": 1,
+       "text": "5. Are tech companies lying to us in the news?",
+       "dom": "tec",
+       "m": [
+        0.616,
+        0.524
+       ],
+       "sim": [
+        0.001,
+        -0.052,
+        0.007,
+        0.087,
+        0.04,
+        0.033,
+        0.142,
+        0.309
+       ]
+      },
+      {
+       "id": "tec20",
+       "src": "/zine/stickies/tech_and_product_design_20.webp",
+       "x": 0.521,
+       "y": 0.483,
+       "w": 0.0367,
+       "rot": 15,
+       "z": 5,
+       "text": "I want to know more. [crossed out] I feel like, unless I catch up, I don't have a voice. I want to be connected to the humans behind the product.",
+       "dom": "tec",
+       "m": [
+        0.785,
+        0.385
+       ],
+       "sim": [
+        0.149,
+        0.138,
+        0.086,
+        -0.046,
+        0.152,
+        0.189,
+        0.158,
+        0.29
+       ]
+      },
+      {
+       "id": "tec08",
+       "src": "/zine/stickies/tech_and_product_design_08.webp",
+       "x": 0.5419,
+       "y": 0.6351,
+       "w": 0.0367,
+       "rot": 2.6,
+       "z": 2,
+       "text": "5. Muse charm + companion bots scare me. I'm sad for next generation",
+       "dom": "tec",
+       "m": [
+        0.745,
+        0.444
+       ],
+       "sim": [
+        0.103,
+        0.095,
+        0.06,
+        -0.07,
+        0.133,
+        0.1,
+        0.101,
+        0.151
+       ]
+      },
+      {
+       "id": "tec07",
+       "src": "/zine/stickies/tech_and_product_design_07.webp",
+       "x": 0.5563,
+       "y": 0.5805,
+       "w": 0.0367,
+       "rot": 3,
+       "z": 13,
+       "text": "5. Chatbots ↑ pressure to be perfect",
+       "dom": "tec",
+       "m": [
+        0.722,
+        0.491
+       ],
+       "sim": [
+        0.078,
+        0.109,
+        0.034,
+        0.047,
+        0.114,
+        0.08,
+        0.096,
+        0.087
+       ]
+      },
+      {
+       "id": "tec05",
+       "src": "/zine/stickies/tech_and_product_design_05.webp",
+       "x": 0.585,
+       "y": 0.549,
+       "w": 0.0367,
+       "rot": -28,
+       "z": 14,
+       "text": "5. AI Agents eroding any type of consent + privacy",
+       "dom": "tec",
+       "m": [
+        0.829,
+        0.095
+       ],
+       "sim": [
+        0.089,
+        0.033,
+        0.006,
+        0.244,
+        0.018,
+        0.02,
+        0.008,
+        0.033
+       ]
+      },
+      {
+       "id": "tec06",
+       "src": "/zine/stickies/tech_and_product_design_06.webp",
+       "x": 0.4598,
+       "y": 0.5272,
+       "w": 0.0367,
+       "rot": 11.6,
+       "z": 9,
+       "text": "tech removes friction that we may traditionally rely on our human connections for (go to chatbot instead of human to rant)",
+       "dom": "tec",
+       "m": [
+        0.678,
+        0.575
+       ],
+       "sim": [
+        0.164,
+        0.168,
+        0.162,
+        0.06,
+        0.126,
+        0.192,
+        0.253,
+        0.369
+       ]
+      },
+      {
+       "id": "tec09",
+       "src": "/zine/stickies/tech_and_product_design_09.webp",
+       "x": 0.4786,
+       "y": 0.4871,
+       "w": 0.0367,
+       "rot": 36.2,
+       "z": 8,
+       "text": "constantly 2nd guessing if online post was real or AI gen",
+       "dom": "tec",
+       "m": [
+        0.862,
+        0.238
+       ],
+       "sim": [
+        0.044,
+        0.043,
+        0.083,
+        -0.005,
+        0.11,
+        0.083,
+        -0.015,
+        0.031
+       ]
+      },
+      {
+       "id": "tec19",
+       "src": "/zine/stickies/tech_and_product_design_19.webp",
+       "x": 0.5805,
+       "y": 0.5026,
+       "w": 0.0367,
+       "rot": -40,
+       "z": 15,
+       "text": "getting rid of social media... I have FOMO",
+       "dom": "tec",
+       "m": [
+        0.595,
+        0.999
+       ],
+       "sim": [
+        0.055,
+        0.133,
+        -0.006,
+        -0.014,
+        0.019,
+        0.109,
+        0.032,
+        0.036
+       ]
+      },
+      {
+       "id": "tec16",
+       "src": "/zine/stickies/tech_and_product_design_16.webp",
+       "x": 0.4313,
+       "y": 0.538,
+       "w": 0.0367,
+       "rot": 2,
+       "z": 10,
+       "text": "No social media",
+       "dom": "tec",
+       "m": [
+        0.588,
+        1
+       ],
+       "sim": [
+        0.239,
+        0.237,
+        0.109,
+        0.062,
+        0.203,
+        0.24,
+        0.097,
+        0.104
+       ]
+      },
+      {
+       "id": "tec01",
+       "src": "/zine/stickies/tech_and_product_design_01.webp",
+       "x": 0.4816,
+       "y": 0.6868,
+       "w": 0.0367,
+       "rot": 0,
+       "z": 17,
+       "text": "AI safety / impacts program fieldbuilding",
+       "dom": "tec",
+       "m": [
+        0.681,
+        0.109
+       ],
+       "sim": [
+        0.033,
+        0.061,
+        0.1,
+        0.17,
+        0.069,
+        0.188,
+        0.174,
+        0.23
+       ]
+      },
+      {
+       "id": "tec02",
+       "src": "/zine/stickies/tech_and_product_design_02.webp",
+       "x": 0.5227,
+       "y": 0.6868,
+       "w": 0.0367,
+       "rot": 0,
+       "z": 18,
+       "text": "I am working with OpenAI to solve problems in the industry. always looking for pro-bono",
+       "dom": "tec",
+       "m": [
+        0.708,
+        0.838
+       ],
+       "sim": [
+        0.04,
+        0.161,
+        -0.025,
+        0.147,
+        0.083,
+        0.152,
+        0.252,
+        0.137
+       ]
+      },
+      {
+       "id": "tec03",
+       "src": "/zine/stickies/tech_and_product_design_03.webp",
+       "x": 0.5637,
+       "y": 0.6868,
+       "w": 0.0367,
+       "rot": 0,
+       "z": 19,
+       "text": "research on AI's impact on decision making corollary: trust",
+       "dom": "tec",
+       "m": [
+        0.675,
+        0.193
+       ],
+       "sim": [
+        0.172,
+        0.105,
+        0.028,
+        0.225,
+        0.056,
+        0.14,
+        0.124,
+        0.161
+       ]
+      },
+      {
+       "id": "tec04",
+       "src": "/zine/stickies/tech_and_product_design_04.webp",
+       "x": 0.5556,
+       "y": 0.4612,
+       "w": 0.0367,
+       "rot": 1.7,
+       "z": 4,
+       "text": "I am working on grounding our disbelief in AI systems through data viz",
+       "dom": "tec",
+       "m": [
+        0.799,
+        0.208
+       ],
+       "sim": [
+        0.07,
+        0.074,
+        0.131,
+        0.136,
+        0.13,
+        0.215,
+        0.152,
+        0.226
+       ]
+      },
+      {
+       "id": "tec18",
+       "src": "/zine/stickies/tech_and_product_design_18.webp",
+       "x": 0.4999,
+       "y": 0.5743,
+       "w": 0.0367,
+       "rot": 0.4,
+       "z": 16,
+       "text": "community- centered toolkit offering an alternative to Big AI",
+       "dom": "tec",
+       "m": [
+        0.831,
+        0.289
+       ],
+       "sim": [
+        -0.002,
+        0.206,
+        0.02,
+        0.045,
+        0.066,
+        0.109,
+        0.076,
+        0.084
+       ]
+      },
+      {
+       "id": "tec14",
+       "src": "/zine/stickies/tech_and_product_design_14.webp",
+       "x": 0.46,
+       "y": 0.5734,
+       "w": 0.0367,
+       "rot": 22,
+       "z": 12,
+       "text": "Building AI to connect people in teams for an online program.",
+       "dom": "tec",
+       "m": [
+        0.832,
+        0.326
+       ],
+       "sim": [
+        0.096,
+        0.159,
+        -0.002,
+        0.071,
+        0.097,
+        0.163,
+        0.12,
+        0.164
+       ]
+      },
+      {
+       "id": "tec15",
+       "src": "/zine/stickies/tech_and_product_design_15.webp",
+       "x": 0.4287,
+       "y": 0.6332,
+       "w": 0.0367,
+       "rot": 14.8,
+       "z": 3,
+       "text": "working at a start up focusing on liscensing, ID's, and payment for AI agents.",
+       "dom": "tec",
+       "m": [
+        0.783,
+        0.158
+       ],
+       "sim": [
+        0.082,
+        0.042,
+        -0.01,
+        0.203,
+        0.168,
+        0.228,
+        0.271,
+        0.3
+       ]
+      },
+      {
+       "id": "tec13",
+       "src": "/zine/stickies/tech_and_product_design_13.webp",
+       "x": 0.4914,
+       "y": 0.4598,
+       "w": 0.0367,
+       "rot": 64.3,
+       "z": 6,
+       "text": "Using AI to make flyers for events",
+       "dom": "tec",
+       "m": [
+        0.888,
+        0.293
+       ],
+       "sim": [
+        -0.055,
+        0.032,
+        0.051,
+        0.039,
+        0.098,
+        0.046,
+        0.065,
+        0.092
+       ]
+      },
+      {
+       "id": "tec17",
+       "src": "/zine/stickies/tech_and_product_design_17.webp",
+       "x": 0.5093,
+       "y": 0.494,
+       "w": 0.0367,
+       "rot": -2.7,
+       "z": 7,
+       "text": "what I wanna work on: - innovation (prototyping) health? ↗ accexbility ! - building community/whimsical things - hardware projects - internationalization ? ↳ translating features",
+       "dom": "tec",
+       "m": [
+        0.498,
+        0.179
+       ],
+       "sim": [
+        0.157,
+        0.259,
+        0.15,
+        0.186,
+        0.29,
+        0.261,
+        0.374,
+        0.555
+       ]
+      },
+      {
+       "id": "phy14",
+       "src": "/zine/stickies/physical_spaces_and_nature_14.webp",
+       "x": 0.8013,
+       "y": 0.4775,
+       "w": 0.0367,
+       "rot": -2.6,
+       "z": 5,
+       "text": "Don't have access to third spaces that feel me. Closest bookstore is 20 miles away",
+       "dom": "phy",
+       "m": [
+        0.253,
+        0.29
+       ],
+       "sim": [
+        0.185,
+        0.188,
+        0.312,
+        -0.01,
+        0.137,
+        0.229,
+        0.17,
+        0.147
+       ]
+      },
+      {
+       "id": "phy01",
+       "src": "/zine/stickies/physical_spaces_and_nature_01.webp",
+       "x": 0.8498,
+       "y": 0.4778,
+       "w": 0.0367,
+       "rot": 22.5,
+       "z": 6,
+       "text": "I need more room with more people. Big, walkable cities. Wonders everyday I can see by walking. To connect I must look forward and up.",
+       "dom": "phy",
+       "m": [
+        0.113,
+        0.384
+       ],
+       "sim": [
+        0.137,
+        0.315,
+        0.253,
+        -0.004,
+        0.144,
+        0.105,
+        0.082,
+        0.056
+       ]
+      },
+      {
+       "id": "phy08",
+       "src": "/zine/stickies/physical_spaces_and_nature_08.webp",
+       "x": 0.7545,
+       "y": 0.4903,
+       "w": 0.0367,
+       "rot": 25,
+       "z": 10,
+       "text": "Rise of data centers in rural areas",
+       "dom": "phy",
+       "m": [
+        0.938,
+        0.774
+       ],
+       "sim": [
+        0.029,
+        0.118,
+        0.044,
+        0.139,
+        0.079,
+        0.066,
+        0.146,
+        0.101
+       ]
+      },
+      {
+       "id": "phy13",
+       "src": "/zine/stickies/physical_spaces_and_nature_13.webp",
+       "x": 0.7558,
+       "y": 0.6173,
+       "w": 0.0367,
+       "rot": 1.3,
+       "z": 12,
+       "text": "8. Grief on how mother nature is dying bc data centers",
+       "dom": "phy",
+       "m": [
+        0.937,
+        0.77
+       ],
+       "sim": [
+        0.106,
+        0.146,
+        0.178,
+        0.126,
+        0.054,
+        0.045,
+        0.059,
+        0.144
+       ]
+      },
+      {
+       "id": "phy10",
+       "src": "/zine/stickies/physical_spaces_and_nature_10.webp",
+       "x": 0.8434,
+       "y": 0.532,
+       "w": 0.0367,
+       "rot": -48.2,
+       "z": 11,
+       "text": "Nature is one of the most important places to preserve for our well being.",
+       "dom": "phy",
+       "m": [
+        0.151,
+        0.066
+       ],
+       "sim": [
+        0.202,
+        0.246,
+        0.405,
+        0.087,
+        0.218,
+        0.166,
+        0.123,
+        0.04
+       ]
+      },
+      {
+       "id": "phy11",
+       "src": "/zine/stickies/physical_spaces_and_nature_11.webp",
+       "x": 0.8366,
+       "y": 0.5601,
+       "w": 0.0367,
+       "rot": 3.7,
+       "z": 4,
+       "text": "8. wild fires + climate change + heat ↓ access to wilderness",
+       "dom": "phy",
+       "m": [
+        0.129,
+        0.065
+       ],
+       "sim": [
+        0.075,
+        0.136,
+        0.222,
+        0.119,
+        0.129,
+        0.139,
+        0.154,
+        0.053
+       ]
+      },
+      {
+       "id": "phy05",
+       "src": "/zine/stickies/physical_spaces_and_nature_05.webp",
+       "x": 0.7291,
+       "y": 0.5262,
+       "w": 0.0367,
+       "rot": -3,
+       "z": 1,
+       "text": "Crafting in parks invites reaction",
+       "dom": "phy",
+       "m": [
+        0.292,
+        0.209
+       ],
+       "sim": [
+        0.06,
+        0.249,
+        0.212,
+        0.009,
+        0.223,
+        0.134,
+        0.167,
+        0.161
+       ]
+      },
+      {
+       "id": "phy04",
+       "src": "/zine/stickies/physical_spaces_and_nature_04.webp",
+       "x": 0.8032,
+       "y": 0.669,
+       "w": 0.0367,
+       "rot": 0,
+       "z": 14,
+       "text": "Im working on creating more nature-filled 3rd spaces for a tech- free environment that deepens connections within my community",
+       "dom": "phy",
+       "m": [
+        0.161,
+        0.3
+       ],
+       "sim": [
+        0.162,
+        0.425,
+        0.483,
+        0.075,
+        0.214,
+        0.154,
+        0.157,
+        0.332
+       ]
+      },
+      {
+       "id": "phy06",
+       "src": "/zine/stickies/physical_spaces_and_nature_06.webp",
+       "x": 0.8834,
+       "y": 0.5615,
+       "w": 0.0367,
+       "rot": -9.9,
+       "z": 8,
+       "text": "#1. I host monthly 3rd space community gatherings + tech-harm support groups",
+       "dom": "phy",
+       "m": [
+        0.176,
+        0.331
+       ],
+       "sim": [
+        0.133,
+        0.383,
+        0.249,
+        0.087,
+        0.211,
+        0.204,
+        0.193,
+        0.242
+       ]
+      },
+      {
+       "id": "phy12",
+       "src": "/zine/stickies/physical_spaces_and_nature_12.webp",
+       "x": 0.8534,
+       "y": 0.5969,
+       "w": 0.0367,
+       "rot": 0,
+       "z": 2,
+       "text": "IM WORKING ON MAKING THIRD SPACES FOR YOUNG ADULTS",
+       "dom": "phy",
+       "m": [
+        0.194,
+        0.28
+       ],
+       "sim": [
+        0.158,
+        0.251,
+        0.366,
+        0.049,
+        0.206,
+        0.233,
+        0.198,
+        0.302
+       ]
+      },
+      {
+       "id": "phy02",
+       "src": "/zine/stickies/physical_spaces_and_nature_02.webp",
+       "x": 0.7635,
+       "y": 0.5934,
+       "w": 0.0367,
+       "rot": 12,
+       "z": 3,
+       "text": "EVENT PLANNING",
+       "dom": "phy",
+       "m": [
+        0.368,
+        0.158
+       ],
+       "sim": [
+        0.144,
+        0.137,
+        0.157,
+        0.253,
+        0.225,
+        0.256,
+        0.223,
+        0.194
+       ]
+      },
+      {
+       "id": "phy03",
+       "src": "/zine/stickies/physical_spaces_and_nature_03.webp",
+       "x": 0.8046,
+       "y": 0.6098,
+       "w": 0.0367,
+       "rot": -24.1,
+       "z": 9,
+       "text": "CREATING SPACE FOR OTHERS",
+       "dom": "phy",
+       "m": [
+        0.194,
+        0.261
+       ],
+       "sim": [
+        0.194,
+        0.418,
+        0.387,
+        0.023,
+        0.083,
+        0.086,
+        0.068,
+        0.147
+       ]
+      },
+      {
+       "id": "phy07",
+       "src": "/zine/stickies/physical_spaces_and_nature_07.webp",
+       "x": 0.8792,
+       "y": 0.5145,
+       "w": 0.0367,
+       "rot": 6.3,
+       "z": 7,
+       "text": "Neighbours / physical proximity.",
+       "dom": "phy",
+       "m": [
+        0.488,
+        0.643
+       ],
+       "sim": [
+        0.208,
+        0.363,
+        0.347,
+        0.021,
+        0.106,
+        0.085,
+        0.086,
+        0.146
+       ]
+      },
+      {
+       "id": "phy09",
+       "src": "/zine/stickies/physical_spaces_and_nature_09.webp",
+       "x": 0.7397,
+       "y": 0.5626,
+       "w": 0.0367,
+       "rot": -3,
+       "z": 13,
+       "text": "(in sport) has been huge for showing ppl enthusiasm works",
+       "dom": "phy",
+       "m": [
+        0.072,
+        0.849
+       ],
+       "sim": [
+        0.09,
+        0.086,
+        -0.007,
+        -0.024,
+        0.177,
+        0.148,
+        0.209,
+        0.076
+       ]
+      },
+      {
+       "id": "sch02",
+       "src": "/zine/stickies/schools_and_learning_02.webp",
+       "x": 0.3259,
+       "y": 0.7506,
+       "w": 0.0367,
+       "rot": 5,
+       "z": 10,
+       "text": "① School can be incredibly fast paced, and I sometimes wonder if taking a second to breathe will leave me left behind",
+       "dom": "sch",
+       "m": [
+        0.393,
+        0.486
+       ],
+       "sim": [
+        0.079,
+        0.083,
+        0.08,
+        0.051,
+        0.033,
+        0.364,
+        0.127,
+        -0.05
+       ]
+      },
+      {
+       "id": "sch15",
+       "src": "/zine/stickies/schools_and_learning_15.webp",
+       "x": 0.2609,
+       "y": 0.7889,
+       "w": 0.0367,
+       "rot": 2,
+       "z": 4,
+       "text": "Little room to revolutionize the school system",
+       "dom": "sch",
+       "m": [
+        0.341,
+        0.462
+       ],
+       "sim": [
+        0.125,
+        0.24,
+        0.145,
+        0.26,
+        0.152,
+        0.513,
+        0.164,
+        0.169
+       ]
+      },
+      {
+       "id": "sch11",
+       "src": "/zine/stickies/schools_and_learning_11.webp",
+       "x": 0.3781,
+       "y": 0.8877,
+       "w": 0.0367,
+       "rot": 95,
+       "z": 7,
+       "text": "I feel guilty and confused when the best I can give are not actions I condone",
+       "dom": "sch",
+       "m": [
+        0.494,
+        0.876
+       ],
+       "sim": [
+        0.124,
+        0.07,
+        0.063,
+        -0.035,
+        -0.003,
+        0.072,
+        -0.001,
+        0.021
+       ]
+      },
+      {
+       "id": "sch07",
+       "src": "/zine/stickies/schools_and_learning_07.webp",
+       "x": 0.2596,
+       "y": 0.8829,
+       "w": 0.0367,
+       "rot": 5,
+       "z": 3,
+       "text": "2. K-12 is so communal. College + post-grad is much more isolating",
+       "dom": "sch",
+       "m": [
+        0.294,
+        0.497
+       ],
+       "sim": [
+        0.248,
+        0.22,
+        0.044,
+        0.074,
+        0.091,
+        0.35,
+        0.251,
+        0.074
+       ]
+      },
+      {
+       "id": "sch14",
+       "src": "/zine/stickies/schools_and_learning_14.webp",
+       "x": 0.297,
+       "y": 0.7841,
+       "w": 0.0367,
+       "rot": 15,
+       "z": 5,
+       "text": "I don't feel connected during school, but [crossed out: illegible] I think professors are transitioning the way they run their classrooms which makes me hopeful",
+       "dom": "sch",
+       "m": [
+        0.358,
+        0.518
+       ],
+       "sim": [
+        0.233,
+        0.169,
+        0.109,
+        0.097,
+        0.075,
+        0.349,
+        0.168,
+        0.025
+       ]
+      },
+      {
+       "id": "sch06",
+       "src": "/zine/stickies/schools_and_learning_06.webp",
+       "x": 0.3453,
+       "y": 0.8399,
+       "w": 0.0367,
+       "rot": -3,
+       "z": 14,
+       "text": "office hours/disc talking to professors or TAs about course material not necessarily genuine connection",
+       "dom": "sch",
+       "m": [
+        0.763,
+        0.691
+       ],
+       "sim": [
+        0.226,
+        0.102,
+        0.084,
+        0.073,
+        0.082,
+        0.226,
+        0.315,
+        0.201
+       ]
+      },
+      {
+       "id": "sch04",
+       "src": "/zine/stickies/schools_and_learning_04.webp",
+       "x": 0.2989,
+       "y": 0.7442,
+       "w": 0.0367,
+       "rot": 95,
+       "z": 1,
+       "text": "using AI to cheat and do your schoolwork",
+       "dom": "sch",
+       "m": [
+        0.735,
+        0.178
+       ],
+       "sim": [
+        0.129,
+        0.028,
+        0.044,
+        0.127,
+        0.086,
+        0.403,
+        0.199,
+        0.129
+       ]
+      },
+      {
+       "id": "sch12",
+       "src": "/zine/stickies/schools_and_learning_12.webp",
+       "x": 0.3626,
+       "y": 0.8511,
+       "w": 0.0367,
+       "rot": 2,
+       "z": 2,
+       "text": "office hours allow me to probe professionals",
+       "dom": "sch",
+       "m": [
+        0.765,
+        0.705
+       ],
+       "sim": [
+        0.108,
+        0.054,
+        0.106,
+        0.075,
+        -0.002,
+        0.173,
+        0.418,
+        0.171
+       ]
+      },
+      {
+       "id": "sch05",
+       "src": "/zine/stickies/schools_and_learning_05.webp",
+       "x": 0.3189,
+       "y": 0.91,
+       "w": 0.0367,
+       "rot": -3,
+       "z": 8,
+       "text": "I think the Pro [crossed out: AI] vs con AI question is the wrong question to ask",
+       "dom": "sch",
+       "m": [
+        0.853,
+        0.171
+       ],
+       "sim": [
+        0.026,
+        0.043,
+        0.032,
+        0.15,
+        0.056,
+        0.143,
+        0.086,
+        0.231
+       ]
+      },
+      {
+       "id": "sch09",
+       "src": "/zine/stickies/schools_and_learning_09.webp",
+       "x": 0.2468,
+       "y": 0.8239,
+       "w": 0.0367,
+       "rot": 8,
+       "z": 11,
+       "text": "I study in a male dominated classroom and I don't like noticing it.",
+       "dom": "sch",
+       "m": [
+        0.151,
+        0.595
+       ],
+       "sim": [
+        0.103,
+        0.149,
+        0.072,
+        0.092,
+        0.092,
+        0.288,
+        0.129,
+        -0.05
+       ]
+      },
+      {
+       "id": "sch03",
+       "src": "/zine/stickies/schools_and_learning_03.webp",
+       "x": 0.3652,
+       "y": 0.7968,
+       "w": 0.0367,
+       "rot": 18,
+       "z": 13,
+       "text": "I'm working [crossed out: illegible] with my university to create more opportunities for advocacy.",
+       "dom": "sch",
+       "m": [
+        0.733,
+        0.839
+       ],
+       "sim": [
+        0.181,
+        0.228,
+        0.014,
+        0.265,
+        0.169,
+        0.37,
+        0.35,
+        0.13
+       ]
+      },
+      {
+       "id": "sch08",
+       "src": "/zine/stickies/schools_and_learning_08.webp",
+       "x": 0.2867,
+       "y": 0.8941,
+       "w": 0.0367,
+       "rot": -28,
+       "z": 16,
+       "text": "I am [crossed out: illegible] Presenting & Public Speaking: - Starting conversations - Intergenerational interdisciplinary inter political discussion",
+       "dom": "sch",
+       "m": [
+        0.967,
+        0.336
+       ],
+       "sim": [
+        0.262,
+        0.307,
+        0.102,
+        0.152,
+        0.307,
+        0.195,
+        0.216,
+        0.1
+       ]
+      },
+      {
+       "id": "sch10",
+       "src": "/zine/stickies/schools_and_learning_10.webp",
+       "x": 0.306,
+       "y": 0.8303,
+       "w": 0.0367,
+       "rot": 20,
+       "z": 15,
+       "text": "I am working on Research on Values - What do we value - What should we value - How do our past, current, and future systems reinforce or undermine those values.",
+       "dom": "sch",
+       "m": [
+        0.484,
+        0.074
+       ],
+       "sim": [
+        0.291,
+        0.223,
+        0.15,
+        0.252,
+        0.269,
+        0.197,
+        0.243,
+        0.201
+       ]
+      },
+      {
+       "id": "sch13",
+       "src": "/zine/stickies/schools_and_learning_13.webp",
+       "x": 0.3298,
+       "y": 0.8064,
+       "w": 0.0367,
+       "rot": 35,
+       "z": 12,
+       "text": "I am working on gathering student experiences of using AI / learning today. I am working on building up foundations for a school that can widen horizons for ppl",
+       "dom": "sch",
+       "m": [
+        0.756,
+        0.195
+       ],
+       "sim": [
+        0.086,
+        0.13,
+        0.071,
+        0.161,
+        0.166,
+        0.483,
+        0.201,
+        0.216
+       ]
+      },
+      {
+       "id": "sch18",
+       "src": "/zine/stickies/schools_and_learning_18.webp",
+       "x": 0.2468,
+       "y": 0.9196,
+       "w": 0.0367,
+       "rot": 15,
+       "z": 9,
+       "text": "2. I built Educational program breaking down profit + power incentives of AI companies + prioritizing process over output in School",
+       "dom": "sch",
+       "m": [
+        0.635,
+        0.1
+       ],
+       "sim": [
+        0.039,
+        0.067,
+        -0.044,
+        0.278,
+        0.046,
+        0.421,
+        0.183,
+        0.277
+       ]
+      },
+      {
+       "id": "sch01",
+       "src": "/zine/stickies/schools_and_learning_01.webp",
+       "x": 0.3426,
+       "y": 0.8854,
+       "w": 0.0367,
+       "rot": -2,
+       "z": 6,
+       "text": "I Appreciate School because its one of the few systems that promote Human Connection",
+       "dom": "sch",
+       "m": [
+        0.331,
+        0.49
+       ],
+       "sim": [
+        0.292,
+        0.289,
+        0.172,
+        0.142,
+        0.213,
+        0.609,
+        0.222,
+        0.187
+       ]
+      },
+      {
+       "id": "sch16",
+       "src": "/zine/stickies/schools_and_learning_16.webp",
+       "x": 0.3165,
+       "y": 0.9713,
+       "w": 0.0367,
+       "rot": 0,
+       "z": 18,
+       "text": "Interacting with friends at college",
+       "dom": "sch",
+       "m": [
+        0.347,
+        0.574
+       ],
+       "sim": [
+        0.3,
+        0.197,
+        0.066,
+        0.136,
+        0.087,
+        0.267,
+        0.185,
+        0.054
+       ]
+      },
+      {
+       "id": "sch17",
+       "src": "/zine/stickies/schools_and_learning_17.webp",
+       "x": 0.2288,
+       "y": 0.8686,
+       "w": 0.0367,
+       "rot": -28,
+       "z": 17,
+       "text": "RESEARCH EFFECTIVE COMMUNITY BUILDERS",
+       "dom": "sch",
+       "m": [
+        0.101,
+        0.202
+       ],
+       "sim": [
+        0.081,
+        0.504,
+        0.114,
+        0.149,
+        0.131,
+        0.117,
+        0.099,
+        0.129
+       ]
+      },
+      {
+       "id": "pol07",
+       "src": "/zine/stickies/policy_and_institutions_07.webp",
+       "x": 0.7515,
+       "y": 0.8126,
+       "w": 0.0367,
+       "rot": -101.6,
+       "z": 8,
+       "text": "7. White male tech oligarchy doesn't share my needs, values or experience",
+       "dom": "pol",
+       "m": [
+        0.5,
+        0.089
+       ],
+       "sim": [
+        0.179,
+        0.321,
+        0.056,
+        0.268,
+        0.141,
+        0.205,
+        0.34,
+        0.287
+       ]
+      },
+      {
+       "id": "pol08",
+       "src": "/zine/stickies/policy_and_institutions_08.webp",
+       "x": 0.7712,
+       "y": 0.8696,
+       "w": 0.0367,
+       "rot": 3.4,
+       "z": 12,
+       "text": "7. What AI regulation could actually stop mass casualty?",
+       "dom": "pol",
+       "m": [
+        0.767,
+        0.098
+       ],
+       "sim": [
+        -0.002,
+        0.038,
+        0.03,
+        0.284,
+        0.038,
+        0.097,
+        0.129,
+        0.081
+       ]
+      },
+      {
+       "id": "pol13",
+       "src": "/zine/stickies/policy_and_institutions_13.webp",
+       "x": 0.6535,
+       "y": 0.8626,
+       "w": 0.0367,
+       "rot": 9.1,
+       "z": 4,
+       "text": "7. MAGA refusing to protect public from AI",
+       "dom": "pol",
+       "m": [
+        0.823,
+        0.063
+       ],
+       "sim": [
+        -0.124,
+        0.063,
+        -0.047,
+        0.225,
+        -0.022,
+        0.03,
+        -0.054,
+        -0.046
+       ]
+      },
+      {
+       "id": "pol05",
+       "src": "/zine/stickies/policy_and_institutions_05.webp",
+       "x": 0.6344,
+       "y": 0.8075,
+       "w": 0.0367,
+       "rot": 45,
+       "z": 1,
+       "text": "7. Corrupt govt. threatening my community + rights *",
+       "dom": "pol",
+       "m": [
+        0.161,
+        0.163
+       ],
+       "sim": [
+        0.062,
+        0.329,
+        -0.004,
+        0.298,
+        0.116,
+        0.13,
+        0.11,
+        -0.018
+       ]
+      },
+      {
+       "id": "pol01",
+       "src": "/zine/stickies/policy_and_institutions_01.webp",
+       "x": 0.6818,
+       "y": 0.7634,
+       "w": 0.0367,
+       "rot": 3,
+       "z": 3,
+       "text": "\" Policy that promotes humans Well-being Aka (classes, events, community opportunities.",
+       "dom": "pol",
+       "m": [
+        0.233,
+        0.1
+       ],
+       "sim": [
+        0.298,
+        0.457,
+        0.204,
+        0.466,
+        0.221,
+        0.334,
+        0.299,
+        0.128
+       ]
+      },
+      {
+       "id": "pol12",
+       "src": "/zine/stickies/policy_and_institutions_12.webp",
+       "x": 0.7025,
+       "y": 0.8653,
+       "w": 0.0367,
+       "rot": 0,
+       "z": 2,
+       "text": "7 policy & institutions * [crossed out] * who makes these policies * well-being programs * livable wages",
+       "dom": "pol",
+       "m": [
+        0.235,
+        0.077
+       ],
+       "sim": [
+        0.197,
+        0.218,
+        0.08,
+        0.645,
+        0.026,
+        0.197,
+        0.21,
+        0.096
+       ]
+      },
+      {
+       "id": "pol03",
+       "src": "/zine/stickies/policy_and_institutions_03.webp",
+       "x": 0.6517,
+       "y": 0.7894,
+       "w": 0.0367,
+       "rot": -5,
+       "z": 9,
+       "text": "Policy Access to help understand emotions and different types of help.",
+       "dom": "pol",
+       "m": [
+        0.26,
+        0.115
+       ],
+       "sim": [
+        0.21,
+        0.253,
+        0.062,
+        0.35,
+        0.202,
+        0.231,
+        0.257,
+        0.164
+       ]
+      },
+      {
+       "id": "pol10",
+       "src": "/zine/stickies/policy_and_institutions_10.webp",
+       "x": 0.6819,
+       "y": 0.7961,
+       "w": 0.0367,
+       "rot": 1.2,
+       "z": 7,
+       "text": "I don't think college and/or most institutions are relevant and responsive to support young people anymore",
+       "dom": "pol",
+       "m": [
+        0.27,
+        0.479
+       ],
+       "sim": [
+        0.243,
+        0.245,
+        0.051,
+        0.326,
+        0.059,
+        0.278,
+        0.12,
+        -0.004
+       ]
+      },
+      {
+       "id": "pol06",
+       "src": "/zine/stickies/policy_and_institutions_06.webp",
+       "x": 0.723,
+       "y": 0.77,
+       "w": 0.0367,
+       "rot": 10.4,
+       "z": 6,
+       "text": "In a weird way, I feel less anxious working in established institutions because I know they are less likely to experience a complete overhaul",
+       "dom": "pol",
+       "m": [
+        0.269,
+        0.557
+       ],
+       "sim": [
+        0.147,
+        0.222,
+        -0.037,
+        0.346,
+        0.016,
+        0.146,
+        0.257,
+        0.132
+       ]
+      },
+      {
+       "id": "pol11",
+       "src": "/zine/stickies/policy_and_institutions_11.webp",
+       "x": 0.7043,
+       "y": 0.9521,
+       "w": 0.0367,
+       "rot": 0,
+       "z": 13,
+       "text": "• urban planning • types of community → voting, advocating canvassing . → who make the community, who are being given the space",
+       "dom": "pol",
+       "m": [
+        0.121,
+        0.194
+       ],
+       "sim": [
+        0.12,
+        0.53,
+        0.248,
+        0.276,
+        0.249,
+        0.208,
+        0.212,
+        0.08
+       ]
+      },
+      {
+       "id": "pol09",
+       "src": "/zine/stickies/policy_and_institutions_09.webp",
+       "x": 0.7526,
+       "y": 0.7694,
+       "w": 0.0367,
+       "rot": -26.2,
+       "z": 10,
+       "text": "ppl don't want to address that generational divide abt AI is primarily abt wealth!!",
+       "dom": "pol",
+       "m": [
+        0.572,
+        0.149
+       ],
+       "sim": [
+        0.063,
+        0.202,
+        0.012,
+        0.191,
+        0.135,
+        0.158,
+        0.105,
+        0.157
+       ]
+      },
+      {
+       "id": "pol04",
+       "src": "/zine/stickies/policy_and_institutions_04.webp",
+       "x": 0.7031,
+       "y": 0.8479,
+       "w": 0.0367,
+       "rot": -20.0,
+       "z": 11,
+       "text": "I'm working on mobilizing institutions and societal sources of power for AI Safety",
+       "dom": "pol",
+       "m": [
+        0.722,
+        0.117
+       ],
+       "sim": [
+        0.119,
+        0.209,
+        0.085,
+        0.42,
+        0.138,
+        0.2,
+        0.265,
+        0.218
+       ]
+      },
+      {
+       "id": "pol02",
+       "src": "/zine/stickies/policy_and_institutions_02.webp",
+       "x": 0.7609,
+       "y": 0.9004,
+       "w": 0.0367,
+       "rot": -1.6,
+       "z": 5,
+       "text": "curious about AI safety — workon making people care about AI by showing how it affects there material reality instead of x risk.",
+       "dom": "pol",
+       "m": [
+        0.682,
+        0.149
+       ],
+       "sim": [
+        0.089,
+        0.107,
+        0.181,
+        0.093,
+        0.151,
+        0.097,
+        0.197,
+        0.28
+       ]
+      }
+     ],
+     "words": [
+      {
+       "id": "rel",
+       "name": "Relationships & Personal Life",
+       "tint": "#e8457a",
+       "src": "/zine/card-rel.jpg",
+       "x": 0.1763,
+       "y": 0.2049,
+       "w": 0.1031,
+       "m": [
+        0.348,
+        0.712
+       ]
+      },
+      {
+       "id": "com",
+       "name": "Community & Belonging",
+       "tint": "#1aa37a",
+       "src": "/zine/card-com.jpg",
+       "x": 0.8398,
+       "y": 0.1912,
+       "w": 0.1044,
+       "m": [
+        0.17,
+        0.304
+       ]
+      },
+      {
+       "id": "phy",
+       "name": "Physical Spaces & Nature",
+       "tint": "#7a9a1f",
+       "src": "/zine/card-phy.jpg",
+       "x": 0.8032,
+       "y": 0.5265,
+       "w": 0.1022,
+       "m": [
+        0.226,
+        0.306
+       ]
+      },
+      {
+       "id": "pol",
+       "name": "Policy & Institutions",
+       "tint": "#d43b3b",
+       "src": "/zine/card-pol.jpg",
+       "x": 0.7043,
+       "y": 0.8217,
+       "w": 0.1068,
+       "m": [
+        0.365,
+        0.213
+       ]
+      },
+      {
+       "id": "cul",
+       "name": "Culture, Art & Storytelling",
+       "tint": "#8b5cf6",
+       "src": "/zine/card-cul.jpg",
+       "x": 0.5192,
+       "y": 0.2388,
+       "w": 0.1036,
+       "m": [
+        0.563,
+        0.417
+       ]
+      },
+      {
+       "id": "sch",
+       "name": "School & Learning",
+       "tint": "#2f8fd8",
+       "src": "/zine/card-sch.jpg",
+       "x": 0.3165,
+       "y": 0.8428,
+       "w": 0.1035,
+       "m": [
+        0.419,
+        0.447
+       ]
+      },
+      {
+       "id": "wor",
+       "name": "Workplace & Careers",
+       "tint": "#f08a24",
+       "src": "/zine/card-wor.jpg",
+       "x": 0.2125,
+       "y": 0.5743,
+       "w": 0.1139,
+       "m": [
+        0.536,
+        0.635
+       ]
+      },
+      {
+       "id": "tec",
+       "name": "Tech & Product Design",
+       "tint": "#111111",
+       "src": "/zine/card-tec.jpg",
+       "x": 0.5227,
+       "y": 0.5366,
+       "w": 0.1079,
+       "m": [
+        0.522,
+        0.406
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "p2avhoyv",
+   "bg": "#fdfef9",
+   "items": [
+    {
+     "id": "dt4q6ki",
+     "type": "text",
+     "x": 50,
+     "y": 10,
+     "w": 84,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "The eight domains",
+     "font": "Arial",
+     "size": 6,
+     "color": "#2b2755",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "dv74jk0",
+     "type": "pile",
+     "title": "Workplace & Careers",
+     "x": 26,
+     "y": 50,
+     "w": 47,
+     "h": 47.12,
+     "rot": 0,
+     "z": 2,
+     "card": {
+      "src": "/zine/card-wor.jpg",
+      "x": 0.5633,
+      "y": 0.4973,
+      "w": 0.5288,
+      "rot": 0
+     },
+     "notes": [
+      {
+       "id": "wor14",
+       "src": "/zine/stickies/workplace_and_careers_14.webp",
+       "x": 0.142,
+       "y": 0.4587,
+       "w": 0.1704,
+       "rot": 106.1,
+       "z": 7,
+       "text": "I feel like the networking neccesary for a career just makes relationships so transactional - I feel like a burden if I'm not stratigically beneficial to the person I'm interacting w/"
+      },
+      {
+       "id": "wor09",
+       "src": "/zine/stickies/workplace_and_careers_09.webp",
+       "x": 0.4729,
+       "y": 0.9005,
+       "w": 0.1704,
+       "rot": -10.8,
+       "z": 17,
+       "text": "3. Philanthropy + fundraising feels forced + non- authentic"
+      },
+      {
+       "id": "wor04",
+       "src": "/zine/stickies/workplace_and_careers_04.webp",
+       "x": 0.3091,
+       "y": 0.1562,
+       "w": 0.1704,
+       "rot": 84.6,
+       "z": 4,
+       "text": "Too much performance. I feel like I'm practicing the same lines."
+      },
+      {
+       "id": "wor05",
+       "src": "/zine/stickies/workplace_and_careers_05.webp",
+       "x": 0.448,
+       "y": 0.7584,
+       "w": 0.1704,
+       "rot": -8,
+       "z": 13,
+       "text": "Work & career just feels like I'm selling myself away, sacrificing my values & wellbeing"
+      },
+      {
+       "id": "wor07",
+       "src": "/zine/stickies/workplace_and_careers_07.webp",
+       "x": 0.8365,
+       "y": 0.464,
+       "w": 0.1704,
+       "rot": -11.3,
+       "z": 8,
+       "text": "As an early career professional, I view networking not only as a means to an end, but as a way to connect with people I can relate to"
+      },
+      {
+       "id": "wor11",
+       "src": "/zine/stickies/workplace_and_careers_11.webp",
+       "x": 0.5266,
+       "y": 0.085,
+       "w": 0.1704,
+       "rot": -90,
+       "z": 14,
+       "text": "⑥ I don't have a job & I'm terrif- ied to add myself to an already over- saturized market..."
+      },
+      {
+       "id": "wor12",
+       "src": "/zine/stickies/workplace_and_careers_12.webp",
+       "x": 0.8984,
+       "y": 0.6466,
+       "w": 0.1704,
+       "rot": -12.5,
+       "z": 18,
+       "text": "struggling to turn helpful conversations into an actual job"
+      },
+      {
+       "id": "wor01",
+       "src": "/zine/stickies/workplace_and_careers_01.webp",
+       "x": 0.678,
+       "y": 0.2062,
+       "w": 0.1704,
+       "rot": -90,
+       "z": 11,
+       "text": "I NEED JOB JOB I LOVE so my coworkers can become connected and reach our goals"
+      },
+      {
+       "id": "wor13",
+       "src": "/zine/stickies/workplace_and_careers_13.webp",
+       "x": 0.2927,
+       "y": 0.4333,
+       "w": 0.1704,
+       "rot": 5.0,
+       "z": 15,
+       "text": "disconnection in hiring/recruitment ex: Hirevue, ATS"
+      },
+      {
+       "id": "wor03",
+       "src": "/zine/stickies/workplace_and_careers_03.webp",
+       "x": 0.1649,
+       "y": 0.2738,
+       "w": 0.1704,
+       "rot": -5.2,
+       "z": 6,
+       "text": "Question: How to balance the \"workplace and career\" use of AI while preserving learning and the friction of learning and asking for help from others."
+      },
+      {
+       "id": "wor15",
+       "src": "/zine/stickies/workplace_and_careers_15.webp",
+       "x": 0.1181,
+       "y": 0.7156,
+       "w": 0.1704,
+       "rot": 35,
+       "z": 12,
+       "text": "Sometimes I'm so insecure that I can't pursue mentorship and guidance, and instead of going to things like office hours I use AI, and it makes me sad but its the best I've got"
+      },
+      {
+       "id": "wor16",
+       "src": "/zine/stickies/workplace_and_careers_16.webp",
+       "x": 0.4821,
+       "y": 0.2029,
+       "w": 0.1704,
+       "rot": 0,
+       "z": 1,
+       "text": "my friends @ work think they aren't using their brains (Ai tool to Ai tool)"
+      },
+      {
+       "id": "wor17",
+       "src": "/zine/stickies/workplace_and_careers_17.webp",
+       "x": 0.712,
+       "y": 0.8744,
+       "w": 0.1704,
+       "rot": -14.4,
+       "z": 10,
+       "text": "I have AI organize my life plans/trajectory because it distills it to be less convoluted, which comforts me, even though I know its less whole, less accurate, less me, but less scary, more legible."
+      },
+      {
+       "id": "wor10",
+       "src": "/zine/stickies/workplace_and_careers_10.webp",
+       "x": 0.7343,
+       "y": 0.6731,
+       "w": 0.1704,
+       "rot": -9.1,
+       "z": 9,
+       "text": "3. covid → remote work ↓human connection"
+      },
+      {
+       "id": "wor18",
+       "src": "/zine/stickies/workplace_and_careers_18.webp",
+       "x": 0.2409,
+       "y": 0.7584,
+       "w": 0.1704,
+       "rot": 35,
+       "z": 3,
+       "text": "Sometimes fixing the world seems so overwhelming that I just want to run away"
+      },
+      {
+       "id": "wor02",
+       "src": "/zine/stickies/workplace_and_careers_02.webp",
+       "x": 0.8709,
+       "y": 0.2392,
+       "w": 0.1704,
+       "rot": 1.7,
+       "z": 5,
+       "text": "A creative workforce opportunity for young people to create content for existing initatives to build portfolios and advance the impact"
+      },
+      {
+       "id": "wor06",
+       "src": "/zine/stickies/workplace_and_careers_06.webp",
+       "x": 0.2622,
+       "y": 0.613,
+       "w": 0.1704,
+       "rot": 0.5,
+       "z": 16,
+       "text": "Shared experiences ; identities"
+      },
+      {
+       "id": "wor08",
+       "src": "/zine/stickies/workplace_and_careers_08.webp",
+       "x": 0.5643,
+       "y": 0.6692,
+       "w": 0.1704,
+       "rot": -3,
+       "z": 2,
+       "text": "I Like that you can be selfish within reasonable boundaries."
+      }
+     ]
+    },
+    {
+     "id": "dvhr7pm",
+     "type": "pile",
+     "title": "School & Learning",
+     "x": 74,
+     "y": 50,
+     "w": 47,
+     "h": 62.23,
+     "rot": 0,
+     "z": 2,
+     "card": {
+      "src": "/zine/card-sch.jpg",
+      "x": 0.58,
+      "y": 0.4461,
+      "w": 0.535,
+      "rot": 2
+     },
+     "notes": [
+      {
+       "id": "sch02",
+       "src": "/zine/stickies/schools_and_learning_02.webp",
+       "x": 0.6285,
+       "y": 0.1011,
+       "w": 0.1897,
+       "rot": 5,
+       "z": 10,
+       "text": "① School can be incredibly fast paced, and I sometimes wonder if taking a second to breathe will leave me left behind"
+      },
+      {
+       "id": "sch15",
+       "src": "/zine/stickies/schools_and_learning_15.webp",
+       "x": 0.2925,
+       "y": 0.2444,
+       "w": 0.1897,
+       "rot": 2,
+       "z": 4,
+       "text": "Little room to revolutionize the school system"
+      },
+      {
+       "id": "sch11",
+       "src": "/zine/stickies/schools_and_learning_11.webp",
+       "x": 0.8981,
+       "y": 0.6144,
+       "w": 0.1897,
+       "rot": 95,
+       "z": 7,
+       "text": "I feel guilty and confused when the best I can give are not actions I condone"
+      },
+      {
+       "id": "sch07",
+       "src": "/zine/stickies/schools_and_learning_07.webp",
+       "x": 0.2856,
+       "y": 0.5965,
+       "w": 0.1897,
+       "rot": 5,
+       "z": 3,
+       "text": "2. K-12 is so communal. College + post-grad is much more isolating"
+      },
+      {
+       "id": "sch14",
+       "src": "/zine/stickies/schools_and_learning_14.webp",
+       "x": 0.479,
+       "y": 0.2265,
+       "w": 0.1897,
+       "rot": 15,
+       "z": 5,
+       "text": "I don't feel connected during school, but [crossed out: illegible] I think professors are transitioning the way they run their classrooms which makes me hopeful"
+      },
+      {
+       "id": "sch06",
+       "src": "/zine/stickies/schools_and_learning_06.webp",
+       "x": 0.7285,
+       "y": 0.4353,
+       "w": 0.1897,
+       "rot": -3,
+       "z": 14,
+       "text": "office hours/disc talking to professors or TAs about course material not necessarily genuine connection"
+      },
+      {
+       "id": "sch04",
+       "src": "/zine/stickies/schools_and_learning_04.webp",
+       "x": 0.4888,
+       "y": 0.0772,
+       "w": 0.1897,
+       "rot": 95,
+       "z": 1,
+       "text": "using AI to cheat and do your schoolwork"
+      },
+      {
+       "id": "sch12",
+       "src": "/zine/stickies/schools_and_learning_12.webp",
+       "x": 0.8182,
+       "y": 0.4772,
+       "w": 0.1897,
+       "rot": 2,
+       "z": 2,
+       "text": "office hours allow me to probe professionals"
+      },
+      {
+       "id": "sch05",
+       "src": "/zine/stickies/schools_and_learning_05.webp",
+       "x": 0.5921,
+       "y": 0.6979,
+       "w": 0.1897,
+       "rot": -3,
+       "z": 8,
+       "text": "I think the Pro [crossed out: AI] vs con AI question is the wrong question to ask"
+      },
+      {
+       "id": "sch09",
+       "src": "/zine/stickies/schools_and_learning_09.webp",
+       "x": 0.2192,
+       "y": 0.3755,
+       "w": 0.1897,
+       "rot": 8,
+       "z": 11,
+       "text": "I study in a male dominated classroom and I don't like noticing it."
+      },
+      {
+       "id": "sch03",
+       "src": "/zine/stickies/schools_and_learning_03.webp",
+       "x": 0.8317,
+       "y": 0.2742,
+       "w": 0.1897,
+       "rot": 18,
+       "z": 13,
+       "text": "I'm working [crossed out: illegible] with my university to create more opportunities for advocacy."
+      },
+      {
+       "id": "sch08",
+       "src": "/zine/stickies/schools_and_learning_08.webp",
+       "x": 0.4257,
+       "y": 0.6384,
+       "w": 0.1897,
+       "rot": -28,
+       "z": 16,
+       "text": "I am [crossed out: illegible] Presenting & Public Speaking: - Starting conversations - Intergenerational interdisciplinary inter political discussion"
+      },
+      {
+       "id": "sch10",
+       "src": "/zine/stickies/schools_and_learning_10.webp",
+       "x": 0.5253,
+       "y": 0.3995,
+       "w": 0.1897,
+       "rot": 20,
+       "z": 15,
+       "text": "I am working on Research on Values - What do we value - What should we value - How do our past, current, and future systems reinforce or undermine those values."
+      },
+      {
+       "id": "sch13",
+       "src": "/zine/stickies/schools_and_learning_13.webp",
+       "x": 0.6486,
+       "y": 0.31,
+       "w": 0.1897,
+       "rot": 35,
+       "z": 12,
+       "text": "I am working on gathering student experiences of using AI / learning today. I am working on building up foundations for a school that can widen horizons for ppl"
+      },
+      {
+       "id": "sch18",
+       "src": "/zine/stickies/schools_and_learning_18.webp",
+       "x": 0.2192,
+       "y": 0.7337,
+       "w": 0.1897,
+       "rot": 15,
+       "z": 9,
+       "text": "2. I built Educational program breaking down profit + power incentives of AI companies + prioritizing process over output in School"
+      },
+      {
+       "id": "sch01",
+       "src": "/zine/stickies/schools_and_learning_01.webp",
+       "x": 0.715,
+       "y": 0.6056,
+       "w": 0.1897,
+       "rot": -2,
+       "z": 6,
+       "text": "I Appreciate School because its one of the few systems that promote Human Connection"
+      },
+      {
+       "id": "sch16",
+       "src": "/zine/stickies/schools_and_learning_16.webp",
+       "x": 0.58,
+       "y": 0.9271,
+       "w": 0.1897,
+       "rot": 0,
+       "z": 18,
+       "text": "Interacting with friends at college"
+      },
+      {
+       "id": "sch17",
+       "src": "/zine/stickies/schools_and_learning_17.webp",
+       "x": 0.1262,
+       "y": 0.5428,
+       "w": 0.1897,
+       "rot": -28,
+       "z": 17,
+       "text": "RESEARCH EFFECTIVE COMMUNITY BUILDERS"
+      }
+     ]
+    },
+    {
+     "id": "pajkyxc",
+     "type": "pile",
+     "title": "Relationships & Personal Life",
+     "x": 26,
+     "y": 112,
+     "w": 47,
+     "h": 54.64,
+     "rot": 0,
+     "z": 2,
+     "card": {
+      "src": "/zine/card-rel.jpg",
+      "x": 0.4101,
+      "y": 0.3763,
+      "w": 0.3609,
+      "rot": 0
+     },
+     "notes": [
+      {
+       "id": "rel38",
+       "src": "/zine/stickies/relationships_and_personal_life_38.webp",
+       "x": 0.4242,
+       "y": 0.4809,
+       "w": 0.1285,
+       "rot": -0.3,
+       "z": 12,
+       "text": "1. Dating apps negatively impacting human connection"
+      },
+      {
+       "id": "rel01",
+       "src": "/zine/stickies/relationships_and_personal_life_01.webp",
+       "x": 0.3382,
+       "y": 0.9463,
+       "w": 0.1285,
+       "rot": 0,
+       "z": 35,
+       "text": "men online are creepy and [crossed out] approaching ppl IRL feels scary/ intrusive"
+      },
+      {
+       "id": "rel39",
+       "src": "/zine/stickies/relationships_and_personal_life_39.webp",
+       "x": 0.785,
+       "y": 0.6141,
+       "w": 0.1285,
+       "rot": -10,
+       "z": 18,
+       "text": "1. proliferation of porn hyper-sexualizes women + makes men less confident to ask women out"
+      },
+      {
+       "id": "rel37",
+       "src": "/zine/stickies/relationships_and_personal_life_37.webp",
+       "x": 0.2423,
+       "y": 0.4653,
+       "w": 0.1285,
+       "rot": 22.0,
+       "z": 11,
+       "text": "1. Mysogyny + uptick in gender-based violence"
+      },
+      {
+       "id": "rel31",
+       "src": "/zine/stickies/relationships_and_personal_life_31.webp",
+       "x": 0.1835,
+       "y": 0.2632,
+       "w": 0.1285,
+       "rot": -5,
+       "z": 2,
+       "text": "anti-hinge! I want to be in more social enviroment for relatnshps to arise"
+      },
+      {
+       "id": "rel36",
+       "src": "/zine/stickies/relationships_and_personal_life_36.webp",
+       "x": 0.9223,
+       "y": 0.4199,
+       "w": 0.1285,
+       "rot": -16.2,
+       "z": 9,
+       "text": "I don't want to use a dating app, because:"
+      },
+      {
+       "id": "rel22",
+       "src": "/zine/stickies/relationships_and_personal_life_22.webp",
+       "x": 0.7533,
+       "y": 0.2728,
+       "w": 0.1285,
+       "rot": -15,
+       "z": 6,
+       "text": "I'm scared to initiate [because - crossed out] connection/ friendships sometimes, because I falsely believe I might be crossing boundaries just by doing that."
+      },
+      {
+       "id": "rel29",
+       "src": "/zine/stickies/relationships_and_personal_life_29.webp",
+       "x": 0.7598,
+       "y": 0.49,
+       "w": 0.1285,
+       "rot": -15,
+       "z": 17,
+       "text": "I feel like I'm more organic in terms of relationships, don't like to force anything. If feels natural, then I'll initiate but I'm scared of not hearing back"
+      },
+      {
+       "id": "rel40",
+       "src": "/zine/stickies/relationships_and_personal_life_40.webp",
+       "x": 0.7906,
+       "y": 0.365,
+       "w": 0.1285,
+       "rot": -18,
+       "z": 30,
+       "text": "I feel the most connected to people who reach out to me first. I think I'm normally isolated, introverted, until I'm prompted, otherwise I feel like I'm taking too much space."
+      },
+      {
+       "id": "rel27",
+       "src": "/zine/stickies/relationships_and_personal_life_27.webp",
+       "x": 0.5025,
+       "y": 0.7814,
+       "w": 0.1285,
+       "rot": 5,
+       "z": 20,
+       "text": "① I wish there were more people like me... a huge aspect of human connection is relatability"
+      },
+      {
+       "id": "rel18",
+       "src": "/zine/stickies/relationships_and_personal_life_18.webp",
+       "x": 0.8692,
+       "y": 0.5178,
+       "w": 0.1285,
+       "rot": -3,
+       "z": 34,
+       "text": "sometimes don't connect/relate to peers my own age as well as youth rep/rep of my generation"
+      },
+      {
+       "id": "rel12",
+       "src": "/zine/stickies/relationships_and_personal_life_12.webp",
+       "x": 0.6715,
+       "y": 0.6113,
+       "w": 0.1285,
+       "rot": 10,
+       "z": 3,
+       "text": "I feel closer to people than people feel close to me"
+      },
+      {
+       "id": "rel28",
+       "src": "/zine/stickies/relationships_and_personal_life_28.webp",
+       "x": 0.8628,
+       "y": 0.253,
+       "w": 0.1285,
+       "rot": -28,
+       "z": 16,
+       "text": "Are big friend groups (7+ people) genuinely that close w/ each other? I'm jealous and I crave for that, even if it's performative"
+      },
+      {
+       "id": "rel30",
+       "src": "/zine/stickies/relationships_and_personal_life_30.webp",
+       "x": 0.5621,
+       "y": 0.4639,
+       "w": 0.1285,
+       "rot": -5,
+       "z": 27,
+       "text": "I feel constricted in building rela- tionships because I don't live in a \"young\" city"
+      },
+      {
+       "id": "rel11",
+       "src": "/zine/stickies/relationships_and_personal_life_11.webp",
+       "x": 0.7074,
+       "y": 0.7008,
+       "w": 0.1285,
+       "rot": 12,
+       "z": 5,
+       "text": "ppl ^actually think that talking to a chatbot is LITERALLY MORE useful than therapy."
+      },
+      {
+       "id": "rel19",
+       "src": "/zine/stickies/relationships_and_personal_life_19.webp",
+       "x": 0.6431,
+       "y": 0.5125,
+       "w": 0.1285,
+       "rot": 72,
+       "z": 28,
+       "text": "Telling AI your emotions and it making you feel good"
+      },
+      {
+       "id": "rel13",
+       "src": "/zine/stickies/relationships_and_personal_life_13.webp",
+       "x": 0.0659,
+       "y": 0.4458,
+       "w": 0.1285,
+       "rot": -1.7,
+       "z": 10,
+       "text": "Questioning the nuance of what people say because the close people in my life give me mixed signals.. so I asked AI"
+      },
+      {
+       "id": "rel04",
+       "src": "/zine/stickies/relationships_and_personal_life_04.webp",
+       "x": 0.911,
+       "y": 0.0919,
+       "w": 0.1285,
+       "rot": -155,
+       "z": 23,
+       "text": "What were convos you would have had in person that are now w/ AI ?asking friends this"
+      },
+      {
+       "id": "rel21",
+       "src": "/zine/stickies/relationships_and_personal_life_21.webp",
+       "x": 0.7432,
+       "y": 0.0696,
+       "w": 0.1285,
+       "rot": 22,
+       "z": 22,
+       "text": "the operationalization of our mental health - mental health solutions don't come from text."
+      },
+      {
+       "id": "rel35",
+       "src": "/zine/stickies/relationships_and_personal_life_35.webp",
+       "x": 0.1993,
+       "y": 0.3691,
+       "w": 0.1285,
+       "rot": -8,
+       "z": 29,
+       "text": "some tech now is now mediating my relationships → making them frictionless."
+      },
+      {
+       "id": "rel16",
+       "src": "/zine/stickies/relationships_and_personal_life_16.webp",
+       "x": 0.6206,
+       "y": 0.1474,
+       "w": 0.1285,
+       "rot": -5,
+       "z": 24,
+       "text": "Ive strained my long distance relationship because of the push of AI mediated relations because. I now focus on my IRL relationships."
+      },
+      {
+       "id": "rel25",
+       "src": "/zine/stickies/relationships_and_personal_life_25.webp",
+       "x": 0.3795,
+       "y": 0.7197,
+       "w": 0.1285,
+       "rot": 23.0,
+       "z": 15,
+       "text": "I am not sure about how I feel about communal screen time. On weekends, when me and my friends spend a whole day together every time around 6pm we go to one of our homes, sit down on a couch and open TikTok/Insta individually and for an hour just not talk, before we get ready to go out. I don't have social media so I watch my friend's screen, but I don't know if I like this because it recharges everyone."
+      },
+      {
+       "id": "rel17",
+       "src": "/zine/stickies/relationships_and_personal_life_17.webp",
+       "x": 0.8517,
+       "y": 0.707,
+       "w": 0.1285,
+       "rot": 22,
+       "z": 19,
+       "text": "I struggle to know how to be there for friends who are being heavily impacted by AI - They go to me for guidance but I feel unequiped"
+      },
+      {
+       "id": "rel14",
+       "src": "/zine/stickies/relationships_and_personal_life_14.webp",
+       "x": 0.4464,
+       "y": 0.1446,
+       "w": 0.1285,
+       "rot": 0,
+       "z": 26,
+       "text": "I hate when people [crossed out] tokenize their own or my individuality and → weirdness ↑ turn it into I ♥ weirdness"
+      },
+      {
+       "id": "rel26",
+       "src": "/zine/stickies/relationships_and_personal_life_26.webp",
+       "x": 0.5495,
+       "y": 0.6386,
+       "w": 0.1285,
+       "rot": -55,
+       "z": 31,
+       "text": "1. Trans rights being stripped away"
+      },
+      {
+       "id": "rel08",
+       "src": "/zine/stickies/relationships_and_personal_life_08.webp",
+       "x": 0.7511,
+       "y": 0.7506,
+       "w": 0.1285,
+       "rot": 22,
+       "z": 33,
+       "text": "I'm interested in depolarizing conversations about AI"
+      },
+      {
+       "id": "rel07",
+       "src": "/zine/stickies/relationships_and_personal_life_07.webp",
+       "x": 0.3147,
+       "y": 0.2537,
+       "w": 0.1285,
+       "rot": -103.1,
+       "z": 7,
+       "text": "Letter- writing"
+      },
+      {
+       "id": "rel02",
+       "src": "/zine/stickies/relationships_and_personal_life_02.webp",
+       "x": 0.4845,
+       "y": 0.5984,
+       "w": 0.1285,
+       "rot": -62,
+       "z": 4,
+       "text": "FRIENSHIP"
+      },
+      {
+       "id": "rel05",
+       "src": "/zine/stickies/relationships_and_personal_life_05.webp",
+       "x": 0.636,
+       "y": 0.3485,
+       "w": 0.1285,
+       "rot": -15,
+       "z": 21,
+       "text": "I appreciate having a missed call to return"
+      },
+      {
+       "id": "rel09",
+       "src": "/zine/stickies/relationships_and_personal_life_09.webp",
+       "x": 0.5962,
+       "y": 0.7971,
+       "w": 0.1285,
+       "rot": 90,
+       "z": 32,
+       "text": "I'm not interested in complaining (very dif than sharing experiences)"
+      },
+      {
+       "id": "rel10",
+       "src": "/zine/stickies/relationships_and_personal_life_10.webp",
+       "x": 0.482,
+       "y": 0.9463,
+       "w": 0.1285,
+       "rot": 0,
+       "z": 36,
+       "text": "I am pulled towards people that care unconditionally. I want people to believe that real kindness exists."
+      },
+      {
+       "id": "rel20",
+       "src": "/zine/stickies/relationships_and_personal_life_20.webp",
+       "x": 0.5962,
+       "y": 0.4934,
+       "w": 0.1285,
+       "rot": 5,
+       "z": 1,
+       "text": "Relationships forces you to assess the quality of your human connection with others"
+      },
+      {
+       "id": "rel24",
+       "src": "/zine/stickies/relationships_and_personal_life_24.webp",
+       "x": 0.7724,
+       "y": 0.1695,
+       "w": 0.1285,
+       "rot": -15,
+       "z": 25,
+       "text": "I have ^established & maintained deep eldership due to digital connection tools"
+      },
+      {
+       "id": "rel32",
+       "src": "/zine/stickies/relationships_and_personal_life_32.webp",
+       "x": 0.6315,
+       "y": 0.2379,
+       "w": 0.1285,
+       "rot": -25.2,
+       "z": 8,
+       "text": "Groupchats [illegible]"
+      },
+      {
+       "id": "rel33",
+       "src": "/zine/stickies/relationships_and_personal_life_33.webp",
+       "x": 0.1593,
+       "y": 0.5686,
+       "w": 0.1285,
+       "rot": 10.5,
+       "z": 13,
+       "text": "Relationship & person life touch, allowing myself to be loved * listening and communicat[crossed out]ing"
+      },
+      {
+       "id": "rel34",
+       "src": "/zine/stickies/relationships_and_personal_life_34.webp",
+       "x": 0.3063,
+       "y": 0.5793,
+       "w": 0.1285,
+       "rot": 9.5,
+       "z": 14,
+       "text": "DATING"
+      }
+     ]
+    },
+    {
+     "id": "bvydbyh",
+     "type": "pile",
+     "title": "Physical Spaces & Nature",
+     "x": 74,
+     "y": 112,
+     "w": 47,
+     "h": 53.91,
+     "rot": 0,
+     "z": 2,
+     "card": {
+      "src": "/zine/card-phy.jpg",
+      "x": 0.4799,
+      "y": 0.314,
+      "w": 0.5264,
+      "rot": 0
+     },
+     "notes": [
+      {
+       "id": "phy14",
+       "src": "/zine/stickies/physical_spaces_and_nature_14.webp",
+       "x": 0.4701,
+       "y": 0.1033,
+       "w": 0.189,
+       "rot": -2.6,
+       "z": 5,
+       "text": "Don't have access to third spaces that feel me. Closest bookstore is 20 miles away"
+      },
+      {
+       "id": "phy01",
+       "src": "/zine/stickies/physical_spaces_and_nature_01.webp",
+       "x": 0.7198,
+       "y": 0.1042,
+       "w": 0.189,
+       "rot": 22.5,
+       "z": 6,
+       "text": "I need more room with more people. Big, walkable cities. Wonders everyday I can see by walking. To connect I must look forward and up."
+      },
+      {
+       "id": "phy08",
+       "src": "/zine/stickies/physical_spaces_and_nature_08.webp",
+       "x": 0.2291,
+       "y": 0.1581,
+       "w": 0.189,
+       "rot": 25,
+       "z": 10,
+       "text": "Rise of data centers in rural areas"
+      },
+      {
+       "id": "phy13",
+       "src": "/zine/stickies/physical_spaces_and_nature_13.webp",
+       "x": 0.2356,
+       "y": 0.7051,
+       "w": 0.189,
+       "rot": 1.3,
+       "z": 12,
+       "text": "8. Grief on how mother nature is dying bc data centers"
+      },
+      {
+       "id": "phy10",
+       "src": "/zine/stickies/physical_spaces_and_nature_10.webp",
+       "x": 0.6871,
+       "y": 0.3378,
+       "w": 0.189,
+       "rot": -48.2,
+       "z": 11,
+       "text": "Nature is one of the most important places to preserve for our well being."
+      },
+      {
+       "id": "phy11",
+       "src": "/zine/stickies/physical_spaces_and_nature_11.webp",
+       "x": 0.6518,
+       "y": 0.4588,
+       "w": 0.189,
+       "rot": 3.7,
+       "z": 4,
+       "text": "8. wild fires + climate change + heat ↓ access to wilderness"
+      },
+      {
+       "id": "phy05",
+       "src": "/zine/stickies/physical_spaces_and_nature_05.webp",
+       "x": 0.0979,
+       "y": 0.3127,
+       "w": 0.189,
+       "rot": -3,
+       "z": 1,
+       "text": "Crafting in parks invites reaction"
+      },
+      {
+       "id": "phy04",
+       "src": "/zine/stickies/physical_spaces_and_nature_04.webp",
+       "x": 0.4799,
+       "y": 0.9275,
+       "w": 0.189,
+       "rot": 0,
+       "z": 14,
+       "text": "Im working on creating more nature-filled 3rd spaces for a tech- free environment that deepens connections within my community"
+      },
+      {
+       "id": "phy06",
+       "src": "/zine/stickies/physical_spaces_and_nature_06.webp",
+       "x": 0.8932,
+       "y": 0.4645,
+       "w": 0.189,
+       "rot": -9.9,
+       "z": 8,
+       "text": "#1. I host monthly 3rd space community gatherings + tech-harm support groups"
+      },
+      {
+       "id": "phy12",
+       "src": "/zine/stickies/physical_spaces_and_nature_12.webp",
+       "x": 0.7387,
+       "y": 0.6173,
+       "w": 0.189,
+       "rot": 0,
+       "z": 2,
+       "text": "IM WORKING ON MAKING THIRD SPACES FOR YOUNG ADULTS"
+      },
+      {
+       "id": "phy02",
+       "src": "/zine/stickies/physical_spaces_and_nature_02.webp",
+       "x": 0.2752,
+       "y": 0.6021,
+       "w": 0.189,
+       "rot": 12,
+       "z": 3,
+       "text": "EVENT PLANNING"
+      },
+      {
+       "id": "phy03",
+       "src": "/zine/stickies/physical_spaces_and_nature_03.webp",
+       "x": 0.4872,
+       "y": 0.6727,
+       "w": 0.189,
+       "rot": -24.1,
+       "z": 9,
+       "text": "CREATING SPACE FOR OTHERS"
+      },
+      {
+       "id": "phy07",
+       "src": "/zine/stickies/physical_spaces_and_nature_07.webp",
+       "x": 0.8714,
+       "y": 0.2623,
+       "w": 0.189,
+       "rot": 6.3,
+       "z": 7,
+       "text": "Neighbours / physical proximity."
+      },
+      {
+       "id": "phy09",
+       "src": "/zine/stickies/physical_spaces_and_nature_09.webp",
+       "x": 0.1527,
+       "y": 0.4696,
+       "w": 0.189,
+       "rot": -3,
+       "z": 13,
+       "text": "(in sport) has been huge for showing ppl enthusiasm works"
+      }
+     ]
+    },
+    {
+     "id": "m0swrl2",
+     "type": "text",
+     "x": 50,
+     "y": 147,
+     "w": 84,
+     "h": 6,
+     "rot": 0,
+     "z": 5,
+     "text": "Press any note to read it.",
+     "font": "Arial",
+     "size": 2.4,
+     "color": "#5a5484",
+     "bold": false,
+     "italic": true,
+     "align": "left",
+     "ai": true
+    }
+   ]
+  },
+  {
+   "id": "p65sauec",
+   "bg": "#fdfef9",
+   "items": [
+    {
+     "id": "9xxtzby",
+     "type": "text",
+     "x": 50,
+     "y": 10,
+     "w": 88,
+     "h": 10,
+     "rot": 0,
+     "z": 5,
+     "text": "The eight domains",
+     "font": "Arial",
+     "size": 6,
+     "color": "#2b2755",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "pqnuwas",
+     "type": "pile",
+     "title": "Community & Belonging",
+     "x": 26,
+     "y": 50,
+     "w": 47,
+     "h": 52.79,
+     "rot": 0,
+     "z": 2,
+     "card": {
+      "src": "/zine/card-com.jpg",
+      "x": 0.5289,
+      "y": 0.2701,
+      "w": 0.4893,
+      "rot": 0
+     },
+     "notes": [
+      {
+       "id": "com04",
+       "src": "/zine/stickies/community_and_belonging_04.webp",
+       "x": 0.1437,
+       "y": 0.9233,
+       "w": 0.1719,
+       "rot": 0,
+       "z": 16,
+       "text": "I'm in class, but I don't think shared learning is occurring. It feels like the stranger-to- friend pipeline has become murky/challenging"
+      },
+      {
+       "id": "com13",
+       "src": "/zine/stickies/community_and_belonging_13.webp",
+       "x": 0.4783,
+       "y": 0.6216,
+       "w": 0.1719,
+       "rot": 0,
+       "z": 3,
+       "text": "texting people is stressful."
+      },
+      {
+       "id": "com11",
+       "src": "/zine/stickies/community_and_belonging_11.webp",
+       "x": 0.3163,
+       "y": 0.1862,
+       "w": 0.1719,
+       "rot": -8,
+       "z": 12,
+       "text": "We are in an insecurity epidemic, technology is worsening it."
+      },
+      {
+       "id": "com06",
+       "src": "/zine/stickies/community_and_belonging_06.webp",
+       "x": 0.3421,
+       "y": 0.4629,
+       "w": 0.1719,
+       "rot": -3,
+       "z": 5,
+       "text": "4. Convenience culture - doordash - amazon - instacart → decrease community reliance"
+      },
+      {
+       "id": "com01",
+       "src": "/zine/stickies/community_and_belonging_01.webp",
+       "x": 0.5302,
+       "y": 0.4485,
+       "w": 0.1719,
+       "rot": 2,
+       "z": 8,
+       "text": "I hate when all a group does is bond through complaint"
+      },
+      {
+       "id": "com16",
+       "src": "/zine/stickies/community_and_belonging_16.webp",
+       "x": 0.2905,
+       "y": 0.5609,
+       "w": 0.1719,
+       "rot": 78,
+       "z": 4,
+       "text": "we are either grieving about politics, or laughing [crossed out] by forgetting it. Maybe we're scared to merge the two inseparable worlds"
+      },
+      {
+       "id": "com14",
+       "src": "/zine/stickies/community_and_belonging_14.webp",
+       "x": 0.4459,
+       "y": 0.0911,
+       "w": 0.1719,
+       "rot": -10,
+       "z": 7,
+       "text": "Daily walks at the park enable me to meet many neighbors"
+      },
+      {
+       "id": "com15",
+       "src": "/zine/stickies/community_and_belonging_15.webp",
+       "x": 0.274,
+       "y": 0.2439,
+       "w": 0.1719,
+       "rot": 3,
+       "z": 1,
+       "text": "I love stopping people I recognize"
+      },
+      {
+       "id": "com20",
+       "src": "/zine/stickies/community_and_belonging_20.webp",
+       "x": 0.7696,
+       "y": 0.3475,
+       "w": 0.1719,
+       "rot": 3,
+       "z": 14,
+       "text": "HYBRID, I have connection in-person and online w/ friends, family, and mentors"
+      },
+      {
+       "id": "com17",
+       "src": "/zine/stickies/community_and_belonging_17.webp",
+       "x": 0.7987,
+       "y": 0.2091,
+       "w": 0.1719,
+       "rot": 8,
+       "z": 2,
+       "text": "Shared passions Interests"
+      },
+      {
+       "id": "com18",
+       "src": "/zine/stickies/community_and_belonging_18.webp",
+       "x": 0.109,
+       "y": 0.4744,
+       "w": 0.1719,
+       "rot": -22,
+       "z": 9,
+       "text": "Sports (playing & watching)"
+      },
+      {
+       "id": "com19",
+       "src": "/zine/stickies/community_and_belonging_19.webp",
+       "x": 0.1252,
+       "y": 0.7167,
+       "w": 0.1719,
+       "rot": 17,
+       "z": 11,
+       "text": "Book Club"
+      },
+      {
+       "id": "com02",
+       "src": "/zine/stickies/community_and_belonging_02.webp",
+       "x": 0.2449,
+       "y": 0.3878,
+       "w": 0.1719,
+       "rot": 12,
+       "z": 13,
+       "text": "Knitting Club I started at local library"
+      },
+      {
+       "id": "com08",
+       "src": "/zine/stickies/community_and_belonging_08.webp",
+       "x": 0.7434,
+       "y": 0.1285,
+       "w": 0.1719,
+       "rot": -18,
+       "z": 15,
+       "text": "Convivir Fund as a community organization"
+      },
+      {
+       "id": "com09",
+       "src": "/zine/stickies/community_and_belonging_09.webp",
+       "x": 0.3364,
+       "y": 0.9233,
+       "w": 0.1719,
+       "rot": 0,
+       "z": 17,
+       "text": "IM WORKING ON HOW INFRASTRUCTURE AFFECTS HUMAN CONNECTION"
+      },
+      {
+       "id": "com10",
+       "src": "/zine/stickies/community_and_belonging_10.webp",
+       "x": 0.5289,
+       "y": 0.9233,
+       "w": 0.1719,
+       "rot": 0,
+       "z": 18,
+       "text": "I am inclined to create spaces, where people can be creative and responsible for their future to advance without the marathon"
+      },
+      {
+       "id": "com07",
+       "src": "/zine/stickies/community_and_belonging_07.webp",
+       "x": 0.6757,
+       "y": 0.6242,
+       "w": 0.1719,
+       "rot": -25,
+       "z": 10,
+       "text": "↗ capable leaders directly with marginalized & underserved youth ↘ healing"
+      },
+      {
+       "id": "com05",
+       "src": "/zine/stickies/community_and_belonging_05.webp",
+       "x": 0.7147,
+       "y": 0.4341,
+       "w": 0.1719,
+       "rot": -5,
+       "z": 6,
+       "text": "RITHM whatsapp!"
+      },
+      {
+       "id": "com03",
+       "src": "/zine/stickies/community_and_belonging_03.webp",
+       "x": 0.7213,
+       "y": 0.9233,
+       "w": 0.1719,
+       "rot": 0,
+       "z": 19,
+       "text": "1) Experiencing 2) work being done 3) work to be done."
+      },
+      {
+       "id": "com12",
+       "src": "/zine/stickies/community_and_belonging_12.webp",
+       "x": 0.914,
+       "y": 0.9233,
+       "w": 0.1719,
+       "rot": 0,
+       "z": 20,
+       "text": "AI summarizing legal documents"
+      }
+     ]
+    },
+    {
+     "id": "7xez4nf",
+     "type": "pile",
+     "title": "Tech & Product Design",
+     "x": 74,
+     "y": 50,
+     "w": 47,
+     "h": 60.31,
+     "rot": 0,
+     "z": 2,
+     "card": {
+      "src": "/zine/card-tec.jpg",
+      "x": 0.5712,
+      "y": 0.3764,
+      "w": 0.5292,
+      "rot": 0
+     },
+     "notes": [
+      {
+       "id": "tec12",
+       "src": "/zine/stickies/tech_and_product_design_12.webp",
+       "x": 0.126,
+       "y": 0.5101,
+       "w": 0.1799,
+       "rot": 10.3,
+       "z": 11,
+       "text": "5. Inevitability narratives of AI companies 'Either use it or fall behind'. I have no choice"
+      },
+      {
+       "id": "tec11",
+       "src": "/zine/stickies/tech_and_product_design_11.webp",
+       "x": 0.4111,
+       "y": 0.6788,
+       "w": 0.1799,
+       "rot": 19.1,
+       "z": 1,
+       "text": "5. Are tech companies lying to us in the news?"
+      },
+      {
+       "id": "tec20",
+       "src": "/zine/stickies/tech_and_product_design_20.webp",
+       "x": 0.5629,
+       "y": 0.1801,
+       "w": 0.1799,
+       "rot": 15,
+       "z": 5,
+       "text": "I want to know more. [crossed out] I feel like, unless I catch up, I don't have a voice. I want to be connected to the humans behind the product."
+      },
+      {
+       "id": "tec08",
+       "src": "/zine/stickies/tech_and_product_design_08.webp",
+       "x": 0.6657,
+       "y": 0.7371,
+       "w": 0.1799,
+       "rot": 2.6,
+       "z": 2,
+       "text": "5. Muse charm + companion bots scare me. I'm sad for next generation"
+      },
+      {
+       "id": "tec07",
+       "src": "/zine/stickies/tech_and_product_design_07.webp",
+       "x": 0.7363,
+       "y": 0.537,
+       "w": 0.1799,
+       "rot": 3,
+       "z": 13,
+       "text": "5. Chatbots ↑ pressure to be perfect"
+      },
+      {
+       "id": "tec05",
+       "src": "/zine/stickies/tech_and_product_design_05.webp",
+       "x": 0.8767,
+       "y": 0.4219,
+       "w": 0.1799,
+       "rot": -28,
+       "z": 14,
+       "text": "5. AI Agents eroding any type of consent + privacy"
+      },
+      {
+       "id": "tec06",
+       "src": "/zine/stickies/tech_and_product_design_06.webp",
+       "x": 0.263,
+       "y": 0.3418,
+       "w": 0.1799,
+       "rot": 11.6,
+       "z": 9,
+       "text": "tech removes friction that we may traditionally rely on our human connections for (go to chatbot instead of human to rant)"
+      },
+      {
+       "id": "tec09",
+       "src": "/zine/stickies/tech_and_product_design_09.webp",
+       "x": 0.355,
+       "y": 0.1952,
+       "w": 0.1799,
+       "rot": 36.2,
+       "z": 8,
+       "text": "constantly 2nd guessing if online post was real or AI gen"
+      },
+      {
+       "id": "tec19",
+       "src": "/zine/stickies/tech_and_product_design_19.webp",
+       "x": 0.8546,
+       "y": 0.2521,
+       "w": 0.1799,
+       "rot": -40,
+       "z": 15,
+       "text": "getting rid of social media... I have FOMO"
+      },
+      {
+       "id": "tec16",
+       "src": "/zine/stickies/tech_and_product_design_16.webp",
+       "x": 0.1233,
+       "y": 0.3815,
+       "w": 0.1799,
+       "rot": 2,
+       "z": 10,
+       "text": "No social media"
+      },
+      {
+       "id": "tec01",
+       "src": "/zine/stickies/tech_and_product_design_01.webp",
+       "x": 0.3699,
+       "y": 0.9263,
+       "w": 0.1799,
+       "rot": 0,
+       "z": 17,
+       "text": "AI safety / impacts program fieldbuilding"
+      },
+      {
+       "id": "tec02",
+       "src": "/zine/stickies/tech_and_product_design_02.webp",
+       "x": 0.5712,
+       "y": 0.9263,
+       "w": 0.1799,
+       "rot": 0,
+       "z": 18,
+       "text": "I am working with OpenAI to solve problems in the industry. always looking for pro-bono"
+      },
+      {
+       "id": "tec03",
+       "src": "/zine/stickies/tech_and_product_design_03.webp",
+       "x": 0.7726,
+       "y": 0.9263,
+       "w": 0.1799,
+       "rot": 0,
+       "z": 19,
+       "text": "research on AI's impact on decision making corollary: trust"
+      },
+      {
+       "id": "tec04",
+       "src": "/zine/stickies/tech_and_product_design_04.webp",
+       "x": 0.7325,
+       "y": 0.1003,
+       "w": 0.1799,
+       "rot": 1.7,
+       "z": 4,
+       "text": "I am working on grounding our disbelief in AI systems through data viz"
+      },
+      {
+       "id": "tec18",
+       "src": "/zine/stickies/tech_and_product_design_18.webp",
+       "x": 0.4595,
+       "y": 0.5144,
+       "w": 0.1799,
+       "rot": 0.4,
+       "z": 16,
+       "text": "community- centered toolkit offering an alternative to Big AI"
+      },
+      {
+       "id": "tec14",
+       "src": "/zine/stickies/tech_and_product_design_14.webp",
+       "x": 0.2637,
+       "y": 0.5112,
+       "w": 0.1799,
+       "rot": 22,
+       "z": 12,
+       "text": "Building AI to connect people in teams for an online program."
+      },
+      {
+       "id": "tec15",
+       "src": "/zine/stickies/tech_and_product_design_15.webp",
+       "x": 0.1105,
+       "y": 0.7301,
+       "w": 0.1799,
+       "rot": 14.8,
+       "z": 3,
+       "text": "working at a start up focusing on liscensing, ID's, and payment for AI agents."
+      },
+      {
+       "id": "tec13",
+       "src": "/zine/stickies/tech_and_product_design_13.webp",
+       "x": 0.418,
+       "y": 0.0952,
+       "w": 0.1799,
+       "rot": 64.3,
+       "z": 6,
+       "text": "Using AI to make flyers for events"
+      },
+      {
+       "id": "tec17",
+       "src": "/zine/stickies/tech_and_product_design_17.webp",
+       "x": 0.5059,
+       "y": 0.2205,
+       "w": 0.1799,
+       "rot": -2.7,
+       "z": 7,
+       "text": "what I wanna work on: - innovation (prototyping) health? ↗ accexbility ! - building community/whimsical things - hardware projects - internationalization ? ↳ translating features"
+      }
+     ]
+    },
+    {
+     "id": "5ro6jda",
+     "type": "pile",
+     "title": "Culture, Art & Storytelling",
+     "x": 26,
+     "y": 112,
+     "w": 47,
+     "h": 49.19,
+     "rot": 0,
+     "z": 2,
+     "card": {
+      "src": "/zine/card-cul.jpg",
+      "x": 0.4276,
+      "y": 0.4575,
+      "w": 0.3979,
+      "rot": 0
+     },
+     "notes": [
+      {
+       "id": "cul03",
+       "src": "/zine/stickies/culture_art_and_storytelling_03.webp",
+       "x": 0.7285,
+       "y": 0.6365,
+       "w": 0.141,
+       "rot": -13,
+       "z": 6,
+       "text": "6. Media being owned by billionaires + monopolists makes me feel like I can't trust anything"
+      },
+      {
+       "id": "cul09",
+       "src": "/zine/stickies/culture_art_and_storytelling_09.webp",
+       "x": 0.2333,
+       "y": 0.7123,
+       "w": 0.141,
+       "rot": -5,
+       "z": 21,
+       "text": "6. I've had bad experiences w/ media exploiting my lived experience + eroded trust"
+      },
+      {
+       "id": "cul27",
+       "src": "/zine/stickies/culture_art_and_storytelling_27.webp",
+       "x": 0.4409,
+       "y": 0.9245,
+       "w": 0.141,
+       "rot": -8,
+       "z": 24,
+       "text": "6. Art is one of the only means of resistance left"
+      },
+      {
+       "id": "cul02",
+       "src": "/zine/stickies/culture_art_and_storytelling_02.webp",
+       "x": 0.3184,
+       "y": 0.2316,
+       "w": 0.141,
+       "rot": 8,
+       "z": 17,
+       "text": "It is hard to create art right now, because it is scary to think deeply. Especially now."
+      },
+      {
+       "id": "cul10",
+       "src": "/zine/stickies/culture_art_and_storytelling_10.webp",
+       "x": 0.1671,
+       "y": 0.2832,
+       "w": 0.141,
+       "rot": -3,
+       "z": 18,
+       "text": "• AI makes me want to dive deeper into Vinyl * Fixing with vinyl * Music as [crossed out] Curated space."
+      },
+      {
+       "id": "cul04",
+       "src": "/zine/stickies/culture_art_and_storytelling_04.webp",
+       "x": 0.4336,
+       "y": 0.5984,
+       "w": 0.141,
+       "rot": -17.7,
+       "z": 11,
+       "text": "because of so much AI slop I've become more motivated to learn the work of great writers deeply"
+      },
+      {
+       "id": "cul24",
+       "src": "/zine/stickies/culture_art_and_storytelling_24.webp",
+       "x": 0.6345,
+       "y": 0.3215,
+       "w": 0.141,
+       "rot": -17,
+       "z": 23,
+       "text": "calligraphy! slowing down give words more emotions"
+      },
+      {
+       "id": "cul23",
+       "src": "/zine/stickies/culture_art_and_storytelling_23.webp",
+       "x": 0.7586,
+       "y": 0.5077,
+       "w": 0.141,
+       "rot": -25,
+       "z": 25,
+       "text": "As a creative, AI concerns me because I see support for creative spaces starting to cease"
+      },
+      {
+       "id": "cul16",
+       "src": "/zine/stickies/culture_art_and_storytelling_16.webp",
+       "x": 0.5941,
+       "y": 0.6877,
+       "w": 0.141,
+       "rot": -25,
+       "z": 20,
+       "text": "I'm frustrated by the efficiency mindset infiltrating the art world"
+      },
+      {
+       "id": "cul07",
+       "src": "/zine/stickies/culture_art_and_storytelling_07.webp",
+       "x": 0.6209,
+       "y": 0.1192,
+       "w": 0.141,
+       "rot": -8,
+       "z": 26,
+       "text": "ppl are tokenizing weirdness and individuality such that it has become a trend."
+      },
+      {
+       "id": "cul14",
+       "src": "/zine/stickies/culture_art_and_storytelling_14.webp",
+       "x": 0.6109,
+       "y": 0.5432,
+       "w": 0.141,
+       "rot": 8,
+       "z": 5,
+       "text": "Talking deep to AI but not a human"
+      },
+      {
+       "id": "cul13",
+       "src": "/zine/stickies/culture_art_and_storytelling_13.webp",
+       "x": 0.0774,
+       "y": 0.6015,
+       "w": 0.141,
+       "rot": -5.5,
+       "z": 12,
+       "text": "I can't stop talking about AI."
+      },
+      {
+       "id": "cul12",
+       "src": "/zine/stickies/culture_art_and_storytelling_12.webp",
+       "x": 0.1595,
+       "y": 0.4109,
+       "w": 0.141,
+       "rot": 0.0,
+       "z": 2,
+       "text": "Talking about hot-takes and seeing the why behind them"
+      },
+      {
+       "id": "cul01",
+       "src": "/zine/stickies/culture_art_and_storytelling_01.webp",
+       "x": 0.6399,
+       "y": 0.869,
+       "w": 0.141,
+       "rot": -46.7,
+       "z": 13,
+       "text": "I am: b: Training youth to go on the media to push back on AI companies' marketing messaging"
+      },
+      {
+       "id": "cul11",
+       "src": "/zine/stickies/culture_art_and_storytelling_11.webp",
+       "x": 0.2143,
+       "y": 0.5689,
+       "w": 0.141,
+       "rot": -8,
+       "z": 8,
+       "text": "I'm working on: conversations about AI in peoples lives"
+      },
+      {
+       "id": "cul18",
+       "src": "/zine/stickies/culture_art_and_storytelling_18.webp",
+       "x": 0.1471,
+       "y": 0.4855,
+       "w": 0.141,
+       "rot": -25,
+       "z": 22,
+       "text": "I'm interested in storytelling and how best to communicate about AI"
+      },
+      {
+       "id": "cul19",
+       "src": "/zine/stickies/culture_art_and_storytelling_19.webp",
+       "x": 0.8326,
+       "y": 0.7566,
+       "w": 0.141,
+       "rot": -37.5,
+       "z": 14,
+       "text": "6. I'm seeding resistance movements: - AI Detoxes - going analog - anti-AI marketing"
+      },
+      {
+       "id": "cul20",
+       "src": "/zine/stickies/culture_art_and_storytelling_20.webp",
+       "x": 0.6385,
+       "y": 0.3953,
+       "w": 0.141,
+       "rot": -23.7,
+       "z": 3,
+       "text": "Fourdoto ↘ Creative Media work Spaces that conserve creativity. and culture"
+      },
+      {
+       "id": "cul25",
+       "src": "/zine/stickies/culture_art_and_storytelling_25.webp",
+       "x": 0.9099,
+       "y": 0.5689,
+       "w": 0.141,
+       "rot": -20,
+       "z": 19,
+       "text": "A PSA Film Fellowship for local youth to create stories about and affirming to their community"
+      },
+      {
+       "id": "cul26",
+       "src": "/zine/stickies/culture_art_and_storytelling_26.webp",
+       "x": 0.3826,
+       "y": 0.0734,
+       "w": 0.141,
+       "rot": -4.0,
+       "z": 9,
+       "text": "Writing on concentration of power in AI for American Intelligence } Pirate Wires"
+      },
+      {
+       "id": "cul08",
+       "src": "/zine/stickies/culture_art_and_storytelling_08.webp",
+       "x": 0.725,
+       "y": 0.1995,
+       "w": 0.141,
+       "rot": -30,
+       "z": 16,
+       "text": "Working on getting my friends to sit in unanswered thoughts"
+      },
+      {
+       "id": "cul17",
+       "src": "/zine/stickies/culture_art_and_storytelling_17.webp",
+       "x": 0.5133,
+       "y": 0.2189,
+       "w": 0.141,
+       "rot": 3,
+       "z": 15,
+       "text": "reading and collaborating on my friends writing + music"
+      },
+      {
+       "id": "cul05",
+       "src": "/zine/stickies/culture_art_and_storytelling_05.webp",
+       "x": 0.3992,
+       "y": 0.6556,
+       "w": 0.141,
+       "rot": 15,
+       "z": 27,
+       "text": "MUSIC"
+      },
+      {
+       "id": "cul06",
+       "src": "/zine/stickies/culture_art_and_storytelling_06.webp",
+       "x": 0.2512,
+       "y": 0.5111,
+       "w": 0.141,
+       "rot": 6,
+       "z": 7,
+       "text": "concerts / sports collective human spirit"
+      },
+      {
+       "id": "cul15",
+       "src": "/zine/stickies/culture_art_and_storytelling_15.webp",
+       "x": 0.2815,
+       "y": 0.5808,
+       "w": 0.141,
+       "rot": 0,
+       "z": 1,
+       "text": "taste"
+      },
+      {
+       "id": "cul21",
+       "src": "/zine/stickies/culture_art_and_storytelling_21.webp",
+       "x": 0.3791,
+       "y": 0.8374,
+       "w": 0.141,
+       "rot": -8,
+       "z": 4,
+       "text": "I ♥ ART!"
+      },
+      {
+       "id": "cul22",
+       "src": "/zine/stickies/culture_art_and_storytelling_22.webp",
+       "x": 0.8619,
+       "y": 0.3567,
+       "w": 0.141,
+       "rot": 4.6,
+       "z": 10,
+       "text": "understanding how coupled our lay understanding of cognition is tied to the theory of computation?"
+      }
+     ]
+    },
+    {
+     "id": "93a1b6z",
+     "type": "pile",
+     "title": "Policy & Institutions",
+     "x": 74,
+     "y": 112,
+     "w": 47,
+     "h": 56.85,
+     "rot": 0,
+     "z": 2,
+     "card": {
+      "src": "/zine/card-pol.jpg",
+      "x": 0.5234,
+      "y": 0.3451,
+      "w": 0.5903,
+      "rot": 0
+     },
+     "notes": [
+      {
+       "id": "pol07",
+       "src": "/zine/stickies/policy_and_institutions_07.webp",
+       "x": 0.7843,
+       "y": 0.3051,
+       "w": 0.2028,
+       "rot": -101.6,
+       "z": 8,
+       "text": "7. White male tech oligarchy doesn't share my needs, values or experience"
+      },
+      {
+       "id": "pol08",
+       "src": "/zine/stickies/policy_and_institutions_08.webp",
+       "x": 0.8931,
+       "y": 0.5546,
+       "w": 0.2028,
+       "rot": 3.4,
+       "z": 12,
+       "text": "7. What AI regulation could actually stop mass casualty?"
+      },
+      {
+       "id": "pol13",
+       "src": "/zine/stickies/policy_and_institutions_13.webp",
+       "x": 0.2422,
+       "y": 0.5243,
+       "w": 0.2028,
+       "rot": 9.1,
+       "z": 4,
+       "text": "7. MAGA refusing to protect public from AI"
+      },
+      {
+       "id": "pol05",
+       "src": "/zine/stickies/policy_and_institutions_05.webp",
+       "x": 0.1366,
+       "y": 0.2829,
+       "w": 0.2028,
+       "rot": 45,
+       "z": 1,
+       "text": "7. Corrupt govt. threatening my community + rights *"
+      },
+      {
+       "id": "pol01",
+       "src": "/zine/stickies/policy_and_institutions_01.webp",
+       "x": 0.3986,
+       "y": 0.0897,
+       "w": 0.2028,
+       "rot": 3,
+       "z": 3,
+       "text": "\" Policy that promotes humans Well-being Aka (classes, events, community opportunities."
+      },
+      {
+       "id": "pol12",
+       "src": "/zine/stickies/policy_and_institutions_12.webp",
+       "x": 0.5133,
+       "y": 0.5359,
+       "w": 0.2028,
+       "rot": 0,
+       "z": 2,
+       "text": "7 policy & institutions * [crossed out] * who makes these policies * well-being programs * livable wages"
+      },
+      {
+       "id": "pol03",
+       "src": "/zine/stickies/policy_and_institutions_03.webp",
+       "x": 0.2325,
+       "y": 0.2035,
+       "w": 0.2028,
+       "rot": -5,
+       "z": 9,
+       "text": "Policy Access to help understand emotions and different types of help."
+      },
+      {
+       "id": "pol10",
+       "src": "/zine/stickies/policy_and_institutions_10.webp",
+       "x": 0.3994,
+       "y": 0.2329,
+       "w": 0.2028,
+       "rot": 1.2,
+       "z": 7,
+       "text": "I don't think college and/or most institutions are relevant and responsive to support young people anymore"
+      },
+      {
+       "id": "pol06",
+       "src": "/zine/stickies/policy_and_institutions_06.webp",
+       "x": 0.6268,
+       "y": 0.1188,
+       "w": 0.2028,
+       "rot": 10.4,
+       "z": 6,
+       "text": "In a weird way, I feel less anxious working in established institutions because I know they are less likely to experience a complete overhaul"
+      },
+      {
+       "id": "pol11",
+       "src": "/zine/stickies/policy_and_institutions_11.webp",
+       "x": 0.5234,
+       "y": 0.916,
+       "w": 0.2028,
+       "rot": 0,
+       "z": 13,
+       "text": "• urban planning • types of community → voting, advocating canvassing . → who make the community, who are being given the space"
+      },
+      {
+       "id": "pol09",
+       "src": "/zine/stickies/policy_and_institutions_09.webp",
+       "x": 0.7902,
+       "y": 0.1162,
+       "w": 0.2028,
+       "rot": -26.2,
+       "z": 10,
+       "text": "ppl don't want to address that generational divide abt AI is primarily abt wealth!!"
+      },
+      {
+       "id": "pol04",
+       "src": "/zine/stickies/policy_and_institutions_04.webp",
+       "x": 0.5164,
+       "y": 0.4599,
+       "w": 0.2028,
+       "rot": -20.0,
+       "z": 11,
+       "text": "I'm working on mobilizing institutions and societal sources of power for AI Safety"
+      },
+      {
+       "id": "pol02",
+       "src": "/zine/stickies/policy_and_institutions_02.webp",
+       "x": 0.8358,
+       "y": 0.6897,
+       "w": 0.2028,
+       "rot": -1.6,
+       "z": 5,
+       "text": "curious about AI safety — workon making people care about AI by showing how it affects there material reality instead of x risk."
+      }
+     ]
+    },
+    {
+     "id": "v5ksuta",
+     "type": "text",
+     "x": 50,
+     "y": 147,
+     "w": 80,
+     "h": 8,
+     "rot": 0,
+     "z": 2,
+     "text": "[To build: for each domain, the issue we already had before AI, how AI shifted it, and the feeling of it being out of our control. October stickies and transcript lines only.]",
+     "font": "Arial",
+     "size": 2.0,
+     "color": "#5a5484",
+     "bold": false,
+     "italic": true,
+     "align": "left",
+     "ai": true
+    }
+   ]
+  },
+  {
+   "id": "pvss4be9",
+   "bg": "#fdfef9",
+   "items": [
+    {
+     "id": "i8lfjnu",
+     "type": "text",
+     "x": 50,
+     "y": 12,
+     "w": 84,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "The gap",
+     "font": "Arial",
+     "size": 6,
+     "color": "#2b2755",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "rox5r4v",
+     "type": "text",
+     "x": 50,
+     "y": 52,
+     "w": 86,
+     "h": 66.5,
+     "rot": 0,
+     "z": 5,
+     "text": "And still we just see we have a lot of fear and all of the projects that we’re working on that are for the hopes that we have there’s a huge gap. None of these projects necessarily address our fears whether or not this means safety wall is really important or more projects like the Rithm project that try and still values into the people that read its content and explain why having a thought community or just a place to express a single basic value that you have together is also for some people that’s religion for some people that’s ethnicity or culture or hometown but like the youth leaders that were at the summit those comforts we have in those spaces that make us feel protected seen isolated from the problem they are technology isn’t in our hands. It’s often nowadays forced to see lawsuit about search in schools and we don’t have a career way to turn off Google AI overview and at work many people’s jobs used to be an application of their school but now it is prompting the application of their skill they are teaching their skills instead of using it. That is a real fear, the loss of jobs being in the workforce fearfully holding a job. It is so paralyzing",
+     "font": "Arial",
+     "size": 2.5,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "win": true,
+     "title": "The gap"
+    },
+    {
+     "id": "cvmhp0g",
+     "type": "text",
+     "x": 50,
+     "y": 96,
+     "w": 84,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "Feelings across domains",
+     "font": "Arial",
+     "size": 4.5,
+     "color": "#2b2755",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "7bu5pnp",
+     "type": "text",
+     "x": 50,
+     "y": 110,
+     "w": 80,
+     "h": 16,
+     "rot": 0,
+     "z": 2,
+     "text": "[AI-marked analysis. The same feelings show up in different domains: left behind, afraid to reach out, friction. October quotes only.]",
+     "font": "Arial",
+     "size": 2.6,
+     "color": "#5a5484",
+     "bold": false,
+     "italic": true,
+     "align": "left",
+     "ai": true
+    },
+    {
+     "id": "b1w7kin",
+     "type": "text",
+     "x": 50,
+     "y": 126,
+     "w": 80,
+     "h": 8,
+     "rot": 0,
+     "z": 2,
+     "text": "[October lines only, on school and university.]",
+     "font": "Arial",
+     "size": 2.6,
+     "color": "#5a5484",
+     "bold": false,
+     "italic": true,
+     "align": "left",
+     "ai": true
+    }
+   ]
+  },
+  {
+   "id": "pd5hax34",
+   "bg": "#fdfef9",
+   "items": [
+    {
+     "id": "kitkqsh",
+     "type": "text",
+     "x": 50,
+     "y": 9,
+     "w": 84,
+     "h": 8,
+     "rot": 0,
+     "z": 1,
+     "text": "Our summaries, the AI's summaries",
+     "font": "Arial",
+     "size": 4.2,
+     "color": "#2b2755",
+     "bold": true,
+     "italic": false,
+     "align": "center",
+     "ai": true
+    },
+    {
+     "id": "4vyju8g",
+     "type": "text",
+     "x": 50,
+     "y": 18.6,
+     "w": 92,
+     "h": 10.5,
+     "rot": 0,
+     "z": 3,
+     "text": "[Rhea: what our summaries noticed that the AI’s didn’t, and the other way round.]",
+     "font": "Arial",
+     "size": 2.2,
+     "color": "#2b2755",
+     "win": true,
+     "title": "Rhea writes",
+     "ai": true
+    },
+    {
+     "id": "zh9qm38",
+     "type": "text",
+     "x": 26,
+     "y": 28.3,
+     "w": 46,
+     "h": 4.5,
+     "rot": 0,
+     "z": 2,
+     "text": "Our notes",
+     "font": "Arial",
+     "size": 3,
+     "bold": true,
+     "color": "#2b2755",
+     "align": "center"
+    },
+    {
+     "id": "1dmpgst",
+     "type": "text",
+     "x": 74,
+     "y": 28.3,
+     "w": 46,
+     "h": 4.5,
+     "rot": 0,
+     "z": 2,
+     "text": "The AI's notes",
+     "font": "Arial",
+     "size": 3,
+     "bold": true,
+     "color": "#2b2755",
+     "align": "center"
+    },
+    {
+     "id": "yel1p2k",
+     "type": "text",
+     "x": 26,
+     "y": 41.25,
+     "w": 47,
+     "h": 21.5,
+     "rot": 0,
+     "z": 3,
+     "text": "Issues\n“Dating: Misogyny, porn, GBV, Self confidence*”\n“Reciprocation: Boundary-setting, Reaching out first”\n“Relatability”\n“*Body Image”\n\nWork Being Done\n“Tech as a mediation tool”\n“letter writing”\n“Redirecting convos so it stays positive”",
+     "font": "Arial",
+     "size": 1.2,
+     "color": "#2b2755",
+     "win": true,
+     "title": "Ours: Relationships"
+    },
+    {
+     "id": "zrj4sj9",
+     "type": "text",
+     "x": 74,
+     "y": 43.35,
+     "w": 47,
+     "h": 25.7,
+     "rot": 0,
+     "z": 3,
+     "text": "Granola’s summary\n“Relationships and personal life: fear of initiating connection, dating app culture shifts, need for neutral validation”\n“AI chatbots (e.g. Astra) used as a low-barrier emotional outlet, especially when human therapy feels inaccessible or has been a bad experience”\n“Tension between sharing with trusted friends (who know you too well) vs. needing a neutral, non-judgmental response”\n“Dating: self-misogyny, reciprocation anxiety, not knowing whether to reach out first”\n\nThe site’s one-liner (written by Claude)\n“How young people date, make friends, and lean on tech and AI in their personal lives.”",
+     "font": "Arial",
+     "size": 1.2,
+     "color": "#2b2755",
+     "win": true,
+     "title": "AI: Relationships",
+     "ai": true
+    },
+    {
+     "id": "uhqgrsa",
+     "type": "text",
+     "x": 26,
+     "y": 67.0,
+     "w": 47,
+     "h": 28.4,
+     "rot": 0,
+     "z": 3,
+     "text": "“need for creative and responsible spaces”\n“wants to be in nature and meet neighbors”\n“Starting Community Org”\n“Insecurity Epidemic, tech is worsening it”\n“want more serendipity, productive friction”\n“Co-design experiences that are healing”\n“Hobbies, clubs (you have to go out of your way to engage)”\n“Hybrid connection (balanced social life)”\n“No shared misery”\n“Alone together, be in community to feel alone”\n“Community requires inconvenience (the thread)”\n\nOn its own sheet\n“An inclination to create spaces where people can be creative and responsible for their future to advance without the marathon [?]”",
+     "font": "Arial",
+     "size": 1.2,
+     "color": "#2b2755",
+     "win": true,
+     "title": "Ours: Community + Spaces"
+    },
+    {
+     "id": "x5fnfja",
+     "type": "text",
+     "x": 74,
+     "y": 68.45,
+     "w": 47,
+     "h": 22.9,
+     "rot": 0,
+     "z": 3,
+     "text": "Granola’s summary\n“Physical spaces: decline of third spaces alongside rise of data centers, noted as interconnected trends”\n“Concern about data center proliferation and lack of public education around their environmental impact”\n[Granola has no line on Community & Belonging from the mapping.]\n\nThe site’s one-liner (written by Claude)\n“Where young people find belonging, and what pulls communities apart.”\n“The places people gather, the natural world, and where tech’s physical footprint lands.”",
+     "font": "Arial",
+     "size": 1.2,
+     "color": "#2b2755",
+     "win": true,
+     "title": "AI: Community + Spaces",
+     "ai": true
+    },
+    {
+     "id": "3tmm49a",
+     "type": "text",
+     "x": 26,
+     "y": 131.7,
+     "w": 47,
+     "h": 43.6,
+     "rot": 0,
+     "z": 3,
+     "text": "What is being done?\n“(1) corrupt gov threatening my own community & rights”\n“what AI regulation would stop mass casualty [?]”\n“most higher ed & institutions are not relevant and/or responsive to the needs of young people”\n“white male tech oligarchy”\n“(2) policy that promotes well being of humanity (class, events, experiential experiences through community)”\n\nWhat’s to be done\n“make people care about AI by connecting to their material reality instead of far off risks”\n“policy access to help understand emotions and different types of help”\n“urban planning”\n“(2) AI safety that is intersectional: with wellbeing, wealth, underserved communities”\n\nWhat is being experienced?\n“Voting”\n\nBig themes\n“policy is centered around community-building”\n“(2) resources to increase the baseline knowledge around AI to help people navigate [?] it together”\n“(1) concentration of power by a minority over the futures of everyone”\n“make AI more connected”",
+     "font": "Arial",
+     "size": 1.2,
+     "color": "#2b2755",
+     "win": true,
+     "title": "Ours: Policy & Institutions"
+    },
+    {
+     "id": "w7mnq38",
+     "type": "text",
+     "x": 74,
+     "y": 88.7,
+     "w": 47,
+     "h": 16.0,
+     "rot": 0,
+     "z": 3,
+     "text": "Granola’s summary\n[Granola has no line on Policy & Institutions from the mapping.]\n\nThe site’s one-liner (written by Claude)\n“Who makes the rules for AI and tech, and whether institutions serve young people.”",
+     "font": "Arial",
+     "size": 1.2,
+     "color": "#2b2755",
+     "win": true,
+     "title": "AI: Policy & Institutions",
+     "ai": true
+    },
+    {
+     "id": "1943erf",
+     "type": "text",
+     "x": 74,
+     "y": 109.65,
+     "w": 47,
+     "h": 24.3,
+     "rot": 0,
+     "z": 3,
+     "text": "Granola’s summary\n“Schools and learning: grind mentality, fear of being left behind without AI, bias in learning models”\n“Even split between AI skepticism/safety work and pro-AI tool building”\n“Culture, art, and storytelling: valued forms of human expression being tokenized, weaponized, or exploited”\n“Consuming media feels less enjoyable; call for curated, trusted spaces for music and fine art”\n[Nothing on Workplace & Careers or Tech & Product Design.]\n\n[We have no summary pages of ours for School & Learning, Workplace & Careers, Tech & Product Design, or Culture, Art & Storytelling.]",
+     "font": "Arial",
+     "size": 1.2,
+     "color": "#2b2755",
+     "win": true,
+     "title": "AI: other domains",
+     "ai": true
+    },
+    {
+     "id": "phyours",
+     "type": "text",
+     "x": 26,
+     "y": 95.55,
+     "w": 47,
+     "h": 27.1,
+     "rot": 0,
+     "z": 3,
+     "text": "“Physical spaces + nature serve as third [crossed out: rooms] areas that ground us and connect us with people. Housing areas are developed with efficiency in mind losing the culture of neighborhood - de priving \"The Shelter\" from community and support.”\n“Common Areas of work: creating more physical spaces and nature group activities, potentially focused on seeing the world [?] around us.”\n“We antropomorphize everything but we are part of a larger system. If nature loses we lose too.”\n“Biggest worry is the extractive nature of today’s tech (AI, dc) and unequal effect that marginalized communities experience (Field Trip to a data center ??)”\n“raising awareness to the effects of data centers - the unknown is the scary. What is the problem? what do we have in our toolbox to combat / reclaim the power?”\n“Depolarizing conversations about DCs.”\n“↑ How do we create a space with this as system dynamics”",
+     "font": "Arial",
+     "size": 1.2,
+     "color": "#2b2755",
+     "win": true,
+     "title": "Ours: Physical Spaces"
+    }
+   ]
+  },
+  {
+   "id": "p0ijkpo0",
+   "bg": "#fdfef9",
+   "items": [
+    {
+     "id": "d138xcq",
+     "type": "text",
+     "x": 50,
+     "y": 12,
+     "w": 84,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "Ways through: the workshops",
+     "font": "Arial",
+     "size": 6,
+     "color": "#2b2755",
+     "bold": true,
+     "italic": false,
+     "align": "center",
+     "ai": true
+    },
+    {
+     "id": "xkfhapw",
+     "type": "text",
+     "x": 50,
+     "y": 36,
+     "w": 86,
+     "h": 26.2,
+     "rot": 0,
+     "z": 5,
+     "text": "so what are the ways through it well, the consultancy workshops took us into this Leorah clutch show this thread with the following about discussion and free dialogue. Audrey taught us how to make me formalize bringing it into school. Leo was talking about what it feels like. To be doing safety research right now.. l v",
+     "font": "Arial",
+     "size": 2.5,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "win": true,
+     "title": "Consultancy workshops"
+    },
+    {
+     "id": "7xrw8v4",
+     "type": "text",
+     "x": 50,
+     "y": 59,
+     "w": 86,
+     "h": 14.8,
+     "rot": 0,
+     "z": 5,
+     "text": "[Leorah's debate-versus-dialogue workshop and Marisol's session on small, local models still need your words.]",
+     "font": "Arial",
+     "size": 2.5,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "win": true,
+     "title": "Still to write",
+     "ai": true
+    },
+    {
+     "id": "3sau5un",
+     "type": "flip",
+     "x": 50,
+     "y": 92,
+     "w": 70,
+     "h": 39.38,
+     "rot": 0,
+     "z": 2,
+     "speed": 3000,
+     "srcs": [
+      "/zine/marisol-small-ai-01.jpg",
+      "/zine/marisol-small-ai-02.jpg",
+      "/zine/marisol-small-ai-03.jpg",
+      "/zine/marisol-small-ai-04.jpg",
+      "/zine/marisol-small-ai-05.jpg",
+      "/zine/marisol-small-ai-06.jpg",
+      "/zine/marisol-small-ai-07.jpg",
+      "/zine/marisol-small-ai-08.jpg",
+      "/zine/marisol-small-ai-09.jpg",
+      "/zine/marisol-small-ai-10.jpg",
+      "/zine/marisol-small-ai-11.jpg",
+      "/zine/marisol-small-ai-12.jpg",
+      "/zine/marisol-small-ai-13.jpg",
+      "/zine/marisol-small-ai-14.jpg",
+      "/zine/marisol-small-ai-15.jpg",
+      "/zine/marisol-small-ai-16.jpg"
+     ]
+    },
+    {
+     "id": "siinh69",
+     "type": "text",
+     "x": 50,
+     "y": 128,
+     "w": 86,
+     "h": 20,
+     "rot": 0,
+     "z": 3,
+     "text": "[Marisol’s session: is small AI a suitable alternative? Your words go here.]",
+     "font": "Arial",
+     "size": 2.5,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "win": true,
+     "title": "Marisol: Rhea writes",
+     "ai": true
+    }
+   ]
+  },
+  {
+   "id": "pzj23rr6",
+   "bg": "#fdfef9",
+   "items": [
+    {
+     "id": "zjv0g9g",
+     "type": "text",
+     "x": 50,
+     "y": 12,
+     "w": 84,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "Practicing dialogue",
+     "font": "Arial",
+     "size": 6,
+     "color": "#2b2755",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "xvxqs8w",
+     "type": "text",
+     "x": 50,
+     "y": 28,
+     "w": 84,
+     "h": 12,
+     "rot": 0,
+     "z": 3,
+     "text": "It's really cool that we can do this, but can we use it only in the places it's helpful?",
+     "font": "Arial",
+     "size": 3.6,
+     "color": "#2b2755",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "dq2avoh",
+     "type": "text",
+     "x": 50,
+     "y": 50,
+     "w": 86,
+     "h": 24,
+     "rot": 0,
+     "z": 3,
+     "text": "[The middle of the zine: practicing dialogue. The AI Effect game, Leorah’s debate vs dialogue workshop, and this retreat as a whole.]",
+     "font": "Arial",
+     "size": 2.5,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "win": true,
+     "title": "Rhea writes",
+     "ai": true
+    },
+    {
+     "id": "p1icgfu",
+     "type": "text",
+     "x": 50,
+     "y": 92,
+     "w": 70,
+     "h": 46,
+     "rot": 0,
+     "z": 3,
+     "text": "AI EFFECT GAME\n\nsupport / erode / it depends\n\nwhose opinion sways you most\n\nwhere does line of comfort go?\n\nwould you answer these diff as another person?",
+     "font": "Arial",
+     "size": 2.5,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "win": true,
+     "title": "From my notebook"
+    },
+    {
+     "id": "ky1sf2s",
+     "type": "text",
+     "x": 50,
+     "y": 124,
+     "w": 80,
+     "h": 9,
+     "rot": 0,
+     "z": 2,
+     "text": "[AI-marked figure. October quotes on two axes: tool to replacement, supports to erodes connection.]",
+     "font": "Arial",
+     "size": 2.6,
+     "color": "#5a5484",
+     "bold": false,
+     "italic": true,
+     "align": "left",
+     "ai": true
+    },
+    {
+     "id": "88tykb0",
+     "type": "text",
+     "x": 50,
+     "y": 138,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 2,
+     "text": "[A freshly written prompt, next to the October sticky “Telling AI your emotions and it making you feel good”. Rhea writes: it can read as sarcastic, but not everyone finds it uncanny.]",
+     "font": "Arial",
+     "size": 2.6,
+     "color": "#5a5484",
+     "bold": false,
+     "italic": true,
+     "align": "left",
+     "ai": true
+    }
+   ]
+  },
+  {
+   "id": "prp37n2j",
+   "bg": "#fdfef9",
+   "items": [
+    {
+     "id": "admdnwo",
+     "type": "text",
+     "x": 50,
+     "y": 12,
+     "w": 84,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "Free discussion + mafia",
+     "font": "Arial",
+     "size": 6,
+     "color": "#2b2755",
+     "bold": true,
+     "italic": false,
+     "align": "center",
+     "ai": true
+    },
+    {
+     "id": "ddjaed0",
+     "type": "text",
+     "x": 50,
+     "y": 28,
+     "w": 80,
+     "h": 16,
+     "rot": 0,
+     "z": 2,
+     "text": "[Free discussion, then mafia. Mafia: a ring of doodles with a photo cut-out in the middle. Free-discussion quotes from your sorter keeps go here.]",
+     "font": "Arial",
+     "size": 2.6,
+     "color": "#5a5484",
+     "bold": false,
+     "italic": true,
+     "align": "left",
+     "ai": true
+    },
+    {
+     "id": "p13-t",
+     "type": "text",
+     "x": 50,
+     "y": 50,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "Closing",
+     "font": "Arial",
+     "size": 6,
+     "color": "#2b2755",
+     "bold": true,
+     "italic": false,
+     "align": "center",
+     "ai": true
+    },
+    {
+     "id": "s7c1la0",
+     "type": "text",
+     "x": 50,
+     "y": 62,
+     "w": 80,
+     "h": 6,
+     "rot": 0,
+     "z": 2,
+     "text": "[Cleanup and goodbyes. Photos.]",
+     "font": "Arial",
+     "size": 2.6,
+     "color": "#5a5484",
+     "bold": false,
+     "italic": true,
+     "align": "left",
+     "ai": true
+    },
+    {
+     "id": "wz67su9",
+     "type": "text",
+     "x": 50,
+     "y": 112,
+     "w": 86,
+     "h": 62,
+     "rot": 0,
+     "z": 3,
+     "text": "Friday: welcome, house agreements, home groups, dinner\n\nSaturday at the YMCA: opening poem (Dylan) · letter to next year's you · Odist's chair game · Glenda + Chris, leading without losing yourself · one-word check-in\n\nThe Wall: ecosystem mapping across eight domains (Kash + Hannah)\nBomi: the AI Effect game\nLeo: AI safety\nAudrey: bringing this to universities\nLeorah: debate vs dialogue\nMarisol: is small AI a suitable alternative?\nJosé: a poem, “You, If No One Else”\n\nSaturday night: free discussion, then mafia\nSunday: cleanup",
+     "font": "Arial",
+     "size": 2.5,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "win": true,
+     "title": "Everything we did (check me)",
+     "ai": true
+    }
+   ]
+  },
+  {
+   "id": "p16",
+   "bg": "#767f8e",
+   "items": [
+    {
+     "type": "image",
+     "src": "/zine/mwg4cw4v7e3sp.jpg",
+     "w": 126.31818181818181,
+     "h": 94.72909090909091,
+     "id": "7s3n32w",
+     "x": 49.76,
+     "y": 107.12545454545455,
+     "rot": 0,
+     "z": 1,
+     "lock": true
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4iasdu2tgv.png",
+     "w": 132.3890909090909,
+     "h": 99.29818181818182,
+     "id": "qvl363e",
+     "x": 66.9,
+     "y": 102.42909090909092,
+     "rot": 0,
+     "z": 2,
+     "lock": true
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8hmihpv2.jpg",
+     "w": 15.02,
+     "h": 23.7,
+     "id": "x5ov9r9",
+     "x": 24.63,
+     "y": 85.01818181818182,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8hnca5i6.jpg",
+     "w": 29.17,
+     "h": 17.14,
+     "id": "aawypl4",
+     "x": 16.6,
+     "y": 140.20363636363635,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8ij3sr81.jpg",
+     "w": 15.02,
+     "h": 24.17,
+     "id": "99lo87s",
+     "x": 58.1,
+     "y": 50.46363636363636,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8ip1offh.jpg",
+     "w": 15.02,
+     "h": 23.96,
+     "id": "6n8h9f5",
+     "x": 74.84,
+     "y": 50.46363636363636,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8ijy4tkc.jpg",
+     "w": 15.02,
+     "h": 23.53,
+     "id": "x5g6y21",
+     "x": 41.37,
+     "y": 50.46363636363636,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8iu2uhpl.jpg",
+     "w": 15.02,
+     "h": 26.13,
+     "id": "klbh8ig",
+     "x": 24.63,
+     "y": 50.46363636363636,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8ivxx8vb.jpg",
+     "w": 15.02,
+     "h": 24.59,
+     "id": "enm65wt",
+     "x": 41.37,
+     "y": 85.01818181818182,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8iytn7ae.jpg",
+     "w": 15.02,
+     "h": 24.2,
+     "id": "vh7v6hf",
+     "x": 91.57,
+     "y": 15.972727272727273,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8j3cu3db.jpg",
+     "w": 15.02,
+     "h": 24.05,
+     "id": "1tdo58x",
+     "x": 7.89,
+     "y": 85.01818181818182,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8j3te8d8.jpg",
+     "w": 15.02,
+     "h": 24.14,
+     "id": "u51f1pt",
+     "x": 7.89,
+     "y": 50.46363636363636,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8jv2dwha.jpg",
+     "w": 15.02,
+     "h": 24.64,
+     "id": "n8i4aqt",
+     "x": 91.57,
+     "y": 50.46363636363636,
+     "rot": 0,
+     "z": 6
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8k8xli03.jpg",
+     "w": 15.02,
+     "h": 24.13,
+     "id": "q50x41d",
+     "x": 24.63,
+     "y": 15.972727272727273,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8k80y5nx.jpg",
+     "w": 15.02,
+     "h": 24.65,
+     "id": "t20jxad",
+     "x": 58.1,
+     "y": 15.972727272727273,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8kffbthw.jpg",
+     "w": 15.02,
+     "h": 24.14,
+     "id": "hp2pgfy",
+     "x": 74.84,
+     "y": 15.972727272727273,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8ks2pz2w.jpg",
+     "w": 15.02,
+     "h": 24.12,
+     "id": "0fvd40l",
+     "x": 41.37,
+     "y": 15.972727272727273,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8kvni6lu.jpg",
+     "w": 15.02,
+     "h": 23.65,
+     "id": "eelvtsg",
+     "x": 7.89,
+     "y": 15.972727272727273,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4ta6zgq8ku.jpg",
+     "w": 15.02,
+     "h": 23.89,
+     "id": "y5n409s",
+     "x": 58.1,
+     "y": 85.01818181818182,
+     "rot": 0,
+     "z": 4
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4tyujz33n5.jpg",
+     "w": 15.02,
+     "h": 24.74,
+     "id": "vd3sa60",
+     "x": 74.84,
+     "y": 85.01818181818182,
+     "rot": 0,
+     "z": 5
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4vdthnaqhm.jpg",
+     "w": 91.3,
+     "h": 112.6,
+     "id": "yai1fma",
+     "x": 53.47,
+     "y": 40.14181818181818,
+     "rot": 77,
+     "z": -1,
+     "lock": false
+    }
+   ]
+  },
+  {
+   "id": "pqt42ojb",
+   "bg": "#2b2755",
+   "items": [
+    {
+     "id": "zxuwpr3",
+     "type": "text",
+     "x": 50,
+     "y": 58,
+     "w": 84,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "Playlist + credits",
+     "font": "Arial",
+     "size": 6,
+     "color": "#e0a82e",
+     "bold": true,
+     "italic": false,
+     "align": "center",
+     "ai": true
+    },
+    {
+     "id": "l0u0w6h",
+     "type": "text",
+     "x": 50,
+     "y": 78,
+     "w": 80,
+     "h": 10,
+     "rot": 0,
+     "z": 2,
+     "text": "[Playlist QR code and credits. The full team page is on the site.]",
+     "font": "Arial",
+     "size": 2.6,
+     "color": "#f3e8cc",
+     "bold": false,
+     "italic": true,
+     "align": "left",
+     "ai": true
+    },
+    {
+     "id": "4l4c36o",
+     "type": "text",
+     "x": 50,
+     "y": 112,
+     "w": 86,
+     "h": 46,
+     "rot": 0,
+     "z": 3,
+     "win": true,
+     "title": "How we used AI (draft, Rhea to edit)",
+     "font": "Arial",
+     "size": 2.4,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "text": "Granola recorded and summarized some sessions; we said so on the first night and anyone could opt out.\n\nClaude (Anthropic’s AI assistant) read the sticky notes and handwriting from photos, drafted labels and summaries, pulled candidate quotes, and wrote the code for the site and this zine’s editor.\n\nEvery note, poem, page and photo was made by a person. The story is Rhea’s as she spoke it. People chose what was kept. On the site, anything AI drafted has a dashed underline.",
+     "ai": true
+    },
+    {
+     "id": "p12-t",
+     "type": "text",
+     "x": 50,
+     "y": 12,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "The Changemaker Network",
+     "font": "Arial",
+     "size": 4.5,
+     "color": "#e0a82e",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "r18yep4",
+     "type": "text",
+     "x": 50,
+     "y": 32,
+     "w": 86,
+     "h": 24,
+     "rot": 0,
+     "z": 3,
+     "text": "Nahom, Celine and Rhea mocked this up from the wall data: a resource for ourselves, for the youth leaders to see who was working on the problems they were thinking on.",
+     "font": "Arial",
+     "size": 2.5,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "win": true,
+     "title": "Rhea: check this wording",
+     "ai": true
+    }
+   ]
+  }
+ ],
+ "story": {
+  "title": "The whole story",
+  "text": "What happens when you bring the blood of people who grew up with technology and are being it have been affected by in their daily life technology is fundamentally apart of who we are generation generation alpha millennials technology has impacted the beginning parts of our lives the parts of our lives learning is the most accelerated they’re obviously some things going wrong. Students are not learning to critically statistic this year. Students are cheating on exams in a more accessible way that it’s always been but also AI has given us great educational resources and has made accessibility of Corish of a lot of AI companies whether that’s the form of greenwashing we won’t speak on that here . But we brought around 25 people from the ages of 18 to 25 to talk about what it’s like to think about AI and a critical way and simultaneously have it be integrated into your life easily so because we are a digital ones..\n\nAt the first ever Rithm, youth leader, Summit we welcome to cohort fellows and establish members of the Rithm community to see what would happen when the Rithm project had a summit with only young people in the room. Here’s what we talked about steps for action and resources we’d like to offer as our work for the of Notes transcripts, recording physical media, art inference, and analysis by the Rithm youth leaders we will provide citations with necessary, but this is mostly about how technical youth leaders and leaders across all sectors, but young and obviously influenced by technology. We can’t study literature and not have a problem for all over education like anthropic, CEO or whatever the fuck..\n\nit’s about how they are feeling when it comes to technology to bpro and anti it at the same time. Do you need to take a stance to lead? Is it possible to effectively lead in the gray and what is the importance of the gray, the idea of the black box has been around since we started studying human behavior and that human connection and how we connect other people and think about our problems and the people in our loss human data is embedded in the systems that we used to understand computational systems as well just making just trying to make sense of all of it even matter is it productive for research? is it productive in all parts of our lives what should AI be used for if it is the technology of the future that will probably make a lot of people’s lives better who are the Voices? we don’t talk about what are the communities that don’t care about this issue as much as we do and thus the decisions we make it scale may affect them in unintended ways for finding tree is that all the ugly mess the ones that need to be obstructed upon to create things like computational theory and the same action is refined categories.\n\n[Glenda + Chris section goes here.]\n\nWall wall was born out of ecosystem mapping and ecosystem mapping was an exercise brought on by Kash and Hannah to talk about the eight domains project. This issue a few connection with the AI if you can call that an issue and we’re like a value, but I also sent from the room as the narrator here is that the value of the Rithm project to us was that it expressed to value it, tied us to the value of wanting to preserve some things even though we’re really OK with change, you are a generation that is OK with change and want to enact it as well. We don’t we’re not necessarily protesting to be conservative but instead to embrace future where we have the things that we still admire about today.. OK this missed a lot of my message but we ended off by saying we don’t. We’re not necessarily progressive conservative but instead to embrace future, we have that we still admire about today right and there’s beauty in that admiration assuring and there’s also real want and fear and hope also like happiness like I think it is like the love that we had that we’re willing to retire. It’s actually not built out a few, but I think it’s so strong. It’s not people acting out of fear or guilt. It’s about people that feel so gracious for the lives that they’ve been given us far\n\nand so we said this things about human connection today and we said what are the things that you’re fearful of and then furthermore, we talk about what are the things that we’re looking that we think is a good solution you know we can divide this up into which of these projects or technical and which one of them or not if you want to categorize them to pro or anti AI, but it doesn’t matter. We get this from the data from us just putting down as as we could for me the narrator this is an exercise in improv.\n\nAnd still we just see we have a lot of fear and all of the projects that we’re working on that are for the hopes that we have there’s a huge gap. None of these projects necessarily address our fears whether or not this means safety wall is really important or more projects like the Rithm project that try and still values into the people that read its content and explain why having a thought community or just a place to express a single basic value that you have together is also for some people that’s religion for some people that’s ethnicity or culture or hometown but like the youth leaders that were at the summit those comforts we have in those spaces that make us feel protected seen isolated from the problem they are technology isn’t in our hands. It’s often nowadays forced to see lawsuit about search in schools and we don’t have a career way to turn off Google AI overview and at work many people’s jobs used to be an application of their school but now it is prompting the application of their skill they are teaching their skills instead of using it. That is a real fear, the loss of jobs being in the workforce fearfully holding a job. It is so paralyzing\n\nso what are the ways through it well, the consultancy workshops took us into this Leorah clutch show this thread with the following about discussion and free dialogue. Audrey taught us how to make me formalize bringing it into school. Leo was talking about what it feels like. To be doing safety research right now.. l v"
+ },
+ "paper": {
+  "color": "#fdfef9",
+  "texture": "none"
+ }
+}

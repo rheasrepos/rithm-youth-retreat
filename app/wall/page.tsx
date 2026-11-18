@@ -1,9 +1,10 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
-import { Wall, type WallItem, type WallLayout } from "@/components/Wall";
+import { Wall, type WallEmbed, type WallItem, type WallLayout } from "@/components/Wall";
 import { getModel } from "@/lib/data";
 import { AIFigure } from "@/components/AI";
 import sizes from "@/data/sticky-images.json";
+import rhea from "@/data/rhea-notes.json";
 
 export const revalidate = 3600;
 export const metadata = { title: "The wall" };
@@ -44,6 +45,13 @@ function readLayout(): WallLayout | null {
   try {
     const f = path.join(process.cwd(), "data", "wall-layout.json");
     return existsSync(f) ? (JSON.parse(readFileSync(f, "utf8")) as WallLayout) : null;
+  } catch { return null; }
+}
+
+function readEmbed(): WallEmbed | null {
+  try {
+    const f = path.join(process.cwd(), "data", "wall-embedding.json");
+    return existsSync(f) ? (JSON.parse(readFileSync(f, "utf8")) as WallEmbed) : null;
   } catch { return null; }
 }
 
@@ -95,9 +103,14 @@ export default async function WallPage() {
     <>
       <header className="hero">
         <h1>The <em className="ul">wall<svg viewBox="0 0 300 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8 C 60 2, 140 3, 200 6 S 280 9, 297 4" /></svg></em></h1>
-        <p className="lede">All {total} sticky notes from the retreat floor, in the eight piles we made them in. Every note is anonymous. Tap one to read it and see who in the network is working on it.</p>
+        <p className="wallq">What happens when you give people a free space for play creation talk and thought</p>
+        <p className="lede">All {total} sticky notes from the retreat floor, in the eight piles we made them in. Every note is anonymous. Tap one to read it and see who in the network is working on it. Then regroup them and watch where they go.</p>
       </header>
-      <AIFigure caption="Pile shapes traced by code Claude wrote from photos of the notes on the floor. Each note sits in a spot of its own colour, not necessarily its exact original spot."><Wall items={items} defaultHeight={height} saved={readLayout()} canSave={process.env.NODE_ENV === "development"} /></AIFigure>
+      <AIFigure caption="Pile shapes traced by code Claude wrote from photos of the notes on the floor. Each note sits in a spot of its own colour, not necessarily its exact original spot. The other groupings are worked out by code from the notes' wording, not by us."><Wall items={items} defaultHeight={height} saved={readLayout()} canSave={process.env.NODE_ENV === "development"} embed={readEmbed()} /></AIFigure>
+      <section className="wallnotes" aria-label="Rhea's notes">
+        <span className="eyebrow">From Rhea’s notes</span>
+        {rhea.quotes.map((q, i) => <blockquote key={i} className={q.length < 60 ? "short" : ""}>{q}</blockquote>)}
+      </section>
     </>
   );
 }

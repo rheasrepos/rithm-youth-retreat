@@ -12,7 +12,7 @@ export const dynamic = "force-dynamic";
 const local = () => process.env.NODE_ENV === "development";
 const ROOT = path.resolve(process.env.ZINE_LIBRARY ?? path.join(os.homedir(), "Desktop", "rithmyouthretreat"));
 const IMG = /\.(jpe?g|png|webp|gif)$/i;
-const SKIP = /^[._]|^node_modules$/;   // hidden folders and my own scratch folders (names starting with _)
+const SKIP = /^[._]|^node_modules$|^unused/i;   // hidden folders, scratch folders (names starting with _), and anything named "unused…"
 const TYPE: Record<string, string> = { jpg: "image/jpeg", jpeg: "image/jpeg", png: "image/png", webp: "image/webp", gif: "image/gif" };
 const THUMBS = path.join(process.cwd(), ".cache", "zine-library");
 
