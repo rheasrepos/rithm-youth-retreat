@@ -1,0 +1,570 @@
+{
+ "ratio": 1.5454545454545454,
+ "pages": [
+  {
+   "id": "p1",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "id": "p1-t",
+     "type": "text",
+     "x": 50,
+     "y": 17.818181818181817,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "OVERHEARD RITHM",
+     "font": "Arial",
+     "size": 9,
+     "color": "#1b1037",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    }
+   ]
+  },
+  {
+   "id": "p2",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "type": "image",
+     "src": "/zine/mwh5ipsjv71a7.jpg",
+     "w": 196.42000000000002,
+     "h": 152.4218181818182,
+     "id": "b5zn2d9",
+     "x": 77.16,
+     "y": 77.33090909090909,
+     "rot": 0,
+     "z": 1
+    }
+   ]
+  },
+  {
+   "id": "pyege1da",
+   "bg": "#f8f3ea",
+   "items": []
+  },
+  {
+   "id": "p7k43j3w",
+   "bg": "#efeaeb",
+   "items": []
+  },
+  {
+   "id": "p3",
+   "bg": "#ede6e4",
+   "items": [
+    {
+     "type": "image",
+     "src": "/zine/mwh5hnekmpiv4.jpg",
+     "w": 89.69,
+     "h": 144.37,
+     "id": "yhmhxb2",
+     "x": 50,
+     "y": 81.79818181818182,
+     "rot": 0,
+     "z": 1
+    }
+   ]
+  },
+  {
+   "id": "p4",
+   "bg": "#f8f3ea",
+   "items": []
+  },
+  {
+   "id": "p5",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "id": "p5-t",
+     "type": "text",
+     "x": 50,
+     "y": 17.818181818181817,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "DAY 1",
+     "font": "Arial",
+     "size": 6,
+     "color": "#1b1037",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    }
+   ]
+  },
+  {
+   "id": "p6",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "id": "p6-t",
+     "type": "text",
+     "x": 50,
+     "y": 17.818181818181817,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "Hub map: the room",
+     "font": "Arial",
+     "size": 6,
+     "color": "#1b1037",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    }
+   ]
+  },
+  {
+   "id": "p7",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "id": "p7-t",
+     "type": "text",
+     "x": 50,
+     "y": 17.818181818181817,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "Hub map: the AI",
+     "font": "Arial",
+     "size": 6,
+     "color": "#1b1037",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    }
+   ]
+  },
+  {
+   "id": "p8",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "id": "p8-t",
+     "type": "text",
+     "x": 50,
+     "y": 17.818181818181817,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "DAY 2",
+     "font": "Arial",
+     "size": 6,
+     "color": "#1b1037",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    }
+   ]
+  },
+  {
+   "id": "p9",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "id": "p9-t",
+     "type": "text",
+     "x": 50,
+     "y": 17.818181818181817,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "DAY 2",
+     "font": "Arial",
+     "size": 6,
+     "color": "#1b1037",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    }
+   ]
+  },
+  {
+   "id": "p10",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "id": "p10-t",
+     "type": "text",
+     "x": 50,
+     "y": 17.818181818181817,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "Human notes",
+     "font": "Arial",
+     "size": 6,
+     "color": "#1b1037",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    }
+   ]
+  },
+  {
+   "id": "p11",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "id": "p11-t",
+     "type": "text",
+     "x": 50,
+     "y": 17.818181818181817,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "AI notes",
+     "font": "Arial",
+     "size": 6,
+     "color": "#1b1037",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    }
+   ]
+  },
+  {
+   "id": "p12",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "id": "p12-t",
+     "type": "text",
+     "x": 50,
+     "y": 17.818181818181817,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "DAY 3",
+     "font": "Arial",
+     "size": 6,
+     "color": "#1b1037",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    }
+   ]
+  },
+  {
+   "id": "p13",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "id": "p13-t",
+     "type": "text",
+     "x": 50,
+     "y": 17.818181818181817,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "DAY 3",
+     "font": "Arial",
+     "size": 6,
+     "color": "#1b1037",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    }
+   ]
+  },
+  {
+   "id": "p14",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "id": "p14-t",
+     "type": "text",
+     "x": 50,
+     "y": 17.818181818181817,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "Everyone's zines",
+     "font": "Arial",
+     "size": 6,
+     "color": "#1b1037",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    }
+   ]
+  },
+  {
+   "id": "p15",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "id": "p15-t",
+     "type": "text",
+     "x": 50,
+     "y": 17.818181818181817,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "Everyone's zines",
+     "font": "Arial",
+     "size": 6,
+     "color": "#1b1037",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    }
+   ]
+  },
+  {
+   "id": "p16",
+   "bg": "#767f8e",
+   "items": [
+    {
+     "type": "image",
+     "src": "/zine/mwg4cw4v7e3sp.jpg",
+     "w": 126.31818181818181,
+     "h": 94.72909090909091,
+     "id": "7s3n32w",
+     "x": 49.76,
+     "y": 107.12545454545455,
+     "rot": 0,
+     "z": 1,
+     "lock": true
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4iasdu2tgv.png",
+     "w": 132.3890909090909,
+     "h": 99.29818181818182,
+     "id": "qvl363e",
+     "x": 66.9,
+     "y": 102.42909090909092,
+     "rot": 0,
+     "z": 2,
+     "lock": true
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8hmihpv2.jpg",
+     "w": 15.02,
+     "h": 23.7,
+     "id": "x5ov9r9",
+     "x": 24.63,
+     "y": 85.01818181818182,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8hnca5i6.jpg",
+     "w": 29.17,
+     "h": 17.14,
+     "id": "aawypl4",
+     "x": 16.6,
+     "y": 140.20363636363635,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8ij3sr81.jpg",
+     "w": 15.02,
+     "h": 24.17,
+     "id": "99lo87s",
+     "x": 58.1,
+     "y": 50.46363636363636,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8ip1offh.jpg",
+     "w": 15.02,
+     "h": 23.96,
+     "id": "6n8h9f5",
+     "x": 74.84,
+     "y": 50.46363636363636,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8ijy4tkc.jpg",
+     "w": 15.02,
+     "h": 23.53,
+     "id": "x5g6y21",
+     "x": 41.37,
+     "y": 50.46363636363636,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8iu2uhpl.jpg",
+     "w": 15.02,
+     "h": 26.13,
+     "id": "klbh8ig",
+     "x": 24.63,
+     "y": 50.46363636363636,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8ivxx8vb.jpg",
+     "w": 15.02,
+     "h": 24.59,
+     "id": "enm65wt",
+     "x": 41.37,
+     "y": 85.01818181818182,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8iytn7ae.jpg",
+     "w": 15.02,
+     "h": 24.2,
+     "id": "vh7v6hf",
+     "x": 91.57,
+     "y": 15.972727272727273,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8j3cu3db.jpg",
+     "w": 15.02,
+     "h": 24.05,
+     "id": "1tdo58x",
+     "x": 7.89,
+     "y": 85.01818181818182,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8j3te8d8.jpg",
+     "w": 15.02,
+     "h": 24.14,
+     "id": "u51f1pt",
+     "x": 7.89,
+     "y": 50.46363636363636,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8jv2dwha.jpg",
+     "w": 15.02,
+     "h": 24.64,
+     "id": "n8i4aqt",
+     "x": 91.57,
+     "y": 50.46363636363636,
+     "rot": 0,
+     "z": 6
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8k8xli03.jpg",
+     "w": 15.02,
+     "h": 24.13,
+     "id": "q50x41d",
+     "x": 24.63,
+     "y": 15.972727272727273,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8k80y5nx.jpg",
+     "w": 15.02,
+     "h": 24.65,
+     "id": "t20jxad",
+     "x": 58.1,
+     "y": 15.972727272727273,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8kffbthw.jpg",
+     "w": 15.02,
+     "h": 24.14,
+     "id": "hp2pgfy",
+     "x": 74.84,
+     "y": 15.972727272727273,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8ks2pz2w.jpg",
+     "w": 15.02,
+     "h": 24.12,
+     "id": "0fvd40l",
+     "x": 41.37,
+     "y": 15.972727272727273,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8kvni6lu.jpg",
+     "w": 15.02,
+     "h": 23.65,
+     "id": "eelvtsg",
+     "x": 7.89,
+     "y": 15.972727272727273,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4ta6zgq8ku.jpg",
+     "w": 15.02,
+     "h": 23.89,
+     "id": "y5n409s",
+     "x": 58.1,
+     "y": 85.01818181818182,
+     "rot": 0,
+     "z": 4
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4tyujz33n5.jpg",
+     "w": 15.02,
+     "h": 24.74,
+     "id": "vd3sa60",
+     "x": 74.84,
+     "y": 85.01818181818182,
+     "rot": 0,
+     "z": 5
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4vdthnaqhm.jpg",
+     "w": 91.3,
+     "h": 112.6,
+     "id": "yai1fma",
+     "x": 53.47,
+     "y": 40.14181818181818,
+     "rot": 77,
+     "z": -1,
+     "lock": false
+    }
+   ]
+  }
+ ]
+}

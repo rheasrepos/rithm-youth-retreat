@@ -4,6 +4,7 @@ import { Notes } from "@/components/Notes";
 import { OrgCard } from "@/components/OrgCard";
 import { Quote } from "@/components/Quote";
 import { ThemeRow } from "@/components/ThemeRow";
+import { AI } from "@/components/AI";
 import { getModel } from "@/lib/data";
 
 export const revalidate = 3600;
@@ -33,7 +34,7 @@ export default async function DomainPage({ params }: { params: Promise<{ id: str
       <div className="rhead">
         <span className="crumb"><Link href="/">Map</Link> · Domain</span>
         <h2>{d.name}</h2>
-        <p className="ddesc">{d.description}</p>
+        <p className="ddesc"><AI>{d.description}</AI></p>
         <p>{d.stickyCount} sticky notes, grouped into {d.themes.length} concerns · {orgs.length} organizations and {people.length} people in the network.</p>
         <div className="topnav">{m.domains.map((x) => <Link key={x.id} href={`/domain/${x.id}`} aria-current={x.id === d.id ? "page" : undefined}>{x.name}</Link>)}</div>
       </div>

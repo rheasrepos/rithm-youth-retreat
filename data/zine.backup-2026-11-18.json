@@ -1,0 +1,1102 @@
+{
+ "ratio": 1.5454545454545454,
+ "pages": [
+  {
+   "id": "p1",
+   "bg": "#2b2755",
+   "items": [
+    {
+     "id": "p1-t",
+     "type": "text",
+     "x": 50,
+     "y": 8,
+     "w": 80,
+     "h": 5,
+     "rot": 0,
+     "z": 1,
+     "text": "OVERHEARD RITHM",
+     "font": "Space Grotesk",
+     "size": 3.4,
+     "color": "#e0a82e",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "e8x177p",
+     "type": "text",
+     "x": 50,
+     "y": 22,
+     "w": 96,
+     "h": 15.6,
+     "rot": -2,
+     "z": 3,
+     "text": "WHAT HAPPENS",
+     "font": "Impact",
+     "size": 13,
+     "color": "#f3e8cc",
+     "bold": false,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "3atjf5v",
+     "type": "text",
+     "x": 50,
+     "y": 33,
+     "w": 96,
+     "h": 6.6,
+     "rot": 0,
+     "z": 3,
+     "text": "when you put",
+     "font": "Space Grotesk",
+     "size": 5.5,
+     "color": "#e0a82e",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "iq2tapo",
+     "type": "text",
+     "x": 50,
+     "y": 43,
+     "w": 96,
+     "h": 14.4,
+     "rot": 1.5,
+     "z": 3,
+     "text": "A BUNCH OF",
+     "font": "Impact",
+     "size": 12,
+     "color": "#f0a04b",
+     "bold": false,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "u0qbbmv",
+     "type": "text",
+     "x": 50,
+     "y": 56,
+     "w": 96,
+     "h": 14.4,
+     "rot": -1,
+     "z": 3,
+     "text": "YOUNG PEOPLE",
+     "font": "Impact",
+     "size": 12,
+     "color": "#f3e8cc",
+     "bold": false,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "lcvx2rg",
+     "type": "text",
+     "x": 50,
+     "y": 66,
+     "w": 96,
+     "h": 6.6,
+     "rot": 0,
+     "z": 3,
+     "text": "who think a lot about",
+     "font": "Space Grotesk",
+     "size": 5.5,
+     "color": "#e0a82e",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "edkp8l4",
+     "type": "text",
+     "x": 50,
+     "y": 84,
+     "w": 96,
+     "h": 36.0,
+     "rot": 3,
+     "z": 3,
+     "text": "AI",
+     "font": "Impact",
+     "size": 30,
+     "color": "#e0a82e",
+     "bold": false,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "pfnchsw",
+     "type": "text",
+     "x": 50,
+     "y": 106,
+     "w": 96,
+     "h": 9.0,
+     "rot": 0,
+     "z": 3,
+     "text": "to talk about AI",
+     "font": "Space Grotesk",
+     "size": 7.5,
+     "color": "#f3e8cc",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "23ben4v",
+     "type": "text",
+     "x": 50,
+     "y": 115,
+     "w": 96,
+     "h": 9.0,
+     "rot": 0,
+     "z": 3,
+     "text": "and what it means",
+     "font": "Space Grotesk",
+     "size": 7.5,
+     "color": "#f3e8cc",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "p55qvfb",
+     "type": "text",
+     "x": 50,
+     "y": 127,
+     "w": 96,
+     "h": 13.8,
+     "rot": -1.5,
+     "z": 3,
+     "text": "IN THEIR LIVES",
+     "font": "Impact",
+     "size": 11.5,
+     "color": "#f0a04b",
+     "bold": false,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "nqtnd17",
+     "type": "text",
+     "x": 50,
+     "y": 141,
+     "w": 96,
+     "h": 14.4,
+     "rot": 2,
+     "z": 3,
+     "text": "& AT LARGE?",
+     "font": "Impact",
+     "size": 12,
+     "color": "#f3e8cc",
+     "bold": false,
+     "italic": false,
+     "align": "center"
+    }
+   ]
+  },
+  {
+   "id": "p2",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "type": "image",
+     "src": "/zine/mwh5ipsjv71a7.jpg",
+     "w": 196.42000000000002,
+     "h": 152.4218181818182,
+     "id": "b5zn2d9",
+     "x": 77.16,
+     "y": 77.33090909090909,
+     "rot": 0,
+     "z": 1
+    }
+   ]
+  },
+  {
+   "id": "pyege1da",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "id": "jxnvqqo",
+     "type": "text",
+     "x": 50,
+     "y": 49.5,
+     "w": 86,
+     "h": 55.0,
+     "rot": 0,
+     "z": 5,
+     "text": "What happens when you bring the blood of people who grew up with technology and are being it have been affected by in their daily life technology is fundamentally apart of who we are generation generation alpha millennials technology has impacted the beginning parts of our lives the parts of our lives learning is the most accelerated they’re obviously some things going wrong. Students are not learning to critically statistic this year. Students are cheating on exams in a more accessible way that it’s always been but also AI has given us great educational resources and has made accessibility of Corish of a lot of AI companies whether that’s the form of greenwashing we won’t speak on that here . But we brought around 25 people from the ages of 18 to 25 to talk about what it’s like to think about AI and a critical way and simultaneously have it be integrated into your life easily so because we are a digital ones..",
+     "font": "Hanken Grotesk",
+     "size": 2.5,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "win": true,
+     "title": "Ways to think about co-creation"
+    }
+   ]
+  },
+  {
+   "id": "p7k43j3w",
+   "bg": "#efeaeb",
+   "items": [
+    {
+     "id": "9f65oai",
+     "type": "text",
+     "x": 50,
+     "y": 43.7,
+     "w": 86,
+     "h": 43.5,
+     "rot": 0,
+     "z": 5,
+     "text": "At the first ever Rithm, youth leader, Summit we welcome to cohort fellows and establish members of the Rithm community to see what would happen when the Rithm project had a summit with only young people in the room. Here’s what we talked about steps for action and resources we’d like to offer as our work for the of Notes transcripts, recording physical media, art inference, and analysis by the Rithm youth leaders we will provide citations with necessary, but this is mostly about how technical youth leaders and leaders across all sectors, but young and obviously influenced by technology. We can’t study literature and not have a problem for all over education like anthropic, CEO or whatever the fuck..",
+     "font": "Hanken Grotesk",
+     "size": 2.5,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "win": true,
+     "title": "Who was in the room"
+    }
+   ]
+  },
+  {
+   "id": "p3",
+   "bg": "#ede6e4",
+   "items": [
+    {
+     "type": "image",
+     "src": "/zine/mwh5hnekmpiv4.jpg",
+     "w": 89.69,
+     "h": 144.37,
+     "id": "yhmhxb2",
+     "x": 50,
+     "y": 81.79818181818182,
+     "rot": 0,
+     "z": 1
+    }
+   ]
+  },
+  {
+   "id": "p4",
+   "bg": "#f8f3ea",
+   "items": []
+  },
+  {
+   "id": "p5",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "id": "p5-t",
+     "type": "text",
+     "x": 50,
+     "y": 17.818181818181817,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "DAY 1",
+     "font": "Arial",
+     "size": 6,
+     "color": "#1b1037",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "4nkxrfu",
+     "type": "text",
+     "x": 50,
+     "y": 63.2,
+     "w": 86,
+     "h": 66.5,
+     "rot": 0,
+     "z": 5,
+     "text": "it’s about how they are feeling when it comes to technology to bpro and anti it at the same time. Do you need to take a stance to lead? Is it possible to effectively lead in the gray and what is the importance of the gray, the idea of the black box has been around since we started studying human behavior and that human connection and how we connect other people and think about our problems and the people in our loss human data is embedded in the systems that we used to understand computational systems as well just making just trying to make sense of all of it even matter is it productive for research? is it productive in all parts of our lives what should AI be used for if it is the technology of the future that will probably make a lot of people’s lives better who are the Voices? we don’t talk about what are the communities that don’t care about this issue as much as we do and thus the decisions we make it scale may affect them in unintended ways for finding tree is that all the ugly mess the ones that need to be obstructed upon to create things like computational theory and the same action is refined categories.",
+     "font": "Hanken Grotesk",
+     "size": 2.5,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "win": true,
+     "title": "Leading in the gray"
+    }
+   ]
+  },
+  {
+   "id": "p6",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "id": "p6-t",
+     "type": "text",
+     "x": 50,
+     "y": 17.818181818181817,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "Hub map: the room",
+     "font": "Arial",
+     "size": 6,
+     "color": "#1b1037",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    }
+   ]
+  },
+  {
+   "id": "p7",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "id": "p7-t",
+     "type": "text",
+     "x": 50,
+     "y": 17.818181818181817,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "Hub map: the AI",
+     "font": "Arial",
+     "size": 6,
+     "color": "#1b1037",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    }
+   ]
+  },
+  {
+   "id": "p8",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "id": "p8-t",
+     "type": "text",
+     "x": 50,
+     "y": 17.818181818181817,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "DAY 2",
+     "font": "Arial",
+     "size": 6,
+     "color": "#1b1037",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "h1o962i",
+     "type": "text",
+     "x": 50,
+     "y": 30,
+     "w": 84,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "Glenda + Chris",
+     "font": "Space Grotesk",
+     "size": 5,
+     "color": "#2b2755",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "811rdqk",
+     "type": "text",
+     "x": 50,
+     "y": 60.3,
+     "w": 86,
+     "h": 40.6,
+     "rot": 0,
+     "z": 5,
+     "text": "Saturday morning at the YMCA, 9:30 to 11:30. Workshop: Youth Leadership Identity.\n\n[Your words about Glenda and Chris go here.]\n\nWhat was on the screen:\nWhat role did you fill in your family?\nThe child enters the room with the leader\nThe 11 C's\nCircle of C's: Where am I now?\nFrom understanding into embodiment",
+     "font": "Hanken Grotesk",
+     "size": 2.5,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "win": true,
+     "title": "Glenda + Chris"
+    },
+    {
+     "id": "kcw35x9",
+     "type": "text",
+     "x": 50,
+     "y": 100.1,
+     "w": 70,
+     "h": 29.1,
+     "rot": 0,
+     "z": 5,
+     "text": "“I was not the golden child” – Glenda\n\nLeading w/o losing yourself!\n\nTo be a witness: burden, privilege? both?\n\nwe were all children once",
+     "font": "Hanken Grotesk",
+     "size": 2.5,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "win": true,
+     "title": "From my notebook"
+    }
+   ]
+  },
+  {
+   "id": "p9",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "id": "p9-t",
+     "type": "text",
+     "x": 50,
+     "y": 17.818181818181817,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "DAY 2",
+     "font": "Arial",
+     "size": 6,
+     "color": "#1b1037",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "8l8f09e",
+     "type": "text",
+     "x": 50,
+     "y": 66.1,
+     "w": 86,
+     "h": 72.2,
+     "rot": 0,
+     "z": 5,
+     "text": "Wall wall was born out of ecosystem mapping and ecosystem mapping was an exercise brought on by Kash and Hannah to talk about the eight domains project. This issue a few connection with the AI if you can call that an issue and we’re like a value, but I also sent from the room as the narrator here is that the value of the Rithm project to us was that it expressed to value it, tied us to the value of wanting to preserve some things even though we’re really OK with change, you are a generation that is OK with change and want to enact it as well. We don’t we’re not necessarily protesting to be conservative but instead to embrace future where we have the things that we still admire about today.. OK this missed a lot of my message but we ended off by saying we don’t. We’re not necessarily progressive conservative but instead to embrace future, we have that we still admire about today right and there’s beauty in that admiration assuring and there’s also real want and fear and hope also like happiness like I think it is like the love that we had that we’re willing to retire. It’s actually not built out a few, but I think it’s so strong. It’s not people acting out of fear or guilt. It’s about people that feel so gracious for the lives that they’ve been given us far",
+     "font": "Hanken Grotesk",
+     "size": 2.5,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "win": true,
+     "title": "The Wall"
+    }
+   ]
+  },
+  {
+   "id": "prgcsq89",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "id": "i4625ik",
+     "type": "text",
+     "x": 50,
+     "y": 18,
+     "w": 84,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "The Wall",
+     "font": "Space Grotesk",
+     "size": 6,
+     "color": "#2b2755",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "sppbszg",
+     "type": "text",
+     "x": 50,
+     "y": 47.4,
+     "w": 86,
+     "h": 34.9,
+     "rot": 0,
+     "z": 5,
+     "text": "and so we said this things about human connection today and we said what are the things that you’re fearful of and then furthermore, we talk about what are the things that we’re looking that we think is a good solution you know we can divide this up into which of these projects or technical and which one of them or not if you want to categorize them to pro or anti AI, but it doesn’t matter. We get this from the data from us just putting down as as we could for me the narrator this is an exercise in improv.",
+     "font": "Hanken Grotesk",
+     "size": 2.5,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "win": true,
+     "title": "What we love, what we fear"
+    }
+   ]
+  },
+  {
+   "id": "p33p6hi7",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "id": "i8lfjnu",
+     "type": "text",
+     "x": 50,
+     "y": 18,
+     "w": 84,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "The gap",
+     "font": "Space Grotesk",
+     "size": 6,
+     "color": "#2b2755",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "rox5r4v",
+     "type": "text",
+     "x": 50,
+     "y": 63.3,
+     "w": 86,
+     "h": 66.5,
+     "rot": 0,
+     "z": 5,
+     "text": "And still we just see we have a lot of fear and all of the projects that we’re working on that are for the hopes that we have there’s a huge gap. None of these projects necessarily address our fears whether or not this means safety wall is really important or more projects like the Rithm project that try and still values into the people that read its content and explain why having a thought community or just a place to express a single basic value that you have together is also for some people that’s religion for some people that’s ethnicity or culture or hometown but like the youth leaders that were at the summit those comforts we have in those spaces that make us feel protected seen isolated from the problem they are technology isn’t in our hands. It’s often nowadays forced to see lawsuit about search in schools and we don’t have a career way to turn off Google AI overview and at work many people’s jobs used to be an application of their school but now it is prompting the application of their skill they are teaching their skills instead of using it. That is a real fear, the loss of jobs being in the workforce fearfully holding a job. It is so paralyzing",
+     "font": "Hanken Grotesk",
+     "size": 2.5,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "win": true,
+     "title": "The gap"
+    }
+   ]
+  },
+  {
+   "id": "pkd5lu5q",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "id": "d138xcq",
+     "type": "text",
+     "x": 50,
+     "y": 18,
+     "w": 84,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "Ways through",
+     "font": "Space Grotesk",
+     "size": 6,
+     "color": "#2b2755",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "xkfhapw",
+     "type": "text",
+     "x": 50,
+     "y": 43.1,
+     "w": 86,
+     "h": 26.2,
+     "rot": 0,
+     "z": 5,
+     "text": "so what are the ways through it well, the consultancy workshops took us into this Leorah clutch show this thread with the following about discussion and free dialogue. Audrey taught us how to make me formalize bringing it into school. Leo was talking about what it feels like. To be doing safety research right now.. l v",
+     "font": "Hanken Grotesk",
+     "size": 2.5,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "win": true,
+     "title": "Consultancy workshops"
+    },
+    {
+     "id": "7xrw8v4",
+     "type": "text",
+     "x": 50,
+     "y": 68.6,
+     "w": 86,
+     "h": 14.8,
+     "rot": 0,
+     "z": 5,
+     "text": "[Leorah's debate-versus-dialogue workshop and Marisol's session on small, local models still need your words.]",
+     "font": "Hanken Grotesk",
+     "size": 2.5,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "win": true,
+     "title": "Still to write"
+    }
+   ]
+  },
+  {
+   "id": "p10",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "id": "p10-t",
+     "type": "text",
+     "x": 50,
+     "y": 17.818181818181817,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "Human notes",
+     "font": "Arial",
+     "size": 6,
+     "color": "#1b1037",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    }
+   ]
+  },
+  {
+   "id": "p11",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "id": "p11-t",
+     "type": "text",
+     "x": 50,
+     "y": 17.818181818181817,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "AI notes",
+     "font": "Arial",
+     "size": 6,
+     "color": "#1b1037",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    }
+   ]
+  },
+  {
+   "id": "p12",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "id": "p12-t",
+     "type": "text",
+     "x": 50,
+     "y": 17.818181818181817,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "DAY 3",
+     "font": "Arial",
+     "size": 6,
+     "color": "#1b1037",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    }
+   ]
+  },
+  {
+   "id": "p13",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "id": "p13-t",
+     "type": "text",
+     "x": 50,
+     "y": 17.818181818181817,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "DAY 3",
+     "font": "Arial",
+     "size": 6,
+     "color": "#1b1037",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    }
+   ]
+  },
+  {
+   "id": "p14",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "id": "p14-t",
+     "type": "text",
+     "x": 50,
+     "y": 17.818181818181817,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "Everyone's zines",
+     "font": "Arial",
+     "size": 6,
+     "color": "#1b1037",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    }
+   ]
+  },
+  {
+   "id": "p15",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "id": "p15-t",
+     "type": "text",
+     "x": 50,
+     "y": 17.818181818181817,
+     "w": 80,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "Everyone's zines",
+     "font": "Arial",
+     "size": 6,
+     "color": "#1b1037",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    }
+   ]
+  },
+  {
+   "id": "p16",
+   "bg": "#767f8e",
+   "items": [
+    {
+     "type": "image",
+     "src": "/zine/mwg4cw4v7e3sp.jpg",
+     "w": 126.31818181818181,
+     "h": 94.72909090909091,
+     "id": "7s3n32w",
+     "x": 49.76,
+     "y": 107.12545454545455,
+     "rot": 0,
+     "z": 1,
+     "lock": true
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4iasdu2tgv.png",
+     "w": 132.3890909090909,
+     "h": 99.29818181818182,
+     "id": "qvl363e",
+     "x": 66.9,
+     "y": 102.42909090909092,
+     "rot": 0,
+     "z": 2,
+     "lock": true
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8hmihpv2.jpg",
+     "w": 15.02,
+     "h": 23.7,
+     "id": "x5ov9r9",
+     "x": 24.63,
+     "y": 85.01818181818182,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8hnca5i6.jpg",
+     "w": 29.17,
+     "h": 17.14,
+     "id": "aawypl4",
+     "x": 16.6,
+     "y": 140.20363636363635,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8ij3sr81.jpg",
+     "w": 15.02,
+     "h": 24.17,
+     "id": "99lo87s",
+     "x": 58.1,
+     "y": 50.46363636363636,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8ip1offh.jpg",
+     "w": 15.02,
+     "h": 23.96,
+     "id": "6n8h9f5",
+     "x": 74.84,
+     "y": 50.46363636363636,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8ijy4tkc.jpg",
+     "w": 15.02,
+     "h": 23.53,
+     "id": "x5g6y21",
+     "x": 41.37,
+     "y": 50.46363636363636,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8iu2uhpl.jpg",
+     "w": 15.02,
+     "h": 26.13,
+     "id": "klbh8ig",
+     "x": 24.63,
+     "y": 50.46363636363636,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8ivxx8vb.jpg",
+     "w": 15.02,
+     "h": 24.59,
+     "id": "enm65wt",
+     "x": 41.37,
+     "y": 85.01818181818182,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8iytn7ae.jpg",
+     "w": 15.02,
+     "h": 24.2,
+     "id": "vh7v6hf",
+     "x": 91.57,
+     "y": 15.972727272727273,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8j3cu3db.jpg",
+     "w": 15.02,
+     "h": 24.05,
+     "id": "1tdo58x",
+     "x": 7.89,
+     "y": 85.01818181818182,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8j3te8d8.jpg",
+     "w": 15.02,
+     "h": 24.14,
+     "id": "u51f1pt",
+     "x": 7.89,
+     "y": 50.46363636363636,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8jv2dwha.jpg",
+     "w": 15.02,
+     "h": 24.64,
+     "id": "n8i4aqt",
+     "x": 91.57,
+     "y": 50.46363636363636,
+     "rot": 0,
+     "z": 6
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8k8xli03.jpg",
+     "w": 15.02,
+     "h": 24.13,
+     "id": "q50x41d",
+     "x": 24.63,
+     "y": 15.972727272727273,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8k80y5nx.jpg",
+     "w": 15.02,
+     "h": 24.65,
+     "id": "t20jxad",
+     "x": 58.1,
+     "y": 15.972727272727273,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8kffbthw.jpg",
+     "w": 15.02,
+     "h": 24.14,
+     "id": "hp2pgfy",
+     "x": 74.84,
+     "y": 15.972727272727273,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8ks2pz2w.jpg",
+     "w": 15.02,
+     "h": 24.12,
+     "id": "0fvd40l",
+     "x": 41.37,
+     "y": 15.972727272727273,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4j8kvni6lu.jpg",
+     "w": 15.02,
+     "h": 23.65,
+     "id": "eelvtsg",
+     "x": 7.89,
+     "y": 15.972727272727273,
+     "rot": 0,
+     "z": 3
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4ta6zgq8ku.jpg",
+     "w": 15.02,
+     "h": 23.89,
+     "id": "y5n409s",
+     "x": 58.1,
+     "y": 85.01818181818182,
+     "rot": 0,
+     "z": 4
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4tyujz33n5.jpg",
+     "w": 15.02,
+     "h": 24.74,
+     "id": "vd3sa60",
+     "x": 74.84,
+     "y": 85.01818181818182,
+     "rot": 0,
+     "z": 5
+    },
+    {
+     "type": "image",
+     "src": "/zine/mwg4vdthnaqhm.jpg",
+     "w": 91.3,
+     "h": 112.6,
+     "id": "yai1fma",
+     "x": 53.47,
+     "y": 40.14181818181818,
+     "rot": 77,
+     "z": -1,
+     "lock": false
+    }
+   ]
+  },
+  {
+   "id": "pstzvrcz",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "id": "znsbjpb",
+     "type": "text",
+     "x": 50,
+     "y": 18,
+     "w": 84,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "The whole story",
+     "font": "Space Grotesk",
+     "size": 6,
+     "color": "#2b2755",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "v2r4uzc",
+     "type": "text",
+     "x": 50,
+     "y": 56.7,
+     "w": 92,
+     "h": 57.4,
+     "rot": 0,
+     "z": 5,
+     "text": "What happens when you bring the blood of people who grew up with technology and are being it have been affected by in their daily life technology is fundamentally apart of who we are generation generation alpha millennials technology has impacted the beginning parts of our lives the parts of our lives learning is the most accelerated they’re obviously some things going wrong. Students are not learning to critically statistic this year. Students are cheating on exams in a more accessible way that it’s always been but also AI has given us great educational resources and has made accessibility of Corish of a lot of AI companies whether that’s the form of greenwashing we won’t speak on that here . But we brought around 25 people from the ages of 18 to 25 to talk about what it’s like to think about AI and a critical way and simultaneously have it be integrated into your life easily so because we are a digital ones..\n\nAt the first ever Rithm, youth leader, Summit we welcome to cohort fellows and establish members of the Rithm community to see what would happen when the Rithm project had a summit with only young people in the room. Here’s what we talked about steps for action and resources we’d like to offer as our work for the of Notes transcripts, recording physical media, art inference, and analysis by the Rithm youth leaders we will provide citations with necessary, but this is mostly about how technical youth leaders and leaders across all sectors, but young and obviously influenced by technology. We can’t study literature and not have a problem for all over education like anthropic, CEO or whatever the fuck..\n\nit’s about how they are feeling when it comes to technology to bpro and anti it at the same time. Do you need to take a stance to lead? Is it possible to effectively lead in the gray and what is the importance of the gray, the idea of the black box has been around since we started studying human behavior and that human connection and how we connect other people and think about our problems and the people in our loss human data is embedded in the systems that we used to understand computational systems as well just making just trying to make sense of all of it even matter is it productive for research? is it productive in all parts of our lives what should AI be used for if it is the technology of the future that will probably make a lot of people’s lives better who are the Voices? we don’t talk about what are the communities that don’t care about this issue as much as we do and thus the decisions we make it scale may affect them in unintended ways for finding tree is that all the ugly mess the ones that need to be obstructed upon to create things like computational theory and the same action is refined categories.",
+     "font": "Hanken Grotesk",
+     "size": 1.45,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "win": true,
+     "title": "The whole story, part 1"
+    }
+   ]
+  },
+  {
+   "id": "ptsobluj",
+   "bg": "#f8f3ea",
+   "items": [
+    {
+     "id": "ek6bgve",
+     "type": "text",
+     "x": 50,
+     "y": 18,
+     "w": 84,
+     "h": 12,
+     "rot": 0,
+     "z": 1,
+     "text": "The whole story",
+     "font": "Space Grotesk",
+     "size": 6,
+     "color": "#2b2755",
+     "bold": true,
+     "italic": false,
+     "align": "center"
+    },
+    {
+     "id": "viz85lu",
+     "type": "text",
+     "x": 50,
+     "y": 62.4,
+     "w": 92,
+     "h": 69.0,
+     "rot": 0,
+     "z": 5,
+     "text": "[Glenda + Chris section goes here.]\n\nWall wall was born out of ecosystem mapping and ecosystem mapping was an exercise brought on by Kash and Hannah to talk about the eight domains project. This issue a few connection with the AI if you can call that an issue and we’re like a value, but I also sent from the room as the narrator here is that the value of the Rithm project to us was that it expressed to value it, tied us to the value of wanting to preserve some things even though we’re really OK with change, you are a generation that is OK with change and want to enact it as well. We don’t we’re not necessarily protesting to be conservative but instead to embrace future where we have the things that we still admire about today.. OK this missed a lot of my message but we ended off by saying we don’t. We’re not necessarily progressive conservative but instead to embrace future, we have that we still admire about today right and there’s beauty in that admiration assuring and there’s also real want and fear and hope also like happiness like I think it is like the love that we had that we’re willing to retire. It’s actually not built out a few, but I think it’s so strong. It’s not people acting out of fear or guilt. It’s about people that feel so gracious for the lives that they’ve been given us far\n\nand so we said this things about human connection today and we said what are the things that you’re fearful of and then furthermore, we talk about what are the things that we’re looking that we think is a good solution you know we can divide this up into which of these projects or technical and which one of them or not if you want to categorize them to pro or anti AI, but it doesn’t matter. We get this from the data from us just putting down as as we could for me the narrator this is an exercise in improv.\n\nAnd still we just see we have a lot of fear and all of the projects that we’re working on that are for the hopes that we have there’s a huge gap. None of these projects necessarily address our fears whether or not this means safety wall is really important or more projects like the Rithm project that try and still values into the people that read its content and explain why having a thought community or just a place to express a single basic value that you have together is also for some people that’s religion for some people that’s ethnicity or culture or hometown but like the youth leaders that were at the summit those comforts we have in those spaces that make us feel protected seen isolated from the problem they are technology isn’t in our hands. It’s often nowadays forced to see lawsuit about search in schools and we don’t have a career way to turn off Google AI overview and at work many people’s jobs used to be an application of their school but now it is prompting the application of their skill they are teaching their skills instead of using it. That is a real fear, the loss of jobs being in the workforce fearfully holding a job. It is so paralyzing\n\nso what are the ways through it well, the consultancy workshops took us into this Leorah clutch show this thread with the following about discussion and free dialogue. Audrey taught us how to make me formalize bringing it into school. Leo was talking about what it feels like. To be doing safety research right now.. l v",
+     "font": "Hanken Grotesk",
+     "size": 1.45,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "win": true,
+     "title": "The whole story, part 2"
+    }
+   ]
+  }
+ ]
+}

@@ -2,6 +2,7 @@ import { existsSync, readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { Wall, type WallItem, type WallLayout } from "@/components/Wall";
 import { getModel } from "@/lib/data";
+import { AIFigure } from "@/components/AI";
 import sizes from "@/data/sticky-images.json";
 
 export const revalidate = 3600;
@@ -96,7 +97,7 @@ export default async function WallPage() {
         <h1>The <em className="ul">wall<svg viewBox="0 0 300 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8 C 60 2, 140 3, 200 6 S 280 9, 297 4" /></svg></em></h1>
         <p className="lede">All {total} sticky notes from the retreat floor, in the eight piles we made them in. Every note is anonymous. Tap one to read it and see who in the network is working on it.</p>
       </header>
-      <Wall items={items} defaultHeight={height} saved={readLayout()} canSave={process.env.NODE_ENV === "development"} />
+      <AIFigure caption="Pile shapes traced by code Claude wrote from photos of the notes on the floor. Each note sits in a spot of its own colour, not necessarily its exact original spot."><Wall items={items} defaultHeight={height} saved={readLayout()} canSave={process.env.NODE_ENV === "development"} /></AIFigure>
     </>
   );
 }

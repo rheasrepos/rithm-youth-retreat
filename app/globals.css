@@ -442,3 +442,47 @@ nav .topnav a:nth-child(7){--c:#b79be0} nav .topnav a:nth-child(8){--c:#d77f93} 
 .credits div{background:var(--paper);border:1.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink);padding:12px 14px}
 .credits h3{font-size:16px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
 .credits p{margin:0}
+
+/* ---- AI-drafted text and code-made figures (same convention as rheamad.vercel.app) ---- */
+.ai-generated{text-decoration:underline dashed;text-decoration-thickness:1px;text-underline-offset:3px;cursor:help}
+.ai-generated .ai-generated{text-decoration:none}
+div.ai-generated *{text-decoration:underline dashed;text-decoration-thickness:1px;text-underline-offset:3px}
+.ai-figure{margin:0;border:1.5px dashed color-mix(in srgb,var(--ink) 45%,transparent);padding:10px;display:grid;gap:8px;min-width:0}
+.ai-figure>figcaption{font-size:14px;color:var(--muted)}
+.ai-wait{opacity:0;clip-path:inset(0 100% 0 0)}
+.ai-wait.ai-in{opacity:1;clip-path:inset(0 0 0 0);transition:clip-path .9s steps(18,end),opacity .2s ease}
+.ai-figure.ai-wait{clip-path:none}
+.ai-figure.ai-wait.ai-in{transition:opacity .5s ease}
+html.hide-ai .ai-generated{filter:blur(4px);user-select:none}
+html.hide-ai .ai-figure>figcaption{display:none}
+.aichip{position:fixed;left:max(12px,env(safe-area-inset-left,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:50;font:600 13px var(--f-body);color:var(--ink);background:var(--paper);border:1.5px solid var(--ink);box-shadow:2px 2px 0 var(--ink);padding:6px 10px;cursor:pointer}
+html.hide-ai .aichip .ai-generated{filter:none}
+.aichip:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.ai-wait{opacity:1;clip-path:none}}
+
+/* zine editor: photo library beside the page */
+.zwork.withlib{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px;align-items:start}
+.zwork.withlib .zspread{min-width:0}
+.zlib{position:sticky;top:12px;margin-top:16px;max-height:calc(100vh - 24px);display:flex;flex-direction:column;gap:8px;padding:10px;border:1.5px solid var(--line);border-radius:12px;background:var(--paper);min-width:0}
+.zlibtop{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.zlib .thint{margin:0;font-size:13px;color:var(--muted)}
+.zlib select,.zlib input[type="search"]{font:inherit;font-size:14px;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:8px;padding:6px 8px;width:100%;min-width:0}
+.zlibpick{display:flex;flex-wrap:wrap;gap:6px}
+.zlibpick .btn,.zlib>.btn{padding:6px 10px;font-size:14px}
+.zlibgrid{overflow:auto;min-height:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.zlibgrid button{position:relative;padding:0;aspect-ratio:1;overflow:hidden;border:2px solid transparent;border-radius:6px;background:var(--bg);cursor:grab}
+.zlibgrid button:focus-visible{outline:2px solid var(--pink);outline-offset:1px}
+.zlibgrid button[aria-pressed="true"]{border-color:var(--pink)}
+.zlibgrid img{display:block;width:100%;height:100%;object-fit:cover}
+.zlibn{position:absolute;top:3px;left:3px;min-width:18px;padding:0 4px;border-radius:9px;background:var(--pink);color:#fff;font-size:12px;line-height:18px;text-align:center}
+@media (max-width:900px){.zwork.withlib{grid-template-columns:minmax(0,1fr)}.zlib{position:static;max-height:460px}}
+
+/* zine: words circling in an oval (the one-word check-in) */
+.zorbit{position:relative;width:100%;height:100%}
+.zorbit span{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;line-height:1;
+  animation-name:zorbx,zorby,zorbs;animation-timing-function:cubic-bezier(.37,0,.63,1);animation-iteration-count:infinite;animation-direction:alternate}
+@keyframes zorbx{from{left:10%}to{left:90%}}
+@keyframes zorby{from{top:12%}to{top:88%}}
+@keyframes zorbs{from{scale:.72;opacity:.55}to{scale:1.12;opacity:1}}
+.zine.editing .zitem.orbit{outline:1px dashed color-mix(in srgb,var(--ink) 30%,transparent)}
+@media (prefers-reduced-motion:reduce){.zorbit span{animation:none}}

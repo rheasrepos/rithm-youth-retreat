@@ -1,4 +1,5 @@
 import { WordCloud, type CloudNote } from "@/components/WordCloud";
+import { AIFigure } from "@/components/AI";
 import { getModel } from "@/lib/data";
 
 export const revalidate = 3600;
@@ -14,7 +15,7 @@ export default async function Words() {
     <section className="words" aria-labelledby="wordsTitle">
       <div className="rhead"><span className="eyebrow">The sticky notes, word by word</span><h2 id="wordsTitle">What we wrote, all at once</h2>
         <p>Every word used on two or more notes. The bigger the word, the more notes use it. Switch between worries and work already under way and watch the words grow and shrink, or add your own note below and watch it change the cloud.</p></div>
-      <WordCloud notes={notes} domains={domains} />
+      <AIFigure caption="Counted and drawn by code Claude wrote: every word on two or more notes, sized by how many notes use it."><WordCloud notes={notes} domains={domains} /></AIFigure>
       <p className="status">Common words (the, want, I&apos;m) and “working”, which only echoes the prompt, are left out. Plurals are counted with the singular, and phrases that repeat, like “human connection”, are kept whole.</p>
     </section>
   );

@@ -203,8 +203,8 @@
   {
    "role": "Organizers",
    "names": [
-    "Kash",
-    "Hannah"
+    "Kashyap Rajesh",
+    "Hannah Groos"
    ]
   },
   {
@@ -213,6 +213,85 @@
     "Allison",
     "Michelle"
    ]
+  }
+ ],
+ "roster_how": "Who was there, from the workbook's Who's Here page minus Abby Binder and Arielle Geismar (not there). Copy a name and its 'did' onto the matching Polaroid in 'people'. The page does not show this list.",
+ "roster": [
+  {
+   "name": "Adora Olise",
+   "did": ""
+  },
+  {
+   "name": "Audrey Wang",
+   "did": ""
+  },
+  {
+   "name": "Bomi Akarakiri",
+   "did": ""
+  },
+  {
+   "name": "Celine Qin",
+   "did": ""
+  },
+  {
+   "name": "Cyra Alesha",
+   "did": ""
+  },
+  {
+   "name": "Daira Velasquez",
+   "did": "Loved the line \"I like returning a call\"."
+  },
+  {
+   "name": "Dylan Humphrey",
+   "did": ""
+  },
+  {
+   "name": "Hannah Groos",
+   "did": ""
+  },
+  {
+   "name": "Hansel Porfirio",
+   "did": ""
+  },
+  {
+   "name": "José Guallpa",
+   "did": ""
+  },
+  {
+   "name": "Kashyap Rajesh",
+   "did": ""
+  },
+  {
+   "name": "Leo Wu",
+   "did": ""
+  },
+  {
+   "name": "Leorah Roeber",
+   "did": ""
+  },
+  {
+   "name": "Maddie Freeman",
+   "did": ""
+  },
+  {
+   "name": "Marisol Jimenez",
+   "did": ""
+  },
+  {
+   "name": "Mashiko Lortkipanidze",
+   "did": ""
+  },
+  {
+   "name": "Nahom Sisay",
+   "did": ""
+  },
+  {
+   "name": "Odist Powell",
+   "did": ""
+  },
+  {
+   "name": "Rhea Madhogarhia",
+   "did": ""
   }
  ]
 }

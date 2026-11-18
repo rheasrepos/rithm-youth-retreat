@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Model, Org } from "@/lib/types";
+import { AI } from "@/components/AI";
 import { CopyEmail } from "./CopyEmail";
 
 const EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "info@therithmproject.org";
@@ -16,21 +17,21 @@ export function OrgCard({ model, o, themeFilter, full }: { model: Model; o: Org;
         <span className="tag">{o.domains.map((d) => model.domainById[d]?.name.split(" & ")[0].split(",")[0]).filter(Boolean).join(" · ")}</span>
       </div>
       <h3>{full ? o.name : <Link href={`/org/${o.id}`} style={{ textDecoration: "none" }}>{o.name}</Link>}</h3>
-      <p className="b">{o.blurb}</p>
+      <p className="b"><AI>{o.blurb}</AI></p>
       {o.retreatNote && <p className="retreat"><b>At the retreat:</b> {o.retreatNote}</p>}
       {o.people.length > 0 && (
         <p className="ppl">In the network: {o.people.map((p, i) => <span key={i}>{i > 0 && "; "}<b>{p.name}</b> <span>({p.note})</span></span>)}</p>
       )}
       {links.length > 0 && (
         <span className="why">On this map for: {links.map((l, i) => (
-          <span key={l.themeId}>{i > 0 && "; "}<Link href={`/domain/${model.themes[l.themeId]?.domainId}#theme-${l.themeId}`}>{model.labelOf(l.themeId)}</Link>{l.verdict === "nearby" ? " (nearby)" : ""}</span>
+          <span key={l.themeId}>{i > 0 && "; "}<Link href={`/domain/${model.themes[l.themeId]?.domainId}#theme-${l.themeId}`}><AI>{model.labelOf(l.themeId)}</AI></Link>{l.verdict === "nearby" ? " (nearby)" : ""}</span>
         ))}</span>
       )}
       {o.evidence.length ? (
         <ul className="evs">
           {o.evidence.map((e) => (
             <li key={e.id}>
-              <b>{e.title}</b>{e.year ? ` (${e.year})` : ""}. {e.what}{" "}
+              <b>{e.title}</b>{e.year ? ` (${e.year})` : ""}. <AI>{e.what}</AI>{" "}
               {e.url && <a href={e.url} target="_blank" rel="noopener">Source ↗</a>}
               {e.themes.length > 0 && <span className="for">Evidence for: {e.themes.map((t) => model.labelOf(t)).join("; ")}{e.verifiedOn ? ` · checked ${e.verifiedOn}` : ""}</span>}
             </li>

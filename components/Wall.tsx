@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { AI } from "@/components/AI";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 /** Everything on the rug is an item with a centre (x, y), a tilt and a stacking order. The rug is 100 units wide. */
@@ -179,7 +180,7 @@ export function Wall({ items, defaultHeight, saved, canSave }: { items: WallItem
             <div className="noteinfo">
               <span className="eyebrow">{open.domainName}</span>
               <blockquote>“{open.text}”{open.uncertain && <span className="unc"> (handwriting partly uncertain)</span>}</blockquote>
-              {open.themeLabel && <p className="th">{open.themeLabel}</p>}
+              {open.themeLabel && <p className="th"><AI>{open.themeLabel}</AI></p>}
               {open.themeId ? (
                 <Link className="ext" href={`/domain/${open.domainId}#theme-${open.themeId}`}>
                   {open.status === "covered" ? "See who's working on this →" : "Untapped so far. See the details →"}

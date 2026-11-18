@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Model, Theme } from "@/lib/types";
 import { EvidenceLine } from "./EvidenceLine";
 import { Notes } from "./Notes";
+import { AI } from "@/components/AI";
 import { Quote } from "./Quote";
 
 export function ThemeRow({ model, t, showDomain }: { model: Model; t: Theme; showDomain?: boolean }) {
@@ -9,7 +10,7 @@ export function ThemeRow({ model, t, showDomain }: { model: Model; t: Theme; sho
   return (
     <div className="concern" id={`theme-${t.id}`}>
       <div>
-        <span className="q">{t.label}{showDomain && <span className="tag"> · {model.domainById[t.domainId]?.name}</span>}</span>
+        <span className="q"><AI>{t.label}</AI>{showDomain && <span className="tag"> · {model.domainById[t.domainId]?.name}</span>}</span>
         <div className="quotes">{t.stickies.map((s) => <Quote key={s.id} s={s} />)}</div>
         <Notes model={model} id={t.id} />
       </div>

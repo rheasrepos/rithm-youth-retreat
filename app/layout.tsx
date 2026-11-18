@@ -3,6 +3,7 @@ import Link from "next/link";
 import "./globals.css";
 import { CopyEmail } from "@/components/CopyEmail";
 import { RouteTint } from "@/components/RouteTint";
+import { AIControls } from "@/components/AIControls";
 
 export const metadata: Metadata = {
   title: { default: "Rithm Youth Retreat", template: "%s · Rithm Youth Retreat" },
@@ -42,9 +43,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <p><strong style={{ color: "var(--ink)" }}>Part of Rithm&apos;s work.</strong> This map and wall extend what the Rithm Project already does with young people; see <a href={READYMAG} target="_blank" rel="noopener">Rithm&apos;s Readymag page ↗</a> for the bigger picture.</p>
             <p><strong style={{ color: "var(--ink)" }}>How to reach someone.</strong> Each organization links to its website. For a warm introduction to a specific person, email the Rithm team at <span className="mail">{EMAIL}</span> <CopyEmail email={EMAIL} /> and say who you&apos;d like to meet and why.</p>
             <p><strong style={{ color: "var(--ink)" }}>How the links were made.</strong> Sticky notes are transcribed verbatim from photos of the retreat wall (spelling and all; <em>[illegible]</em> and <em>[crossed out]</em> mark what couldn&apos;t be read). An organization is placed next to a note only when there is a named project, report, product or law that addresses it; that evidence is linked on every connection. “Nearby” means the organization works in the area but nothing specific to that note was found, so treat it as a lead, not a match. New people, organizations and evidence come in through the <Link href="/submit">submission form</Link> and are reviewed by the Rithm team before they appear.</p>
+            <p><strong style={{ color: "var(--ink)" }}>What the dashed underline means.</strong> <span className="ai-generated">Text with a dashed underline</span> was drafted by AI (Claude) from the retreat materials: the concern labels, domain and organization descriptions, the evidence summaries and the cross-domain notes. Figures in a dashed frame were made by code Claude wrote. The sticky notes themselves were read from photos with AI help and checked by hand; they are people&apos;s own words and are never underlined. Use the switch at the bottom left to blur AI-drafted text so only people's own words stand out.</p>
             <p>Sources: the public Changemaker Network roster, Rithm&apos;s team, youth fellows and facilitators, the sticky notes from the October 2026 youth retreat, and the organizations&apos; own websites and reports. Personal contact details aren&apos;t published here; ask Rithm for those.</p>
           </footer>
         </div>
+        <AIControls />
       </body>
     </html>
   );

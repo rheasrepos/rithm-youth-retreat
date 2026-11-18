@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Quote } from "@/components/Quote";
 import { getModel } from "@/lib/data";
+import { AI } from "@/components/AI";
 import type { Model, Theme } from "@/lib/types";
 
 export const revalidate = 3600;
@@ -11,7 +12,7 @@ function Card({ m, t }: { m: Model; t: Theme }) {
   return (
     <div className="ucard">
       <span className="dn">{d?.name}</span>
-      <h3>{t.label}</h3>
+      <h3><AI>{t.label}</AI></h3>
       <div className="quotes">{t.stickies.map((s) => <Quote key={s.id} s={s} small />)}</div>
       {t.orgs.length > 0 && <span className="near">Nearby: {t.orgs.map((l, i) => <span key={l.org.id}>{i > 0 && ", "}<Link href={`/org/${l.org.id}`}>{l.org.name}</Link></span>)}</span>}
       <Link className="goto" href={`/domain/${t.domainId}#theme-${t.id}`}>Open in {d?.name} →</Link>

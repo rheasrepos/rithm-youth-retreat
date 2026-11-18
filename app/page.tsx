@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SearchBox } from "@/components/SearchBox";
 import { getModel } from "@/lib/data";
+import { AI } from "@/components/AI";
 import { buildIndex } from "@/lib/search";
 
 export const revalidate = 3600;
@@ -39,8 +40,8 @@ export default async function Home() {
                   <span className="ct">{d.stickyCount} sticky notes · {orgs.length} organizations · {people} people</span>
                   {open > 0 && <span className="hit">{open} untapped</span>}
                 </Link>
-                <span className="desc">{d.description}</span>
-                <ul className="tnotes">{d.themes.map((t) => <li key={t.id}>{t.label}</li>)}</ul>
+                <span className="desc"><AI>{d.description}</AI></span>
+                <ul className="tnotes">{d.themes.map((t) => <li key={t.id}><AI>{t.label}</AI></li>)}</ul>
               </div></div></div>
             );
           })}

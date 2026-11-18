@@ -3,7 +3,7 @@ import { memo, useCallback, useEffect, useRef, useState } from "react";
 
 /** A page is 100 units wide and 100 × ratio tall. Items are placed by their centre. Text size is in the same units. */
 export interface ZineItem {
-  id: string; type: "image" | "text" | "flip";
+  id: string; type: "image" | "text" | "flip" | "orbit";   // orbit: words (one per line) circling the middle of the box
   x: number; y: number; w: number; h: number; rot: number; z: number;
   src?: string; text?: string; font?: string; size?: number; color?: string; bold?: boolean; italic?: boolean; align?: "left" | "center" | "right";
   srcs?: string[]; speed?: number;   // flip: a set of photos shown one after another, like a flipbook; speed is milliseconds per photo
@@ -33,8 +33,22 @@ function Flip({ srcs, speed }: { srcs: string[]; speed?: number }) {
   // eslint-disable-next-line @next/next/no-img-element
   return <>{srcs.map((s, k) => <img key={k} src={s} alt="" draggable={false} className="zflip" style={{ opacity: k === i % srcs.length ? 1 : 0 }} />)}</>;
 }
+/** Words drifting round an oval, like a mobile: one word per line of text. A full lap takes `speed` milliseconds. Stands still for people who ask for less motion. */
+function Orbit({ it }: { it: ZineItem }) {
+  const words = (it.text ?? "").split("\n").map((w) => w.trim()).filter(Boolean);
+  const T = Math.max(4000, it.speed ?? 26000) / 1000;
+  return (
+    <div className="zorbit" style={{ fontFamily: stack(it.font), fontSize: `${it.size ?? 4}cqw`, color: it.color, fontWeight: it.bold ? 700 : 400, fontStyle: it.italic ? "italic" : "normal" }}>
+      {words.map((w, k) => {
+        const f = k / words.length, a = 2 * Math.PI * f;
+        return <span key={k} style={{ left: `${50 - 40 * Math.cos(a)}%`, top: `${50 - 38 * Math.sin(a)}%`, animationDuration: `${T / 2}s`, animationDelay: `${-f * T}s, ${-(f + 0.75) * T}s, ${-(f + 0.75) * T}s` }}>{w}</span>;
+      })}
+    </div>
+  );
+}
 function ItemBody({ it }: { it: ZineItem }) {
   if (it.type === "flip") return <Flip srcs={it.srcs ?? []} speed={it.speed} />;
+  if (it.type === "orbit") return <Orbit it={it} />;
   if (it.type === "text" && it.win) {
     return (
       <div className="zwin">
@@ -240,6 +254,7 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
   const [sel, setSel] = useState<string[]>([]);
   const [typing, setTyping] = useState<string | null>(null);
   const [msg, setMsg] = useState("");
+  const [lib, setLib] = useState(false);            // the photo library panel beside the page
   const [view, setView] = useState(1);              // how many pages to show side by side
   const [first, setFirst] = useState(0);            // the leftmost page on show
   const [clip, setClip] = useState(true);           // hide whatever hangs off the page, as the reader will see it
@@ -272,7 +287,7 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
   const each = (fn: (it: ZineItem) => Partial<ZineItem>, pinnedToo = true) => { keep(); setPage((p) => ({ ...p, items: p.items.map((it) => (sel.includes(it.id) && (pinnedToo || !it.lock) ? { ...it, ...fn(it) } : it)) })); };
   const edit = (id: string, c: Partial<ZineItem>) => { keep(); patch(id, c); };
   const topZ = () => Math.max(0, ...page.items.map((i) => i.z)) + 1;
-  const add = (it: Omit<ZineItem, "id" | "z" | "rot" | "x" | "y">) => { const id = uid(); keep(); setPage((p) => ({ ...p, items: [...p.items, { ...it, id, x: 50, y: H / 2, rot: 0, z: topZ() }] })); setSel([id]); };
+  const add = (it: Omit<ZineItem, "id" | "z" | "rot" | "x" | "y">, at?: { x: number; y: number }) => { const id = uid(); keep(); setPage((p) => ({ ...p, items: [...p.items, { ...it, id, x: at?.x ?? 50, y: at?.y ?? H / 2, rot: 0, z: topZ() }] })); setSel([id]); };
   const remove = () => { if (!sel.length) return; keep(); setPage((p) => ({ ...p, items: p.items.filter((i) => !sel.includes(i.id)) })); setSel([]); };
 
   /** Puts a picture file in public/zine (or inside the zine file when the site can't save) and says where it went. */
@@ -298,6 +313,30 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
     const srcs: string[] = [];
     for (const f of [...files].sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }))) { const src = await store(f); if (src) srcs.push(src); }
     if (!srcs.length) return;
+    const dim = await measure(srcs[0]);
+    const w = 60, h = r2(Math.min(H * 0.8, (w * dim.h) / dim.w));
+    add({ type: "flip", srcs, speed: 450, w: r2((h * dim.w) / dim.h), h });
+  };
+
+  /** Copies a picture from the photo library into public/zine and says where it went. */
+  const fromLib = async (f: string): Promise<string | null> => {
+    try {
+      const r = await fetch("/api/zine/library", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ f }) });
+      const j = await r.json().catch(() => null);
+      if (r.ok && j?.path) return j.path as string;
+      setMsg(j?.reason ?? "Couldn't add that picture.");
+    } catch { setMsg("Couldn't reach the photo library. Is npm run dev running?"); }
+    return null;
+  };
+  const addLib = async (f: string, at?: { x: number; y: number }) => {
+    const src = await fromLib(f); if (!src) return;
+    const dim = await measure(src);
+    const w = 60, h = r2(Math.min(H * 0.8, (w * dim.h) / dim.w));
+    add({ type: "image", src, w: r2((h * dim.w) / dim.h), h }, at);
+  };
+  const libSrcs = async (fs: string[]) => { const out: string[] = []; for (const f of fs) { const s = await fromLib(f); if (s) out.push(s); } return out; };
+  const flipLib = async (fs: string[]) => {
+    const srcs = await libSrcs(fs); if (!srcs.length) return;
     const dim = await measure(srcs[0]);
     const w = 60, h = r2(Math.min(H * 0.8, (w * dim.h) / dim.w));
     add({ type: "flip", srcs, speed: 450, w: r2((h * dim.w) / dim.h), h });
@@ -468,13 +507,16 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
           <span className="eyebrow">Add</span>
           <button type="button" className="btn ghost" onClick={() => add({ type: "text", w: 60, h: 14, text: "Text", font: "Arial", size: 5, color: "#1b1037", bold: false, italic: false, align: "left" })}>Text box</button>
           <button type="button" className="btn ghost" onClick={() => add({ type: "text", win: true, title: "Overheard", w: 64, h: 30, text: "Type what was said here.", font: "Space Grotesk", size: 3.6, color: "#2b2755", bold: false, italic: false, align: "left" })}>Window box</button>
+          <button type="button" className="btn ghost" title="Words circling the middle of the box. Double-click it to type, one word per line." onClick={() => add({ type: "orbit", w: 84, h: 70, text: "one\nword\nper\nline", font: "Space Grotesk", size: 4.5, color: "#2b2755", bold: true, italic: false, align: "center", speed: 26000 })}>Word orbit</button>
           <label className="btn ghost filebtn">Flipbook…<input type="file" accept="image/*" multiple onChange={(e) => { void addFlip([...(e.target.files ?? [])]); e.target.value = ""; }} /></label>
           <label className="btn ghost filebtn">Image…<input type="file" accept="image/*" multiple onChange={(e) => { [...(e.target.files ?? [])].forEach((f) => void addImage(f)); e.target.value = ""; }} /></label>
+          <button type="button" className="btn ghost" aria-pressed={lib} onClick={() => setLib(!lib)} title="Every photo in your retreat folder, ready to drag onto the page">Photo library</button>
           <span className="thint">or paste an image (⌘V), or drop one on the page</span>
         </div>
         <div className="tgroup">
           <span className="eyebrow">{many ? `${picked.length} selected` : "Selected"}</span>
-          {cur?.type === "text" && (
+          {cur?.type === "orbit" && <Num label="Lap (ms)" value={cur.speed ?? 26000} step={1000} onChange={(v) => edit(cur.id, { speed: Math.max(4000, v) })} />}
+          {(cur?.type === "text" || cur?.type === "orbit") && (
             <>
               <select aria-label="Font" value={cur.font} onChange={(e) => edit(cur.id, { font: e.target.value })}>{FONTS.map((f) => <option key={f}>{f}</option>)}</select>
               <button type="button" className="btn ghost" onClick={() => edit(cur.id, { size: r2(Math.max(1, (cur.size ?? 4) - 0.5)) })} aria-label="Smaller text">A−</button>
@@ -483,7 +525,7 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
               <button type="button" className="btn ghost" aria-pressed={!!cur.italic} onClick={() => edit(cur.id, { italic: !cur.italic })}><i>I</i></button>
               <select aria-label="Alignment" value={cur.align} onChange={(e) => edit(cur.id, { align: e.target.value as ZineItem["align"] })}><option value="left">Left</option><option value="center">Centre</option><option value="right">Right</option></select>
               <label className="swatch">Colour <input type="color" value={cur.color ?? "#000000"} onChange={(e) => patch(cur.id, { color: e.target.value })} /></label>
-              <button type="button" className="btn ghost" aria-pressed={!!cur.win} onClick={() => edit(cur.id, { win: !cur.win })}>Window</button>
+              {cur.type === "text" && <button type="button" className="btn ghost" aria-pressed={!!cur.win} onClick={() => edit(cur.id, { win: !cur.win })}>Window</button>}
               {cur.win && <label className="swatch">Title <input type="text" className="wintitle" value={cur.title ?? ""} placeholder="Overheard" onChange={(e) => patch(cur.id, { title: e.target.value })} /></label>}
             </>
           )}
@@ -528,6 +570,7 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
         <p className="tmsg" role="status">{msg}</p>
       </div>
 
+      <div className={`zwork${lib ? " withlib" : ""}`}>
       <div className={`zspread${count > 1 ? " multi" : ""}`} style={{ ["--ratio" as string]: doc.ratio, ["--n" as string]: count }}>
         {doc.pages.slice(start, start + count).map((pg, k) => {
           const i = start + k;
@@ -539,12 +582,16 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
           return (
             <div key={pg.id} className="zsheetwrap zactive">
               <div className="zpage zsheet" ref={sheet} style={{ background: page.bg }} onPointerDown={beginBox} onPointerMove={moveP} onPointerUp={endP} onPointerCancel={endP}
-                onDragOver={(e) => e.preventDefault()} onDrop={(e) => { e.preventDefault(); [...e.dataTransfer.files].filter((f) => f.type.startsWith("image/")).forEach((f) => void addImage(f)); }}>
+                onDragOver={(e) => e.preventDefault()} onDrop={(e) => {
+                  e.preventDefault();
+                  const f = e.dataTransfer.getData("text/x-zine-lib");
+                  if (f) { const b = sheet.current!.getBoundingClientRect(), u = b.width / 100; void addLib(f, { x: r2((e.clientX - b.left) / u), y: r2((e.clientY - b.top) / u) }); return; }
+                  [...e.dataTransfer.files].filter((f) => f.type.startsWith("image/")).forEach((f) => void addImage(f)); }}>
                 <div className={`zclip${clip ? " on" : ""}`}>
                   {page.items.map((it) => (
                     <div key={it.id} className={`zitem ${it.type}${it.lock ? " locked" : ""}${typing === it.id ? " typing" : ""}`} style={itemStyle(it, doc.ratio)}
-                      onPointerDown={(e) => beginMove(e, it)} onDoubleClick={() => { if (it.type === "text") { keep(); setTyping(it.id); setSel([it.id]); } }}>
-                      {it.type === "text" && typing === it.id ? (
+                      onPointerDown={(e) => beginMove(e, it)} onDoubleClick={() => { if (it.type === "text" || it.type === "orbit") { keep(); setTyping(it.id); setSel([it.id]); } }}>
+                      {(it.type === "text" || it.type === "orbit") && typing === it.id ? (
                         <textarea className="ztext" autoFocus value={it.text ?? ""} onChange={(e) => patch(it.id, { text: e.target.value })} onBlur={() => setTyping(null)} onPointerDown={(e) => e.stopPropagation()} style={textStyle(it)} />
                       ) : <ItemBody it={it} />}
                     </div>
@@ -571,6 +618,68 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
           );
         })}
       </div>
+      {lib && <Library onAdd={(f) => void addLib(f)} onFlip={(fs) => void flipLib(fs)}
+        intoFlip={cur?.type === "flip" ? (fs) => void libSrcs(fs).then((more) => { if (more.length) edit(cur.id, { srcs: [...(cur.srcs ?? []), ...more] }); }) : undefined} />}
+      </div>
     </section>
+  );
+}
+
+/** Every picture in the retreat folder as small previews: drag one onto the page, click to add it, or ⌘-click several for a flipbook. */
+function Library({ onAdd, onFlip, intoFlip }: { onAdd: (f: string) => void; onFlip: (fs: string[]) => void; intoFlip?: (fs: string[]) => void }) {
+  const [files, setFiles] = useState<string[] | null>(null);
+  const [err, setErr] = useState("");
+  const [dir, setDir] = useState("");
+  const [q, setQ] = useState("");
+  const [more, setMore] = useState(1);
+  const [pick, setPick] = useState<string[]>([]);
+  useEffect(() => {
+    fetch("/api/zine/library").then((r) => r.json()).then((j) => {
+      if (j?.ok) setFiles(j.files as string[]);
+      else setErr(j?.reason === "read-only" ? "The photo library only works while the site runs on your computer (npm run dev)." : j?.reason ?? "Couldn't load the photo library.");
+    }).catch(() => setErr("Couldn't load the photo library."));
+  }, []);
+  const folder = (f: string) => (f.includes("/") ? f.slice(0, f.lastIndexOf("/")) : "");
+  const counts = new Map<string, number>();
+  for (const f of files ?? []) { const parts = folder(f).split("/").filter(Boolean); for (let i = 1; i <= parts.length; i++) { const d = parts.slice(0, i).join("/"); counts.set(d, (counts.get(d) ?? 0) + 1); } }
+  const dirs = [...counts.keys()].sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+  const needle = q.trim().toLowerCase();
+  const shown = (files ?? []).filter((f) => (!dir || f.startsWith(dir + "/")) && (!needle || f.toLowerCase().includes(needle)));
+  const vis = shown.slice(0, 90 * more);
+  const toggle = (f: string) => setPick((p) => (p.includes(f) ? p.filter((x) => x !== f) : [...p, f]));
+  return (
+    <aside className="zlib" aria-label="Photo library">
+      <div className="zlibtop"><span className="eyebrow">Photo library</span><span className="thint">{files ? `${shown.length} of ${files.length}` : err ? "" : "Loading…"}</span></div>
+      {err && <p className="thint">{err}</p>}
+      {files && (
+        <>
+          <select aria-label="Folder" value={dir} onChange={(e) => { setDir(e.target.value); setMore(1); }}>
+            <option value="">All folders</option>
+            {dirs.map((d) => <option key={d} value={d}>{"\u00a0\u00a0".repeat(d.split("/").length - 1)}{d.split("/").pop()} ({counts.get(d)})</option>)}
+          </select>
+          <input type="search" placeholder="Search file names" aria-label="Search file names" value={q} onChange={(e) => { setQ(e.target.value); setMore(1); }} />
+          <p className="thint">Drag a photo onto the page, or click to add it. ⌘-click several to make a flipbook.</p>
+          {pick.length > 0 && (
+            <div className="zlibpick">
+              <button type="button" className="btn ghost" onClick={() => { onFlip(pick); setPick([]); }}>Flipbook of {pick.length}</button>
+              {intoFlip && <button type="button" className="btn ghost" onClick={() => { intoFlip(pick); setPick([]); }}>Add to selected flipbook</button>}
+              <button type="button" className="btn ghost" onClick={() => setPick([])}>Clear</button>
+            </div>
+          )}
+          <div className="zlibgrid">
+            {vis.map((f) => (
+              <button key={f} type="button" draggable title={f} aria-pressed={pick.includes(f)}
+                onDragStart={(e) => { e.dataTransfer.setData("text/x-zine-lib", f); e.dataTransfer.effectAllowed = "copy"; }}
+                onClick={(e) => (e.metaKey || e.ctrlKey || e.shiftKey ? toggle(f) : onAdd(f))}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`/api/zine/library?t=1&f=${encodeURIComponent(f)}`} alt={f.split("/").pop() ?? ""} loading="lazy" draggable={false} />
+                {pick.includes(f) && <span className="zlibn">{pick.indexOf(f) + 1}</span>}
+              </button>
+            ))}
+          </div>
+          {shown.length > vis.length && <button type="button" className="btn ghost" onClick={() => setMore((m) => m + 1)}>Show more ({shown.length - vis.length} left)</button>}
+        </>
+      )}
+    </aside>
   );
 }
