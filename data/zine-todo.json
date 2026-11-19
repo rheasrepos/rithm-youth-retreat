@@ -1,0 +1,174 @@
+{
+ "items": [
+  {
+   "id": "t01",
+   "text": "Glenda’s “I was not the golden child”: keep it or cut it? (her personal story)",
+   "group": "Decide",
+   "page": 5
+  },
+  {
+   "id": "t02",
+   "text": "Glenda + Chris slide lines sit inside an AI-marked box: split them out or keep?",
+   "group": "Decide",
+   "page": 5
+  },
+  {
+   "id": "t03",
+   "text": "Whole story: put back “aunty” (×2) and “use leaders”, or keep my fixes “anti” and “youth leaders”?",
+   "group": "Decide"
+  },
+  {
+   "id": "t04",
+   "text": "“Everything we did” list: keep as a credits-style list or cut it?",
+   "group": "Decide",
+   "page": 14
+  },
+  {
+   "id": "t05",
+   "text": "Audrey’s workshop: “making sense of AI news + program feedback” (sheet) or “bringing this to universities”?",
+   "group": "Decide",
+   "page": 14
+  },
+  {
+   "id": "t06",
+   "text": "Mark which cover lines and titles are mine with “AI-written” (cover, “The gap”, “Leading in the gray”, “Feelings across domains”)",
+   "group": "Decide"
+  },
+  {
+   "id": "t07",
+   "text": "Where the poems go (Poem… menu in the editor)",
+   "group": "Decide"
+  },
+  {
+   "id": "t08",
+   "text": "Keep all four “a month later” margin notes? (p8, p9, p11, p13)",
+   "group": "Decide"
+  },
+  {
+   "id": "t09",
+   "text": "Terminal: which small model to name (llama3.2 is a stand-in)",
+   "group": "Decide",
+   "page": 13
+  },
+  {
+   "id": "t10",
+   "text": "Bin the Claude outputs/_contact scratch folders?",
+   "group": "Decide"
+  },
+  {
+   "id": "t11",
+   "text": "Write the “Rhea writes” box: what our summaries noticed vs the AI’s",
+   "group": "To do",
+   "page": 11
+  },
+  {
+   "id": "t12",
+   "text": "Paste the small model’s and Claude’s answers into the terminal",
+   "group": "To do",
+   "page": 13
+  },
+  {
+   "id": "t13",
+   "text": "Paste the Connection Calculus link into the margin note (Link field)",
+   "group": "To do",
+   "page": 13
+  },
+  {
+   "id": "t14",
+   "text": "Your words for Marisol’s and Leorah’s sessions",
+   "group": "To do",
+   "page": 12
+  },
+  {
+   "id": "t15",
+   "text": "Fix the unreadable word “[?]” in the Physical Spaces and Policy summaries",
+   "group": "To do",
+   "page": 11
+  },
+  {
+   "id": "t16",
+   "text": "Fix “relationsnips” in your caption",
+   "group": "To do",
+   "page": 13
+  },
+  {
+   "id": "t17",
+   "text": "Finish the cut-off line “What comes u”",
+   "group": "To do",
+   "page": 5
+  },
+  {
+   "id": "t18",
+   "text": "Finish the cut-off quote card “just about any d” (wall page)",
+   "group": "To do"
+  },
+  {
+   "id": "t19",
+   "text": "Who read “The Summer Day” and “Interrelationship”?",
+   "group": "To do"
+  },
+  {
+   "id": "t20",
+   "text": "Name + okay from the poet of “A multitude of wishes”",
+   "group": "To do"
+  },
+  {
+   "id": "t21",
+   "text": "Group okay to publish the stickies in the public zine",
+   "group": "To do"
+  },
+  {
+   "id": "t22",
+   "text": "Names for the 25 Polaroids",
+   "group": "To do",
+   "page": 15
+  },
+  {
+   "id": "t23",
+   "text": "Check the credit line, the AI disclosure, and “Transcriptions were checked by hand”",
+   "group": "To do",
+   "page": 16
+  },
+  {
+   "id": "t24",
+   "text": "Check the session names and order",
+   "group": "To do",
+   "page": 14
+  },
+  {
+   "id": "t25",
+   "text": "Who led the fireplace room workshop (photo folder 16)? Is “Story vs Narrative” (folder 17) Dylan’s?",
+   "group": "To do"
+  },
+  {
+   "id": "t26",
+   "text": "Which photo has “ODIST WAS HERE” for the cut-out",
+   "group": "To do"
+  },
+  {
+   "id": "t27",
+   "text": "Rescan crafts14",
+   "group": "To do"
+  },
+  {
+   "id": "t28",
+   "text": "Set SITE_PASSWORD (.env.local)",
+   "group": "To do"
+  },
+  {
+   "id": "t29",
+   "text": "Open Discord’s links/readings channel in the Chrome that has the extension, then ask Claude to read it",
+   "group": "To do"
+  },
+  {
+   "id": "t30",
+   "text": "Turn off the AI blur switch (bottom right) to see AI text",
+   "group": "To do"
+  },
+  {
+   "id": "t31",
+   "text": "Commit and push when you’re ready (ask Claude)",
+   "group": "To do"
+  }
+ ]
+}

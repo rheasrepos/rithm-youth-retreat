@@ -1,9 +1,10 @@
 "use client";
+import POEMS from "@/data/poems.json";
 import { createContext, memo, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 
 /** A page is 100 units wide and 100 × ratio tall. Items are placed by their centre. Text size is in the same units. */
 export interface ZineItem {
-  id: string; type: "image" | "text" | "flip" | "orbit" | "pile" | "map";   // orbit: words (one per line) circling the middle of the box
+  id: string; type: "image" | "text" | "flip" | "orbit" | "pile" | "map" | "poem";   // orbit: words (one per line) circling the middle of the box
   x: number; y: number; w: number; h: number; rot: number; z: number;
   src?: string; text?: string; font?: string; size?: number; color?: string; bold?: boolean; italic?: boolean; align?: "left" | "center" | "right";
   srcs?: string[]; speed?: number;   // flip: a set of photos shown one after another, like a flipbook; speed is milliseconds per photo
@@ -15,6 +16,8 @@ export interface ZineItem {
   blend?: boolean;  // picture: white paper turns see-through, so only the ink or drawing shows over whatever is behind it
   crop?: { l: number; t: number; r: number; b: number };   // picture: how much is trimmed off each side, as a share of the original (0 to 0.9)
   spread?: boolean; // image or flipbook: whatever hangs off the right edge carries on at the left edge of the next page
+  poem?: Poem;      // poem: a poem read at the retreat, shown as its scan/screenshot (src) or as a card that links to where it is published (url)
+  link?: string;   // text: a web address; readers can press the text to open it in a new tab
   ai?: boolean;     // text drafted by AI (Claude, or a summary Granola wrote): readers see the site's dashed underline, and the site-wide switch can blur it
   lock?: boolean;   // pinned in the editor so it can't be picked up by accident; readers see no difference
 }
@@ -47,6 +50,56 @@ function Pile({ it }: { it: ZineItem }) {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       {(it.notes ?? []).map((n, k) => <img key={n.id} className="zsticky" data-sticky={k} src={n.src} alt={`Sticky note: ${n.text}`} loading="lazy" draggable={false} style={spot(n, n.z)} />)}
     </div>
+  );
+}
+export type Poem = { title: string; author: string; reader?: string; url?: string; src?: string; note?: string };
+/** A poem read at the retreat: its scan or screenshot with a caption, or (when there is no picture) a card that links to the published poem.
+    Poems are never retyped here: either the picture the reader brought, or a link. */
+function PoemCard({ p }: { p: Poem }) {
+  const cap = <>“{p.title}” by {p.author}{p.reader ? <>, read by {p.reader}</> : null}{p.url ? <span className="zlinkmark"> ↗</span> : null}</>;
+  const inner = p.src
+    // eslint-disable-next-line @next/next/no-img-element
+    ? <div className="zpoem img"><img src={p.src} alt={`${p.title} by ${p.author}`} draggable={false} /><div className="zpoemcap">{cap}</div></div>
+    : <div className="zpoem card"><span className="eyebrow">Poem</span><b>“{p.title}”</b><span>{p.author}</span>{p.reader && <span>read by {p.reader}</span>}{p.url && <span className="zpoemgo">Read it ↗</span>}</div>;
+  return p.url ? <a className="zlink" href={p.url} target="_blank" rel="noopener noreferrer">{inner}</a> : inner;
+}
+type TodoItem = { id: string; text: string; group: string; page?: number; done?: boolean };
+/** The editor's checklist of what is left: decisions and to-dos, kept in data/zine-todo.json (only while the site runs on your computer). */
+function Todo() {
+  const [items, setItems] = useState<TodoItem[] | null>(null);
+  const [err, setErr] = useState("");
+  const [hide, setHide] = useState(false);
+  const [draft, setDraft] = useState("");
+  useEffect(() => {
+    fetch("/api/zine/todo").then((r) => r.json()).then((j) => { if (Array.isArray(j?.items)) setItems(j.items); else setErr(j?.reason === "read-only" ? "The checklist only works while the site runs on your computer (npm run dev)." : "Couldn't load the checklist."); }).catch(() => setErr("Couldn't load the checklist."));
+  }, []);
+  const store = (next: TodoItem[]) => { setItems(next); void fetch("/api/zine/todo", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ items: next }) }).then((r) => { if (!r.ok) setErr("Couldn't save the tick."); }).catch(() => setErr("Couldn't save the tick.")); };
+  const groups = items ? [...new Set(items.map((i) => i.group))] : [];
+  const left = items?.filter((i) => !i.done).length ?? 0;
+  return (
+    <aside className="zlib ztodo" aria-label="What is left">
+      <div className="zlibtop"><span className="eyebrow">What is left</span><span className="thint">{items ? `${left} of ${items.length} open` : err ? "" : "Loading…"}</span></div>
+      {err && <p className="thint">{err}</p>}
+      {items && <label className="zchk"><input type="checkbox" checked={hide} onChange={(e) => setHide(e.target.checked)} /> Hide done</label>}
+      <div className="ztodolist">
+        {groups.map((g) => (
+          <div key={g} className="ztodogroup">
+            <span className="eyebrow">{g}</span>
+            {items!.filter((i) => i.group === g && !(hide && i.done)).map((i) => (
+              <label key={i.id} className={`zchk${i.done ? " done" : ""}`}>
+                <input type="checkbox" checked={!!i.done} onChange={(e) => store(items!.map((x) => (x.id === i.id ? { ...x, done: e.target.checked } : x)))} />
+                <span>{i.page ? <b>p{i.page} </b> : null}{i.text}</span>
+              </label>
+            ))}
+          </div>
+        ))}
+      </div>
+      {items && (
+        <form className="ztodoadd" onSubmit={(e) => { e.preventDefault(); const t = draft.trim(); if (!t) return; store([...items, { id: uid(), text: t, group: "Added by Rhea" }]); setDraft(""); }}>
+          <input type="search" value={draft} placeholder="Add something…" onChange={(e) => setDraft(e.target.value)} />
+        </form>
+      )}
+    </aside>
   );
 }
 /** What a reader has done to each map so far. Kept by the book, because a page can be drawn in several slices at once. */
@@ -158,10 +211,11 @@ function ItemBody({ it }: { it: ZineItem }) {
   if (it.type === "orbit") return <Orbit it={it} />;
   if (it.type === "pile") return <Pile it={it} />;
   if (it.type === "map") return <ZMap it={it} />;
+  if (it.type === "poem" && it.poem) return <PoemCard p={it.poem} />;
   if (it.type === "text" && it.term) {
     return (
       <div className="zterm">
-        <div className="ztermbar"><i /><i /><i /><span>{it.title || "rheamadhogarhia — -zsh"}</span></div>
+        <div className="ztermbar"><i /><i /><i /><span>{it.title || "user — -zsh"}</span></div>
         <div className={`ztermtext${it.ai ? " ai-generated" : ""}`} title={it.ai ? AITIP : undefined} style={{ fontSize: `${it.size ?? 2}cqw`, textAlign: it.align }}>{it.text}</div>
       </div>
     );
@@ -184,7 +238,8 @@ function ItemBody({ it }: { it: ZineItem }) {
     // eslint-disable-next-line @next/next/no-img-element
     return <img src={it.src} alt="" draggable={false} style={blend} />;
   }
-  return <div className={`ztext${it.ai ? " ai-generated" : ""}`} title={it.ai ? AITIP : undefined} style={{ fontFamily: stack(it.font), fontSize: `${it.size ?? 4}cqw`, color: it.color, fontWeight: it.bold ? 700 : 400, fontStyle: it.italic ? "italic" : "normal", textAlign: it.align }}>{it.text}</div>;
+  const body = <div className={`ztext${it.ai ? " ai-generated" : ""}`} title={it.ai ? AITIP : undefined} style={{ fontFamily: stack(it.font), fontSize: `${it.size ?? 4}cqw`, color: it.color, fontWeight: it.bold ? 700 : 400, fontStyle: it.italic ? "italic" : "normal", textAlign: it.align }}>{it.text}{it.link && <span className="zlinkmark"> ↗</span>}</div>;
+  return it.link ? <a className="zlink" href={it.link} target="_blank" rel="noopener noreferrer">{body}</a> : body;
 }
 /** A page as readers see it. */
 /** The items of the page before that run across the fold onto this one, moved one page-width to the left. */
@@ -430,7 +485,8 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
   const [typing, setTyping] = useState<string | null>(null);
   const [msg, setMsg] = useState("");
   const [lib, setLib] = useState(false);            // the photo library panel beside the page
-  const [qbank, setQbank] = useState(false);        // the quote bank panel beside the page
+  const [qbank, setQbank] = useState(false);
+  const [todo, setTodo] = useState(true);           // the checklist of what is left, on the left of the page        // the quote bank panel beside the page
   const [bank, setBank] = useState<QuoteBank | null>(null);
   const [bankErr, setBankErr] = useState("");
   useEffect(() => {
@@ -732,8 +788,13 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
           <button type="button" className="btn ghost" onClick={() => add({ type: "text", w: 60, h: 14, text: "Text", font: "Arial", size: 5, color: "#1b1037", bold: false, italic: false, align: "left" })}>Text box</button>
           <button type="button" className="btn ghost" onClick={() => add({ type: "text", win: true, title: "Overheard", w: 64, h: 30, text: "Type what was said here.", font: "Arial", size: 3.6, color: "#2b2755", bold: false, italic: false, align: "left" })}>Window box</button>
           <button type="button" className="btn ghost" title="Words circling the middle of the box. Double-click it to type, one word per line." onClick={() => add({ type: "orbit", w: 84, h: 70, text: "one\nword\nper\nline", font: "Arial", size: 4.5, color: "#2b2755", bold: true, italic: false, align: "center", speed: 26000 })}>Word orbit</button>
+          <select className="btn ghost" aria-label="Add a poem" value="" title="Poems read at the retreat: the scan or screenshot when there is one, otherwise a card linking to the published poem. The list is data/poems.json." onChange={(e) => { const p = (POEMS as Poem[])[Number(e.target.value)]; if (p) add({ type: "poem", poem: p, w: p.src ? 44 : 40, h: p.src ? 66 : 20 }); }}>
+            <option value="">Poem…</option>
+            {(POEMS as Poem[]).map((p, k) => <option key={k} value={k}>{p.title} ({p.author})</option>)}
+          </select>
           <label className="btn ghost filebtn">Flipbook…<input type="file" accept="image/*" multiple onChange={(e) => { void addFlip([...(e.target.files ?? [])]); e.target.value = ""; }} /></label>
           <label className="btn ghost filebtn">Image…<input type="file" accept="image/*" multiple onChange={(e) => { [...(e.target.files ?? [])].forEach((f) => void addImage(f)); e.target.value = ""; }} /></label>
+          <button type="button" className="btn ghost" aria-pressed={todo} onClick={() => setTodo(!todo)} title="What is left to decide and to do, from the chats with Claude. Ticks save to data/zine-todo.json">To do</button>
           <button type="button" className="btn ghost" aria-pressed={lib} onClick={() => { setLib(!lib); setQbank(false); }} title="Every photo in your retreat folder, ready to drag onto the page">Photo library</button>
           <button type="button" className="btn ghost" aria-pressed={qbank} onClick={() => { setQbank(!qbank); setLib(false); }} title="Every quote that could belong on this page, word for word">Quotes for this page</button>
           <span className="thint">or paste an image (⌘V), or drop one on the page</span>
@@ -753,6 +814,7 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
               {cur.type === "text" && <button type="button" className="btn ghost" aria-pressed={!!cur.win} onClick={() => edit(cur.id, { win: !cur.win, term: false })}>Window</button>}
               {cur.type === "text" && <button type="button" className="btn ghost" aria-pressed={!!cur.term} title="Draw this text as a Mac Terminal window" onClick={() => edit(cur.id, { term: !cur.term, win: false })}>Terminal</button>}
               <button type="button" className="btn ghost" aria-pressed={!!cur.ai} title="Mark this text as written by AI: readers see a dashed underline, like the rest of the site" onClick={() => edit(cur.id, { ai: !cur.ai })}>AI-written</button>
+              {cur.type === "text" && <label className="swatch">Link <input type="url" className="wintitle" value={cur.link ?? ""} placeholder="https://…" onChange={(e) => patch(cur.id, { link: e.target.value || undefined })} /></label>}
               {(cur.win || cur.term) && <label className="swatch">Title <input type="text" className="wintitle" value={cur.title ?? ""} placeholder="Overheard" onChange={(e) => patch(cur.id, { title: e.target.value })} /></label>}
             </>
           )}
@@ -835,7 +897,8 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
         <p className="tmsg" role="status">{msg}</p>
       </div>
 
-      <div className={`zwork${lib || qbank ? " withlib" : ""}`}>
+      <div className={`zwork${lib || qbank ? " withlib" : ""}${todo ? " withtodo" : ""}`}>
+      {todo && <Todo />}
       <div className={`zspread${count > 1 ? " multi" : ""}`} style={{ ["--ratio" as string]: doc.ratio, ["--n" as string]: count }}>
         {doc.pages.slice(start, start + count).map((pg, k) => {
           const i = start + k;

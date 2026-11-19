@@ -286,6 +286,18 @@ footer p{margin:0;max-width:72ch}
 .zpage.blank{background:#f3ede3}
 .zitem{position:absolute}
 .zitem img{display:block;width:100%;height:100%;-webkit-user-drag:none;user-select:none}
+.zpoem{width:100%;height:100%;font-family:Arial,sans-serif;color:#2b2755}
+.zpoem.img{display:flex;flex-direction:column;gap:.6cqw}
+.zpoem.img img{flex:1;min-height:0;width:100%;object-fit:contain;filter:drop-shadow(0 .2cqw .4cqw rgba(0,0,0,.25))}
+.zpoemcap{flex:none;font-size:1.7cqw;font-style:italic;text-align:center}
+.zpoem.card{display:flex;flex-direction:column;justify-content:center;gap:.5cqw;padding:1.6cqw 2cqw;background:#fff;border:.3cqw solid #2b2755;box-shadow:.7cqw .7cqw 0 #2b2755;font-size:2cqw;line-height:1.2}
+.zpoem.card b{font-size:2.8cqw}
+.zpoem.card .eyebrow{font-size:1.4cqw;letter-spacing:.12em;text-transform:uppercase;opacity:.75}
+.zpoemgo{margin-top:.4cqw;font-weight:700}
+.zlink{display:block;width:100%;height:100%;color:inherit;text-decoration:none}
+.zinefull .zlink:hover .ztext{text-decoration:underline}
+.zine.editing .zlink{pointer-events:none}
+.zlinkmark{font-weight:700}
 .ztext{width:100%;height:100%;margin:0;padding:0;border:0;background:transparent;line-height:1.15;white-space:pre-wrap;overflow-wrap:anywhere;resize:none;outline:none;overflow:visible}
 textarea.ztext{overflow:hidden}
 .zsheetwrap{width:min(100%, calc(80vh / var(--ratio)), 760px);margin-inline:auto;aspect-ratio:1 / var(--ratio);box-shadow:0 6px 22px rgba(27,16,55,.22)}
@@ -403,12 +415,12 @@ nav .topnav a:nth-child(7){--c:#d77f93} nav .topnav a:nth-child(8){--c:#f3e8cc}
 /* ---- Zine building blocks: flipbooks and retro window boxes ---- */
 .zitem.flip{overflow:hidden;background:#2b2755}
 .zitem img.zflip{position:absolute;inset:0;object-fit:cover}
-.zterm{width:100%;height:100%;display:flex;flex-direction:column;background:#fff;color:#000;border-radius:1.1cqw;overflow:hidden;box-shadow:0 0 0 .12cqw rgba(0,0,0,.28),0 1.2cqw 3cqw rgba(0,0,0,.28)}
-.ztermbar{position:relative;flex:none;display:flex;align-items:center;gap:.8cqw;height:3.6cqw;padding:0 1.3cqw;background:linear-gradient(#ececec,#dedede);border-bottom:.12cqw solid #c4c4c4}
+.zterm{width:100%;height:100%;display:flex;flex-direction:column;background:#000;color:#33ff66;border-radius:1.1cqw;overflow:hidden;box-shadow:0 0 0 .12cqw rgba(0,0,0,.28),0 1.2cqw 3cqw rgba(0,0,0,.28)}
+.ztermbar{position:relative;flex:none;display:flex;align-items:center;gap:.8cqw;height:3.6cqw;padding:0 1.3cqw;background:linear-gradient(#3a3a3a,#2c2c2c);border-bottom:.12cqw solid #111}
 .ztermbar i{width:1.3cqw;height:1.3cqw;border-radius:50%;background:#ff5f57;flex:none}
 .ztermbar i:nth-child(2){background:#febc2e}.ztermbar i:nth-child(3){background:#28c840}
-.ztermbar span{position:absolute;left:0;right:0;text-align:center;font:600 1.5cqw/1 -apple-system,"Helvetica Neue",Arial,sans-serif;color:#4d4d4d;pointer-events:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 9cqw}
-.ztermtext{flex:1;padding:1cqw 1.3cqw;font-family:"SF Mono",Menlo,Monaco,"Courier New",monospace;line-height:1.3;white-space:pre-wrap;overflow-wrap:anywhere;overflow:hidden}
+.ztermbar span{position:absolute;left:0;right:0;text-align:center;font:600 1.5cqw/1 -apple-system,"Helvetica Neue",Arial,sans-serif;color:#b8b8b8;pointer-events:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 9cqw}
+.ztermtext{flex:1;text-decoration-color:#33ff66;padding:1cqw 1.3cqw;font-family:"SF Mono",Menlo,Monaco,"Courier New",monospace;line-height:1.3;white-space:pre-wrap;overflow-wrap:anywhere;overflow:hidden}
 .zwin{width:100%;height:100%;display:flex;flex-direction:column;background:#fbf4e0;border:.4cqw solid #2b2755;box-shadow:.9cqw .9cqw 0 #2b2755}
 .zwinbar{display:flex;align-items:center;gap:.7cqw;padding:.6cqw 1cqw;background:#2b2755;color:#f3e8cc;font:700 2.4cqw/1.1 var(--f-display);letter-spacing:.02em;flex:none}
 .zwinbar span{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -476,6 +488,16 @@ html.hide-ai .aichip .ai-generated{filter:none}
 .zlibgrid button[aria-pressed="true"]{border-color:var(--pink)}
 .zlibgrid img{display:block;width:100%;height:100%;object-fit:cover}
 .zlibn{position:absolute;top:3px;left:3px;min-width:18px;padding:0 4px;border-radius:9px;background:var(--pink);color:#fff;font-size:12px;line-height:18px;text-align:center}
+.zwork.withtodo{display:grid;grid-template-columns:270px minmax(0,1fr);gap:18px;align-items:start}
+.zwork.withtodo.withlib{grid-template-columns:270px minmax(0,1fr) 300px}
+.zwork.withtodo .zspread{min-width:0}
+.ztodolist{overflow:auto;display:flex;flex-direction:column;gap:12px;padding-right:2px}
+.ztodogroup{display:flex;flex-direction:column;gap:6px}
+.zchk{display:flex;gap:8px;align-items:flex-start;font-size:14px;line-height:1.3;color:var(--ink);cursor:pointer}
+.zchk input{margin-top:2px;flex:none;accent-color:var(--pink)}
+.zchk.done span{text-decoration:line-through;color:var(--muted)}
+.ztodoadd input{font:inherit;font-size:14px;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:8px;padding:6px 8px;width:100%}
+@media (max-width:1100px){.zwork.withtodo,.zwork.withtodo.withlib{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:900px){.zwork.withlib{grid-template-columns:minmax(0,1fr)}.zlib{position:static;max-height:460px}}
 
 /* zine: words circling in an oval (the one-word check-in) */
