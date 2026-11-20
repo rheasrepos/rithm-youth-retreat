@@ -1,13 +1,13 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
-import { Wall, type WallEmbed, type WallItem, type WallLayout } from "@/components/Wall";
+import { Wall, type WallEmbed, type WallItem, type WallLayout, type ZineMap } from "@/components/Wall";
 import { getModel } from "@/lib/data";
 import { AIFigure } from "@/components/AI";
 import sizes from "@/data/sticky-images.json";
 import rhea from "@/data/rhea-notes.json";
 
 export const revalidate = 3600;
-export const metadata = { title: "The wall" };
+export const metadata = { title: "Ecosystem Mapping" };
 
 /* Default arrangement: the eight piles, two to a row, roughly as they sat on the floor. Units: the rug is 100 wide. */
 const ROWS: string[][] = [["wor", "sch"], ["rel", "phy"], ["com"], ["tec", "cul"], ["pol"]];
@@ -46,6 +46,19 @@ function readLayout(): WallLayout | null {
     const f = path.join(process.cwd(), "data", "wall-layout.json");
     return existsSync(f) ? (JSON.parse(readFileSync(f, "utf8")) as WallLayout) : null;
   } catch { return null; }
+}
+
+/** The zine's map of every note (data/zine.json), so "Where we put them" here matches the zine exactly: same piles, same handwritten cards. */
+function readZineMap(): ZineMap | null {
+  try {
+    const z = JSON.parse(readFileSync(path.join(process.cwd(), "data", "zine.json"), "utf8"));
+    for (const pg of z.pages) for (const it of pg.items) if (it.type === "map") {
+      const notes: ZineMap["notes"] = {}; for (const n of it.notes) notes[n.id] = { x: n.x, y: n.y, w: n.w, rot: n.rot ?? 0, z: n.z ?? 1, src: n.src };
+      const words: ZineMap["words"] = {}; for (const w of it.words) words[w.id] = { x: w.x, y: w.y, w: w.w, src: w.src };
+      return { a: it.h / it.w, notes, words };
+    }
+  } catch { /* fall back to the floor layout */ }
+  return null;
 }
 
 function readEmbed(): WallEmbed | null {
@@ -102,11 +115,11 @@ export default async function WallPage() {
   return (
     <>
       <header className="hero">
-        <h1>The <em className="ul">wall<svg viewBox="0 0 300 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8 C 60 2, 140 3, 200 6 S 280 9, 297 4" /></svg></em></h1>
+        <h1>Ecosystem <em className="ul">Mapping</em></h1>
         <p className="wallq">What happens when you give people a free space for play creation talk and thought</p>
         <p className="lede">All {total} sticky notes from the retreat floor, in the eight piles we made them in. Every note is anonymous. Tap one to read it and see who in the network is working on it. Then regroup them and watch where they go.</p>
       </header>
-      <AIFigure caption="Pile shapes traced by code Claude wrote from photos of the notes on the floor. Each note sits in a spot of its own colour, not necessarily its exact original spot. The other groupings are worked out by code from the notes' wording, not by us."><Wall items={items} defaultHeight={height} saved={readLayout()} canSave={process.env.NODE_ENV === "development"} embed={readEmbed()} /></AIFigure>
+      <AIFigure caption="Pile shapes traced by code Claude wrote from photos of the notes on the floor. Each note sits in a spot of its own colour, not necessarily its exact original spot. The other groupings are worked out by code from the notes' wording, not by us."><Wall items={items} defaultHeight={height} saved={readLayout()} canSave={process.env.NODE_ENV === "development"} embed={readEmbed()} zineMap={readZineMap()} /></AIFigure>
       <section className="wallnotes" aria-label="Rhea's notes">
         <span className="eyebrow">From Rhea’s notes</span>
         {rhea.quotes.map((q, i) => <blockquote key={i} className={q.length < 60 ? "short" : ""}>{q}</blockquote>)}

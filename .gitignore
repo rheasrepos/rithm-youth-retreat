@@ -9,3 +9,7 @@ next-env.d.ts
 
 # zine library previews
 .cache
+
+# local backups Claude makes before edits
+data/*backup*
+public/zine/art/originals/

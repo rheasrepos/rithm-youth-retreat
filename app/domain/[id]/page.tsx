@@ -6,8 +6,12 @@ import { Quote } from "@/components/Quote";
 import { ThemeRow } from "@/components/ThemeRow";
 import { AI } from "@/components/AI";
 import { getModel } from "@/lib/data";
+/* eslint-disable @next/next/no-img-element */
 
 export const revalidate = 3600;
+
+/** The summary sheets each domain group wrote by hand at the retreat (scans in public/domain-summaries). Only some groups made one. */
+const SUMMARIES: Record<string, string[]> = { rel: ["rel-1"], com: ["com-1", "com-2"], phy: ["phy-1", "phy-2"], pol: ["pol-1", "pol-2"] };
 
 export async function generateStaticParams() {
   const m = await getModel();
@@ -33,7 +37,12 @@ export default async function DomainPage({ params }: { params: Promise<{ id: str
     <section className="results">
       <div className="rhead">
         <span className="crumb"><Link href="/">Map</Link> · Domain</span>
-        <h2>{d.name}</h2>
+        {SUMMARIES[d.id] ? (
+          <details className="dsum">
+            <summary><h2 className="handtitle"><img src={`/domain-cards/${d.id}.png?v=3`} alt={d.name} /></h2><span className="dsumhint">Tap to see our group&apos;s handwritten summary</span></summary>
+            <div className="dsumimgs">{SUMMARIES[d.id].map((f, k) => <a key={f} href={`/domain-summaries/${f}.jpg`} target="_blank" rel="noopener"><img src={`/domain-summaries/${f}.jpg`} alt={`${d.name}: the group's handwritten summary, page ${k + 1}`} loading="lazy" /></a>)}</div>
+          </details>
+        ) : <h2 className="handtitle"><img src={`/domain-cards/${d.id}.png?v=3`} alt={d.name} /></h2>}
         <p className="ddesc"><AI>{d.description}</AI></p>
         <p>{d.stickyCount} sticky notes, grouped into {d.themes.length} concerns · {orgs.length} organizations and {people.length} people in the network.</p>
         <div className="topnav">{m.domains.map((x) => <Link key={x.id} href={`/domain/${x.id}`} aria-current={x.id === d.id ? "page" : undefined}>{x.name}</Link>)}</div>

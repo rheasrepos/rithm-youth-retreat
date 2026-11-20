@@ -27,8 +27,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <nav>
             <a className="brand" href="https://www.therithmproject.org/" target="_blank" rel="noopener">The Rithm Project</a>
             <div className="topnav">
-              <Link href="/">Changemaker Network map</Link>
-              <Link href="/wall">The wall</Link>
+              <Link href="/">Changemaker Network</Link>
+              <Link href="/wall">Ecosystem Mapping</Link>
               <Link href="/words">The words</Link>
               <Link href="/zine">The zine</Link>
               <Link href="/team">Team</Link>

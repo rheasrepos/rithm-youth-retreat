@@ -52,7 +52,7 @@ function Highlight({ text, word }: { text: string; word: string }) {
   return <>{text.split(re).map((p, i) => (i % 2 ? <mark key={i}>{p}</mark> : p))}</>;
 }
 
-export function WordCloud({ notes: base, domains }: { notes: CloudNote[]; domains: { id: string; name: string }[] }) {
+export function WordCloud({ notes: base, domains, compact }: { notes: CloudNote[]; domains: { id: string; name: string }[]; compact?: boolean }) {   // compact: inside the zine, without the add-a-note form
   const [mine, setMine] = useState<CloudNote[]>([]);            // notes this viewer added (only in their browser until approved)
   const all = useMemo(() => [...base, ...mine], [base, mine]);
   const words = useMemo(() => buildCloud(all), [all]);
@@ -118,7 +118,7 @@ export function WordCloud({ notes: base, domains }: { notes: CloudNote[]; domain
           );
         })}
       </svg>
-      <form className="wcadd" onSubmit={add}>
+      {!compact && <form className="wcadd" onSubmit={add}>
         <label className="wcpad">
           <span className="sr-only">Your sticky note</span>
           <textarea value={text} onChange={(e) => setText(e.target.value)} maxLength={280} rows={3} placeholder="Add your own sticky note… what worries you, or what are you working on?" />
@@ -130,7 +130,7 @@ export function WordCloud({ notes: base, domains }: { notes: CloudNote[]; domain
           <button type="submit" disabled={!text.trim()}>Stick it on</button>
         </div>
         {msg && <p className="wcmsg" role="status">{msg}{mine.length > 0 && ` You've added ${mine.length}.`}</p>}
-      </form>
+      </form>}
       {fw ? (
         <div className="wcnotes">
           <div className="wchead">

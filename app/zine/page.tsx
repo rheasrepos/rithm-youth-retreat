@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
-import { Zine, type ZineDoc } from "@/components/Zine";
+import { Zine, type ZineDoc, type CloudData } from "@/components/Zine";
+import { getModel } from "@/lib/data";
 
 export const revalidate = 3600;
 export const metadata = { title: "The zine" };
@@ -15,11 +16,19 @@ const starter = (): ZineDoc => ({
   })),
 });
 
-export default function ZinePage() {
+export default async function ZinePage() {
+  // the same notes the words page counts, for the live word cloud inside the zine
+  let cloud: CloudData | undefined;
+  try {
+    const m = await getModel();
+    const notes: CloudData["notes"] = [];
+    for (const d of m.domains) for (const s of [...d.themes.flatMap((t) => t.stickies), ...d.building, ...d.other]) notes.push({ id: s.id, text: s.text, kind: s.kind, color: s.color, domain: d.id });
+    cloud = { notes, domains: m.domains.map((d) => ({ id: d.id, name: d.name })) };
+  } catch { /* no cloud data: the still image shows instead */ }
   let doc: ZineDoc = starter();
   try {
     const f = path.join(process.cwd(), "data", "zine.json");
     if (existsSync(f)) doc = JSON.parse(readFileSync(f, "utf8")) as ZineDoc;
   } catch { /* fall back to the starter */ }
-  return <Zine initial={doc} canSave={process.env.NODE_ENV === "development"} gated={!!process.env.SITE_PASSWORD} />;
+  return <Zine initial={doc} canSave={process.env.NODE_ENV === "development"} gated={!!process.env.SITE_PASSWORD} cloud={cloud} />;
 }

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SearchBox } from "@/components/SearchBox";
 import { getModel } from "@/lib/data";
+/* eslint-disable @next/next/no-img-element */
 import { AI } from "@/components/AI";
 import { buildIndex } from "@/lib/search";
 import { EveryoneSection, UntappedSection } from "@/components/MapSections";
@@ -38,7 +39,7 @@ export default async function Home() {
             return (
               <div className="tile" key={d.id}><div className="inner"><div className="face front">
                 <Link className="open" href={`/domain/${d.id}`}>
-                  <span className="nm">{d.name}</span>
+                  <span className="nm hand"><img src={`/domain-cards/${d.id}.png?v=3`} alt={d.name} /></span>
                   <span className="ct">{d.stickyCount} sticky notes · {orgs.length} organizations · {people} people</span>
                   {open > 0 && <span className="hit">{open} untapped</span>}
                 </Link>

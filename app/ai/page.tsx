@@ -19,6 +19,7 @@ export default function AIPage() {
           <ul>
             <li><strong>Granola</strong> recorded and summarized some of the sessions. We announced this on the first night, and anyone could ask for their parts to be left out.</li>
             <li><strong>Claude</strong>, Anthropic’s AI assistant, read the sticky notes and handwritten notes from photos and scans; drafted the concern labels, the domain and organization descriptions and the evidence summaries; pulled candidate quotes out of the transcripts; and wrote the code behind this site, the wall, the word cloud and the zine editor.</li>
+            <li><strong>An AI background-removal tool</strong> cut each sticky note out of its photo, so the notes could be moved around on the wall and in the zine.</li>
             <li><strong>A small open language model</strong> (all-MiniLM-L6-v2), run on a laptop, places the sticky notes by meaning in the regrouping views on <Link href="/wall">the wall</Link>.</li>
           </ul>
           <h2>Where it didn’t</h2>

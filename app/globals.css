@@ -28,7 +28,7 @@ h1,h2,h3{font-family:var(--f-display);font-weight:400;margin:0;text-wrap:balance
 h1{font-size:clamp(38px,6.4vw,66px);max-width:15ch}
 h1 em,h2 em{font-style:italic}
 .ul{position:relative;white-space:nowrap}
-.ul svg{position:absolute;left:-2%;bottom:-.18em;width:104%;height:.35em;overflow:visible}
+.ul svg{display:none}
 .ul path{fill:none;stroke:var(--pink);stroke-width:3;stroke-linecap:round}
 h2{font-size:clamp(28px,4vw,40px)}
 h3{font-size:22px}
@@ -140,8 +140,8 @@ details.all summary{cursor:pointer;font-family:var(--f-display);font-size:24px}
 details.all .inner{display:grid;gap:12px;margin-top:16px}
 details.all input{font:inherit;color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:999px;padding:10px 16px;max-width:360px;width:100%}
 
-footer{display:grid;gap:10px;border-top:1px solid var(--line);padding-top:24px;font-size:15px;color:var(--muted)}
-footer p{margin:0;max-width:72ch}
+footer{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px 28px;border-top:1px solid var(--line);padding:20px max(16px,calc(50vw - 50% + 16px)) 24px;width:100vw;margin-left:calc(50% - 50vw);box-sizing:border-box;font-size:13px;line-height:1.45;color:var(--muted)}
+footer p{margin:0;max-width:none}
 .mail{font-weight:700;color:var(--ink);user-select:all}
 .toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:999px;font-size:15px}
 @media (prefers-reduced-motion:reduce){.card{transition:none}}
@@ -210,10 +210,10 @@ footer p{margin:0;max-width:72ch}
 /* The wall. The rug is a canvas 100 units wide; every note, Polaroid and label sits at its own spot (see components/Wall.tsx). */
 .rug{border-radius:22px;overflow-x:auto;overflow-y:hidden;
   /* public/rug.jpg: a clean patch of the retreat rug, cropped from the floor photo and mirror-tiled so it repeats without seams */
-  background-color:#555e50;background-image:url("/rug.jpg");background-size:900px auto;background-position:center top;
+  background-color:#2b2755;
   box-shadow:inset 0 0 0 1px rgba(0,0,0,.25), 0 10px 30px rgba(27,16,55,.18)}
 .rugcanvas{position:relative;width:100%;min-width:760px;container-type:inline-size;
-  background:radial-gradient(ellipse at 50% 40%, transparent 55%, rgba(18,22,16,.4) 100%)}
+  background:none}
 .item{all:unset;box-sizing:border-box;position:absolute;width:calc(var(--w) * 1cqw);cursor:pointer;
   transform:translate(-50%,-50%) rotate(var(--r));transition:transform .18s ease;filter:drop-shadow(0 .25cqw .3cqw rgba(0,0,0,.4))}
 .item img{display:block;width:100%;height:auto;-webkit-user-drag:none;user-select:none}
@@ -282,6 +282,18 @@ footer p{margin:0;max-width:72ch}
 .zcorner:hover{color:#1b1037;background:rgba(255,255,255,.7)}
 .zcorner.home{left:12px;font-size:22px;padding:6px 12px}
 .zcorner.edit{right:12px}
+.zcorner.view{right:72px}
+.ztags{position:absolute;left:2.5cqw;bottom:1.8cqw;z-index:9000;display:flex;flex-wrap:wrap;gap:.8cqw;pointer-events:none}
+.ztags span{font:700 1.5cqw/1 Arial,sans-serif;color:var(--t);border:.25cqw solid var(--t);background:#fff;padding:.5cqw .9cqw;border-radius:999px}
+.ztagpick{display:inline-flex;gap:3px;flex-wrap:wrap}
+.ztagpick button{all:unset;cursor:pointer;font:700 12px/1 Arial,sans-serif;color:var(--t);border:1.5px solid var(--t);border-radius:999px;padding:5px 7px;opacity:.45}
+.ztagpick button[aria-pressed="true"]{opacity:1;background:var(--t);color:#fff}
+.zprintview{background:#e9e4da;min-height:100vh;padding:24px 16px}
+.zprintbar{max-width:5.5in;margin:0 auto 18px;display:flex;flex-direction:column;gap:8px}
+.zprintpage{width:min(5.5in,100%);aspect-ratio:1/var(--ratio);margin:0 auto 24px;box-shadow:0 2px 12px rgba(0,0,0,.18);break-after:page;break-inside:avoid}
+@page{size:5.5in 8.5in;margin:0}
+@media print{.zprintview{background:none;padding:0}.zprintbar{display:none}.zprintpage{width:5.5in;height:8.5in;margin:0;box-shadow:none}html,body{background:#fff}}
+.zcorner.view.solo{right:12px}
 .zpage{position:relative;width:100%;height:100%;overflow:hidden;container-type:inline-size;isolation:isolate}
 .zpage.blank{background:#f3ede3}
 .zitem{position:absolute}
@@ -290,7 +302,7 @@ footer p{margin:0;max-width:72ch}
 .zpoem.img{display:flex;flex-direction:column;gap:.6cqw}
 .zpoem.img img{flex:1;min-height:0;width:100%;object-fit:contain;filter:drop-shadow(0 .2cqw .4cqw rgba(0,0,0,.25))}
 .zpoemcap{flex:none;font-size:1.7cqw;font-style:italic;text-align:center}
-.zpoem.card{display:flex;flex-direction:column;justify-content:center;gap:.5cqw;padding:1.6cqw 2cqw;background:#fff;border:.3cqw solid #2b2755;box-shadow:.7cqw .7cqw 0 #2b2755;font-size:2cqw;line-height:1.2}
+.zpoem.card{display:flex;flex-direction:column;justify-content:center;gap:.5cqw;padding:1.6cqw 2cqw;background:#fff;border:.3cqw solid #2b2755;font-size:2cqw;line-height:1.2}
 .zpoem.card b{font-size:2.8cqw}
 .zpoem.card .eyebrow{font-size:1.4cqw;letter-spacing:.12em;text-transform:uppercase;opacity:.75}
 .zpoemgo{margin-top:.4cqw;font-weight:700}
@@ -395,6 +407,8 @@ textarea.ztext{overflow:hidden}
 
 /* ---- Grotesk type, no script or italic display faces ---- */
 h1,h2,h3,.brand,.lede,details.all summary{font-weight:700;letter-spacing:-.01em}
+h1,h2,h3{text-transform:uppercase;letter-spacing:.01em}
+h1{max-width:18ch}
 .lede,.tile .nm,.concern .q,.rhead .ddesc,.noteinfo blockquote{font-weight:500}
 h1 em,h2 em,.lede em{font-style:normal;color:var(--pink)}
 /* ---- One colour world per section (set by RouteTint). Flat fills only. ---- */
@@ -415,13 +429,13 @@ nav .topnav a:nth-child(7){--c:#d77f93} nav .topnav a:nth-child(8){--c:#f3e8cc}
 /* ---- Zine building blocks: flipbooks and retro window boxes ---- */
 .zitem.flip{overflow:hidden;background:#2b2755}
 .zitem img.zflip{position:absolute;inset:0;object-fit:cover}
-.zterm{width:100%;height:100%;display:flex;flex-direction:column;background:#000;color:#33ff66;border-radius:1.1cqw;overflow:hidden;box-shadow:0 0 0 .12cqw rgba(0,0,0,.28),0 1.2cqw 3cqw rgba(0,0,0,.28)}
+.zterm{width:100%;height:100%;display:flex;flex-direction:column;background:#000;color:#33ff66;border-radius:1.1cqw;overflow:hidden}
 .ztermbar{position:relative;flex:none;display:flex;align-items:center;gap:.8cqw;height:3.6cqw;padding:0 1.3cqw;background:linear-gradient(#3a3a3a,#2c2c2c);border-bottom:.12cqw solid #111}
 .ztermbar i{width:1.3cqw;height:1.3cqw;border-radius:50%;background:#ff5f57;flex:none}
 .ztermbar i:nth-child(2){background:#febc2e}.ztermbar i:nth-child(3){background:#28c840}
 .ztermbar span{position:absolute;left:0;right:0;text-align:center;font:600 1.5cqw/1 -apple-system,"Helvetica Neue",Arial,sans-serif;color:#b8b8b8;pointer-events:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 9cqw}
 .ztermtext{flex:1;text-decoration-color:#33ff66;padding:1cqw 1.3cqw;font-family:"SF Mono",Menlo,Monaco,"Courier New",monospace;line-height:1.3;white-space:pre-wrap;overflow-wrap:anywhere;overflow:hidden}
-.zwin{width:100%;height:100%;display:flex;flex-direction:column;background:#fbf4e0;border:.4cqw solid #2b2755;box-shadow:.9cqw .9cqw 0 #2b2755}
+.zwin{width:100%;height:100%;display:flex;flex-direction:column;background:#fbf4e0;border:.4cqw solid #2b2755}
 .zwinbar{display:flex;align-items:center;gap:.7cqw;padding:.6cqw 1cqw;background:#2b2755;color:#f3e8cc;font:700 2.4cqw/1.1 var(--f-display);letter-spacing:.02em;flex:none}
 .zwinbar span{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .zwinbar i{width:1.8cqw;height:1.8cqw;border:.3cqw solid #f3e8cc;flex:none}
@@ -487,6 +501,12 @@ html.hide-ai .aichip .ai-generated{filter:none}
 .zlibgrid button:focus-visible{outline:2px solid var(--pink);outline-offset:1px}
 .zlibgrid button[aria-pressed="true"]{border-color:var(--pink)}
 .zlibgrid img{display:block;width:100%;height:100%;object-fit:cover}
+.zlibgrid.big{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;align-items:start;grid-auto-rows:max-content}
+.zlibgrid.big button{aspect-ratio:auto;height:auto;background:#eee8dc}
+.zlibgrid.big img{height:auto;object-fit:fill}
+.zlibsize{padding:4px 10px;font-size:13px;margin-left:auto}
+@media (min-width:901px){.zwork.withlib.libwide{grid-template-columns:minmax(0,1fr) min(44vw,640px)}}
+@media (min-width:1101px){.zwork.withtodo.withlib.libwide{grid-template-columns:270px minmax(0,1fr) min(40vw,560px)}}
 .zlibn{position:absolute;top:3px;left:3px;min-width:18px;padding:0 4px;border-radius:9px;background:var(--pink);color:#fff;font-size:12px;line-height:18px;text-align:center}
 .zwork.withtodo{display:grid;grid-template-columns:270px minmax(0,1fr);gap:18px;align-items:start}
 .zwork.withtodo.withlib{grid-template-columns:270px minmax(0,1fr) 300px}
@@ -601,3 +621,120 @@ html.hide-ai .aichip .ai-generated{filter:none}
 @media (prefers-reduced-motion:reduce){.zitem .zmap img{transition:none}}
 .zinefull .zsticky{cursor:pointer}
 .zinefull .zsticky:hover{outline:.4cqw solid #2b2755;outline-offset:.2cqw}
+
+body:has(.zprintview) .topnav,body:has(.zprintview) footer,body:has(.zprintview) .aichip{display:none}
+
+.zsizenum{display:inline-flex;align-items:center;gap:4px;font-size:14px}
+.zsizenum input{width:64px;font:inherit;padding:6px;border:1.5px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+
+.item.label.card{background:none;padding:0;min-height:0;border-radius:0}
+.item.label.card img{display:block;width:100%;height:auto}
+
+/* Spacing pass on the network map (Nov 19) */
+blockquote.qt{margin:0}
+.quotes{gap:8px;margin-top:10px}
+.who{align-items:flex-start;align-content:flex-start}
+.concern{padding:26px 0;gap:14px 36px}
+.concern .q{display:block;margin-bottom:4px}
+.whol{gap:12px}
+.wrow{padding:10px 14px;gap:6px}
+.tiles{align-items:stretch;gap:16px}
+.tile .inner,.tile .face{height:100%}
+.face{gap:12px;padding:20px}
+.tnotes{margin-top:2px;gap:6px}
+.ugrid{gap:16px}
+.ucard{display:flex;flex-direction:column;gap:10px;padding:18px}
+.ucard>.quotes{flex:1;margin-top:2px;align-content:start}
+.untapped{gap:28px;padding:28px}
+.mapsec,.untapped,#everyone{margin-top:40px}
+.hero .legend{margin-top:-4px}
+/* caps in the top bar */
+.brand,.topnav a{text-transform:uppercase;letter-spacing:.04em}
+.topnav{font-size:13px;gap:12px 16px}
+.hero .lede{max-width:100ch;font-size:16px;line-height:1.5}
+/* Easier-to-read organization rows on domain pages (Nov 19) */
+.wrow{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--ink);border-radius:10px;padding:12px 14px;gap:6px}
+.wrow.weak{background:transparent;border:1px dashed var(--line);border-left:4px dashed var(--line)}
+.wrow .orgbtn,.wrow.weak .orgbtn{background:none;padding:0;font-weight:700;font-size:16px;color:var(--ink)}
+.wrow .top{gap:4px 10px}
+.evl{font-size:14px;line-height:1.5}
+.evl b{font-weight:600}
+.evl a{display:block;width:max-content;margin-top:4px;font-size:13px}
+.gap{display:block;font-size:14px;font-style:normal;background:var(--pink-soft);border-radius:8px;padding:8px 12px}
+.gap b{margin-right:4px}
+.concern{align-items:start}
+.concern .quotes{margin-top:6px}
+/* Quotes as sticky notes: short notes stay small squares instead of long bars (Nov 19) */
+.quotes{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start}
+.qt,.qt.small{width:176px;min-height:120px;max-width:none;margin:0;padding:14px 14px 16px;border:0;border-radius:2px;background:#fff08f;color:#1b1037;
+  font-size:14px;line-height:1.35;box-shadow:0 3px 8px rgba(40,25,10,.16);transform:rotate(var(--tilt,0deg))}
+.qt.c-blue{background:#a9e6fb}.qt.c-pink{background:#ffc2dc}.qt.c-green{background:#cdf2a6}.qt.c-orange{background:#ffd29a}.qt.c-yellow{background:#fff08f}
+.qt:nth-child(3n+1){--tilt:-1.2deg}.qt:nth-child(3n+2){--tilt:.8deg}.qt:nth-child(3n){--tilt:-.4deg}
+.qt .unc{display:block;margin-top:6px;color:#4a4060}
+@media (max-width:700px){.qt,.qt.small{width:calc(50% - 6px)}}
+
+/* Handwritten domain titles (the retreat's domain cards, paper removed) and the groups' summary sheets (Nov 19) */
+.handtitle{margin:4px 0 2px;line-height:0}
+.handtitle img{display:block;width:100%;max-width:760px;height:auto;max-height:46vh;object-fit:contain;object-position:left center}
+.tile .nm.hand{display:block;line-height:0;margin-bottom:2px}
+.tile .nm.hand img{display:block;width:100%;height:auto;max-height:170px;object-fit:contain;object-position:left center}
+.tile.sel .nm.hand img{filter:invert(1) brightness(1.6)}
+.dsum summary{list-style:none;cursor:pointer;display:grid;gap:6px}
+.dsum summary::-webkit-details-marker{display:none}
+.dsumhint{font-size:14px;font-weight:700;color:var(--pink)}
+.dsumhint::after{content:" ▾"}
+.dsum[open] .dsumhint::after{content:" ▴"}
+.dsumimgs{display:flex;flex-wrap:wrap;gap:14px;margin:14px 0 6px}
+.dsumimgs img{display:block;height:min(62vh,560px);width:auto;max-width:100%;border:1px solid var(--line);box-shadow:0 4px 14px rgba(40,25,10,.14);background:#fff}
+
+.zwinbar .zwintitle{all:unset;flex:1;min-width:0;font:inherit;color:inherit;background:rgba(255,255,255,.14);border-radius:.3cqw;padding:0 .4cqw}
+.zwin textarea.ztext{flex:1;min-height:0}
+
+.zpagenav{display:flex;justify-content:center;align-items:center;gap:14px;margin:10px 0 4px;font-size:14px}
+.zpagenav .btn{min-width:56px;font-size:18px}
+html,body{overflow-x:clip}
+@media (min-width:1000px){footer{grid-template-columns:1fr 1.1fr 1.7fr 1.7fr 1fr;gap:12px 22px}}
+.zcenter{min-width:0}
+.zcenter .zspread{margin-bottom:8px}
+.zfs{position:absolute;right:12px;top:46px;z-index:30;display:flex;align-items:center;gap:10px;font:500 13px/1.2 var(--f-body);color:rgba(27,16,55,.7);background:rgba(255,255,255,.75);padding:5px 6px 5px 14px;border-radius:999px;white-space:nowrap}
+.zfs.on{background:none;padding:0}
+.zfs span{order:-1}
+.zfsbtn{all:unset;cursor:pointer;font-weight:600;color:#fff;background:#2b2755;padding:7px 14px;border-radius:999px}
+.zfs.on .zfsbtn{background:rgba(255,255,255,.7);color:#1b1037}
+.zfsbtn:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+@media print{.zfs{display:none}}
+@media (max-width:1100px){.zfs span{display:none}.zfs{padding:0;background:none}}
+
+/* the live word cloud inside a zine page; the still image takes over when printing */
+.zcloud{width:100%;height:100%;position:relative;background:#f5f0e8;border-radius:2px;overflow:hidden}
+.zcloudlive{width:100%;height:100%;overflow:auto;font-size:clamp(7px,1.5cqw,12px);padding:1.2cqw;box-sizing:border-box}
+.zcloudlive .wcloud{font-size:inherit}
+.zcloudlive .wcbar{gap:.5em;flex-wrap:wrap;font-size:inherit}
+.zcloudlive .wcbar button{font-size:inherit;padding:.35em .8em}
+.zcloudlive .wckey{font-size:inherit}
+.zcloudlive .wcnotes{font-size:inherit}
+.zcloudprint{display:none;width:100%;height:100%;object-fit:contain}
+.zcloudprint.only{display:block}
+@media print{.zcloudlive{display:none}.zcloudprint{display:block}}
+/* the live cloud, shrunk to zine size (sizes in cqw follow the page, like zine text) */
+.zcloudlive{padding:1.2cqw 1.4cqw}
+.zcloudlive .wcbar{display:flex;flex-wrap:wrap;align-items:center;gap:.8cqw;margin:0 0 .8cqw;padding:0}
+.zcloudlive .wcbar button{font-size:1.7cqw !important;line-height:1.2 !important;padding:.5cqw 1.3cqw !important;border-width:1px !important;box-shadow:none !important;min-height:0 !important;min-width:0 !important;margin:0 !important}
+.zcloudlive .wcsep{display:none}
+.zcloudlive .wckey{font-size:1.5cqw !important;display:inline-flex;flex-wrap:wrap;align-items:center;gap:.6cqw;margin:0}
+.zcloudlive .wckey i{width:1.4cqw !important;height:1.4cqw !important;border-radius:.3cqw}
+.zcloudlive .wcsvg{width:100%;height:auto;display:block;margin:0;padding:0;background:none;box-shadow:none;border:0}
+.zcloudlive .wcnotes{font-size:1.6cqw !important}
+
+/* zoom controls in the reader */
+.zzoom{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.8);border-radius:999px;padding:4px;font:600 13px/1 var(--f-body);color:#1b1037;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.zzoom button{all:unset;cursor:pointer;min-width:30px;height:30px;display:grid;place-items:center;border-radius:999px;font-size:17px}
+.zzoom button.fit{font-size:13px;padding:0 12px;background:#2b2755;color:#fff}
+.zzoom button:hover:not(:disabled){background:rgba(43,39,85,.12)}
+.zzoom button.fit:hover:not(:disabled){background:#1b1037}
+.zzoom button:disabled{opacity:.35;cursor:default}
+.zzoom button:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+.zzoom span{min-width:46px;text-align:center;font-variant-numeric:tabular-nums}
+.zarea.zoomed{cursor:grab;touch-action:none}
+.zarea.zoomed:active{cursor:grabbing}
+@media print{.zzoom{display:none}}

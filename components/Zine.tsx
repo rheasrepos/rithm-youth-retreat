@@ -1,10 +1,11 @@
 "use client";
 import POEMS from "@/data/poems.json";
+import { WordCloud, type CloudNote } from "@/components/WordCloud";
 import { createContext, memo, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 
 /** A page is 100 units wide and 100 × ratio tall. Items are placed by their centre. Text size is in the same units. */
 export interface ZineItem {
-  id: string; type: "image" | "text" | "flip" | "orbit" | "pile" | "map" | "poem";   // orbit: words (one per line) circling the middle of the box
+  id: string; type: "image" | "text" | "flip" | "orbit" | "pile" | "map" | "poem" | "cloud";   // cloud: the live word cloud from the site (src is the still image used when printing)   // orbit: words (one per line) circling the middle of the box
   x: number; y: number; w: number; h: number; rot: number; z: number;
   src?: string; text?: string; font?: string; size?: number; color?: string; bold?: boolean; italic?: boolean; align?: "left" | "center" | "right";
   srcs?: string[]; speed?: number;   // flip: a set of photos shown one after another, like a flipbook; speed is milliseconds per photo
@@ -18,12 +19,15 @@ export interface ZineItem {
   spread?: boolean; // image or flipbook: whatever hangs off the right edge carries on at the left edge of the next page
   poem?: Poem;      // poem: a poem read at the retreat, shown as its scan/screenshot (src) or as a card that links to where it is published (url)
   link?: string;   // text: a web address; readers can press the text to open it in a new tab
+  track?: number; gap?: number;   // text: extra space between letters and between words, in ems
   ai?: boolean;     // text drafted by AI (Claude, or a summary Granola wrote): readers see the site's dashed underline, and the site-wide switch can blur it
+  beat?: number;  // flip: turns every `beat` eighth notes of a shared 6/8 pulse (1 to 6), set from its order on the page
+  fill?: string;   // text: a solid box behind plain text so it reads over a picture background
   lock?: boolean;   // pinned in the editor so it can't be picked up by accident; readers see no difference
 }
-export interface ZinePage { id: string; bg: string; items: ZineItem[]; bgImg?: string; bgFit?: "cover" | "contain" }   // bgImg: a picture behind everything on the page, scaled to fill it (cover) or to show whole (contain)
+export interface ZinePage { id: string; bg: string; items: ZineItem[]; bgImg?: string; bgFit?: "cover" | "contain" | "fill"; tags?: string[] }   // tags: the domains this page touches, shown as small chips in its corner   // bgImg: a picture behind everything on the page, scaled to fill it (cover), to show whole (contain), or stretched to the page edges (fill)
 /** The page's own background: its colour, with its background picture over it if it has one. */
-const pageBg = (p: ZinePage): React.CSSProperties => (p.bgImg ? { backgroundColor: p.bg, backgroundImage: `url("${p.bgImg}")`, backgroundSize: p.bgFit ?? "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" } : { background: p.bg });
+const pageBg = (p: ZinePage): React.CSSProperties => (p.bgImg ? { backgroundColor: p.bg, backgroundImage: `url("${p.bgImg}")`, backgroundSize: p.bgFit === "fill" ? "100% 100%" : p.bgFit ?? "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" } : { background: p.bg });
 /** The paper every plain page is printed on: its colour, and whether a scan of a real notebook page is laid over it. */
 export type Paper = { color?: string; texture?: "none" | "grain" | "page" };
 const PAPERS: [string, string][] = [["#fdfef9", "Near white"], ["#fcfcf0", "Moleskine cream"], ["#f8f3ea", "Warm (the old one)"]];
@@ -104,6 +108,19 @@ function Todo() {
 }
 /** What a reader has done to each map so far. Kept by the book, because a page can be drawn in several slices at once. */
 type MapS = { view?: string; tint?: boolean; anchors?: Record<string, { x: number; y: number }> };
+/** The sticky notes for the live word cloud, handed down from the page. */
+export type CloudData = { notes: CloudNote[]; domains: { id: string; name: string }[] };
+const CloudCtx = createContext<CloudData | null>(null);
+function CloudBox({ it }: { it: ZineItem }) {
+  const data = useContext(CloudCtx);
+  return (
+    <div className="zcloud">
+      {data && <div className="zcloudlive" onPointerDown={(e) => e.stopPropagation()}><WordCloud notes={data.notes} domains={data.domains} compact /></div>}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      {it.src && <img className={`zcloudprint${data ? "" : " only"}`} src={it.src} alt="Word cloud of the sticky notes" draggable={false} />}
+    </div>
+  );
+}
 const MapCtx = createContext<[Record<string, MapS>, React.Dispatch<React.SetStateAction<Record<string, MapS>>>] | null>(null);
 const MAPVIEWS: [string, string][] = [["rug", "On the rug"], ["none", "No groups"], ["meaning", "By meaning"], ["pull", "Pulled by the words"]];
 /** A steady pseudo-random number between -1 and 1 for a note, so the same note always gets the same nudge. */
@@ -183,15 +200,25 @@ function ZMap({ it }: { it: ZineItem }) {
   );
 }
 /** A stack of photos that takes turns, like thumbing a flipbook. Holds still for people who ask for less motion. */
-function Flip({ srcs, speed }: { srcs: string[]; speed?: number }) {
+/** Flipbooks keep time together in 6/8: one eighth note is EIGHTH ms (a bar is six of them).
+    A flipbook with beat n turns every n eighths, so on a page the first turns on every eighth, the second every other eighth, and so on up to a full bar. */
+const EIGHTH = 500;
+function Flip({ srcs, beat }: { srcs: string[]; beat?: number }) {
+  const n = Math.min(6, Math.max(1, Math.round(beat ?? 1)));
+  const at = () => Math.floor(Date.now() / EIGHTH / n) % Math.max(1, srcs.length);
   const [i, setI] = useState(0);
   useEffect(() => {
     if (srcs.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const t = setInterval(() => setI((n) => (n + 1) % srcs.length), Math.max(120, speed ?? 450));
-    return () => clearInterval(t);
-  }, [srcs.length, speed]);
+    setI(at());
+    let iv: ReturnType<typeof setInterval> | undefined;
+    const t0 = setTimeout(() => { setI(at()); iv = setInterval(() => setI(at()), EIGHTH); }, EIGHTH - (Date.now() % EIGHTH));   // start on the next eighth, in step with every other flipbook
+    return () => { clearTimeout(t0); if (iv) clearInterval(iv); };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [srcs.length, n]);
   // eslint-disable-next-line @next/next/no-img-element
-  return <>{srcs.map((s, k) => <img key={k} src={s} alt="" draggable={false} className="zflip" style={{ opacity: k === i % srcs.length ? 1 : 0 }} />)}</>;
+  // only the frame on show and the next one are loaded, so a page with many flipbooks opens quickly
+  const cur = i % Math.max(1, srcs.length), nxt = (cur + 1) % Math.max(1, srcs.length);
+  return <>{srcs.map((s, k) => (k === cur || k === nxt) ? <img key={k} src={s} alt="" draggable={false} decoding="async" className="zflip" style={{ opacity: k === cur ? 1 : 0 }} /> : null)}</>;
 }
 /** Words drifting round an oval, like a mobile: one word per line of text. A full lap takes `speed` milliseconds. Stands still for people who ask for less motion. */
 function Orbit({ it }: { it: ZineItem }) {
@@ -207,7 +234,8 @@ function Orbit({ it }: { it: ZineItem }) {
   );
 }
 function ItemBody({ it }: { it: ZineItem }) {
-  if (it.type === "flip") return <Flip srcs={it.srcs ?? []} speed={it.speed} />;
+  if (it.type === "cloud") return <CloudBox it={it} />;
+  if (it.type === "flip") return <Flip srcs={it.srcs ?? []} beat={it.beat} />;
   if (it.type === "orbit") return <Orbit it={it} />;
   if (it.type === "pile") return <Pile it={it} />;
   if (it.type === "map") return <ZMap it={it} />;
@@ -236,32 +264,55 @@ function ItemBody({ it }: { it: ZineItem }) {
       return <div className="zcrop" style={blend}><img src={it.src} alt="" draggable={false} style={{ position: "absolute", width: `${100 / kw}%`, height: `${100 / kh}%`, left: `${(-c.l / kw) * 100}%`, top: `${(-c.t / kh) * 100}%` }} /></div>;
     }
     // eslint-disable-next-line @next/next/no-img-element
-    return <img src={it.src} alt="" draggable={false} style={blend} />;
+    return <img src={it.src} alt="" draggable={false} decoding="async" style={blend} />;
   }
-  const body = <div className={`ztext${it.ai ? " ai-generated" : ""}`} title={it.ai ? AITIP : undefined} style={{ fontFamily: stack(it.font), fontSize: `${it.size ?? 4}cqw`, color: it.color, fontWeight: it.bold ? 700 : 400, fontStyle: it.italic ? "italic" : "normal", textAlign: it.align }}>{it.text}{it.link && <span className="zlinkmark"> ↗</span>}</div>;
+  const body = <div className={`ztext${it.ai ? " ai-generated" : ""}`} title={it.ai ? AITIP : undefined} style={{ fontFamily: stack(it.font), fontSize: `${it.size ?? 4}cqw`, color: it.color, fontWeight: it.bold ? 700 : 400, fontStyle: it.italic ? "italic" : "normal", textAlign: it.align, letterSpacing: it.track ? `${it.track}em` : undefined, wordSpacing: it.gap ? `${it.gap}em` : undefined, ...(it.fill ? { background: it.fill, padding: "0.35em 0.55em", boxSizing: "border-box", height: "100%" } : {}) }}>{it.text}{it.link && <span className="zlinkmark"> ↗</span>}</div>;
   return it.link ? <a className="zlink" href={it.link} target="_blank" rel="noopener noreferrer">{body}</a> : body;
 }
 /** A page as readers see it. */
 /** The items of the page before that run across the fold onto this one, moved one page-width to the left. */
 const spill = (prev?: ZinePage) => (prev?.items ?? []).filter((i) => i.spread && pic(i) && i.x + i.w / 2 > 100).map((i) => ({ ...i, x: i.x - 100 }));
+/** The eight domains, for page tags. Colours match the wall and the map. */
+const DOMS: { id: string; name: string; tint: string }[] = [
+  { id: "rel", name: "Relationships", tint: "#e8457a" }, { id: "com", name: "Community", tint: "#1aa37a" }, { id: "phy", name: "Physical spaces", tint: "#7a9a1f" },
+  { id: "pol", name: "Policy", tint: "#d43b3b" }, { id: "cul", name: "Culture & art", tint: "#8b5cf6" }, { id: "sch", name: "School", tint: "#2f8fd8" },
+  { id: "wor", name: "Work", tint: "#f08a24" }, { id: "tec", name: "Tech", tint: "#111111" },
+];
 const PageView = memo(function PageView({ page, ratio, prev }: { page?: ZinePage; ratio: number; prev?: ZinePage }) {
   if (!page) return <div className="zpage blank" />;
   return (
     <div className="zpage" style={pageBg(page)}>
       {spill(prev).map((it) => <div key={`s-${it.id}`} className={`zitem ${it.type}`} style={itemStyle(it, ratio)}><ItemBody it={it} /></div>)}
       {page.items.map((it) => <div key={it.id} className={`zitem ${it.type}`} data-zid={it.id} style={itemStyle(it, ratio)}><ItemBody it={it} /></div>)}
+      {!!page.tags?.length && <div className="ztags">{DOMS.filter((d) => page.tags!.includes(d.id)).map((d) => <span key={d.id} style={{ ["--t" as string]: d.tint }}>{d.name}</span>)}</div>}
     </div>
   );
 });
 
-export function Zine({ initial, canSave, gated }: { initial: ZineDoc; canSave: boolean; gated?: boolean }) {
+export function Zine({ initial, canSave, gated, cloud }: { initial: ZineDoc; canSave: boolean; gated?: boolean; cloud?: CloudData }) {
   const [doc, setDoc] = useState<ZineDoc>(initial);
   const [editing, setEditing] = useState(false);
   const [canEdit, setCanEdit] = useState(canSave);
-  useEffect(() => { if (new URLSearchParams(window.location.search).has("edit")) { setCanEdit(true); setEditing(true); } }, []);
-  return editing
-    ? <Editor doc={doc} setDoc={setDoc} done={() => setEditing(false)} />
-    : <Book doc={doc} gated={gated} onEdit={canEdit ? () => setEditing(true) : undefined} />;
+  const [print, setPrint] = useState(false);
+  useEffect(() => { const q = new URLSearchParams(window.location.search); if (q.has("edit")) { setCanEdit(true); setEditing(true); } if (q.has("print")) setPrint(true); }, []);
+  if (print) return <CloudCtx.Provider value={cloud ?? null}><PrintView doc={doc} /></CloudCtx.Provider>;
+  return (
+    <CloudCtx.Provider value={cloud ?? null}>
+      {editing
+        ? <Editor doc={doc} setDoc={setDoc} done={() => setEditing(false)} />
+        : <Book doc={doc} gated={gated} onEdit={canEdit ? () => setEditing(true) : undefined} />}
+    </CloudCtx.Provider>
+  );
+}
+
+/** Every page in order, one per sheet, for printing a booklet (5.5 × 8.5 in, the zine's own shape). Open /zine?print=1. */
+function PrintView({ doc }: { doc: ZineDoc }) {
+  return (
+    <div className="zprintview" data-paper={doc.paper?.texture ?? "grain"}>
+      <div className="zprintbar"><button type="button" className="btn" onClick={() => window.print()}>Print / save as PDF</button><span className="thint">One page per sheet, 5.5 × 8.5 in. In the print dialog choose “Save as PDF” for a file, or print double-sided and fold.</span></div>
+      {doc.pages.map((p, i) => <div key={p.id} className="zprintpage" style={{ ["--ratio" as string]: doc.ratio }}><PageView page={p} prev={doc.pages[i - 1]} ratio={doc.ratio} /></div>)}
+    </div>
+  );
 }
 
 /* ---------- Reading: the zine as one folded strip ----------
@@ -289,8 +340,9 @@ function between(n: number, s: number, t: number, single: boolean): Panel[] {
   const out = (p: number) => ({ page: p, a: rest(p) * (1 - t) - 90 * t });     // folding shut behind its right-hand crease
   const inn = (p: number, to = rest(p)) => ({ page: p, a: 90 * (1 - t) + to * t, bend: loose }); // unfolding from behind its left-hand crease
   if (single) {
-    const r = (p: number) => (p === 0 || p === n - 1 ? 0 : rest(p) * 0.5);
-    return [{ page: s, a: r(s) * (1 - t) - 90 * t }, inn(s + 1, r(s + 1))];
+    // one page at a time: the two pages meet in a sharp, acute fold mid-turn (each swings past 45° before settling)
+    const r = (p: number) => (p === 0 || p === n - 1 ? 0 : rest(p) * 0.5), sharp = 32 * Math.sin(Math.PI * t);
+    return [{ page: s, a: r(s) * (1 - t) - 90 * t - sharp }, { page: s + 1, a: 90 * (1 - t) + r(s + 1) * t + sharp, bend: BEND * 0.6 }];
   }
   if (s === 0) return [{ page: 0, a: rest(0) * t }, inn(1)];                              // opening: the cover lifts into its lean
   if (s + 1 >= n) return [out(n - 2), { page: n - 1, a: rest(n - 1) * (1 - t), bend: loose }];          // closing: the back cover settles flat
@@ -377,12 +429,36 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
   useEffect(() => { const d = storyDlg.current; if (!d) return; if (story && !d.open) d.showModal(); if (!story && d.open) d.close(); }, [story]);
   const [s, setS] = useState(0);                    // 0 = cover alone; k = pages k-1 | k; n = last page alone
   const [move, setMove] = useState<{ from: number; t: number; dir: 1 | -1 } | null>(null);
-  const [single, setSingle] = useState(false);
+  const [narrow, setNarrow] = useState(false);       // a phone or a portrait window: always one page at a time
+  const [onePage, setOnePage] = useState(false);     // the reader chose one page at a time on a wide screen
+  const single = narrow || onePage;
   const raf = useRef(0);
   useEffect(() => {
-    const mq = window.matchMedia("(max-width: 700px), (orientation: portrait)"); const f = () => setSingle(mq.matches);
+    const mq = window.matchMedia("(max-width: 700px), (orientation: portrait)"); const f = () => setNarrow(mq.matches);
     f(); mq.addEventListener("change", f); return () => mq.removeEventListener("change", f);
   }, []);
+  useEffect(() => { try { setOnePage(localStorage.getItem("zine-view") === "one"); } catch { /* storage blocked: start with spreads */ } }, []);
+  /** Switch between spreads and one page at a time, keeping the reader on the same page. In spreads, s = k shows pages k-1 | k. */
+  const toggleView = () => {
+    if (move || narrow) return;
+    const next = !onePage;
+    setS((cur) => (next ? Math.max(0, Math.min(n - 1, cur === 0 ? 0 : cur - 1)) : cur === 0 ? 0 : Math.min(n, cur + 1)));
+    setOnePage(next);
+    try { localStorage.setItem("zine-view", next ? "one" : "spread"); } catch { /* fine */ }
+  };
+  // full screen: the browser's own full-screen mode, where the browser supports it (not iPhone Safari)
+  const [fs, setFs] = useState(false), [canFs, setCanFs] = useState(false);
+  useEffect(() => {
+    const el = document.documentElement as HTMLElement & { webkitRequestFullscreen?: () => void };
+    setCanFs(!!(el.requestFullscreen || el.webkitRequestFullscreen));
+    const f = () => setFs(!!(document.fullscreenElement || (document as Document & { webkitFullscreenElement?: Element }).webkitFullscreenElement));
+    document.addEventListener("fullscreenchange", f); document.addEventListener("webkitfullscreenchange", f);
+    return () => { document.removeEventListener("fullscreenchange", f); document.removeEventListener("webkitfullscreenchange", f); };
+  }, []);
+  const toggleFs = () => {
+    const d = document as Document & { webkitExitFullscreen?: () => void }, el = document.documentElement as HTMLElement & { webkitRequestFullscreen?: () => void };
+    try { if (fs) { if (d.exitFullscreen) void d.exitFullscreen(); else d.webkitExitFullscreen?.(); } else if (el.requestFullscreen) void el.requestFullscreen(); else el.webkitRequestFullscreen?.(); } catch { /* the browser said no */ }
+  };
   useEffect(() => { const o = document.body.style.overflow; document.body.style.overflow = "hidden"; return () => { document.body.style.overflow = o; cancelAnimationFrame(raf.current); }; }, []);
   const last = single ? n - 1 : n;
   const step = (dir: 1 | -1) => {
@@ -398,9 +474,53 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
     raf.current = requestAnimationFrame(tick);
   };
   useEffect(() => {
-    const k = (e: KeyboardEvent) => { if (story || note) return; if (e.key === "ArrowRight") step(1); if (e.key === "ArrowLeft") step(-1); };
+    const k = (e: KeyboardEvent) => {
+      if (story || note) return;
+      if (e.key === "ArrowRight") step(1); if (e.key === "ArrowLeft") step(-1);
+      if (e.metaKey || e.ctrlKey) return;                               // leave the browser's own zoom keys alone
+      if (e.key === "+" || e.key === "=") zoomAt(zoom * 1.4); if (e.key === "-") zoomAt(zoom / 1.4); if (e.key === "0") fit();
+    };
     window.addEventListener("keydown", k); return () => window.removeEventListener("keydown", k);
   });
+
+  // zoom + pan, to explore a page up close; "Fit" puts the zine back, centred and fully seen
+  const ZMAX = 5;
+  const [zoom, setZoom] = useState(1);
+  const [pan, setPan] = useState({ x: 0, y: 0 });
+  const areaRef = useRef<HTMLDivElement>(null);
+  const grab = useRef<{ x: number; y: number; px: number; py: number; moved: boolean } | null>(null);
+  const swallowClick = useRef(false);
+  const fit = () => { setZoom(1); setPan({ x: 0, y: 0 }); };
+  /** Zoom to z, keeping the point under (cx, cy) on screen where it is; no point = the middle of what is shown. */
+  const zoomAt = (z: number, cx?: number, cy?: number) => {
+    const el = areaRef.current; if (!el) return;
+    const nz = Math.min(ZMAX, Math.max(1, z));
+    if (nz <= 1.001) { fit(); return; }
+    const r = el.getBoundingClientRect(), bx = r.left - pan.x, by = r.top - pan.y;
+    const vx = (cx ?? window.innerWidth / 2) - bx, vy = (cy ?? window.innerHeight / 2) - by;
+    setPan({ x: vx - (vx - pan.x) * (nz / zoom), y: vy - (vy - pan.y) * (nz / zoom) });
+    setZoom(nz);
+  };
+  useEffect(() => {
+    const el = areaRef.current; if (!el) return;
+    const wheel = (e: WheelEvent) => {
+      if (e.ctrlKey || e.metaKey) { e.preventDefault(); zoomAt(zoom * Math.exp(-e.deltaY * 0.01), e.clientX, e.clientY); }   // trackpad pinch, or ⌘/ctrl + scroll
+      else if (zoom > 1) { e.preventDefault(); setPan((p) => ({ x: p.x - e.deltaX, y: p.y - e.deltaY })); }
+    };
+    el.addEventListener("wheel", wheel, { passive: false }); return () => el.removeEventListener("wheel", wheel);
+  });
+  const onDown = (e: React.PointerEvent) => {
+    if (zoom <= 1 || (e.target as HTMLElement).closest("button")) return;
+    grab.current = { x: e.clientX, y: e.clientY, px: pan.x, py: pan.y, moved: false };
+  };
+  const onMoveP = (e: React.PointerEvent) => {
+    const g = grab.current; if (!g) return;
+    const dx = e.clientX - g.x, dy = e.clientY - g.y;
+    if (!g.moved && Math.hypot(dx, dy) < 4) return;
+    if (!g.moved) { g.moved = true; (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId); }
+    setPan({ x: g.px + dx, y: g.py + dy });
+  };
+  const onUp = () => { if (grab.current?.moved) swallowClick.current = true; grab.current = null; };
 
   const panels = move ? between(n, move.from, move.t, single) : layout(n, s, single);
   const { total, items } = slices(panels);
@@ -408,6 +528,8 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
     <section className="zinefull" data-paper={doc.paper?.texture ?? "grain"} aria-label="The zine" aria-roledescription="book">
       {inside ? <a className="zcorner home" href="/" aria-label="Back to the site">×</a> : <a className="zcorner home login" href="/login">Network log in</a>}
       {onEdit && <button type="button" className="zcorner edit" onClick={onEdit}>Edit</button>}
+      {!narrow && <button type="button" className={`zcorner view${onEdit ? "" : " solo"}`} aria-pressed={onePage} onClick={toggleView} title={onePage ? "Show two pages side by side" : "Show one page at a time, as big as the screen allows"}>{onePage ? "Two pages" : "One page"}</button>}
+      {canFs && <div className={`zfs${fs ? " on" : ""}`}><button type="button" className="zfsbtn" onClick={toggleFs}>{fs ? "Exit full screen" : "Full screen"}</button>{!fs && <span>We recommend reading in full screen</span>}</div>}
       {doc.story?.text && <button type="button" className="zcorner story" onClick={() => { setAt(null); setStory(true); }}>{doc.story.title || "The whole story"}</button>}
       <dialog className="notedlg" ref={noteDlg} onClose={() => setNote(null)} onClick={(e) => { if (e.target === noteDlg.current) setNote(null); }}>
         {note && (
@@ -430,7 +552,18 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
           </div>
         )}
       </dialog>
-      <div className={`zarea${single ? " single" : ""}`} style={{ ["--ratio" as string]: doc.ratio, ["--span" as string]: total }}>
+      <div className="zzoom" role="group" aria-label="Zoom">
+        {zoom > 1 && <button type="button" onClick={() => step(-1)} disabled={s === 0 || !!move} aria-label="Previous page">‹</button>}
+        <button type="button" onClick={() => zoomAt(zoom / 1.4)} disabled={zoom <= 1} aria-label="Zoom out">−</button>
+        <span aria-live="polite">{Math.round(zoom * 100)}%</span>
+        <button type="button" onClick={() => zoomAt(zoom * 1.4)} disabled={zoom >= ZMAX} aria-label="Zoom in">+</button>
+        <button type="button" className="fit" onClick={fit} disabled={zoom === 1 && pan.x === 0 && pan.y === 0} title="Back to centred, whole pages (key 0)">Fit</button>
+        {zoom > 1 && <button type="button" onClick={() => step(1)} disabled={s === last || !!move} aria-label="Next page">›</button>}
+      </div>
+      <div ref={areaRef} className={`zarea${single ? " single" : ""}${zoom > 1 ? " zoomed" : ""}`}
+        style={{ ["--ratio" as string]: doc.ratio, ["--span" as string]: total, transform: zoom > 1 || pan.x || pan.y ? `translate(${pan.x}px, ${pan.y}px) scale(${zoom})` : undefined, transformOrigin: "0 0" }}
+        onPointerDown={onDown} onPointerMove={onMoveP} onPointerUp={onUp} onPointerCancel={onUp}
+        onClickCapture={(e) => { if (swallowClick.current) { swallowClick.current = false; e.stopPropagation(); e.preventDefault(); } }}>
         <div className="zground" />
         <MapCtx.Provider value={maps}><div className="strip" onClick={openFrom}>
           {pieces.size > 0 && <style>{[...pieces].map((id) => `.zinefull [data-zid="${id}"]{cursor:pointer}.zinefull [data-zid="${id}"] .zwinbar span::after{content:"  ·  part of the whole story ↗";font-weight:400;opacity:.8}`).join("")}</style>}
@@ -484,7 +617,8 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
   const [sel, setSel] = useState<string[]>([]);
   const [typing, setTyping] = useState<string | null>(null);
   const [msg, setMsg] = useState("");
-  const [lib, setLib] = useState(false);            // the photo library panel beside the page
+  const [lib, setLib] = useState(false);
+  const [libBig, setLibBig] = useState(true);       // wide photo library with large, uncropped thumbnails            // the photo library panel beside the page
   const [qbank, setQbank] = useState(false);
   const [todo, setTodo] = useState(true);           // the checklist of what is left, on the left of the page        // the quote bank panel beside the page
   const [bank, setBank] = useState<QuoteBank | null>(null);
@@ -767,6 +901,8 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
           <button type="button" className="btn ghost" onClick={() => movePage(cp + 1)} disabled={cp === n - 1}>Move later</button>
           <button type="button" className="btn ghost" disabled={n < 2} title="Removes this page and everything on it. ⌘Z brings it back." onClick={() => { keep(); setDoc((d) => ({ ...d, pages: d.pages.filter((_, i) => i !== cp) })); go(cp - 1); }}>Delete page</button>
           <label className="swatch">Colour <input type="color" value={page.bg} onChange={(e) => setPage((p) => ({ ...p, bg: e.target.value }))} /></label>
+          <span className="ztagpick" role="group" aria-label="Domains this page touches">{DOMS.map((d) => { const on = !!page.tags?.includes(d.id); return <button key={d.id} type="button" aria-pressed={on} title={`Tag this page: ${d.name}`} style={{ ["--t" as string]: d.tint }} onClick={() => setPage((p) => ({ ...p, tags: on ? (p.tags ?? []).filter((t) => t !== d.id) : [...(p.tags ?? []), d.id] }))}>{d.name.slice(0, 3)}</button>; })}</span>
+          <a className="btn ghost" href="/zine?print=1" target="_blank" rel="noopener noreferrer" title="Every page, one per sheet, ready to print or save as a PDF booklet (save first)">Print booklet</a>
           <label className="btn ghost filebtn" title="A picture that fills this page, behind everything. Afterwards it is a normal picture: select it to unpin, move, or change its layer.">Background image…<input type="file" accept="image/*" onChange={async (e) => { const f = e.target.files?.[0]; e.target.value = ""; if (!f) return; const src = await store(f); if (src) await addBackground(src); }} /></label>
         </div>
         <div className="tgroup">
@@ -806,12 +942,14 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
             <>
               <select aria-label="Font" value={cur.font} onChange={(e) => edit(cur.id, { font: e.target.value })}>{FONTS.map((f) => <option key={f}>{f}</option>)}</select>
               <button type="button" className="btn ghost" onClick={() => edit(cur.id, { size: r2(Math.max(1, (cur.size ?? 4) - 0.5)) })} aria-label="Smaller text">A−</button>
+              <label className="zsizenum" title="Text size in points when printed (page is 5.5 in wide)"><input type="number" min={2} max={200} step={0.5} value={Math.round((cur.size ?? 4) * 3.96 * 2) / 2} onChange={(e) => { const v = parseFloat(e.target.value); if (v > 0) edit(cur.id, { size: Math.round(v / 3.96 * 1000) / 1000 }); }} /> pt</label>
               <button type="button" className="btn ghost" onClick={() => edit(cur.id, { size: r2((cur.size ?? 4) + 0.5) })} aria-label="Larger text">A+</button>
               <button type="button" className="btn ghost" aria-pressed={!!cur.bold} onClick={() => edit(cur.id, { bold: !cur.bold })}><b>B</b></button>
               <button type="button" className="btn ghost" aria-pressed={!!cur.italic} onClick={() => edit(cur.id, { italic: !cur.italic })}><i>I</i></button>
               <select aria-label="Alignment" value={cur.align} onChange={(e) => edit(cur.id, { align: e.target.value as ZineItem["align"] })}><option value="left">Left</option><option value="center">Centre</option><option value="right">Right</option></select>
               <label className="swatch">Colour <input type="color" value={cur.color ?? "#000000"} onChange={(e) => patch(cur.id, { color: e.target.value })} /></label>
               {cur.type === "text" && <button type="button" className="btn ghost" aria-pressed={!!cur.win} onClick={() => edit(cur.id, { win: !cur.win, term: false })}>Window</button>}
+              {cur.type === "text" && !cur.win && !cur.term && <button type="button" className="btn ghost" aria-pressed={!!cur.fill} title="Solid box behind the text" onClick={() => edit(cur.id, { fill: cur.fill ? undefined : "#fbf3e1" })}>Box</button>}
               {cur.type === "text" && <button type="button" className="btn ghost" aria-pressed={!!cur.term} title="Draw this text as a Mac Terminal window" onClick={() => edit(cur.id, { term: !cur.term, win: false })}>Terminal</button>}
               <button type="button" className="btn ghost" aria-pressed={!!cur.ai} title="Mark this text as written by AI: readers see a dashed underline, like the rest of the site" onClick={() => edit(cur.id, { ai: !cur.ai })}>AI-written</button>
               {cur.type === "text" && <label className="swatch">Link <input type="url" className="wintitle" value={cur.link ?? ""} placeholder="https://…" onChange={(e) => patch(cur.id, { link: e.target.value || undefined })} /></label>}
@@ -897,8 +1035,9 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
         <p className="tmsg" role="status">{msg}</p>
       </div>
 
-      <div className={`zwork${lib || qbank ? " withlib" : ""}${todo ? " withtodo" : ""}`}>
+      <div className={`zwork${lib || qbank ? " withlib" : ""}${lib && libBig ? " libwide" : ""}${todo ? " withtodo" : ""}`}>
       {todo && <Todo />}
+      <div className="zcenter">
       <div className={`zspread${count > 1 ? " multi" : ""}`} style={{ ["--ratio" as string]: doc.ratio, ["--n" as string]: count }}>
         {doc.pages.slice(start, start + count).map((pg, k) => {
           const i = start + k;
@@ -922,9 +1061,15 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
                   {page.items.map((it) => (
                     <div key={it.id} className={`zitem ${it.type}${it.lock ? " locked" : ""}${typing === it.id ? " typing" : ""}`} style={itemStyle(it, doc.ratio)}
                       onPointerDown={(e) => beginMove(e, it)} onDoubleClick={() => { if (it.type === "text" || it.type === "orbit") { keep(); setTyping(it.id); setSel([it.id]); } }}>
-                      {(it.type === "text" || it.type === "orbit") && typing === it.id ? (
+                      {(it.type === "text" || it.type === "orbit") && typing === it.id ? (it.win ? (
+                        // a window box being typed in: its title bar is editable too
+                        <div className="zwin" onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node)) setTyping(null); }}>
+                          <div className="zwinbar"><input className="zwintitle" value={it.title ?? ""} placeholder="Title" aria-label="Window title" onChange={(e) => patch(it.id, { title: e.target.value })} onPointerDown={(e) => e.stopPropagation()} /><i /><i /><i /></div>
+                          <textarea className="ztext" autoFocus value={it.text ?? ""} onChange={(e) => patch(it.id, { text: e.target.value })} onPointerDown={(e) => e.stopPropagation()} style={textStyle(it)} />
+                        </div>
+                      ) : (
                         <textarea className="ztext" autoFocus value={it.text ?? ""} onChange={(e) => patch(it.id, { text: e.target.value })} onBlur={() => setTyping(null)} onPointerDown={(e) => e.stopPropagation()} style={textStyle(it)} />
-                      ) : <ItemBody it={it} />}
+                      )) : <ItemBody it={it} />}
                     </div>
                   ))}
                 </div>
@@ -949,8 +1094,14 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
           );
         })}
       </div>
+      <div className="zpagenav" role="group" aria-label="Switch page">
+        <button type="button" className="btn ghost" onClick={() => go(cp - 1)} disabled={cp === 0} aria-label="Previous page">←</button>
+        <span>Page {cp + 1} of {n}</span>
+        <button type="button" className="btn ghost" onClick={() => go(cp + 1)} disabled={cp === n - 1} aria-label="Next page">→</button>
+      </div>
+      </div>
       {qbank && <Quotes bank={bank} err={bankErr} pageId={page.id} pageNo={cp + 1} onAdd={(q) => addQuote(q)} />}
-      {lib && <Library onBg={(f) => void fromLib(f).then((src) => { if (src) void addBackground(src); })} onAdd={(f) => void addLib(f)} onFlip={(fs) => void flipLib(fs)}
+      {lib && <Library onBg={(f) => void fromLib(f).then((src) => { if (src) void addBackground(src); })} onAdd={(f) => void addLib(f)} onFlip={(fs) => void flipLib(fs)} big={libBig} setBig={setLibBig}
         intoFlip={cur?.type === "flip" ? (fs) => void libSrcs(fs).then((more) => { if (more.length) edit(cur.id, { srcs: [...(cur.srcs ?? []), ...more] }); }) : undefined} />}
       </div>
     </section>
@@ -997,7 +1148,7 @@ function Quotes({ bank, err, pageId, pageNo, onAdd }: { bank: QuoteBank | null; 
 }
 
 /** Every picture in the retreat folder as small previews: drag one onto the page, click to add it, or ⌘-click several for a flipbook. */
-function Library({ onAdd, onBg, onFlip, intoFlip }: { onAdd: (f: string) => void; onBg: (f: string) => void; onFlip: (fs: string[]) => void; intoFlip?: (fs: string[]) => void }) {
+function Library({ onAdd, onBg, onFlip, intoFlip, big, setBig }: { onAdd: (f: string) => void; onBg: (f: string) => void; onFlip: (fs: string[]) => void; intoFlip?: (fs: string[]) => void; big?: boolean; setBig?: (b: boolean) => void }) {
   const [asBg, setAsBg] = useState(false);
   const [files, setFiles] = useState<string[] | null>(null);
   const [err, setErr] = useState("");
@@ -1021,7 +1172,7 @@ function Library({ onAdd, onBg, onFlip, intoFlip }: { onAdd: (f: string) => void
   const toggle = (f: string) => setPick((p) => (p.includes(f) ? p.filter((x) => x !== f) : [...p, f]));
   return (
     <aside className="zlib" aria-label="Photo library">
-      <div className="zlibtop"><span className="eyebrow">Photo library</span><span className="thint">{files ? `${shown.length} of ${files.length}` : err ? "" : "Loading…"}</span></div>
+      <div className="zlibtop"><span className="eyebrow">Photo library</span><span className="thint">{files ? `${shown.length} of ${files.length}` : err ? "" : "Loading…"}</span>{setBig && <button type="button" className="btn ghost zlibsize" aria-pressed={!!big} onClick={() => setBig(!big)}>{big ? "Smaller" : "Bigger"}</button>}</div>
       {err && <p className="thint">{err}</p>}
       {files && (
         <>
@@ -1039,13 +1190,13 @@ function Library({ onAdd, onBg, onFlip, intoFlip }: { onAdd: (f: string) => void
               <button type="button" className="btn ghost" onClick={() => setPick([])}>Clear</button>
             </div>
           )}
-          <div className="zlibgrid">
+          <div className={`zlibgrid${big ? " big" : ""}`}>
             {vis.map((f) => (
               <button key={f} type="button" draggable title={f} aria-pressed={pick.includes(f)}
                 onDragStart={(e) => { e.dataTransfer.setData("text/x-zine-lib", f); e.dataTransfer.effectAllowed = "copy"; }}
                 onClick={(e) => (e.metaKey || e.ctrlKey || e.shiftKey ? toggle(f) : asBg ? onBg(f) : onAdd(f))}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={`/api/zine/library?t=1&f=${encodeURIComponent(f)}`} alt={f.split("/").pop() ?? ""} loading="lazy" draggable={false} />
+                <img src={`/api/zine/library?t=1&v=2&f=${encodeURIComponent(f)}`} alt={f.split("/").pop() ?? ""} loading="lazy" draggable={false} />
                 {pick.includes(f) && <span className="zlibn">{pick.indexOf(f) + 1}</span>}
               </button>
             ))}

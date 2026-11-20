@@ -22,6 +22,8 @@ export interface WallEmbed {
   words: Record<string, { x: number; y: number; nearest: string[]; ownPile: number }>;
   notes: Record<string, { x: number; y: number; sim: number[] }>;
 }
+/** The zine's note map: positions as shares of the box (x of its width, y of its height), plus the handwritten domain cards. */
+export interface ZineMap { a: number; notes: Record<string, { x: number; y: number; w: number; rot: number; z: number; src: string }>; words: Record<string, { x: number; y: number; w: number; src: string }> }
 type View = "placed" | "meaning" | "pull" | "grid";
 const VIEWS: { id: View; label: string; needs?: boolean }[] = [
   { id: "placed", label: "Where we put them" }, { id: "meaning", label: "By meaning", needs: true }, { id: "pull", label: "Pulled by the words", needs: true }, { id: "grid", label: "No groups" },
@@ -33,7 +35,7 @@ const nudge = (id: string, salt: number) => { let h = salt * 374761393; for (let
 
 const round = (n: number) => Math.round(n * 100) / 100;
 
-export function Wall({ items, defaultHeight, saved, canSave, embed }: { items: WallItem[]; defaultHeight: number; saved: WallLayout | null; canSave: boolean; embed?: WallEmbed | null }) {
+export function Wall({ items, defaultHeight, saved, canSave, embed, zineMap }: { items: WallItem[]; defaultHeight: number; saved: WallLayout | null; canSave: boolean; embed?: WallEmbed | null; zineMap?: ZineMap | null }) {
   const defaults = useMemo(() => Object.fromEntries(items.map((i) => [i.id, { x: i.x, y: i.y, rot: i.rot, z: i.z }])) as Record<string, Pos>, [items]);
   const [pos, setPos] = useState<Record<string, Pos>>(() => ({ ...defaults, ...(saved?.items ?? {}) }));
   const [height, setHeight] = useState(saved?.height ?? defaultHeight);
@@ -138,9 +140,16 @@ export function Wall({ items, defaultHeight, saved, canSave, embed }: { items: W
   const reset = () => { setPos(defaults); setHeight(defaultHeight); setSel(null); setMsg("Back to the eight piles. Nothing is saved until you press Save layout."); };
 
   const s = sel ? pos[sel] : null;
-  const H = view === "placed" ? height : VIEW_H;
+  const zm = view === "placed" && !editing ? zineMap ?? null : null;   // "Where we put them" shows the zine's layout unless you are rearranging the floor layout
+  const H = zm ? round(100 * zm.a) : view === "placed" ? height : VIEW_H;
   /** Where everything sits in the view on show. "Where we put them" is the saved layout; the other views are worked out from the notes' meaning. */
   const shown = useMemo(() => {
+    if (zm) {
+      const out: Record<string, Pos> = {};
+      for (const [id, n] of Object.entries(zm.notes)) out[id] = { x: round(n.x * 100), y: round(n.y * H), rot: n.rot, z: n.z };
+      for (const [d, w] of Object.entries(zm.words)) out[`label-${d}`] = { x: round(w.x * 100), y: round(w.y * H), rot: 0, z: 40 };
+      return out;
+    }
     if (view === "placed") return pos;
     const out: Record<string, Pos> = {};
     const notes = items.filter((i) => i.kind === "note");
@@ -162,7 +171,7 @@ export function Wall({ items, defaultHeight, saved, canSave, embed }: { items: W
       ? { x: round(7 + embed.words[d].x * 86), y: round(8 + embed.words[d].y * (VIEW_H - 16)), rot: 0, z: 40 }
       : { x: anchors[d].x, y: anchors[d].y, rot: 0, z: 40 };
     return out;
-  }, [view, pos, items, embed, anchors]);
+  }, [view, pos, items, embed, anchors, zm, H]);
   const rugStyle: React.CSSProperties = bg
     ? { backgroundImage: `url("${bg}")`, backgroundSize: bgMode === "tile" ? "420px auto" : "cover", backgroundRepeat: bgMode === "tile" ? "repeat" : "no-repeat", backgroundPosition: "center" }
     : {};
@@ -222,15 +231,19 @@ export function Wall({ items, defaultHeight, saved, canSave, embed }: { items: W
         <div className="rugcanvas" ref={canvas} style={{ aspectRatio: `100 / ${H}` }} onPointerMove={move} onPointerUp={up} onPointerCancel={up}>
           {items.map((it) => {
             if (view !== "placed" && (it.kind === "pola" || (it.kind === "label" && view === "grid"))) return null;
+            if (zm && (it.kind === "pola" || (it.kind === "note" && !zm.notes[it.id]))) return null;
             const p = shown[it.id] ?? pos[it.id] ?? it;
             const ringColour = tint && it.domainId ? TINT[it.domainId] : undefined;
-            const style = { left: `${p.x}%`, top: `${(p.y / H) * 100}%`, zIndex: p.z + 100, ["--w" as string]: it.kind === "label" && view !== "placed" ? 10 : it.w, ["--r" as string]: `${p.rot}deg`, ...(ringColour ? { outline: `.38cqw solid ${ringColour}`, outlineOffset: it.kind === "label" ? ".3cqw" : "0" } : {}) } as React.CSSProperties;
+            const style = { left: `${p.x}%`, top: `${(p.y / H) * 100}%`, zIndex: p.z + 100, ["--w" as string]: zm ? round(100 * (it.kind === "label" ? zm.words[it.domainId ?? ""]?.w ?? 0.1 : zm.notes[it.id]?.w ?? 0.05)) : it.kind === "label" && view !== "placed" ? 10 : it.w, ["--r" as string]: `${p.rot}deg`, ...(ringColour ? { outline: `.38cqw solid ${ringColour}`, outlineOffset: it.kind === "label" ? ".3cqw" : "0" } : {}) } as React.CSSProperties;
             const common = { style, "data-id": it.id, onPointerDown: (e: React.PointerEvent) => down(e, it.id), onKeyDown: (e: React.KeyboardEvent) => key(e, it.id) };
             const cls = `item ${it.kind}${sel === it.id ? " sel" : ""}`;
             if (it.kind === "label") {
               return editing || view === "pull"
                 ? <div key={it.id} className={`${cls}${view === "pull" ? " grab" : ""}`} tabIndex={0} {...common}><span>{it.text}</span><small>{view === "pull" ? "drag me" : `${it.count} notes`}</small></div>
-                : <Link key={it.id} className={cls} href={`/domain/${it.domainId}`} title={`Open ${it.domainName}`} style={style}><span>{it.text}</span><small>{it.count} notes</small></Link>;
+                : zm && zm.words[it.domainId ?? ""]
+                  // eslint-disable-next-line @next/next/no-img-element
+                  ? <Link key={it.id} className={`${cls} card`} href={`/domain/${it.domainId}`} title={`Open ${it.domainName} (${it.count} notes)`} style={style}><img src={zm.words[it.domainId ?? ""].src} alt={`${it.domainName}, ${it.count} notes`} draggable={false} /></Link>
+                  : <Link key={it.id} className={cls} href={`/domain/${it.domainId}`} title={`Open ${it.domainName}`} style={style}><span>{it.text}</span><small>{it.count} notes</small></Link>;
             }
             if (it.kind === "pola") {
               return (
@@ -243,7 +256,7 @@ export function Wall({ items, defaultHeight, saved, canSave, embed }: { items: W
             return (
               <button key={it.id} type="button" className={cls} aria-label={`Sticky note: ${it.text}`} onClick={() => { if (!editing) setOpen(it); }} {...common}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={it.src} alt="" width={it.iw} height={it.ih} loading="lazy" decoding="async" draggable={false} />
+                <img src={zm?.notes[it.id]?.src ?? it.src} alt="" width={it.iw} height={it.ih} loading="lazy" decoding="async" draggable={false} />
               </button>
             );
           })}
