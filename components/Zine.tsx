@@ -401,9 +401,10 @@ const ease = (t: number) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) /
 
 function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated?: boolean }) {
   const n = doc.pages.length;
-  // two pages at a time it reads like a real folded zine: the cover alone, then pages 2|3, 4|5 …
-  const nSpreads = Math.ceil((n - 1) / 2) + 1;   // spread 0 = the cover on its own
-  const pagesOf = (k: number): [number | null, number | null] => (k <= 0 ? [null, 0] : [2 * k - 1 < n ? 2 * k - 1 : null, 2 * k < n ? 2 * k : null]);
+  // In two-page mode the reader alternates like a folded zine being opened and refolded: one page on its own, as big as
+  // the screen allows, then that page with the next one beside it, then the next page on its own, and so on:
+  // cover · cover|2 · 2 · 2|3 · 3 · 3|4 … Step j: even = page j/2 alone; odd = pages (j-1)/2 | (j+1)/2.
+  const steps = Math.max(1, 2 * n - 1);
   const [story, setStory] = useState(false);
   const [at, setAt] = useState<{ from: number; to: number } | null>(null);   // the passage of the whole story the reader came from
   const markRef = useRef<HTMLElement>(null);
@@ -445,7 +446,7 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
   const toggleView = () => {
     if (move || narrow) return;
     const next = !onePage;
-    setS((cur) => (next ? (cur === 0 ? 0 : Math.min(n - 1, 2 * cur - 1)) : Math.min(nSpreads - 1, Math.floor((cur + 1) / 2))));
+    setS((cur) => (next ? Math.min(n - 1, Math.ceil(cur / 2)) : Math.min(steps - 1, 2 * cur)));
     setOnePage(next);
     try { localStorage.setItem("zine-view", next ? "one" : "spread"); } catch { /* fine */ }
   };
@@ -463,7 +464,7 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
     try { if (fs) { if (d.exitFullscreen) void d.exitFullscreen(); else d.webkitExitFullscreen?.(); } else if (el.requestFullscreen) void el.requestFullscreen(); else el.webkitRequestFullscreen?.(); } catch { /* the browser said no */ }
   };
   useEffect(() => { const o = document.body.style.overflow; document.body.style.overflow = "hidden"; return () => { document.body.style.overflow = o; cancelAnimationFrame(raf.current); }; }, []);
-  const last = single ? n - 1 : nSpreads - 1;
+  const last = single ? n - 1 : steps - 1;
   const step = (dir: 1 | -1) => {
     if (move) return;
     const to = s + dir; if (to < 0 || to > last) return;
@@ -543,25 +544,35 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
 
   const panels = single ? (move ? between(n, move.from, move.t, true) : layout(n, s, true)) : [];
   const { total, items } = single ? slices(panels) : { total: 2, items: [] as ReturnType<typeof slices>["items"] };
-  /* Spreads turn like paper: the right-hand page lifts off the spine and swings over to the left, showing its back
-     (the next left page) as it lands, while the page underneath is uncovered. Going back plays the same turn in reverse,
-     the left page opening up from the spine like a clam. A closed cover sits centred and slides over as it opens. */
-  const sheet = (p: number | null) => (p === null ? null : <div className="sheet"><PageView page={doc.pages[p]} prev={doc.pages[p - 1]} ratio={doc.ratio} /></div>);
-  const offOf = (k: number) => { const [l, r] = pagesOf(k); return l === null ? -0.5 : r === null ? 0.5 : 0; };
+  /* Opening out (page alone -> pair): the next page unfolds from behind the right edge of the page you were reading,
+     swinging out like a page. Folding in (pair -> page alone): the left page folds shut behind its neighbour like a
+     clam closing, mouth on the left, and the remaining page comes to the middle and grows to fill the screen. */
+  const sheet = (p: number) => <div className="sheet"><PageView page={doc.pages[p]} prev={doc.pages[p - 1]} ratio={doc.ratio} /></div>;
+  const [big, setBig] = useState(1);   // how much bigger one page alone can be than a page in a pair
+  useEffect(() => {
+    const f = () => {
+      const gx = Math.min(56, Math.max(34, window.innerWidth * 0.04)), gy = window.innerWidth <= 520 ? 44 : 8, h = (window.innerHeight - 2 * gy) / doc.ratio;
+      setBig(Math.max(1, Math.min(window.innerWidth - 2 * gx, h) / Math.min((window.innerWidth - 2 * gx) / 2, h)));
+    };
+    f(); window.addEventListener("resize", f); return () => window.removeEventListener("resize", f);
+  }, [doc.ratio]);
   const book = single ? null : (() => {
-    const k0 = move ? move.from : s, t = move ? move.t : 0;
-    const shift = move ? offOf(k0) * (1 - t) + offOf(k0 + 1) * t : offOf(s);
-    const wrap = (kids: React.ReactNode) => <div className="fbook" style={{ transform: `translateX(calc(var(--pw) * ${shift}))` }}>{kids}</div>;
-    if (!move) { const [l, r] = pagesOf(s); return wrap(<>{l !== null && <div className="fpage left">{sheet(l)}</div>}{r !== null && <div className="fpage right">{sheet(r)}</div>}</>); }
-    const [l0, r0] = pagesOf(k0), [l1, r1] = pagesOf(k0 + 1), lift = Math.sin(Math.PI * t);
-    return wrap(<>
-      {l0 !== null && <div className="fpage left">{sheet(l0)}<i className="fshade" style={{ opacity: t < 0.5 ? 0.18 * lift : 0 }} /></div>}
-      {r1 !== null && <div className="fpage right">{sheet(r1)}<i className="fshade" style={{ opacity: t < 0.5 ? 0.3 * (1 - 2 * t) + 0.08 : 0.08 * lift }} /></div>}
-      <div className="fleaf" style={{ transform: `rotateY(${-180 * t}deg)` }}>
-        <div className="fface front">{sheet(r0)}<i className="fshade" style={{ opacity: 0.35 * t }} /></div>
-        <div className="fface back">{sheet(l1)}<i className="fshade back" style={{ opacity: 0.35 * (1 - t) }} /></div>
-      </div>
-    </>);
+    const page = (p: number, x: number, extra?: React.CSSProperties, shade = 0, key?: string) => (
+      <div key={key ?? `p${p}`} className="fpage" style={{ left: `calc(var(--pw) * ${x})`, ...extra }}>{sheet(p)}{shade > 0.01 && <i className="fshade" style={{ opacity: shade }} />}</div>
+    );
+    const wrap = (sc: number, kids: React.ReactNode) => <div className="fbook" style={{ transform: `scale(${sc})` }}>{kids}</div>;
+    if (!move) {
+      if (s % 2 === 0) return wrap(big, page(s / 2, 0.5));
+      const p = (s - 1) / 2; return wrap(1, <>{page(p, 0)}{page(p + 1, 1)}</>);
+    }
+    const j0 = move.from, t = move.t, lift = Math.sin(Math.PI * t);
+    if (j0 % 2 === 0) {   // p alone -> p | p+1: p slides left, p+1 unfolds out from behind p's right edge
+      const p = j0 / 2, x = 0.5 * (1 - t);
+      return wrap(big + (1 - big) * t, <>{page(p, x, undefined, 0.15 * lift)}{page(p + 1, x + 1, { transformOrigin: "0 50%", transform: `rotateY(${180 * (1 - t)}deg)`, zIndex: 2 }, 0.45 * (1 - t))}</>);
+    }
+    // p | p+1 -> p+1 alone: p folds shut behind p+1 (a clam closing, mouth on the left), p+1 slides to the middle
+    const p = (j0 - 1) / 2, x = 1 - 0.5 * t;
+    return wrap(1 + (big - 1) * t, <>{page(p, x - 1, { transformOrigin: "100% 50%", transform: `rotateY(${-180 * t}deg)`, zIndex: 1 }, 0.45 * t)}{page(p + 1, x, { zIndex: 2 }, 0.15 * lift)}</>);
   })();
   return (
     <section className="zinefull" data-paper={doc.paper?.texture ?? "grain"} aria-label="The zine" aria-roledescription="book">
@@ -625,7 +636,7 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
         <button type="button" className="turn prev" onClick={() => step(-1)} disabled={s === 0 || !!move} aria-label="Previous page">‹</button>
         <button type="button" className="turn next" onClick={() => step(1)} disabled={s === last || !!move} aria-label="Next page">›</button>
       </div>
-      <p className="sr-only" role="status">{s === 0 ? "Cover" : single ? `Page ${Math.min(n, s + 1)} of ${n}` : `Pages ${2 * s} and ${Math.min(n, 2 * s + 1)} of ${n}`}</p>
+      <p className="sr-only" role="status">{single ? (s === 0 ? "Cover" : `Page ${Math.min(n, s + 1)} of ${n}`) : s % 2 === 0 ? (s === 0 ? "Cover" : `Page ${s / 2 + 1} of ${n}`) : `Pages ${(s + 1) / 2} and ${(s + 3) / 2} of ${n}`}</p>
     </section>
   );
 }
