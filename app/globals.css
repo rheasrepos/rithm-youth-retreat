@@ -749,3 +749,7 @@ html,body{overflow-x:clip}
 .fpage{position:absolute;top:0;width:var(--pw);height:100%;overflow:hidden;background:#f6f1e7;backface-visibility:hidden;-webkit-backface-visibility:hidden}
 .fpage .sheet{position:absolute;inset:0;width:var(--pw)}
 .fshade{position:absolute;inset:0;z-index:70;pointer-events:none;background:linear-gradient(90deg,rgba(40,26,12,.8),rgba(40,26,12,.2))}
+
+/* see-through boxes, for pages whose background is a notebook scan */
+.zpage.see .zwin{background:rgba(251,244,224,.6)}
+.zpage.see .ztext[style*="background"]{background:rgba(251,243,225,.6)!important}

@@ -25,7 +25,7 @@ export interface ZineItem {
   fill?: string;   // text: a solid box behind plain text so it reads over a picture background
   lock?: boolean;   // pinned in the editor so it can't be picked up by accident; readers see no difference
 }
-export interface ZinePage { id: string; bg: string; items: ZineItem[]; bgImg?: string; bgFit?: "cover" | "contain" | "fill"; tags?: string[] }   // tags: the domains this page touches, shown as small chips in its corner   // bgImg: a picture behind everything on the page, scaled to fill it (cover), to show whole (contain), or stretched to the page edges (fill)
+export interface ZinePage { id: string; bg: string; items: ZineItem[]; bgImg?: string; bgFit?: "cover" | "contain" | "fill"; tags?: string[]; see?: boolean }   // see: boxes on this page are see-through, so the background (a notebook scan) shows   // tags: the domains this page touches, shown as small chips in its corner   // bgImg: a picture behind everything on the page, scaled to fill it (cover), to show whole (contain), or stretched to the page edges (fill)
 /** The page's own background: its colour, with its background picture over it if it has one. */
 const pageBg = (p: ZinePage): React.CSSProperties => (p.bgImg ? { backgroundColor: p.bg, backgroundImage: `url("${p.bgImg}")`, backgroundSize: p.bgFit === "fill" ? "100% 100%" : p.bgFit ?? "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" } : { background: p.bg });
 /** The paper every plain page is printed on: its colour, and whether a scan of a real notebook page is laid over it. */
@@ -281,7 +281,7 @@ const DOMS: { id: string; name: string; tint: string }[] = [
 const PageView = memo(function PageView({ page, ratio, prev }: { page?: ZinePage; ratio: number; prev?: ZinePage }) {
   if (!page) return <div className="zpage blank" />;
   return (
-    <div className="zpage" style={pageBg(page)}>
+    <div className={`zpage${page.see ? " see" : ""}`} style={pageBg(page)}>
       {spill(prev).map((it) => <div key={`s-${it.id}`} className={`zitem ${it.type}`} style={itemStyle(it, ratio)}><ItemBody it={it} /></div>)}
       {page.items.map((it) => <div key={it.id} className={`zitem ${it.type}`} data-zid={it.id} style={itemStyle(it, ratio)}><ItemBody it={it} /></div>)}
       {!!page.tags?.length && <div className="ztags">{DOMS.filter((d) => page.tags!.includes(d.id)).map((d) => <span key={d.id} style={{ ["--t" as string]: d.tint }}>{d.name}</span>)}</div>}
