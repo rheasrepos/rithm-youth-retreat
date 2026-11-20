@@ -401,6 +401,9 @@ const ease = (t: number) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) /
 
 function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated?: boolean }) {
   const n = doc.pages.length;
+  // two pages at a time it reads like a real folded zine: the cover alone, then pages 2|3, 4|5 …
+  const nSpreads = Math.ceil((n - 1) / 2) + 1;   // spread 0 = the cover on its own
+  const pagesOf = (k: number): [number | null, number | null] => (k <= 0 ? [null, 0] : [2 * k - 1 < n ? 2 * k - 1 : null, 2 * k < n ? 2 * k : null]);
   const [story, setStory] = useState(false);
   const [at, setAt] = useState<{ from: number; to: number } | null>(null);   // the passage of the whole story the reader came from
   const markRef = useRef<HTMLElement>(null);
@@ -442,7 +445,7 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
   const toggleView = () => {
     if (move || narrow) return;
     const next = !onePage;
-    setS((cur) => (next ? Math.max(0, Math.min(n - 1, cur === 0 ? 0 : cur - 1)) : cur === 0 ? 0 : Math.min(n, cur + 1)));
+    setS((cur) => (next ? (cur === 0 ? 0 : Math.min(n - 1, 2 * cur - 1)) : Math.min(nSpreads - 1, Math.floor((cur + 1) / 2))));
     setOnePage(next);
     try { localStorage.setItem("zine-view", next ? "one" : "spread"); } catch { /* fine */ }
   };
@@ -460,7 +463,7 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
     try { if (fs) { if (d.exitFullscreen) void d.exitFullscreen(); else d.webkitExitFullscreen?.(); } else if (el.requestFullscreen) void el.requestFullscreen(); else el.webkitRequestFullscreen?.(); } catch { /* the browser said no */ }
   };
   useEffect(() => { const o = document.body.style.overflow; document.body.style.overflow = "hidden"; return () => { document.body.style.overflow = o; cancelAnimationFrame(raf.current); }; }, []);
-  const last = single ? n - 1 : n;
+  const last = single ? n - 1 : nSpreads - 1;
   const step = (dir: 1 | -1) => {
     if (move) return;
     const to = s + dir; if (to < 0 || to > last) return;
@@ -538,8 +541,28 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
   };
   const onUp = () => { if (grab.current?.moved) swallowClick.current = true; grab.current = null; };
 
-  const panels = move ? between(n, move.from, move.t, single) : layout(n, s, single);
-  const { total, items } = slices(panels);
+  const panels = single ? (move ? between(n, move.from, move.t, true) : layout(n, s, true)) : [];
+  const { total, items } = single ? slices(panels) : { total: 2, items: [] as ReturnType<typeof slices>["items"] };
+  /* Spreads turn like paper: the right-hand page lifts off the spine and swings over to the left, showing its back
+     (the next left page) as it lands, while the page underneath is uncovered. Going back plays the same turn in reverse,
+     the left page opening up from the spine like a clam. A closed cover sits centred and slides over as it opens. */
+  const sheet = (p: number | null) => (p === null ? null : <div className="sheet"><PageView page={doc.pages[p]} prev={doc.pages[p - 1]} ratio={doc.ratio} /></div>);
+  const offOf = (k: number) => { const [l, r] = pagesOf(k); return l === null ? -0.5 : r === null ? 0.5 : 0; };
+  const book = single ? null : (() => {
+    const k0 = move ? move.from : s, t = move ? move.t : 0;
+    const shift = move ? offOf(k0) * (1 - t) + offOf(k0 + 1) * t : offOf(s);
+    const wrap = (kids: React.ReactNode) => <div className="fbook" style={{ transform: `translateX(calc(var(--pw) * ${shift}))` }}>{kids}</div>;
+    if (!move) { const [l, r] = pagesOf(s); return wrap(<>{l !== null && <div className="fpage left">{sheet(l)}</div>}{r !== null && <div className="fpage right">{sheet(r)}</div>}</>); }
+    const [l0, r0] = pagesOf(k0), [l1, r1] = pagesOf(k0 + 1), lift = Math.sin(Math.PI * t);
+    return wrap(<>
+      {l0 !== null && <div className="fpage left">{sheet(l0)}<i className="fshade" style={{ opacity: t < 0.5 ? 0.18 * lift : 0 }} /></div>}
+      {r1 !== null && <div className="fpage right">{sheet(r1)}<i className="fshade" style={{ opacity: t < 0.5 ? 0.3 * (1 - 2 * t) + 0.08 : 0.08 * lift }} /></div>}
+      <div className="fleaf" style={{ transform: `rotateY(${-180 * t}deg)` }}>
+        <div className="fface front">{sheet(r0)}<i className="fshade" style={{ opacity: 0.35 * t }} /></div>
+        <div className="fface back">{sheet(l1)}<i className="fshade back" style={{ opacity: 0.35 * (1 - t) }} /></div>
+      </div>
+    </>);
+  })();
   return (
     <section className="zinefull" data-paper={doc.paper?.texture ?? "grain"} aria-label="The zine" aria-roledescription="book">
       {inside ? <a className="zcorner home" href="/" aria-label="Back to the site">×</a> : <a className="zcorner home login" href="/login">Network log in</a>}
@@ -583,6 +606,7 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
         <div className="zground" />
         <MapCtx.Provider value={maps}><div className="strip" onClick={openFrom}>
           {pieces.size > 0 && <style>{[...pieces].map((id) => `.zinefull [data-zid="${id}"]{cursor:pointer}.zinefull [data-zid="${id}"] .zwinbar span::after{content:"  ·  part of the whole story ↗";font-weight:400;opacity:.8}`).join("")}</style>}
+          {book}
           {items.map((p) => {
             if (p.w <= 0.0005) return null;
             const style: React.CSSProperties = {
@@ -601,7 +625,7 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
         <button type="button" className="turn prev" onClick={() => step(-1)} disabled={s === 0 || !!move} aria-label="Previous page">‹</button>
         <button type="button" className="turn next" onClick={() => step(1)} disabled={s === last || !!move} aria-label="Next page">›</button>
       </div>
-      <p className="sr-only" role="status">{s === 0 ? "Cover" : `Page ${Math.min(n, s + 1)} of ${n}`}</p>
+      <p className="sr-only" role="status">{s === 0 ? "Cover" : single ? `Page ${Math.min(n, s + 1)} of ${n}` : `Pages ${2 * s} and ${Math.min(n, 2 * s + 1)} of ${n}`}</p>
     </section>
   );
 }
