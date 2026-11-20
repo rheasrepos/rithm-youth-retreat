@@ -336,6 +336,11 @@
       "id": "t69",
       "text": "Nahom has no polaroid on the yearbook page (18 polaroid people + Nahom = 19 at the retreat). Find a photo of Nahom?",
       "done": false
+    },
+    {
+      "id": "t70",
+      "text": "Add a toggle to view the site/zine as text boxes only vs. with art and images: a different experience, closer to how a model reads it",
+      "done": false
     }
   ]
 }
