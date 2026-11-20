@@ -530,7 +530,6 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
       {onEdit && <button type="button" className="zcorner edit" onClick={onEdit}>Edit</button>}
       {!narrow && <button type="button" className={`zcorner view${onEdit ? "" : " solo"}`} aria-pressed={onePage} onClick={toggleView} title={onePage ? "Show two pages side by side" : "Show one page at a time, as big as the screen allows"}>{onePage ? "Two pages" : "One page"}</button>}
       {canFs && <div className={`zfs${fs ? " on" : ""}`}><button type="button" className="zfsbtn" onClick={toggleFs}>{fs ? "Exit full screen" : "Full screen"}</button>{!fs && <span>We recommend reading in full screen</span>}</div>}
-      {doc.story?.text && <button type="button" className="zcorner story" onClick={() => { setAt(null); setStory(true); }}>{doc.story.title || "The whole story"}</button>}
       <dialog className="notedlg" ref={noteDlg} onClose={() => setNote(null)} onClick={(e) => { if (e.target === noteDlg.current) setNote(null); }}>
         {note && (
           <div className="notebody">
