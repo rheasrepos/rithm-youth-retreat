@@ -753,3 +753,10 @@ html,body{overflow-x:clip}
 /* see-through boxes, for pages whose background is a notebook scan */
 .zpage.see .zwin{background:rgba(251,244,224,.5)}
 .zpage.see .ztext[style*="background"],.zpage.see .zitem.text > [style*="background"]{background:rgba(251,243,225,.5)!important}
+
+/* the reader sits on the cover's purple */
+.zinefull{background:#2b2755}
+.zinefull .zcorner{color:rgba(243,232,204,.8)}
+.zinefull .zcorner:hover{color:#fff;background:rgba(255,255,255,.12)}
+.zinefull .turn{color:rgba(243,232,204,.85)}
+.zinefull .zground{background:rgba(0,0,0,.45)}
