@@ -16,10 +16,11 @@ const SKIP = /^[._]|^node_modules$|^unused/i;   // hidden folders, scratch folde
 const TYPE: Record<string, string> = { jpg: "image/jpeg", jpeg: "image/jpeg", png: "image/png", webp: "image/webp", gif: "image/gif" };
 const THUMBS = path.join(process.cwd(), ".cache", "zine-library");
 
-type Sharp = typeof import("sharp").default;
+type SharpMod = typeof import("sharp");
+type Sharp = SharpMod extends { default: infer D } ? D : SharpMod;   // works with old and new sharp typings
 let sharpMod: Sharp | null | undefined;
 async function getSharp(): Promise<Sharp | null> {
-  if (sharpMod === undefined) { try { sharpMod = (await import("sharp")).default; } catch { sharpMod = null; } }
+  if (sharpMod === undefined) { try { sharpMod = ((await import("sharp")) as unknown as { default: Sharp }).default; } catch { sharpMod = null; } }
   return sharpMod;
 }
 async function walk(dir: string, rel: string, out: string[]) {
