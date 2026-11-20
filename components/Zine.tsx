@@ -1099,7 +1099,7 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
           );
           return (
             <div key={pg.id} className="zsheetwrap zactive">
-              <div className="zpage zsheet" ref={sheet} style={pageBg(page)} onPointerDown={beginBox} onPointerMove={moveP} onPointerUp={endP} onPointerCancel={endP}
+              <div className={`zpage zsheet${page.see ? " see" : ""}`} ref={sheet} style={pageBg(page)} onPointerDown={beginBox} onPointerMove={moveP} onPointerUp={endP} onPointerCancel={endP}
                 onDragOver={(e) => e.preventDefault()} onDrop={(e) => {
                   e.preventDefault();
                   const qi = e.dataTransfer.getData("text/x-zine-quote");

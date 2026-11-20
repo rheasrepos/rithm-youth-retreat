@@ -751,5 +751,5 @@ html,body{overflow-x:clip}
 .fshade{position:absolute;inset:0;z-index:70;pointer-events:none;background:linear-gradient(90deg,rgba(40,26,12,.8),rgba(40,26,12,.2))}
 
 /* see-through boxes, for pages whose background is a notebook scan */
-.zpage.see .zwin{background:rgba(251,244,224,.6)}
-.zpage.see .ztext[style*="background"]{background:rgba(251,243,225,.6)!important}
+.zpage.see .zwin{background:rgba(251,244,224,.5)}
+.zpage.see .ztext[style*="background"],.zpage.see .zitem.text > [style*="background"]{background:rgba(251,243,225,.5)!important}
