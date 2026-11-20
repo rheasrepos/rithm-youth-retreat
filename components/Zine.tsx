@@ -491,6 +491,22 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
   const grab = useRef<{ x: number; y: number; px: number; py: number; moved: boolean } | null>(null);
   const swallowClick = useRef(false);
   const fit = () => { setZoom(1); setPan({ x: 0, y: 0 }); };
+  // the zoom bar sits on the right; drag its handle to move it anywhere (double-click the handle to put it back)
+  const [zbar, setZbar] = useState<{ x: number; y: number } | null>(null);
+  const zdrag = useRef<{ dx: number; dy: number } | null>(null);
+  useEffect(() => { try { const v = JSON.parse(localStorage.getItem("zine-zoombar") ?? "null"); if (v && typeof v.x === "number") setZbar(v); } catch { /* fine */ } }, []);
+  const zbarDown = (e: React.PointerEvent<HTMLButtonElement>) => {
+    const bar = e.currentTarget.parentElement; if (!bar) return;
+    const r = bar.getBoundingClientRect(); zdrag.current = { dx: e.clientX - r.left, dy: e.clientY - r.top };
+    e.currentTarget.setPointerCapture(e.pointerId);
+  };
+  const zbarMove = (e: React.PointerEvent<HTMLButtonElement>) => {
+    const d = zdrag.current, bar = e.currentTarget.parentElement; if (!d || !bar) return;
+    const r = bar.getBoundingClientRect();
+    setZbar({ x: Math.max(4, Math.min(window.innerWidth - r.width - 4, e.clientX - d.dx)), y: Math.max(4, Math.min(window.innerHeight - r.height - 4, e.clientY - d.dy)) });
+  };
+  const zbarUp = () => { zdrag.current = null; setZbar((p) => { try { localStorage.setItem("zine-zoombar", JSON.stringify(p)); } catch { /* fine */ } return p; }); };
+  const zbarReset = () => { setZbar(null); try { localStorage.removeItem("zine-zoombar"); } catch { /* fine */ } };
   /** Zoom to z, keeping the point under (cx, cy) on screen where it is; no point = the middle of what is shown. */
   const zoomAt = (z: number, cx?: number, cy?: number) => {
     const el = areaRef.current; if (!el) return;
@@ -551,7 +567,8 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
           </div>
         )}
       </dialog>
-      <div className="zzoom" role="group" aria-label="Zoom">
+      <div className={`zzoom${zbar ? " moved" : ""}`} role="group" aria-label="Zoom" style={zbar ? { left: zbar.x, top: zbar.y } : undefined}>
+        <button type="button" className="zgrip" aria-label="Move the zoom controls" title="Drag to move · double-click to put back" onPointerDown={zbarDown} onPointerMove={zbarMove} onPointerUp={zbarUp} onPointerCancel={zbarUp} onDoubleClick={zbarReset}>⋮⋮</button>
         {zoom > 1 && <button type="button" onClick={() => step(-1)} disabled={s === 0 || !!move} aria-label="Previous page">‹</button>}
         <button type="button" onClick={() => zoomAt(zoom / 1.4)} disabled={zoom <= 1} aria-label="Zoom out">−</button>
         <span aria-live="polite">{Math.round(zoom * 100)}%</span>

@@ -727,7 +727,7 @@ html,body{overflow-x:clip}
 .zcloudlive .wcnotes{font-size:1.6cqw !important}
 
 /* zoom controls in the reader */
-.zzoom{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.8);border-radius:999px;padding:4px;font:600 13px/1 var(--f-body);color:#1b1037;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.zzoom{position:absolute;right:12px;top:96px;z-index:30;display:flex;flex-direction:column;align-items:center;gap:2px;background:rgba(255,255,255,.8);border-radius:999px;padding:4px;font:600 13px/1 var(--f-body);color:#1b1037;box-shadow:0 1px 4px rgba(0,0,0,.12)}
 .zzoom button{all:unset;cursor:pointer;min-width:30px;height:30px;display:grid;place-items:center;border-radius:999px;font-size:17px}
 .zzoom button.fit{font-size:13px;padding:0 12px;background:#2b2755;color:#fff}
 .zzoom button:hover:not(:disabled){background:rgba(43,39,85,.12)}
@@ -738,3 +738,8 @@ html,body{overflow-x:clip}
 .zarea.zoomed{cursor:grab;touch-action:none}
 .zarea.zoomed:active{cursor:grabbing}
 @media print{.zzoom{display:none}}
+.zzoom.moved{position:fixed;right:auto}
+.zzoom .zgrip{cursor:grab;font-size:12px;letter-spacing:-2px;opacity:.55;touch-action:none;height:22px}
+.zzoom .zgrip:active{cursor:grabbing}
+.zzoom span{min-width:0;padding:4px 0}
+.zzoom button.fit{padding:0 10px;height:28px}
