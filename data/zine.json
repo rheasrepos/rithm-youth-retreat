@@ -1742,10 +1742,10 @@
         {
           "id": "mn-breath",
           "type": "text",
-          "w": 40,
-          "h": 24.3,
+          "w": 52,
+          "h": 19.4,
           "rot": 0,
-          "z": 25,
+          "z": 30,
           "font": "Arial",
           "size": 1.6,
           "color": "#2b2755",
@@ -1754,8 +1754,8 @@
           "align": "left",
           "fill": "#fbf3e1",
           "text": "From my notebook, at the retreat (Oct 17):\n“feeling cozy is something I rlly feel w/ others. Get cozy vs comfy are different.”\n“I felt grateful to be able to close my eyes. It’s a choice I don’t afford myself often.”\n“do I study because I think that my skills can’t be impactful elsewhere? or no, bc I love it.”\n“Once you have the skills to question yourself, you must find balance and choose to question yourself?”",
-          "x": 78,
-          "y": 140.4
+          "x": 30,
+          "y": 76.3
         }
       ],
       "bgImg": "/zine/notebook/notes-machine.jpg",
@@ -9290,24 +9290,6 @@
           "h": 15.75,
           "rot": 1.9,
           "z": 2
-        },
-        {
-          "id": "mn-leorah",
-          "type": "text",
-          "w": 40,
-          "h": 9.8,
-          "rot": 0,
-          "z": 25,
-          "font": "Arial",
-          "size": 1.6,
-          "color": "#2b2755",
-          "bold": false,
-          "italic": false,
-          "align": "left",
-          "fill": "#fbf3e1",
-          "text": "From my notebook, at the retreat (Oct 17):\n“unless your life has been consistently online, who AI knows you as is already efficiency focused.”",
-          "x": 21.5,
-          "y": 112.4
         }
       ],
       "tags": [
