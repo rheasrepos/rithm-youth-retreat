@@ -4,7 +4,7 @@ import { Zine, type ZineDoc, type CloudData } from "@/components/Zine";
 import { getModel } from "@/lib/data";
 
 export const revalidate = 3600;
-export const metadata = { title: "The zine" };
+export const metadata = { title: "The Rithm Review" };
 
 /* Until data/zine.json exists, start from the 16 pages in the zine page plan, each with just its working title. */
 const PLAN = ["OVERHEARD RITHM", "A ZINE", "What this is", "DAY 1", "DAY 1", "Hub map: the room", "Hub map: the AI", "DAY 2", "DAY 2", "Human notes", "AI notes", "DAY 3", "DAY 3", "Everyone's zines", "Everyone's zines", "Playlist + credits"];
