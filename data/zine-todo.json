@@ -340,12 +340,12 @@
     {
       "id": "t70",
       "text": "Add a toggle to view the site/zine as text boxes only vs. with art and images: a different experience, closer to how a model reads it",
-      "done": false
+      "done": true
     },
     {
       "id": "t71",
-      "text": "Mafia ring (page 28) is a mock-up: swap in the real mafia doodles and the photo cut-out for the middle",
-      "done": false
+      "text": "Mafia ring (page 28): doodles dropped (Rhea, Nov 21). Only the middle cut-out remains",
+      "done": true
     },
     {
       "id": "t72",

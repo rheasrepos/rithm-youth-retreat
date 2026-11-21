@@ -760,3 +760,12 @@ html,body{overflow-x:clip}
 .zinefull .zcorner:hover{color:#fff;background:rgba(255,255,255,.12)}
 .zinefull .turn{color:rgba(243,232,204,.85)}
 .zinefull .zground{background:rgba(0,0,0,.45)}
+
+/* zine reader: no shadow under the book; darker ground behind the closed cover; text-only view */
+.zinefull .zground{display:none}
+.zinefull{transition:background .5s ease}
+.zinefull.closed{background:#161230}
+.zcorner.txt{left:64px}
+.zcorner.home.login ~ .zcorner.txt{left:150px}
+.zinefull.textonly .zitem.image,.zinefull.textonly .zitem.flip{visibility:hidden}
+.zinefull.textonly .zpage{background-image:none !important}

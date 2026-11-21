@@ -406,11 +406,8 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
   // cover · cover|2 · 2 · 2|3 · 3 · 3|4 … Step j: even = page j/2 alone; odd = pages (j-1)/2 | (j+1)/2.
   const steps = Math.max(1, 2 * n - 1);
   const [story, setStory] = useState(false);
-  const [at, setAt] = useState<{ from: number; to: number } | null>(null);   // the passage of the whole story the reader came from
+  const [at] = useState<{ from: number; to: number } | null>(null);   // the passage of the whole story the reader came from
   const markRef = useRef<HTMLElement>(null);
-  /** Where a page's text box sits inside the whole story, if it is a piece of it. */
-  const findInStory = (text?: string) => { const t = (text ?? "").trim(), st = doc.story?.text ?? ""; if (t.length < 40) return null; const i = st.indexOf(t); return i < 0 ? null : { from: i, to: i + t.length }; };
-  const pieces = useMemo(() => new Set(doc.pages.flatMap((p) => p.items.filter((i) => i.type === "text" && findInStory(i.text)).map((i) => i.id))), [doc]); // eslint-disable-line react-hooks/exhaustive-deps
   const [note, setNote] = useState<{ src: string; text: string; domain: string } | null>(null);
   const maps = useState<Record<string, MapS>>({});
   const noteDlg = useRef<HTMLDialogElement>(null);
@@ -422,9 +419,6 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
       if (n) setNote({ src: n.src, text: n.text, domain: (n.dom && pile?.words?.find((w) => w.id === n.dom)?.name) || (pile?.title ?? "") });
       return;
     }
-    const id = (e.target as HTMLElement).closest<HTMLElement>("[data-zid]")?.dataset.zid; if (!id || !pieces.has(id)) return;
-    const it = doc.pages.flatMap((p) => p.items).find((i) => i.id === id); const hit = findInStory(it?.text); if (!hit) return;
-    setAt(hit); setStory(true);
   };
   useEffect(() => { if (story && at) requestAnimationFrame(() => markRef.current?.scrollIntoView({ block: "start" })); }, [story, at]);
   const [inside, setInside] = useState(!gated);     // has this browser logged in to the rest of the site?
@@ -442,6 +436,10 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
     f(); mq.addEventListener("change", f); return () => mq.removeEventListener("change", f);
   }, []);
   useEffect(() => { try { setOnePage(localStorage.getItem("zine-view") === "one"); } catch { /* storage blocked: start with spreads */ } }, []);
+  // text only: hide the photos, flipbooks and page backgrounds and leave the words, the way a model reading the zine meets it
+  const [textOnly, setTextOnly] = useState(false);
+  useEffect(() => { try { setTextOnly(localStorage.getItem("zine-text") === "1"); } catch { /* fine */ } }, []);
+  const toggleText = () => setTextOnly((v) => { try { localStorage.setItem("zine-text", v ? "0" : "1"); } catch { /* fine */ } return !v; });
   /** Switch between spreads and one page at a time, keeping the reader on the same page. In spreads, s = k shows pages k-1 | k. */
   const toggleView = () => {
     if (move || narrow) return;
@@ -575,8 +573,9 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
     return wrap(1 + (big - 1) * t, <>{page(p, x - 1, { transformOrigin: "100% 50%", transform: `rotateY(${-180 * t}deg)`, zIndex: 1 }, 0.45 * t)}{page(p + 1, x, { zIndex: 2 }, 0.15 * lift)}</>);
   })();
   return (
-    <section className="zinefull" data-paper={doc.paper?.texture ?? "grain"} aria-label="The zine" aria-roledescription="book">
+    <section className={`zinefull${textOnly ? " textonly" : ""}${s === 0 && !move ? " closed" : ""}`} data-paper={doc.paper?.texture ?? "grain"} aria-label="The zine" aria-roledescription="book">
       {inside ? <a className="zcorner home" href="/" aria-label="Back to the site">×</a> : <a className="zcorner home login" href="/login">Network log in</a>}
+      <button type="button" className="zcorner txt" aria-pressed={textOnly} onClick={toggleText} title={textOnly ? "Bring back the photos and art" : "Hide the photos and art and read only the words"}>{textOnly ? "With art" : "Text only"}</button>
       {onEdit && <button type="button" className="zcorner edit" onClick={onEdit}>Edit</button>}
       {!narrow && <button type="button" className={`zcorner view${onEdit ? "" : " solo"}`} aria-pressed={onePage} onClick={toggleView} title={onePage ? "Show two pages side by side" : "Show one page at a time, as big as the screen allows"}>{onePage ? "Two pages" : "One page"}</button>}
       {canFs && <div className={`zfs${fs ? " on" : ""}`}><button type="button" className="zfsbtn" onClick={toggleFs}>{fs ? "Exit full screen" : "Full screen"}</button>{!fs && <span>We recommend reading in full screen</span>}</div>}
@@ -616,7 +615,6 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
         onClickCapture={(e) => { if (swallowClick.current) { swallowClick.current = false; e.stopPropagation(); e.preventDefault(); } }}>
         <div className="zground" />
         <MapCtx.Provider value={maps}><div className="strip" onClick={openFrom}>
-          {pieces.size > 0 && <style>{[...pieces].map((id) => `.zinefull [data-zid="${id}"]{cursor:pointer}.zinefull [data-zid="${id}"] .zwinbar span::after{content:"  ·  part of the whole story ↗";font-weight:400;opacity:.8}`).join("")}</style>}
           {book}
           {items.map((p) => {
             if (p.w <= 0.0005) return null;
