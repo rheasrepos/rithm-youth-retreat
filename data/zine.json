@@ -420,7 +420,6 @@
           "speed": 1500,
           "srcs": [
             "/zine/photos/pzygo58f/from-unused-photos-img-3251-2-jpg.jpg",
-            "/zine/photos/pzygo58f/from-unused-photos-img-3272-jpg.jpg",
             "/zine/photos/pzygo58f/img-3252-jpg.jpg",
             "/zine/photos/pzygo58f/img-3253-jpg.jpg",
             "/zine/photos/pzygo58f/img-3254-jpg.jpg",
@@ -439,31 +438,9 @@
             "/zine/photos/pzygo58f/img-3269-jpg.jpg",
             "/zine/photos/pzygo58f/img-3270-jpg.jpg",
             "/zine/photos/pzygo58f/img-3271-jpg.jpg",
+            "/zine/photos/pzygo58f/from-unused-photos-img-3272-jpg.jpg",
             "/zine/photos/pzygo58f/img-3273-jpg.jpg",
             "/zine/photos/pzygo58f/img-3275-jpg.jpg",
-            "/zine/photos/pzygo58f/img-8935-jpg.jpg",
-            "/zine/photos/pzygo58f/img-8950-jpg.jpg",
-            "/zine/photos/pzygo58f/img-9144-jpg.jpg",
-            "/zine/photos/pzygo58f/img-9190-jpg.jpg",
-            "/zine/photos/pzygo58f/img-9201-jpg.jpg",
-            "/zine/photos/pzygo58f/img-9209-jpg.jpg",
-            "/zine/photos/pzygo58f/img-9217-jpg.jpg",
-            "/zine/photos/pzygo58f/img-9233-jpg.jpg"
-          ],
-          "beat": 1
-        },
-        {
-          "id": "flht4pj2m",
-          "type": "flip",
-          "x": 17.25,
-          "y": 86,
-          "w": 31.5,
-          "h": 21,
-          "rot": 0,
-          "z": 9,
-          "speed": 1500,
-          "srcs": [
-            "/zine/photos/pzygo58f/fri-travel-arrival-cooking-img-8947-jpg.jpg",
             "/zine/photos/pzygo58f/img-3276-jpg.jpg",
             "/zine/photos/pzygo58f/img-3277-jpg.jpg",
             "/zine/photos/pzygo58f/img-3278-jpg.jpg",
@@ -481,10 +458,19 @@
             "/zine/photos/pzygo58f/img-3292-jpg.jpg",
             "/zine/photos/pzygo58f/img-3293-jpg.jpg",
             "/zine/photos/pzygo58f/img-3294-jpg.jpg",
+            "/zine/photos/pzygo58f/img-8935-jpg.jpg",
+            "/zine/photos/pzygo58f/fri-travel-arrival-cooking-img-8947-jpg.jpg",
             "/zine/photos/pzygo58f/img-3301-jpg.jpg",
-            "/zine/photos/pzygo58f/img-8962-jpg.jpg"
+            "/zine/photos/pzygo58f/img-8950-jpg.jpg",
+            "/zine/photos/pzygo58f/img-8962-jpg.jpg",
+            "/zine/photos/pzygo58f/img-9144-jpg.jpg",
+            "/zine/photos/pzygo58f/img-9190-jpg.jpg",
+            "/zine/photos/pzygo58f/img-9201-jpg.jpg",
+            "/zine/photos/pzygo58f/img-9209-jpg.jpg",
+            "/zine/photos/pzygo58f/img-9217-jpg.jpg",
+            "/zine/photos/pzygo58f/img-9233-jpg.jpg"
           ],
-          "beat": 2
+          "beat": 1
         },
         {
           "id": "fl0k1olp8",
@@ -508,28 +494,6 @@
           "beat": 3
         },
         {
-          "id": "fl6cm9ah3",
-          "type": "flip",
-          "x": 79.42,
-          "y": 75.5,
-          "w": 41.16,
-          "h": 27.5,
-          "rot": 0,
-          "z": 14,
-          "speed": 1500,
-          "srcs": [
-            "/zine/photos/pzygo58f/comfy-house-blanket-drop-game-img-8955-jpg.jpg",
-            "/zine/photos/pzygo58f/comfy-house-blanket-drop-game-img-8969-jpg.jpg",
-            "/zine/photos/pzygo58f/fri-opening-blanket-drop-name-game-img-3387-jpg.jpg",
-            "/zine/photos/pzygo58f/fri-opening-blanket-drop-name-game-img-3388-jpg.jpg",
-            "/zine/photos/pzygo58f/fri-opening-blanket-drop-name-game-img-3389-jpg.jpg",
-            "/zine/photos/pzygo58f/fri-opening-blanket-drop-name-game-img-3390-jpg.jpg",
-            "/zine/photos/pzygo58f/fri-opening-blanket-drop-name-game-img-3391-jpg.jpg",
-            "/zine/photos/pzygo58f/from-unused-photos-img-3386-jpg.jpg"
-          ],
-          "beat": 4
-        },
-        {
           "id": "flzbe2sbb",
           "type": "flip",
           "x": 66.8,
@@ -542,38 +506,32 @@
           "srcs": [
             "/zine/photos/pzygo58f/comfy-house-slides-on-the-tv-img-8939-jpg.jpg",
             "/zine/photos/pzygo58f/comfy-house-slides-on-the-tv-img-8952-jpg.jpg",
+            "/zine/photos/pzygo58f/comfy-house-blanket-drop-game-img-8955-jpg.jpg",
             "/zine/photos/pzygo58f/comfy-house-slides-on-the-tv-img-8956-jpg.jpg",
             "/zine/photos/pzygo58f/comfy-house-slides-on-the-tv-img-8957-jpg.jpg",
             "/zine/photos/pzygo58f/comfy-house-slides-on-the-tv-img-8958-jpg.jpg",
-            "/zine/photos/pzygo58f/fri-opening-weekend-slides-on-the-tv-img-3400-jpg.jpg",
-            "/zine/photos/pzygo58f/fri-opening-weekend-slides-on-the-tv-img-3401-jpg.jpg",
+            "/zine/photos/pzygo58f/from-unused-photos-img-3373-jpg.jpg",
             "/zine/photos/pcommittees/img-3374-jpg.jpg",
-            "/zine/photos/pcommittees/img-3375-jpg.jpg"
-          ],
-          "beat": 6
-        },
-        {
-          "id": "flgb85vu4",
-          "type": "flip",
-          "x": 13.25,
-          "y": 105.35,
-          "w": 23.5,
-          "h": 15.7,
-          "rot": 0,
-          "z": 11,
-          "speed": 1500,
-          "srcs": [
+            "/zine/photos/pcommittees/img-3375-jpg.jpg",
+            "/zine/photos/pzygo58f/from-unused-photos-img-3386-jpg.jpg",
+            "/zine/photos/pzygo58f/fri-opening-blanket-drop-name-game-img-3387-jpg.jpg",
+            "/zine/photos/pzygo58f/fri-opening-blanket-drop-name-game-img-3388-jpg.jpg",
+            "/zine/photos/pzygo58f/fri-opening-blanket-drop-name-game-img-3389-jpg.jpg",
+            "/zine/photos/pzygo58f/fri-opening-blanket-drop-name-game-img-3390-jpg.jpg",
+            "/zine/photos/pzygo58f/fri-opening-blanket-drop-name-game-img-3391-jpg.jpg",
+            "/zine/photos/pzygo58f/comfy-house-blanket-drop-game-img-8969-jpg.jpg",
             "/zine/photos/pzygo58f/fri-opening-on-the-couches-img-3394-jpg.jpg",
             "/zine/photos/pzygo58f/fri-opening-on-the-couches-img-3395-jpg.jpg",
             "/zine/photos/pzygo58f/fri-opening-on-the-couches-img-3396-jpg.jpg",
             "/zine/photos/pzygo58f/fri-opening-on-the-couches-img-3397-jpg.jpg",
             "/zine/photos/pzygo58f/fri-opening-on-the-couches-img-3398-jpg.jpg",
             "/zine/photos/pzygo58f/fri-opening-on-the-couches-img-3399-jpg.jpg",
+            "/zine/photos/pzygo58f/fri-opening-weekend-slides-on-the-tv-img-3400-jpg.jpg",
+            "/zine/photos/pzygo58f/fri-opening-weekend-slides-on-the-tv-img-3401-jpg.jpg",
             "/zine/photos/pzygo58f/fri-opening-on-the-couches-img-3402-jpg.jpg",
-            "/zine/photos/pzygo58f/fri-opening-on-the-couches-img-3403-jpg.jpg",
-            "/zine/photos/pzygo58f/from-unused-photos-img-3373-jpg.jpg"
+            "/zine/photos/pzygo58f/fri-opening-on-the-couches-img-3403-jpg.jpg"
           ],
-          "beat": 5
+          "beat": 6
         },
         {
           "id": "flelsgypb",
@@ -705,7 +663,7 @@
           "italic": false,
           "align": "left",
           "ai": true,
-          "text": "Also photos and video.\n\nFriday Oct 16, opening: announced photos and video, AI notes, opt-outs, and the zine table.\n\nMembers, per the Granola notes: Celine, Nahom and one more [third name to confirm].\n(Source: Granola notes, retreat opening)",
+          "text": "Also photos and video.\n\nFriday Oct 16, opening: announced photos and video, AI notes, opt-outs, and the zine table.\n\nMembers: Nahom, Celine and Rhea.\n(Source: Granola notes, retreat opening)",
           "win": false,
           "fill": "#fbf4e0"
         },
@@ -713,9 +671,9 @@
           "id": "cmt-food",
           "type": "text",
           "x": 75.79,
-          "y": 74.82,
+          "y": 79.02,
           "w": 49.58,
-          "h": 19.64,
+          "h": 28.04,
           "rot": 0,
           "z": 7,
           "font": "Arial",
@@ -753,9 +711,9 @@
           "id": "cmt-conn",
           "type": "text",
           "x": 83.2,
-          "y": 131.23,
+          "y": 131.93,
           "w": 30.98,
-          "h": 14.1,
+          "h": 15.5,
           "rot": 0,
           "z": 9,
           "font": "Arial",
@@ -765,7 +723,7 @@
           "italic": false,
           "align": "left",
           "ai": true,
-          "text": "Worked closely with Hannah on the agenda.\n\n[What this committee did over the weekend, and its members, to come; it isn’t in the Granola notes]",
+          "text": "Worked closely with Hannah on the agenda.\n\nMembers: Odist and Mashiko [to confirm]. Their activities included the letters and the energizers [to confirm].",
           "win": false,
           "fill": "#fbf4e0"
         },
@@ -781,7 +739,49 @@
           "speed": 1500,
           "srcs": [
             "/zine/photos/pcommittees/e05a0097-8b44-468f-a7d9-7050dcfce14c-jpg.jpg",
-            "/zine/photos/pcommittees/social-kitchen-dscf8320-jpg.jpg",
+            "/zine/photos/pcommittees/comfy-house-food-and-dinner-prep-img-8937-jpg.jpg",
+            "/zine/photos/pcommittees/comfy-house-food-and-dinner-prep-img-8949-jpg.jpg",
+            "/zine/photos/pcommittees/comfy-house-food-and-dinner-prep-img-8951-jpg.jpg",
+            "/zine/photos/pcommittees/img-3323-jpg.jpg",
+            "/zine/photos/pcommittees/img-3324-jpg.jpg",
+            "/zine/photos/pcommittees/img-3325-jpg.jpg",
+            "/zine/photos/pcommittees/img-3326-jpg.jpg",
+            "/zine/photos/pcommittees/img-3327-jpg.jpg",
+            "/zine/photos/pcommittees/img-3328-jpg.jpg",
+            "/zine/photos/pcommittees/img-3329-jpg.jpg",
+            "/zine/photos/pcommittees/img-3330-jpg.jpg",
+            "/zine/photos/pcommittees/img-3331-jpg.jpg",
+            "/zine/photos/pcommittees/img-3332-jpg.jpg",
+            "/zine/photos/pcommittees/img-3333-jpg.jpg",
+            "/zine/photos/pcommittees/img-3334-jpg.jpg",
+            "/zine/photos/pcommittees/img-3335-jpg.jpg",
+            "/zine/photos/pcommittees/img-3336-jpg.jpg",
+            "/zine/photos/pcommittees/img-3337-jpg.jpg",
+            "/zine/photos/pcommittees/img-3338-jpg.jpg",
+            "/zine/photos/pcommittees/img-3341-jpg.jpg",
+            "/zine/photos/pcommittees/img-3342-jpg.jpg",
+            "/zine/photos/pcommittees/img-3343-jpg.jpg",
+            "/zine/photos/pcommittees/img-3344-jpg.jpg",
+            "/zine/photos/pcommittees/img-3345-jpg.jpg",
+            "/zine/photos/pcommittees/img-3346-jpg.jpg",
+            "/zine/photos/pcommittees/img-3347-jpg.jpg",
+            "/zine/photos/pcommittees/img-3348-jpg.jpg",
+            "/zine/photos/pcommittees/img-3349-jpg.jpg",
+            "/zine/photos/pcommittees/img-3350-jpg.jpg",
+            "/zine/photos/pcommittees/img-3351-jpg.jpg",
+            "/zine/photos/pcommittees/img-3352-jpg.jpg",
+            "/zine/photos/pcommittees/img-3353-jpg.jpg",
+            "/zine/photos/pcommittees/img-3354-jpg.jpg",
+            "/zine/photos/pcommittees/img-3355-jpg.jpg",
+            "/zine/photos/pcommittees/img-3356-jpg.jpg",
+            "/zine/photos/pcommittees/img-3357-jpg.jpg",
+            "/zine/photos/pcommittees/img-3358-jpg.jpg",
+            "/zine/photos/pcommittees/img-3359-jpg.jpg",
+            "/zine/photos/pcommittees/img-3360-jpg.jpg",
+            "/zine/photos/pcommittees/img-3361-jpg.jpg",
+            "/zine/photos/pcommittees/img-3362-jpg.jpg",
+            "/zine/photos/pcommittees/img-3363-jpg.jpg",
+            "/zine/photos/pcommittees/img-3364-jpg.jpg",
             "/zine/photos/pcommittees/img-3365-jpg.jpg",
             "/zine/photos/pcommittees/img-3366-jpg.jpg",
             "/zine/photos/pcommittees/img-3367-jpg.jpg",
@@ -789,6 +789,12 @@
             "/zine/photos/pcommittees/img-3369-jpg.jpg",
             "/zine/photos/pcommittees/img-3370-jpg.jpg",
             "/zine/photos/pcommittees/img-3372-jpg.jpg",
+            "/zine/photos/pzygo58f/fri-travel-arrival-cooking-img-4573-jpg.jpg",
+            "/zine/photos/pzygo58f/fri-travel-arrival-cooking-img-4574-jpg.jpg",
+            "/zine/photos/pcommittees/comfy-house-food-and-dinner-prep-img-8964-jpg.jpg",
+            "/zine/photos/pcommittees/img-3376-jpg.jpg",
+            "/zine/photos/pcommittees/img-3377-jpg.jpg",
+            "/zine/photos/pcommittees/img-3378-jpg.jpg",
             "/zine/photos/pcommittees/img-3379-jpg.jpg",
             "/zine/photos/pcommittees/img-3380-jpg.jpg",
             "/zine/photos/pcommittees/img-3381-jpg.jpg",
@@ -797,11 +803,11 @@
             "/zine/photos/pcommittees/img-3384-jpg.jpg",
             "/zine/photos/pcommittees/img-3385-jpg.jpg",
             "/zine/photos/pcommittees/from-unused-photos-img-3392-jpg.jpg",
-            "/zine/photos/pcommittees/comfy-house-food-and-dinner-prep-img-8937-jpg.jpg",
-            "/zine/photos/pcommittees/comfy-house-food-and-dinner-prep-img-8949-jpg.jpg",
-            "/zine/photos/pcommittees/comfy-house-food-and-dinner-prep-img-8951-jpg.jpg",
-            "/zine/photos/pcommittees/comfy-house-food-and-dinner-prep-img-8964-jpg.jpg",
-            "/zine/photos/pcommittees/comfy-house-food-and-dinner-prep-img-8970-jpg.jpg"
+            "/zine/photos/pcommittees/comfy-house-food-and-dinner-prep-img-8970-jpg.jpg",
+            "/zine/photos/pzygo58f/fri-dinner-and-night-img-3407-jpg.jpg",
+            "/zine/photos/pzygo58f/fri-dinner-and-night-img-3408-jpg.jpg",
+            "/zine/photos/pzygo58f/fri-dinner-and-night-img-3409-jpg.jpg",
+            "/zine/photos/pcommittees/social-kitchen-dscf8320-jpg.jpg"
           ],
           "beat": 4
         },
@@ -849,68 +855,6 @@
             "/zine/photos/pcommittees/comfy-house-snacks-and-supplies-table-img-8971-jpg.jpg"
           ],
           "beat": 1
-        },
-        {
-          "id": "flpg097qg",
-          "type": "flip",
-          "x": 78.2,
-          "y": 23.3,
-          "w": 29.4,
-          "h": 19.6,
-          "rot": 2,
-          "z": 2,
-          "speed": 1500,
-          "srcs": [
-            "/zine/photos/pcommittees/img-3323-jpg.jpg",
-            "/zine/photos/pcommittees/img-3324-jpg.jpg",
-            "/zine/photos/pcommittees/img-3325-jpg.jpg",
-            "/zine/photos/pcommittees/img-3326-jpg.jpg",
-            "/zine/photos/pcommittees/img-3327-jpg.jpg",
-            "/zine/photos/pcommittees/img-3328-jpg.jpg",
-            "/zine/photos/pcommittees/img-3329-jpg.jpg",
-            "/zine/photos/pcommittees/img-3330-jpg.jpg",
-            "/zine/photos/pcommittees/img-3331-jpg.jpg",
-            "/zine/photos/pcommittees/img-3332-jpg.jpg",
-            "/zine/photos/pcommittees/img-3333-jpg.jpg",
-            "/zine/photos/pcommittees/img-3334-jpg.jpg",
-            "/zine/photos/pcommittees/img-3335-jpg.jpg",
-            "/zine/photos/pcommittees/img-3336-jpg.jpg",
-            "/zine/photos/pcommittees/img-3337-jpg.jpg",
-            "/zine/photos/pcommittees/img-3338-jpg.jpg",
-            "/zine/photos/pcommittees/img-3341-jpg.jpg",
-            "/zine/photos/pcommittees/img-3342-jpg.jpg",
-            "/zine/photos/pcommittees/img-3343-jpg.jpg",
-            "/zine/photos/pcommittees/img-3344-jpg.jpg",
-            "/zine/photos/pcommittees/img-3345-jpg.jpg",
-            "/zine/photos/pcommittees/img-3346-jpg.jpg",
-            "/zine/photos/pcommittees/img-3347-jpg.jpg",
-            "/zine/photos/pcommittees/img-3348-jpg.jpg",
-            "/zine/photos/pcommittees/img-3349-jpg.jpg",
-            "/zine/photos/pcommittees/img-3350-jpg.jpg",
-            "/zine/photos/pcommittees/img-3351-jpg.jpg",
-            "/zine/photos/pcommittees/img-3352-jpg.jpg",
-            "/zine/photos/pcommittees/img-3353-jpg.jpg",
-            "/zine/photos/pcommittees/img-3354-jpg.jpg",
-            "/zine/photos/pcommittees/img-3355-jpg.jpg",
-            "/zine/photos/pcommittees/img-3356-jpg.jpg",
-            "/zine/photos/pcommittees/img-3357-jpg.jpg",
-            "/zine/photos/pcommittees/img-3358-jpg.jpg",
-            "/zine/photos/pcommittees/img-3359-jpg.jpg",
-            "/zine/photos/pcommittees/img-3360-jpg.jpg",
-            "/zine/photos/pcommittees/img-3361-jpg.jpg",
-            "/zine/photos/pcommittees/img-3362-jpg.jpg",
-            "/zine/photos/pcommittees/img-3363-jpg.jpg",
-            "/zine/photos/pcommittees/img-3364-jpg.jpg",
-            "/zine/photos/pcommittees/img-3376-jpg.jpg",
-            "/zine/photos/pcommittees/img-3377-jpg.jpg",
-            "/zine/photos/pcommittees/img-3378-jpg.jpg",
-            "/zine/photos/pzygo58f/fri-dinner-and-night-img-3407-jpg.jpg",
-            "/zine/photos/pzygo58f/fri-dinner-and-night-img-3408-jpg.jpg",
-            "/zine/photos/pzygo58f/fri-dinner-and-night-img-3409-jpg.jpg",
-            "/zine/photos/pzygo58f/fri-travel-arrival-cooking-img-4573-jpg.jpg",
-            "/zine/photos/pzygo58f/fri-travel-arrival-cooking-img-4574-jpg.jpg"
-          ],
-          "beat": 3
         },
         {
           "id": "flwqlfwbb",
@@ -1270,28 +1214,6 @@
           "src": "/zine/notebook/notebook-children.jpg"
         },
         {
-          "id": "ph79yua5y",
-          "type": "image",
-          "src": "/zine/photos/p8/scenery-ymca-outside-and-views-img-3590-jpeg.jpg",
-          "x": 36.1,
-          "y": 90.98,
-          "w": 74.03,
-          "h": 41.31,
-          "rot": 0,
-          "z": 3
-        },
-        {
-          "id": "phj1yofvu",
-          "type": "image",
-          "src": "/zine/photos/p8/scenery-ymca-outside-and-views-img-4596-jpg.jpg",
-          "x": 49.79,
-          "y": 34.71,
-          "w": 99.57,
-          "h": 71.79,
-          "rot": 0,
-          "z": 1
-        },
-        {
           "id": "phw5cwgw9",
           "type": "image",
           "src": "/zine/photos/p8/family-roles-presentation-at-the-screen-img-9133-jpg.jpg",
@@ -1301,50 +1223,6 @@
           "h": 34.31,
           "rot": 0,
           "z": 2
-        },
-        {
-          "id": "ph2x8pz6n",
-          "type": "image",
-          "src": "/zine/photos/p8/chair-game-wide-shots-standing-around-img-9147-jpg.jpg",
-          "x": 37.92,
-          "y": 14.79,
-          "w": 25.14,
-          "h": 18.13,
-          "rot": -7,
-          "z": 4
-        },
-        {
-          "id": "phf8rybjt",
-          "type": "image",
-          "src": "/zine/photos/p8/chair-game-wide-shots-standing-around-img-9157-jpg.jpg",
-          "x": 13.19,
-          "y": 10.85,
-          "w": 25.27,
-          "h": 18.23,
-          "rot": -1.8,
-          "z": 22
-        },
-        {
-          "id": "phirlbxw0",
-          "type": "image",
-          "src": "/zine/photos/p8/chair-game-wide-shots-standing-around-img-9185-jpg.jpg",
-          "x": 15.52,
-          "y": 75.92,
-          "w": 10.75,
-          "h": 7.75,
-          "rot": 2.2,
-          "z": 8
-        },
-        {
-          "id": "phzwglshr",
-          "type": "image",
-          "src": "/zine/photos/p8/chair-game-wide-shots-standing-around-img-9198-jpg.jpg",
-          "x": 91.69,
-          "y": 28.75,
-          "w": 47.06,
-          "h": 33.93,
-          "rot": -2.3,
-          "z": 9
         },
         {
           "id": "flooo26av",
@@ -1358,6 +1236,7 @@
           "speed": 1500,
           "beat": 2,
           "srcs": [
+            "/zine/photos/p8/scenery-ymca-outside-and-views-img-3590-jpeg.jpg",
             "/zine/photos/p8/scenery-ymca-outside-and-views-img-3459-jpg.jpg",
             "/zine/photos/p8/scenery-ymca-outside-and-views-img-3460-jpg.jpg",
             "/zine/photos/p8/scenery-ymca-outside-and-views-img-3461-jpg.jpg",
@@ -1396,13 +1275,20 @@
             "/zine/photos/p8/chair-game-selfies-and-close-ups-img-3502-jpg.jpg",
             "/zine/photos/p8/chair-game-game-in-the-circle-img-3503-jpg.jpg",
             "/zine/photos/p8/chair-game-game-in-the-circle-img-3504-jpg.jpg",
+            "/zine/photos/p8/chair-game-wide-shots-standing-around-img-9128-jpg.jpg",
             "/zine/photos/p8/chair-game-hugs-img-3505-jpg.jpg",
             "/zine/photos/p8/chair-game-hugs-img-3506-jpg.jpg",
             "/zine/photos/p8/chair-game-hugs-img-3507-jpg.jpg",
             "/zine/photos/p8/chair-game-hugs-img-3508-jpg.jpg",
             "/zine/photos/p8/chair-game-moving-chairs-img-3509-jpg.jpg",
             "/zine/photos/p8/chair-game-moving-chairs-img-3510-jpg.jpg",
-            "/zine/photos/p8/chair-game-moving-chairs-img-3511-jpg.jpg"
+            "/zine/photos/p8/chair-game-moving-chairs-img-3511-jpg.jpg",
+            "/zine/photos/p8/chair-game-wide-shots-standing-around-img-9130-jpg.jpg",
+            "/zine/photos/p8/chair-game-wide-shots-standing-around-img-9147-jpg.jpg",
+            "/zine/photos/p8/chair-game-wide-shots-standing-around-img-9157-jpg.jpg",
+            "/zine/photos/p8/chair-game-wide-shots-standing-around-img-9185-jpg.jpg",
+            "/zine/photos/p8/chair-game-wide-shots-standing-around-img-9198-jpg.jpg",
+            "/zine/photos/p8/scenery-ymca-outside-and-views-img-4596-jpg.jpg"
           ]
         },
         {
@@ -1437,22 +1323,6 @@
             "/zine/photos/p8/family-roles-standing-in-the-circle-img-3525-jpg.jpg",
             "/zine/photos/p8/from-unused-photos-img-3526-jpg.jpg",
             "/zine/photos/p8/family-roles-standing-in-the-circle-img-3527-jpg.jpg"
-          ]
-        },
-        {
-          "id": "fln6de8kb",
-          "type": "flip",
-          "x": 69.6,
-          "y": 12.6,
-          "w": 31.6,
-          "h": 22.78,
-          "rot": 5,
-          "z": 13,
-          "speed": 1500,
-          "beat": 3,
-          "srcs": [
-            "/zine/photos/p8/chair-game-wide-shots-standing-around-img-9128-jpg.jpg",
-            "/zine/photos/p8/chair-game-wide-shots-standing-around-img-9130-jpg.jpg"
           ]
         },
         {
@@ -1568,22 +1438,6 @@
           "title": "Words from the room"
         },
         {
-          "id": "fl1otiage",
-          "type": "flip",
-          "x": 86.8,
-          "y": 38.91,
-          "w": 25.47,
-          "h": 18.72,
-          "rot": -4,
-          "z": 2,
-          "speed": 1500,
-          "beat": 2,
-          "srcs": [
-            "/zine/photos/pglendadetail/mats-room-on-mats-from-the-back-img-9006-jpg.jpg",
-            "/zine/photos/pglendadetail/mats-room-on-mats-from-the-back-img-9007-jpg.jpg"
-          ]
-        },
-        {
           "id": "flcq4pa8q",
           "type": "flip",
           "x": 65.29,
@@ -1595,6 +1449,8 @@
           "speed": 1500,
           "beat": 3,
           "srcs": [
+            "/zine/photos/pglendadetail/mats-room-on-mats-from-the-back-img-9006-jpg.jpg",
+            "/zine/photos/pglendadetail/mats-room-on-mats-from-the-back-img-9007-jpg.jpg",
             "/zine/photos/pglendadetail/mats-room-on-mats-from-the-back-img-3544-jpg.jpg",
             "/zine/photos/pglendadetail/mats-room-on-mats-from-the-back-img-3545-jpg.jpg",
             "/zine/photos/pglendadetail/mats-room-on-mats-from-the-back-img-3546-jpg.jpg",
@@ -1655,7 +1511,14 @@
             "/zine/photos/pglendadetail/one-word-check-in-standing-circle-img-3569-jpg.jpg",
             "/zine/photos/pglendadetail/one-word-check-in-standing-circle-img-3570-jpg.jpg",
             "/zine/photos/pglendadetail/one-word-check-in-standing-circle-img-3571-jpg.jpg",
-            "/zine/photos/pglendadetail/one-word-check-in-standing-circle-img-3572-jpg.jpg"
+            "/zine/photos/pglendadetail/one-word-check-in-standing-circle-img-3572-jpg.jpg",
+            "/zine/photos/pglendadetail/one-word-check-in-standing-circle-img-3573-jpg.jpg",
+            "/zine/photos/pglendadetail/one-word-check-in-close-ups-in-the-circle-img-3574-jpg.jpg",
+            "/zine/photos/pglendadetail/one-word-check-in-close-ups-in-the-circle-img-3575-jpg.jpg",
+            "/zine/photos/pglendadetail/one-word-check-in-close-ups-in-the-circle-img-3576-jpg.jpg",
+            "/zine/photos/pglendadetail/one-word-check-in-close-ups-in-the-circle-img-3577-jpg.jpg",
+            "/zine/photos/pglendadetail/one-word-check-in-close-ups-in-the-circle-img-3578-jpg.jpg",
+            "/zine/photos/pglendadetail/one-word-check-in-close-ups-in-the-circle-img-3579-jpg.jpg"
           ]
         },
         {
@@ -1668,27 +1531,6 @@
           "h": 24.05,
           "rot": -1.4,
           "z": 2
-        },
-        {
-          "id": "flh0qplv2",
-          "type": "flip",
-          "x": 86.47,
-          "y": 18,
-          "w": 27.35,
-          "h": 18.41,
-          "rot": 0.1,
-          "z": 31,
-          "speed": 1500,
-          "beat": 5,
-          "srcs": [
-            "/zine/photos/pglendadetail/one-word-check-in-standing-circle-img-3573-jpg.jpg",
-            "/zine/photos/pglendadetail/one-word-check-in-close-ups-in-the-circle-img-3574-jpg.jpg",
-            "/zine/photos/pglendadetail/one-word-check-in-close-ups-in-the-circle-img-3575-jpg.jpg",
-            "/zine/photos/pglendadetail/one-word-check-in-close-ups-in-the-circle-img-3576-jpg.jpg",
-            "/zine/photos/pglendadetail/one-word-check-in-close-ups-in-the-circle-img-3577-jpg.jpg",
-            "/zine/photos/pglendadetail/one-word-check-in-close-ups-in-the-circle-img-3578-jpg.jpg",
-            "/zine/photos/pglendadetail/one-word-check-in-close-ups-in-the-circle-img-3579-jpg.jpg"
-          ]
         },
         {
           "id": "mn-breath",
@@ -1778,23 +1620,6 @@
           "title": "The Wall"
         },
         {
-          "id": "fl3vj0cf0",
-          "type": "flip",
-          "x": 67.3,
-          "y": 134.26,
-          "w": 42.59,
-          "h": 28.98,
-          "rot": 0,
-          "z": 2,
-          "speed": 1500,
-          "beat": 1,
-          "srcs": [
-            "/zine/photos/p9/sticky-notes-on-the-rug-sat-16-39-16-48-img-3628-jpg.jpg",
-            "/zine/photos/p9/sticky-notes-on-the-rug-sat-16-39-16-48-img-3629-jpg.jpg",
-            "/zine/photos/p9/sticky-notes-on-the-rug-sat-16-39-16-48-img-3630-jpg.jpg"
-          ]
-        },
-        {
           "id": "flzfga3wi",
           "type": "flip",
           "x": 67.04,
@@ -1806,6 +1631,9 @@
           "speed": 1500,
           "beat": 2,
           "srcs": [
+            "/zine/photos/p9/sticky-notes-on-the-rug-sat-16-39-16-48-img-3628-jpg.jpg",
+            "/zine/photos/p9/sticky-notes-on-the-rug-sat-16-39-16-48-img-3629-jpg.jpg",
+            "/zine/photos/p9/sticky-notes-on-the-rug-sat-16-39-16-48-img-3630-jpg.jpg",
             "/zine/photos/p9/sticky-notes-on-the-rug-sat-16-39-16-48-img-3631-jpg.jpg",
             "/zine/photos/p9/img-3632-jpg.jpg",
             "/zine/photos/p9/img-3633-jpg.jpg",
@@ -1814,21 +1642,7 @@
             "/zine/photos/p9/img-3636-jpg.jpg",
             "/zine/photos/p9/img-3637-jpg.jpg",
             "/zine/photos/p9/img-3638-jpg.jpg",
-            "/zine/photos/p9/img-3639-jpg.jpg"
-          ]
-        },
-        {
-          "id": "flqyfht5m",
-          "type": "flip",
-          "x": 67.04,
-          "y": 88.4,
-          "w": 43.1,
-          "h": 29.32,
-          "rot": 0,
-          "z": 2,
-          "speed": 1500,
-          "beat": 3,
-          "srcs": [
+            "/zine/photos/p9/img-3639-jpg.jpg",
             "/zine/photos/p9/img-3641-jpg.jpg",
             "/zine/photos/p9/img-3642-jpg.jpg",
             "/zine/photos/p9/img-3643-jpg.jpg",
@@ -9662,25 +9476,6 @@
           "fill": "#fbf3e1"
         },
         {
-          "id": "ky1sf2s",
-          "type": "text",
-          "x": 16.4,
-          "y": 109.6,
-          "w": 28.79,
-          "h": 19.84,
-          "rot": 0,
-          "z": 6,
-          "text": "[To come: a figure placing October quotes on two axes, from AI as a tool to AI as a replacement, and from supporting connection to eroding it]",
-          "font": "Arial",
-          "size": 2.4,
-          "color": "#5a5484",
-          "bold": false,
-          "italic": true,
-          "align": "left",
-          "ai": true,
-          "fill": "#fbf3e1"
-        },
-        {
           "id": "88tykb0",
           "type": "text",
           "x": 74.96,
@@ -9862,6 +9657,17 @@
           "text": "From my notebook, at the summit:\n“AI use unchecked leads to culture of convenience that eradicate the friction in our life that allows for growth, insight and innate creativity to surface.”\n“AI can augment human connection when used as a tool for stepping outside of yourself.”",
           "x": 58.39,
           "y": 111.29
+        },
+        {
+          "id": "summitaxes",
+          "type": "image",
+          "src": "/zine/notebook/summit-axes.jpg",
+          "x": 18.4,
+          "y": 109.6,
+          "w": 34,
+          "h": 21.72,
+          "rot": 0,
+          "z": 7
         }
       ],
       "bgImg": "/zine/art/bg-orange-flowers.jpg?v=2",
@@ -9899,7 +9705,7 @@
           "h": 8,
           "rot": 0,
           "z": 2,
-          "text": "Free discussion, then mafia. [To come: a ring of doodles with a photo cut-out in the middle, and quotes from the free discussion]",
+          "text": "Free discussion, then mafia. [To come: quotes from the free discussion]",
           "font": "Arial",
           "size": 2.4,
           "color": "#5a5484",
@@ -9908,45 +9714,6 @@
           "align": "left",
           "ai": true,
           "fill": "#fbf3e1"
-        },
-        {
-          "id": "p13-t",
-          "type": "text",
-          "x": 50,
-          "y": 53.87,
-          "w": 80,
-          "h": 12,
-          "rot": 0,
-          "z": 1,
-          "text": "Closing",
-          "font": "Arial",
-          "size": 6,
-          "color": "#2b2755",
-          "bold": true,
-          "italic": false,
-          "align": "center",
-          "ai": true,
-          "fill": "#fbf3e1"
-        },
-        {
-          "id": "wz67su9",
-          "type": "text",
-          "x": 53.43,
-          "y": 96.51,
-          "w": 86.86,
-          "h": 75.68,
-          "rot": 0,
-          "z": 3,
-          "text": "Friday: welcome, house agreements, home groups, dinner\n\nSaturday at the YMCA: opening poem (Dylan, “Sometimes” by Mary Oliver) · letter to next year's you · Odist's chair game · Glenda + Chris, part 1: family roles · AI Effect card game (Kash), before lunch · Glenda + Chris, part 2: the 11 C’s and breathwork · one-word check-in\n\nSaturday afternoon at the house: The Wall, ecosystem mapping across eight domains (Hannah)\n\nConsultancy workshops\nPractical Skills & Career Building\n· Bomi: “Identity and your locus of control: naming and overcoming the fears that may stall your professional development”\n· Leorah: “A debate workshop focused not on winning, but on productive conversation - making sure both sides feel heard across divides”\nAI, Futures & Society\n· Leo: “What might an ‘AGI’ future look like and how might we prepare?”\n· Audrey: “Making sense of AI news right now, plus feedback on a program bridging AI safety x AI impacts on humans/ society.”\n· Marisol: personal AI project feedback (her talk: “Is Small AI a Suitable Alternative?”)\n· Dylan: “Storytelling workshop - how narrative shapes us and helps us find connectivity through the stories we tell about ourselves”\n\nJosé: a poem, “You, If No One Else”\n\nSaturday night: free discussion, then mafia\nSunday: cleanup",
-          "font": "Arial",
-          "size": 2.1,
-          "color": "#2b2755",
-          "bold": false,
-          "italic": false,
-          "align": "left",
-          "win": true,
-          "title": "Everything we did (check me)",
-          "ai": true
         },
         {
           "id": "spreadcouch",
@@ -9975,68 +9742,23 @@
         {
           "id": "t7mfkjo",
           "type": "flip",
-          "x": 60.42,
-          "y": 39.1,
-          "w": 22,
-          "h": 16.75,
+          "x": 30,
+          "y": 44,
+          "w": 34,
+          "h": 25.9,
           "rot": -0.8,
           "z": 13,
           "speed": 1500,
           "beat": 3,
           "srcs": [
-            "/zine/photos/xfqw87p/social-couches-at-night-dscf8301-jpg.jpg",
-            "/zine/photos/xfqw87p/social-couches-at-night-dscf8302-jpg.jpg"
-          ],
-          "lock": false
-        },
-        {
-          "id": "idk3bip",
-          "type": "flip",
-          "x": 14.42,
-          "y": 39.1,
-          "w": 22,
-          "h": 16.75,
-          "rot": -1.9,
-          "z": 14,
-          "speed": 1500,
-          "beat": 1,
-          "srcs": [
             "/zine/photos/xfqw87p/social-dinner-table-toast-dscf8297-jpg.jpg",
             "/zine/photos/xfqw87p/social-dinner-table-toast-dscf8298-jpg.jpg",
-            "/zine/photos/xfqw87p/social-dinner-table-toast-dscf8299-jpg.jpg"
-          ],
-          "lock": false
-        },
-        {
-          "id": "rq03zys",
-          "type": "flip",
-          "x": 37.42,
-          "y": 39.1,
-          "w": 22,
-          "h": 16.75,
-          "rot": 0.4,
-          "z": 15,
-          "speed": 1500,
-          "beat": 2,
-          "srcs": [
+            "/zine/photos/xfqw87p/social-dinner-table-toast-dscf8299-jpg.jpg",
             "/zine/photos/xfqw87p/comfy-house-couches-and-lounging-img-8960-jpg.jpg",
-            "/zine/photos/xfqw87p/comfy-house-couches-and-lounging-img-8961-jpg.jpg"
-          ],
-          "lock": false
-        },
-        {
-          "id": "py7aekc",
-          "type": "flip",
-          "x": 83.42,
-          "y": 39.1,
-          "w": 22,
-          "h": 16.75,
-          "rot": -2.1,
-          "z": 16,
-          "speed": 1500,
-          "beat": 4,
-          "srcs": [
+            "/zine/photos/xfqw87p/comfy-house-couches-and-lounging-img-8961-jpg.jpg",
             "/zine/photos/xfqw87p/comfy-house-people-standing-candids-img-8963-jpg.jpg",
+            "/zine/photos/xfqw87p/social-couches-at-night-dscf8301-jpg.jpg",
+            "/zine/photos/xfqw87p/social-couches-at-night-dscf8302-jpg.jpg",
             "/zine/photos/xfqw87p/comfy-house-people-standing-candids-img-8966-jpg.jpg"
           ],
           "lock": false
@@ -10076,6 +9798,105 @@
           "rot": -1.6,
           "z": 19,
           "lock": false
+        },
+        {
+          "id": "mafia-d1",
+          "type": "image",
+          "src": "/zine/art/mafia/d1.jpg",
+          "x": 42.0,
+          "y": 73.0,
+          "w": 12.88,
+          "h": 15,
+          "rot": 0,
+          "z": 20
+        },
+        {
+          "id": "mafia-d2",
+          "type": "image",
+          "src": "/zine/art/mafia/d2.jpg",
+          "x": 61.09,
+          "y": 80.91,
+          "w": 8.37,
+          "h": 15,
+          "rot": 0,
+          "z": 20
+        },
+        {
+          "id": "mafia-d3",
+          "type": "image",
+          "src": "/zine/art/mafia/d3.jpg",
+          "x": 69.0,
+          "y": 100.0,
+          "w": 13.38,
+          "h": 15,
+          "rot": 0,
+          "z": 20
+        },
+        {
+          "id": "mafia-d4",
+          "type": "image",
+          "src": "/zine/art/mafia/d4.jpg",
+          "x": 61.09,
+          "y": 119.09,
+          "w": 8.91,
+          "h": 15,
+          "rot": 0,
+          "z": 20
+        },
+        {
+          "id": "mafia-d5",
+          "type": "image",
+          "src": "/zine/art/mafia/d5.jpg",
+          "x": 42.0,
+          "y": 127.0,
+          "w": 6.88,
+          "h": 15,
+          "rot": 0,
+          "z": 20
+        },
+        {
+          "id": "mafia-d6",
+          "type": "image",
+          "src": "/zine/art/mafia/d6.jpg",
+          "x": 22.91,
+          "y": 119.09,
+          "w": 4.8,
+          "h": 15,
+          "rot": 0,
+          "z": 20
+        },
+        {
+          "id": "mafia-d7",
+          "type": "image",
+          "src": "/zine/art/mafia/d7.jpg",
+          "x": 15.0,
+          "y": 100.0,
+          "w": 13.53,
+          "h": 15,
+          "rot": 0,
+          "z": 20
+        },
+        {
+          "id": "mafia-d8",
+          "type": "image",
+          "src": "/zine/art/mafia/d8.jpg",
+          "x": 22.91,
+          "y": 80.91,
+          "w": 15.0,
+          "h": 15,
+          "rot": 0,
+          "z": 20
+        },
+        {
+          "id": "mafia-mid",
+          "type": "image",
+          "src": "/zine/cutouts/person-43.webp",
+          "x": 42,
+          "y": 100,
+          "h": 30,
+          "w": 15.03,
+          "rot": 0,
+          "z": 21
         }
       ],
       "bgImg": "/zine/art/bg-polka-dots.jpg?v=2",
@@ -10148,61 +9969,6 @@
           ]
         },
         {
-          "id": "fl27035pt",
-          "type": "flip",
-          "x": 43.85,
-          "y": 27.18,
-          "w": 28.88,
-          "h": 18.71,
-          "rot": 1.3,
-          "z": 2,
-          "speed": 1500,
-          "beat": 6,
-          "srcs": [
-            "/zine/photos/xfqw87p/outside-the-ymca-feet-on-the-gravel-img-3427-jpg.jpg",
-            "/zine/photos/xfqw87p/outside-the-ymca-feet-on-the-gravel-img-3428-jpg.jpg",
-            "/zine/photos/xfqw87p/outside-the-ymca-vans-and-arriving-img-3429-jpg.jpg",
-            "/zine/photos/xfqw87p/outside-the-ymca-vans-and-arriving-img-3430-jpg.jpg",
-            "/zine/photos/xfqw87p/outside-the-ymca-vans-and-arriving-img-3431-jpg.jpg",
-            "/zine/photos/xfqw87p/outside-the-ymca-vans-and-arriving-img-3432-jpg.jpg",
-            "/zine/photos/xfqw87p/outside-the-ymca-vans-and-arriving-img-3433-jpg.jpg",
-            "/zine/photos/xfqw87p/outside-the-ymca-candids-img-3434-jpg.jpg",
-            "/zine/photos/xfqw87p/outside-the-ymca-vans-and-arriving-img-3435-jpg.jpg",
-            "/zine/photos/xfqw87p/from-unused-photos-img-3436-jpg.jpg",
-            "/zine/photos/xfqw87p/outside-the-ymca-vans-and-arriving-img-3438-jpg.jpg",
-            "/zine/photos/xfqw87p/outside-the-ymca-carrying-the-basket-img-3439-jpg.jpg",
-            "/zine/photos/xfqw87p/outside-the-ymca-carrying-the-basket-img-3440-jpg.jpg",
-            "/zine/photos/xfqw87p/outside-the-ymca-carrying-the-basket-img-3441-jpg.jpg",
-            "/zine/photos/xfqw87p/outside-the-ymca-candids-img-3443-jpg.jpg",
-            "/zine/photos/xfqw87p/outside-the-ymca-candids-img-3444-jpg.jpg",
-            "/zine/photos/xfqw87p/outside-the-ymca-group-selfies-by-the-lodge-img-3445-jpg.jpg",
-            "/zine/photos/xfqw87p/outside-the-ymca-group-selfies-by-the-lodge-img-3446-jpg.jpg",
-            "/zine/photos/xfqw87p/outside-the-ymca-group-selfies-by-the-lodge-img-3447-jpg.jpg",
-            "/zine/photos/xfqw87p/outside-the-ymca-group-selfies-by-the-lodge-img-3448-jpg.jpg",
-            "/zine/photos/xfqw87p/outside-the-ymca-group-selfies-by-the-lodge-img-3449-jpg.jpg",
-            "/zine/photos/xfqw87p/outside-the-ymca-group-selfies-by-the-lodge-img-3450-jpg.jpg"
-          ]
-        },
-        {
-          "id": "fl0dcr6uh",
-          "type": "flip",
-          "x": 24.54,
-          "y": 38.55,
-          "w": 26.88,
-          "h": 17.41,
-          "rot": 1.1,
-          "z": 3,
-          "speed": 1500,
-          "beat": 1,
-          "srcs": [
-            "/zine/photos/xfqw87p/outside-the-ymca-taking-photos-camera-burst-img-3451-jpg.jpg",
-            "/zine/photos/xfqw87p/outside-the-ymca-taking-photos-camera-burst-img-3452-jpg.jpg",
-            "/zine/photos/xfqw87p/outside-the-ymca-taking-photos-camera-burst-img-3453-jpg.jpg",
-            "/zine/photos/xfqw87p/outside-the-ymca-taking-photos-camera-burst-img-3454-jpg.jpg",
-            "/zine/photos/xfqw87p/outside-the-ymca-taking-photos-camera-burst-img-3455-jpg.jpg"
-          ]
-        },
-        {
           "id": "ph8ed8s3z",
           "type": "image",
           "src": "/zine/photos/xfqw87p/from-unused-photos-img-3482-jpg.jpg",
@@ -10226,7 +9992,13 @@
           "beat": 5,
           "srcs": [
             "/zine/photos/xfqw87p/sat-evening-couch-group-18-43-img-3652-jpg.jpg",
-            "/zine/photos/xfqw87p/sat-evening-couch-group-18-43-img-3653-jpg.jpg"
+            "/zine/photos/xfqw87p/sat-evening-couch-group-18-43-img-3653-jpg.jpg",
+            "/zine/photos/xfqw87p/social-couches-at-night-dscf8321-jpg.jpg",
+            "/zine/photos/xfqw87p/social-couches-at-night-dscf8322-jpg.jpg",
+            "/zine/photos/xfqw87p/social-couches-at-night-dscf8323-jpg.jpg",
+            "/zine/photos/xfqw87p/social-couches-at-night-dscf8324-jpg.jpg",
+            "/zine/photos/xfqw87p/social-couches-at-night-dscf8325-jpg.jpg",
+            "/zine/photos/xfqw87p/social-couches-at-night-dscf8326-jpg.jpg"
           ]
         },
         {
@@ -10274,26 +10046,6 @@
           "z": 1
         },
         {
-          "id": "fll4b0ex1",
-          "type": "flip",
-          "x": 82.38,
-          "y": 142.19,
-          "w": 31.44,
-          "h": 23.95,
-          "rot": -1.4,
-          "z": 9,
-          "speed": 1500,
-          "beat": 6,
-          "srcs": [
-            "/zine/photos/xfqw87p/social-couches-at-night-dscf8321-jpg.jpg",
-            "/zine/photos/xfqw87p/social-couches-at-night-dscf8322-jpg.jpg",
-            "/zine/photos/xfqw87p/social-couches-at-night-dscf8323-jpg.jpg",
-            "/zine/photos/xfqw87p/social-couches-at-night-dscf8324-jpg.jpg",
-            "/zine/photos/xfqw87p/social-couches-at-night-dscf8325-jpg.jpg",
-            "/zine/photos/xfqw87p/social-couches-at-night-dscf8326-jpg.jpg"
-          ]
-        },
-        {
           "id": "phli0e7yt",
           "type": "image",
           "src": "/zine/photos/xfqw87p/comfy-house-people-standing-candids-img-8942-jpg.jpg",
@@ -10316,50 +10068,6 @@
           "z": 11
         },
         {
-          "id": "phoazocpg",
-          "type": "image",
-          "src": "/zine/photos/xfqw87p/k1-camera-portraits-and-selfies-img-9203-jpg.jpg",
-          "x": 32.59,
-          "y": 146.84,
-          "w": 25.64,
-          "h": 19.6,
-          "rot": 65,
-          "z": 12
-        },
-        {
-          "id": "ph1iiahn8",
-          "type": "image",
-          "src": "/zine/photos/xfqw87p/k1-camera-portraits-and-selfies-img-8972-jpg.jpg",
-          "x": 3.77,
-          "y": 101.65,
-          "w": 13.75,
-          "h": 10.5,
-          "rot": -2.4,
-          "z": 13
-        },
-        {
-          "id": "phf3cn8eu",
-          "type": "image",
-          "src": "/zine/photos/xfqw87p/k1-camera-portraits-and-selfies-img-9162-jpg.jpg",
-          "x": 65.88,
-          "y": 102.25,
-          "w": 13.75,
-          "h": 10.5,
-          "rot": 0.2,
-          "z": 14
-        },
-        {
-          "id": "ph4qadgyx",
-          "type": "image",
-          "src": "/zine/photos/xfqw87p/social-outside-in-the-sun-vans-img-9153-jpg.jpg",
-          "x": 92.54,
-          "y": 98.09,
-          "w": 29.18,
-          "h": 22.28,
-          "rot": 20,
-          "z": 15
-        },
-        {
           "id": "flp07dnhs",
           "type": "flip",
           "x": 82.38,
@@ -10371,6 +10079,34 @@
           "speed": 1500,
           "beat": 3,
           "srcs": [
+            "/zine/photos/xfqw87p/outside-the-ymca-feet-on-the-gravel-img-3427-jpg.jpg",
+            "/zine/photos/xfqw87p/outside-the-ymca-feet-on-the-gravel-img-3428-jpg.jpg",
+            "/zine/photos/xfqw87p/outside-the-ymca-vans-and-arriving-img-3429-jpg.jpg",
+            "/zine/photos/xfqw87p/outside-the-ymca-vans-and-arriving-img-3430-jpg.jpg",
+            "/zine/photos/xfqw87p/outside-the-ymca-vans-and-arriving-img-3431-jpg.jpg",
+            "/zine/photos/xfqw87p/outside-the-ymca-vans-and-arriving-img-3432-jpg.jpg",
+            "/zine/photos/xfqw87p/outside-the-ymca-vans-and-arriving-img-3433-jpg.jpg",
+            "/zine/photos/xfqw87p/outside-the-ymca-candids-img-3434-jpg.jpg",
+            "/zine/photos/xfqw87p/outside-the-ymca-vans-and-arriving-img-3435-jpg.jpg",
+            "/zine/photos/xfqw87p/from-unused-photos-img-3436-jpg.jpg",
+            "/zine/photos/xfqw87p/outside-the-ymca-vans-and-arriving-img-3438-jpg.jpg",
+            "/zine/photos/xfqw87p/outside-the-ymca-carrying-the-basket-img-3439-jpg.jpg",
+            "/zine/photos/xfqw87p/outside-the-ymca-carrying-the-basket-img-3440-jpg.jpg",
+            "/zine/photos/xfqw87p/outside-the-ymca-carrying-the-basket-img-3441-jpg.jpg",
+            "/zine/photos/xfqw87p/outside-the-ymca-candids-img-3443-jpg.jpg",
+            "/zine/photos/xfqw87p/outside-the-ymca-candids-img-3444-jpg.jpg",
+            "/zine/photos/xfqw87p/outside-the-ymca-group-selfies-by-the-lodge-img-3445-jpg.jpg",
+            "/zine/photos/xfqw87p/outside-the-ymca-group-selfies-by-the-lodge-img-3446-jpg.jpg",
+            "/zine/photos/xfqw87p/outside-the-ymca-group-selfies-by-the-lodge-img-3447-jpg.jpg",
+            "/zine/photos/xfqw87p/outside-the-ymca-group-selfies-by-the-lodge-img-3448-jpg.jpg",
+            "/zine/photos/xfqw87p/outside-the-ymca-group-selfies-by-the-lodge-img-3449-jpg.jpg",
+            "/zine/photos/xfqw87p/outside-the-ymca-group-selfies-by-the-lodge-img-3450-jpg.jpg",
+            "/zine/photos/xfqw87p/outside-the-ymca-taking-photos-camera-burst-img-3451-jpg.jpg",
+            "/zine/photos/xfqw87p/outside-the-ymca-taking-photos-camera-burst-img-3452-jpg.jpg",
+            "/zine/photos/xfqw87p/outside-the-ymca-taking-photos-camera-burst-img-3453-jpg.jpg",
+            "/zine/photos/xfqw87p/outside-the-ymca-taking-photos-camera-burst-img-3454-jpg.jpg",
+            "/zine/photos/xfqw87p/outside-the-ymca-taking-photos-camera-burst-img-3455-jpg.jpg",
+            "/zine/photos/xfqw87p/social-outside-in-the-sun-vans-img-9153-jpg.jpg",
             "/zine/photos/xfqw87p/social-outside-in-the-sun-vans-img-9171-jpg.jpg",
             "/zine/photos/xfqw87p/social-outside-in-the-sun-vans-img-9173-jpg.jpg"
           ]
@@ -10387,21 +10123,14 @@
           "speed": 1500,
           "beat": 4,
           "srcs": [
+            "/zine/photos/xfqw87p/k1-camera-portraits-and-selfies-img-8972-jpg.jpg",
+            "/zine/photos/xfqw87p/k1-camera-portraits-and-selfies-img-9162-jpg.jpg",
             "/zine/photos/xfqw87p/k1-camera-portraits-and-selfies-img-9191-jpg.jpg",
             "/zine/photos/xfqw87p/k1-camera-portraits-and-selfies-img-9193-jpg.jpg",
-            "/zine/photos/xfqw87p/k1-camera-portraits-and-selfies-img-9195-jpg.jpg"
+            "/zine/photos/xfqw87p/k1-camera-portraits-and-selfies-img-9195-jpg.jpg",
+            "/zine/photos/xfqw87p/k1-camera-portraits-and-selfies-img-9203-jpg.jpg",
+            "/zine/photos/xfqw87p/k1-camera-portraits-and-selfies-img-9231-jpg.jpg"
           ]
-        },
-        {
-          "id": "ph3dzpoc9",
-          "type": "image",
-          "src": "/zine/photos/xfqw87p/k1-camera-portraits-and-selfies-img-9231-jpg.jpg",
-          "x": 13.23,
-          "y": 144.21,
-          "w": 26.02,
-          "h": 19.87,
-          "rot": 1.8,
-          "z": 18
         },
         {
           "id": "crane-white-crane-a",
@@ -11359,6 +11088,32 @@
       ]
     },
     {
+      "id": "pschedule",
+      "bg": "#fcfcf0",
+      "items": [
+        {
+          "id": "wz67su9",
+          "type": "text",
+          "x": 50,
+          "y": 44.84,
+          "w": 92,
+          "h": 75.68,
+          "rot": 0,
+          "z": 3,
+          "text": "Friday: welcome, house agreements, home groups, dinner\n\nSaturday at the YMCA: opening poem (Dylan, “Sometimes” by Mary Oliver) · letter to next year's you · Odist's chair game · Glenda + Chris, part 1: family roles · AI Effect card game (Kash), before lunch · Glenda + Chris, part 2: the 11 C’s and breathwork · one-word check-in\n\nSaturday afternoon at the house: The Wall, ecosystem mapping across eight domains (Hannah)\n\nConsultancy workshops\nPractical Skills & Career Building\n· Bomi: “Identity and your locus of control: naming and overcoming the fears that may stall your professional development”\n· Leorah: “A debate workshop focused not on winning, but on productive conversation - making sure both sides feel heard across divides”\nAI, Futures & Society\n· Leo: “What might an ‘AGI’ future look like and how might we prepare?”\n· Audrey: “Making sense of AI news right now, plus feedback on a program bridging AI safety x AI impacts on humans/ society.”\n· Marisol: personal AI project feedback (her talk: “Is Small AI a Suitable Alternative?”)\n· Dylan: “Storytelling workshop - how narrative shapes us and helps us find connectivity through the stories we tell about ourselves”\n\nJosé: a poem, “You, If No One Else”\n\nSaturday night: free discussion, then mafia\nSunday: cleanup",
+          "font": "Arial",
+          "size": 2.1,
+          "color": "#2b2755",
+          "bold": false,
+          "italic": false,
+          "align": "left",
+          "win": true,
+          "title": "Everything we did",
+          "ai": true
+        }
+      ]
+    },
+    {
       "id": "pqt42ojb",
       "bg": "#d33251",
       "items": [
@@ -11490,21 +11245,7 @@
           "beat": 1,
           "srcs": [
             "/zine/photos/pqt42ojb/scenery-mountains-from-the-bus-img-4563-jpg.jpg",
-            "/zine/photos/pqt42ojb/scenery-mountains-from-the-bus-img-4565-jpg.jpg"
-          ]
-        },
-        {
-          "id": "fl6iml4mg",
-          "type": "flip",
-          "x": 63.89,
-          "y": 146.12,
-          "w": 47.12,
-          "h": 30.34,
-          "rot": -12,
-          "z": 1,
-          "speed": 1500,
-          "beat": 6,
-          "srcs": [
+            "/zine/photos/pqt42ojb/scenery-mountains-from-the-bus-img-4565-jpg.jpg",
             "/zine/photos/pqt42ojb/scenery-mountains-from-the-bus-img-3621-jpg.jpg",
             "/zine/photos/pqt42ojb/scenery-mountains-from-the-bus-img-3622-jpg.jpg",
             "/zine/photos/pqt42ojb/scenery-mountains-from-the-bus-img-3623-jpg.jpg",
