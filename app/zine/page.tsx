@@ -30,5 +30,9 @@ export default async function ZinePage() {
     const f = path.join(process.cwd(), "data", "zine.json");
     if (existsSync(f)) doc = JSON.parse(readFileSync(f, "utf8")) as ZineDoc;
   } catch { /* fall back to the starter */ }
-  return <Zine initial={doc} canSave={process.env.NODE_ENV === "development"} gated={!!process.env.SITE_PASSWORD} cloud={cloud} />;
+  // "The whole story" (the raw voice-memo text) has no button or links in the reader any more, so it is not sent to
+  // visitors at all: on the deployed site it stays out of the page. It is still in data/zine.json and in the local editor.
+  const dev = process.env.NODE_ENV === "development";
+  if (!dev && doc.story) { const { story: _hidden, ...rest } = doc; void _hidden; doc = rest; }
+  return <Zine initial={doc} canSave={dev} gated={!!process.env.SITE_PASSWORD} cloud={cloud} />;
 }
