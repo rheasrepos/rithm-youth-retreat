@@ -52,12 +52,13 @@ function Highlight({ text, word }: { text: string; word: string }) {
   return <>{text.split(re).map((p, i) => (i % 2 ? <mark key={i}>{p}</mark> : p))}</>;
 }
 
-export function WordCloud({ notes: base, domains, compact }: { notes: CloudNote[]; domains: { id: string; name: string }[]; compact?: boolean }) {   // compact: inside the zine, without the add-a-note form
+export function WordCloud({ notes: base, domains, compact, talk }: { notes: CloudNote[]; domains: { id: string; name: string }[]; compact?: boolean; talk?: CloudNote[] }) {   // talk: lines from the session transcripts, added with a button   // compact: inside the zine, without the add-a-note form
   const [mine, setMine] = useState<CloudNote[]>([]);            // notes this viewer added (only in their browser until approved)
-  const all = useMemo(() => [...base, ...mine], [base, mine]);
+  const [withTalk, setWithTalk] = useState(false);
+  const all = useMemo(() => [...base, ...mine, ...(withTalk && talk ? talk : [])], [base, mine, withTalk, talk]);
   const words = useMemo(() => buildCloud(all), [all]);
   const notes = useMemo(() => Object.fromEntries(all.map((n) => [n.id, n])), [all]);
-  const domainNames = useMemo(() => Object.fromEntries(domains.map((d) => [d.id, d.name])), [domains]);
+  const domainNames = useMemo(() => ({ ...Object.fromEntries(domains.map((d) => [d.id, d.name])), talk: "said out loud (Granola transcript, speech-to-text)" } as Record<string, string>), [domains]);
   const [mode, setMode] = useState<Mode>("all");
   const [focus, setFocus] = useState<string | null>(null);
   const [colourBy, setColourBy] = useState<ColourBy>("size");
@@ -95,6 +96,7 @@ export function WordCloud({ notes: base, domains, compact }: { notes: CloudNote[
         {([["all", "All notes"], ["concern", "Worries"], ["working_on", "Working on it"]] as [Mode, string][]).map(([m, l]) => (
           <button key={m} type="button" className={mode === m ? "on" : ""} aria-pressed={mode === m} onClick={() => setMode(m)}>{l}</button>
         ))}
+        {talk && talk.length > 0 && <button type="button" className={withTalk ? "on" : ""} aria-pressed={withTalk} onClick={() => { setWithTalk((v) => !v); setFocus(null); }} title="Add the lines people said out loud in the sessions, from the Granola transcripts">{withTalk ? "− What we talked about" : "+ What we talked about"}</button>}
         <span className="wcsep" />
         {([["size", "Colour by size"], ["lean", "Colour by worry vs. doing"]] as [ColourBy, string][]).map(([c, l]) => (
           <button key={c} type="button" className={colourBy === c ? "on" : ""} aria-pressed={colourBy === c} onClick={() => setColourBy(c)}>{l}</button>

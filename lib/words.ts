@@ -13,7 +13,8 @@ many some any all each every other such own same also only even still really get
 need needs thing things way ways lot lots one two three etc vs via im dont doesnt isnt cant wont theyre youre ive id ill re s t
 going go gets being because while through between up down out off again further once both few
 im i'm don't didn't doesn't isn't can't won't they're you're i've it's that's think sometimes abt now done use using
-working`.split(/\s+/));
+working
+actually gonna wanna gotta yeah yes okay ok um uh oh mhmm guys kind sort know mean right maybe say said saying talk talking let lets let's gonna i'll we're we've you've there's what's he's she's y'all`.split(/\s+/));   // the second line is mostly spoken filler, for the transcript lines
 const ALIAS: Record<string, string> = { ppl: "people", "ai's": "ai", irl: "in-person", tech: "technology", kids: "kid", youth: "young", socials: "social" };
 const ROOTS: Record<string, string> = Object.fromEntries(["connect", "connects", "connected", "connecting", "connection", "connections", "connectedness", "connectivity"].map((w) => [w, "connection"]));
 ROOTS.disconnect = ROOTS.disconnected = ROOTS.disconnection = "disconnection";
