@@ -815,3 +815,28 @@ html,body{overflow-x:clip}
 .tli{position:absolute;right:6px;top:6px;z-index:2;display:grid;place-items:center;width:22px;height:22px;background:#c0c0c0;color:#0a66c2;font:700 13px/1 Arial,sans-serif;text-decoration:none;border:2px solid #000;border-color:#fff #808080 #808080 #fff;box-shadow:1px 1px 0 rgba(0,0,0,.35)}
 .tli:hover{background:#d6d6d6}
 .tli.inline{position:static;display:inline-grid;vertical-align:middle}
+
+/* ===== Retro look across the site (Nov 23): grey raised buttons like rheamad.vercel.app, square zine-style windows ===== */
+.btn,.chip,.aichip,.orgbtn,.copy,.filebtn{border-radius:0;font-family:Arial,sans-serif}
+.btn{background:#c0c0c0;color:#000;border:2px solid #000;border-color:#fff #808080 #808080 #fff;box-shadow:2px 2px 0 rgba(0,0,0,.35);padding:12px 22px;font-size:15px;letter-spacing:.02em}
+.btn:hover{background:#cfcfcf}
+.btn:active{transform:none;border-color:#808080 #fff #fff #808080;box-shadow:none;background:#b5b5b5}
+.btn:not(.ghost){background:#2b2755;color:#fff;border-color:#6d68a8 #14102e #14102e #6d68a8}
+.btn:not(.ghost):hover{background:#3a3570}
+.btn.ghost{background:#c0c0c0;color:#000;border:2px solid #000;border-color:#fff #808080 #808080 #fff;box-shadow:2px 2px 0 rgba(0,0,0,.35);padding:8px 14px;font-size:14px}
+.btn.ghost:hover{background:#cfcfcf}
+.btn:disabled{opacity:.55;cursor:default}
+.chip{background:#c0c0c0;color:#000;border:2px solid #000;border-color:#fff #808080 #808080 #fff;box-shadow:1px 1px 0 rgba(0,0,0,.3);padding:5px 12px;font-size:14px}
+.chip:hover{background:#cfcfcf;border-color:#fff #808080 #808080 #fff}
+.chip[aria-pressed="true"],.chip.on{border-color:#808080 #fff #fff #808080;background:#b5b5b5;box-shadow:none}
+.aichip{background:#c0c0c0;color:#000;border:2px solid #000;border-color:#fff #808080 #808080 #fff;box-shadow:2px 2px 0 rgba(0,0,0,.35)}
+.search input{border-radius:0;border:2px solid #000;border-color:#808080 #fff #fff #808080;background:#fff}
+/* windows: square, indigo frame, like the zine's text boxes */
+.card,.tablewrap{border-radius:0;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
+.card .retreat{border-radius:0}
+.notedlg{border-radius:0;border:3px solid var(--ink);box-shadow:8px 8px 0 var(--ink)}
+.teamdlg .bar button,.notedlg .bar button{background:#c0c0c0;color:#000;border:2px solid #000;border-color:#fff #808080 #808080 #fff}
+.face,.ucard,.wrow,.ok,.gap,.orgbtn{border-radius:0}
+.face,.ucard{border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
+.orgbtn{border:2px solid #000;border-color:#fff #808080 #808080 #fff;background:#c0c0c0;color:#000}
+.form input,.form select,.form textarea,details.all input,.loginrow input{border-radius:0;border:2px solid #000;border-color:#808080 #fff #fff #808080;background:#fff}
