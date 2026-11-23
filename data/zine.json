@@ -9025,24 +9025,6 @@
      "h": 15.75,
      "rot": 1.9,
      "z": 2
-    },
-    {
-     "id": "q-nahom",
-     "type": "text",
-     "w": 72,
-     "h": 19.2,
-     "rot": 0,
-     "z": 26,
-     "font": "Arial",
-     "size": 1.6,
-     "color": "#2b2755",
-     "bold": false,
-     "italic": false,
-     "align": "left",
-     "fill": "#fbf3e1",
-     "text": "Nahom, in the conversation round (Granola transcript):\n“I I also really like the point of, like, well, it’s, like, diverse, and it’s real. And in a way, you are building like, a relationship with someone there. And it’s, like, really, I think, powerful when there’s, like, mutual growth. Like, your LLM’s never getting something from you where they’re also, like, on their journey towards healing.”",
-     "x": 60,
-     "y": 104.6
     }
    ],
    "tags": [
