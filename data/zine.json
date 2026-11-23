@@ -663,7 +663,7 @@
      "bold": false,
      "italic": false,
      "align": "left",
-     "text": "People were placed in one of four committees, based on the preferences they filled out on a form.",
+     "text": "People were placed in one of three committees, based on the preferences they filled out on a form.",
      "win": false,
      "fill": "#fbf4e0"
     },
@@ -863,8 +863,8 @@
      "w": 28,
      "h": 16.4,
      "id": "aawypl4",
-     "x": 78,
-     "y": 122,
+     "x": 84,
+     "y": 131,
      "rot": 3,
      "z": 19,
      "spread": true
@@ -946,25 +946,6 @@
      "text": "“Designs activities and leads reflection discussions that help the group bond and stay present with each other.”\n— Kash + Hannah’s email, Aug 13\n\nOn the agenda: recovery time on arrival, with snacks, water and drinks laid out; Saturday’s welcome for the youth fellows, with a “Who Are You” activity; Sunday’s grounding activity.\n\nMembers: Mashiko, Odist and Daira.\n(Source: Kash + Hannah’s agenda sheet)",
      "win": true,
      "title": "Connection Committee"
-    },
-    {
-     "id": "cmt-conn-q",
-     "type": "text",
-     "x": 78.5,
-     "y": 99.7,
-     "w": 39,
-     "h": 20.4,
-     "rot": 0,
-     "z": 14,
-     "font": "Arial",
-     "size": 1.6,
-     "color": "#2b2755",
-     "bold": false,
-     "italic": false,
-     "align": "left",
-     "text": "“Keeps a pulse on how people are doing, both physically and emotionally… Normalizes breaks, rest, and support.”\n— Kash + Hannah’s email, Aug 13\n\nMembers: José and Cyra.",
-     "win": true,
-     "title": "Energy/Care Committee"
     }
    ]
   },
@@ -11139,7 +11120,7 @@
      "y": 26.25,
      "w": 46,
      "h": 20.5,
-     "text": "Most people joined a committee, picked from a preference form:\n• Story & Momentum: photos, notes, the zine table\n• Food Crew: planned and cooked the group meals\n• Connection: welcomes, recovery time, the grounding activity\n• Energy/Care: kept a pulse on how people were doing"
+     "text": "Most people joined a committee, picked from a preference form:\n• Story & Momentum: photos, notes, the zine table\n• Food Crew: planned and cooked the group meals\n• Connection: welcomes, recovery time, the grounding activity"
     },
     {
      "type": "text",
