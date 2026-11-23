@@ -23,7 +23,8 @@
       "id": "t04",
       "text": "“Everything we did” list (order now fixed: AI Effect game between the two Glenda + Chris halves): keep as a credits-style list or cut it?",
       "group": "Decide",
-      "page": 26
+      "page": 26,
+      "done": true
     },
     {
       "id": "t05",
@@ -79,7 +80,7 @@
     },
     {
       "id": "t14",
-      "text": "Your words for Marisol’s and Leorah’s sessions",
+      "text": "Your words for Marisol’s session (page 19). Leorah’s page now has your notebook lines",
       "group": "To do",
       "page": 12
     },
@@ -139,7 +140,8 @@
     {
       "id": "t28",
       "text": "Set SITE_PASSWORD (.env.local)",
-      "group": "To do"
+      "group": "To do",
+      "done": true
     },
     {
       "id": "t29",
@@ -149,12 +151,14 @@
     {
       "id": "t30",
       "text": "Turn off the AI blur switch (bottom right) to see AI text",
-      "group": "To do"
+      "group": "To do",
+      "done": true
     },
     {
       "id": "t31",
       "text": "Commit and push when you’re ready (ask Claude)",
-      "group": "To do"
+      "group": "To do",
+      "done": true
     },
     {
       "id": "t32",
@@ -163,7 +167,7 @@
     },
     {
       "id": "t33",
-      "text": "Workshop pages: your intention / content / feeling for each workshop",
+      "text": "Leo’s page (23): how his session felt, for you and for the room. Leorah’s and Audrey’s pages now use your notebook lines",
       "group": "From your idea list"
     },
     {
@@ -179,11 +183,12 @@
     {
       "id": "t36",
       "text": "Guilt about using AI / gateway reliance / how much we each use AI: your words",
-      "group": "From your idea list"
+      "group": "From your idea list",
+      "done": true
     },
     {
       "id": "t37",
-      "text": "What to think about when using AI (data, computer access) and which headlines shaped it: your words",
+      "text": "“What we were reading” (page 31): anything to add beyond the Go-deeper links?",
       "group": "From your idea list"
     },
     {
@@ -221,13 +226,15 @@
       "id": "t46",
       "text": "Page 3 “only young people in the room”: Glenda, Chris and Michelle were there and Rithm’s mission says “intergenerational.” Change to “a summit led by and for young people”?",
       "group": "Decide",
-      "page": 3
+      "page": 3,
+      "done": true
     },
     {
       "id": "t47",
       "text": "Committees page: list members by name, or committee names only?",
       "group": "Decide",
-      "page": 4
+      "page": 4,
+      "done": true
     },
     {
       "id": "t48",
@@ -250,13 +257,15 @@
       "id": "t51",
       "text": "Paste the cleaned ecosystem-mapping paragraph into “The Wall” box (the box still has the raw voice-memo text)",
       "group": "To do",
-      "page": 8
+      "page": 8,
+      "done": true
     },
     {
       "id": "t52",
       "text": "“That we’re willing to retire”: what did you say there? (ecosystem paragraph)",
       "group": "To do",
-      "page": 8
+      "page": 8,
+      "done": true
     },
     {
       "id": "t54",
@@ -280,7 +289,8 @@
       "id": "t58",
       "text": "Ending order: Practicing dialogue → How we connected → Polaroids → System change → Free discussion + closing → AI → Tool review → Playlist?",
       "group": "Decide",
-      "page": 27
+      "page": 27,
+      "done": true
     },
     {
       "id": "t60",
@@ -296,12 +306,14 @@
     {
       "id": "t62",
       "text": "Condense and place the photo grids (pages 4, 6, 7, 8, 19, 23, 25, 26, 29, 33)",
-      "group": "To do"
+      "group": "To do",
+      "done": true
     },
     {
       "id": "t63",
       "text": "Art with no page yet: the white cranes and the second blue crane",
-      "group": "Decide"
+      "group": "Decide",
+      "done": true
     },
     {
       "id": "t64",
@@ -312,7 +324,8 @@
     {
       "id": "t65",
       "text": "Make pages load faster (load images only when their page is open, smaller photos)? Ask Claude",
-      "group": "Decide"
+      "group": "Decide",
+      "done": true
     },
     {
       "id": "t66",
@@ -350,7 +363,7 @@
     {
       "id": "t72",
       "text": "Check: “Everything we did” schedule (now its own page before the playlist); Energy/Care members and activities (Odist, Mashiko; letters + energizers); Connection box also says it handed out the letters",
-      "done": false
+      "done": true
     }
   ]
 }
