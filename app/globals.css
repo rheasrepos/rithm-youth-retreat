@@ -809,3 +809,9 @@ html,body{overflow-x:clip}
 .zdeep{top:56px}
 .zdeep.r{left:auto;right:calc(var(--gx) + 58px)}
 .zdeep.over{top:52px;left:12px}
+
+/* team: small LinkedIn button on a Polaroid */
+.teamgrid li{position:relative}
+.tli{position:absolute;right:6px;top:6px;z-index:2;display:grid;place-items:center;width:22px;height:22px;background:#c0c0c0;color:#0a66c2;font:700 13px/1 Arial,sans-serif;text-decoration:none;border:2px solid #000;border-color:#fff #808080 #808080 #fff;box-shadow:1px 1px 0 rgba(0,0,0,.35)}
+.tli:hover{background:#d6d6d6}
+.tli.inline{position:static;display:inline-grid;vertical-align:middle}

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 
-export interface TeamPerson { id: string; photo: string; name: string; crew: string; did: string }
+export interface TeamPerson { id: string; photo: string; name: string; crew: string; did: string; linkedin?: string }
 
 /** A wall of Polaroids. Pressing one opens that person's card in a little window. */
 export function Team({ people }: { people: TeamPerson[] }) {
@@ -23,6 +23,7 @@ export function Team({ people }: { people: TeamPerson[] }) {
               <span className="cap">{p.name}</span>
               {p.crew && <span className="crew">{p.crew}</span>}
             </button>
+            {p.linkedin && <a className="tli" href={p.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`${p.name || "This person"} on LinkedIn`} title="LinkedIn">in</a>}
           </li>
         ))}
       </ul>
@@ -36,6 +37,7 @@ export function Team({ people }: { people: TeamPerson[] }) {
               <div>
                 <h3>{open.name || <span className="todo">Name to come</span>}</h3>
                 {open.crew && <p className="eyebrow">{open.crew}</p>}
+                {open.linkedin && <p><a className="tli inline" href={open.linkedin} target="_blank" rel="noopener noreferrer">in</a> <a href={open.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></p>}
                 <p className="did">{open.did || <span className="todo">Something they did or said at the retreat goes here.</span>}</p>
               </div>
             </div>
