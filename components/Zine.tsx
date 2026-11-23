@@ -278,8 +278,8 @@ const DOMS: { id: string; name: string; tint: string }[] = [
   { id: "pol", name: "Policy", tint: "#d43b3b" }, { id: "cul", name: "Culture & art", tint: "#8b5cf6" }, { id: "sch", name: "School", tint: "#2f8fd8" },
   { id: "wor", name: "Work", tint: "#f08a24" }, { id: "tec", name: "Tech", tint: "#111111" },
 ];
-/** Tiny linked lines (further reading, footnote sources). In the reader they leave the page and are listed beside it under "Go deeper"; in the editor and in print they stay where they were placed. */
-export const isDeep = (i: ZineItem) => i.type === "text" && !!i.link && (i.size ?? 4) <= 1.3;
+/** Linked text (further reading, footnote sources, news and research boxes). In the reader they leave the page and are listed beside it under "Go deeper"; in the editor and in print they stay where they were placed. */
+export const isDeep = (i: ZineItem) => i.type === "text" && !!i.link;
 const PageView = memo(function PageView({ page, ratio, prev }: { page?: ZinePage; ratio: number; prev?: ZinePage }) {
   if (!page) return <div className="zpage blank" />;
   return (

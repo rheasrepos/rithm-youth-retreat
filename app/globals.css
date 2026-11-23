@@ -788,3 +788,4 @@ html,body{overflow-x:clip}
 .zdeep.over{top:6px;left:170px}
 .zcorner.home.login ~ .zdeep.over{left:255px}
 .zdeep a.ai-generated{cursor:pointer}
+.zdeep li a{white-space:pre-line}
