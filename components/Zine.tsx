@@ -444,6 +444,10 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
   // go deeper: the links for the pages showing, listed in the margin beside the zine (a pill to tap open where there is no margin)
   const [deepOpen, setDeepOpen] = useState<boolean | null>(null);   // null = follow the room: open when the margin is wide enough
   const [room, setRoom] = useState(0);                              // px of margin to the left of the pages
+  // page turns: animated (default) or instant
+  const [noAnim, setNoAnim] = useState(false);
+  useEffect(() => { try { setNoAnim(localStorage.getItem("zine-anim") === "off"); } catch { /* fine */ } }, []);
+  const toggleAnim = () => setNoAnim((v) => { try { localStorage.setItem("zine-anim", v ? "on" : "off"); } catch { /* fine */ } return !v; });
   const toggleText = () => setTextOnly((v) => { try { localStorage.setItem("zine-text", v ? "0" : "1"); } catch { /* fine */ } return !v; });
   /** Switch between spreads and one page at a time, keeping the reader on the same page. In spreads, s = k shows pages k-1 | k. */
   const toggleView = () => {
@@ -472,7 +476,7 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
     if (move) return;
     const to = s + dir; if (to < 0 || to > last) return;
     const from = dir > 0 ? s : to;                   // a move is always described as from → from+1, played forwards or backwards
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches, dur = reduce ? 1 : 850, t0 = performance.now();
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches, dur = reduce || noAnim ? 1 : 850, t0 = performance.now();
     const tick = (now: number) => {
       const k = Math.min(1, (now - t0) / dur);
       if (k < 1) { setMove({ from, dir, t: dir > 0 ? ease(k) : 1 - ease(k) }); raf.current = requestAnimationFrame(tick); }
@@ -578,7 +582,8 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
     return wrap(1 + (big - 1) * t, <>{page(p, x - 1, { transformOrigin: "100% 50%", transform: `rotateY(${-180 * t}deg)`, zIndex: 1 }, 0.45 * t)}{page(p + 1, x, { zIndex: 2 }, 0.15 * lift)}</>);
   })();
   const shown = single ? [Math.min(n - 1, s)] : s % 2 === 0 ? [s / 2] : [(s - 1) / 2, (s + 1) / 2];
-  const deep = shown.flatMap((pi) => (doc.pages[pi]?.items ?? []).filter(isDeep).sort((p, q) => p.y - q.y || p.x - q.x));
+  const deepOf = (pi?: number) => (pi === undefined ? [] : (doc.pages[pi]?.items ?? []).filter(isDeep).sort((p, q) => p.y - q.y || p.x - q.x));
+  const deepL = deepOf(shown[0]), deepR = deepOf(shown[1]), deep = [...deepL, ...deepR];
   useEffect(() => {
     const f = () => { if (zoom === 1 && !move) setRoom(areaRef.current?.getBoundingClientRect().left ?? 0); };
     f(); window.addEventListener("resize", f); return () => window.removeEventListener("resize", f);
@@ -586,11 +591,16 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
   const deepWide = room >= 240, deepShow = deepOpen ?? deepWide;
   return (
     <section className={`zinefull${textOnly ? " textonly" : ""}${s === 0 && !move ? " closed" : ""}`} data-paper={doc.paper?.texture ?? "grain"} aria-label="The zine" aria-roledescription="book">
-      {inside ? <a className="zcorner home" href="/" aria-label="Back to the site">×</a> : <a className="zcorner home login" href="/login">Network log in</a>}
-      <button type="button" className="zcorner txt" aria-pressed={textOnly} onClick={toggleText} title={textOnly ? "Bring back the photos and art" : "Hide the photos and art and read only the words"}>{textOnly ? "With art" : "Text only"}</button>
-      {onEdit && <button type="button" className="zcorner edit" onClick={onEdit}>Edit</button>}
-      {!narrow && <button type="button" className={`zcorner view${onEdit ? "" : " solo"}`} aria-pressed={onePage} onClick={toggleView} title={onePage ? "Show two pages side by side" : "Show one page at a time, as big as the screen allows"}>{onePage ? "Two pages" : "One page"}</button>}
-      {canFs && <div className={`zfs${fs ? " on" : ""}`}><button type="button" className="zfsbtn" onClick={toggleFs}>{fs ? "Exit full screen" : "Full screen"}</button>{!fs && <span>We recommend reading in full screen</span>}</div>}
+      <div className="ztools left">
+        {inside ? <a className="zbtn home" href="/" aria-label="Back to the site">×</a> : <a className="zbtn" href="/login">CHANGEMAKER NETWORK LOGIN</a>}
+        <button type="button" className="zbtn" aria-pressed={textOnly} onClick={toggleText} title={textOnly ? "Bring back the photos and art" : "Hide the photos and art and read only the words"}>{textOnly ? "With art" : "Text only"}</button>
+      </div>
+      <div className="ztools right">
+        {canFs && <button type="button" className="zbtn strong" aria-pressed={fs} onClick={toggleFs}>{fs ? "EXIT FULL SCREEN" : "FULL SCREEN READER"}</button>}
+        <button type="button" className="zbtn" aria-pressed={!noAnim} onClick={toggleAnim} title={noAnim ? "Turn the page-flip animation back on" : "Turn pages instantly, with no flip animation"}>{noAnim ? "Flip: off" : "Flip: on"}</button>
+        {!narrow && <button type="button" className="zbtn" aria-pressed={onePage} onClick={toggleView} title={onePage ? "Show two pages side by side" : "Show one page at a time, as big as the screen allows"}>{onePage ? "Two pages" : "One page"}</button>}
+        {onEdit && <button type="button" className="zbtn" onClick={onEdit}>Edit</button>}
+      </div>
       <dialog className="notedlg" ref={noteDlg} onClose={() => setNote(null)} onClick={(e) => { if (e.target === noteDlg.current) setNote(null); }}>
         {note && (
           <div className="notebody">
@@ -612,12 +622,17 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
           </div>
         )}
       </dialog>
-      {deep.length > 0 && (
-        <aside className={`zdeep${deepShow ? "" : " shut"}${deepWide ? "" : " over"}`} aria-label="Go deeper" style={deepWide ? { width: `calc(${Math.min(room, 380)}px - var(--gx) - 14px)` } : undefined}>
-          <button type="button" className="zdeephead" aria-expanded={deepShow} onClick={() => setDeepOpen(!deepShow)} title={deepShow ? "Hide the links" : "Sources and further reading for this page"}>Go deeper <span>{deep.length}</span></button>
-          {deepShow && <ul>{deep.map((it) => <li key={it.id}><a href={it.link} target="_blank" rel="noopener noreferrer" className={it.ai ? "ai-generated" : undefined} title={it.ai ? AITIP : undefined}>{(it.text ?? "").replace(/[\s↗]+$/u, "")}</a></li>)}</ul>}
-        </aside>
-      )}
+      {(() => {
+        const list = (items: ZineItem[]) => <ul>{items.map((it) => <li key={it.id}><a href={it.link} target="_blank" rel="noopener noreferrer" className={it.ai ? "ai-generated" : undefined} title={it.ai ? AITIP : undefined}>{(it.text ?? "").replace(/[\s↗]+$/u, "")}</a></li>)}</ul>;
+        const head = (k: number) => <button type="button" className="zdeephead" aria-expanded={deepShow} onClick={() => setDeepOpen(!deepShow)} title={deepShow ? "Hide the links" : "Sources and further reading for this page"}>Go deeper <span>{k}</span></button>;
+        if (!deep.length) return null;
+        if (!deepWide) return <aside className={`zdeep over${deepShow ? "" : " shut"}`} aria-label="Go deeper">{head(deep.length)}{deepShow && list(deep)}</aside>;
+        const w = { width: `calc(${Math.min(room, 380)}px - var(--gx) - 70px)` };
+        return <>
+          {deepL.length > 0 && <aside className={`zdeep${deepShow ? "" : " shut"}`} aria-label="Go deeper, left page" style={w}>{head(deepL.length)}{deepShow && list(deepL)}</aside>}
+          {deepR.length > 0 && <aside className={`zdeep r${deepShow ? "" : " shut"}`} aria-label="Go deeper, right page" style={w}>{head(deepR.length)}{deepShow && list(deepR)}</aside>}
+        </>;
+      })()}
       <div className={`zzoom${zbar ? " moved" : ""}`} role="group" aria-label="Zoom" style={zbar ? { left: zbar.x, top: zbar.y } : undefined}>
         <button type="button" className="zgrip" aria-label="Move the zoom controls" title="Drag to move · double-click to put back" onPointerDown={zbarDown} onPointerMove={zbarMove} onPointerUp={zbarUp} onPointerCancel={zbarUp} onDoubleClick={zbarReset}>⋮⋮</button>
         {zoom > 1 && <button type="button" onClick={() => step(-1)} disabled={s === 0 || !!move} aria-label="Previous page">‹</button>}

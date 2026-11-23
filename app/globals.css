@@ -789,3 +789,23 @@ html,body{overflow-x:clip}
 .zcorner.home.login ~ .zdeep.over{left:255px}
 .zdeep a.ai-generated{cursor:pointer}
 .zdeep li a{white-space:pre-line}
+
+/* zine reader toolbar: grey retro buttons, the same as on rheamad.vercel.app */
+.ztools{position:absolute;top:10px;z-index:31;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.ztools.left{left:12px}
+.ztools.right{right:12px;justify-content:flex-end;max-width:60vw}
+.zbtn{all:unset;box-sizing:border-box;cursor:pointer;background:#c0c0c0;color:#000;border:2px solid #000;border-color:#fff #808080 #808080 #fff;box-shadow:2px 2px 0 rgba(0,0,0,.35);padding:6px 11px;font:700 12px/1.1 Arial,sans-serif;letter-spacing:.03em;white-space:nowrap}
+.zbtn:hover{background:#cfcfcf}
+.zbtn:active,.zbtn[aria-pressed="true"]{border-color:#808080 #fff #fff #808080;box-shadow:none;background:#b5b5b5}
+.zbtn.strong{background:#2b2755;color:#fff;border-color:#6d68a8 #14102e #14102e #6d68a8}
+.zbtn.strong:hover{background:#3a3570}
+.zbtn.home{font-size:18px;padding:3px 10px}
+.zbtn:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+@media print{.ztools{display:none}}
+.zzoom{background:#c0c0c0;border:2px solid #000;border-color:#fff #808080 #808080 #fff;border-radius:0;box-shadow:2px 2px 0 rgba(0,0,0,.35);color:#000;top:92px}
+.zzoom button{border-radius:0}
+.zzoom button.fit{background:#2b2755;color:#fff;border-radius:0}
+.zzoom button:hover:not(:disabled){background:#d6d6d6}
+.zdeep{top:56px}
+.zdeep.r{left:auto;right:calc(var(--gx) + 58px)}
+.zdeep.over{top:52px;left:12px}
