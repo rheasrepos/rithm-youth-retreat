@@ -124,7 +124,8 @@
       "id": "t23",
       "text": "Credits (pages 31 + 33) are now accurate except one gap: name the tool that cut the sticky notes out. “Transcriptions were checked by hand” is only on the site (How we used AI page + footer): keep it only if true.",
       "group": "To do",
-      "page": 16
+      "page": 16,
+      "done": true
     },
     {
       "id": "t24",
@@ -209,7 +210,8 @@
     {
       "id": "t43",
       "text": "Name the background-removal tool used on the stickies (AI page + back cover)",
-      "group": "From your idea list"
+      "group": "From your idea list",
+      "done": true
     },
     {
       "id": "t44",
