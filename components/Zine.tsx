@@ -278,12 +278,14 @@ const DOMS: { id: string; name: string; tint: string }[] = [
   { id: "pol", name: "Policy", tint: "#d43b3b" }, { id: "cul", name: "Culture & art", tint: "#8b5cf6" }, { id: "sch", name: "School", tint: "#2f8fd8" },
   { id: "wor", name: "Work", tint: "#f08a24" }, { id: "tec", name: "Tech", tint: "#111111" },
 ];
+/** Tiny linked lines (further reading, footnote sources). In the reader they leave the page and are listed beside it under "Go deeper"; in the editor and in print they stay where they were placed. */
+export const isDeep = (i: ZineItem) => i.type === "text" && !!i.link && (i.size ?? 4) <= 1.3;
 const PageView = memo(function PageView({ page, ratio, prev }: { page?: ZinePage; ratio: number; prev?: ZinePage }) {
   if (!page) return <div className="zpage blank" />;
   return (
     <div className={`zpage${page.see ? " see" : ""}`} style={pageBg(page)}>
       {spill(prev).map((it) => <div key={`s-${it.id}`} className={`zitem ${it.type}`} style={itemStyle(it, ratio)}><ItemBody it={it} /></div>)}
-      {page.items.map((it) => <div key={it.id} className={`zitem ${it.type}`} data-zid={it.id} style={itemStyle(it, ratio)}><ItemBody it={it} /></div>)}
+      {page.items.map((it) => <div key={it.id} className={`zitem ${it.type}${isDeep(it) ? " deep" : ""}`} data-zid={it.id} style={itemStyle(it, ratio)}><ItemBody it={it} /></div>)}
       {!!page.tags?.length && <div className="ztags">{DOMS.filter((d) => page.tags!.includes(d.id)).map((d) => <span key={d.id} style={{ ["--t" as string]: d.tint }}>{d.name}</span>)}</div>}
     </div>
   );
@@ -439,6 +441,9 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
   // text only: hide the photos, flipbooks and page backgrounds and leave the words, the way a model reading the zine meets it
   const [textOnly, setTextOnly] = useState(false);
   useEffect(() => { try { setTextOnly(localStorage.getItem("zine-text") === "1"); } catch { /* fine */ } }, []);
+  // go deeper: the links for the pages showing, listed in the margin beside the zine (a pill to tap open where there is no margin)
+  const [deepOpen, setDeepOpen] = useState<boolean | null>(null);   // null = follow the room: open when the margin is wide enough
+  const [room, setRoom] = useState(0);                              // px of margin to the left of the pages
   const toggleText = () => setTextOnly((v) => { try { localStorage.setItem("zine-text", v ? "0" : "1"); } catch { /* fine */ } return !v; });
   /** Switch between spreads and one page at a time, keeping the reader on the same page. In spreads, s = k shows pages k-1 | k. */
   const toggleView = () => {
@@ -572,6 +577,13 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
     const p = (j0 - 1) / 2, x = 1 - 0.5 * t;
     return wrap(1 + (big - 1) * t, <>{page(p, x - 1, { transformOrigin: "100% 50%", transform: `rotateY(${-180 * t}deg)`, zIndex: 1 }, 0.45 * t)}{page(p + 1, x, { zIndex: 2 }, 0.15 * lift)}</>);
   })();
+  const shown = single ? [Math.min(n - 1, s)] : s % 2 === 0 ? [s / 2] : [(s - 1) / 2, (s + 1) / 2];
+  const deep = shown.flatMap((pi) => (doc.pages[pi]?.items ?? []).filter(isDeep).sort((p, q) => p.y - q.y || p.x - q.x));
+  useEffect(() => {
+    const f = () => { if (zoom === 1 && !move) setRoom(areaRef.current?.getBoundingClientRect().left ?? 0); };
+    f(); window.addEventListener("resize", f); return () => window.removeEventListener("resize", f);
+  }, [s, single, zoom, move, big]);
+  const deepWide = room >= 240, deepShow = deepOpen ?? deepWide;
   return (
     <section className={`zinefull${textOnly ? " textonly" : ""}${s === 0 && !move ? " closed" : ""}`} data-paper={doc.paper?.texture ?? "grain"} aria-label="The zine" aria-roledescription="book">
       {inside ? <a className="zcorner home" href="/" aria-label="Back to the site">×</a> : <a className="zcorner home login" href="/login">Network log in</a>}
@@ -600,6 +612,12 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
           </div>
         )}
       </dialog>
+      {deep.length > 0 && (
+        <aside className={`zdeep${deepShow ? "" : " shut"}${deepWide ? "" : " over"}`} aria-label="Go deeper" style={deepWide ? { width: `calc(${Math.min(room, 380)}px - var(--gx) - 14px)` } : undefined}>
+          <button type="button" className="zdeephead" aria-expanded={deepShow} onClick={() => setDeepOpen(!deepShow)} title={deepShow ? "Hide the links" : "Sources and further reading for this page"}>Go deeper <span>{deep.length}</span></button>
+          {deepShow && <ul>{deep.map((it) => <li key={it.id}><a href={it.link} target="_blank" rel="noopener noreferrer" className={it.ai ? "ai-generated" : undefined} title={it.ai ? AITIP : undefined}>{(it.text ?? "").replace(/[\s↗]+$/u, "")}</a></li>)}</ul>}
+        </aside>
+      )}
       <div className={`zzoom${zbar ? " moved" : ""}`} role="group" aria-label="Zoom" style={zbar ? { left: zbar.x, top: zbar.y } : undefined}>
         <button type="button" className="zgrip" aria-label="Move the zoom controls" title="Drag to move · double-click to put back" onPointerDown={zbarDown} onPointerMove={zbarMove} onPointerUp={zbarUp} onPointerCancel={zbarUp} onDoubleClick={zbarReset}>⋮⋮</button>
         {zoom > 1 && <button type="button" onClick={() => step(-1)} disabled={s === 0 || !!move} aria-label="Previous page">‹</button>}
