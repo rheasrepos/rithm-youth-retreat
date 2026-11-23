@@ -1428,9 +1428,9 @@
      "id": "gd-q",
      "type": "text",
      "x": 74.73,
-     "y": 99.88,
+     "y": 97.89,
      "w": 38.71,
-     "h": 51.52,
+     "h": 55.5,
      "rot": 0,
      "z": 3,
      "font": "Arial",
@@ -1439,7 +1439,7 @@
      "bold": false,
      "italic": false,
      "align": "left",
-     "text": "“We need practices that help us remain in relationship with ourselves while we are in relationship with the work.”\n\n“Come home to yourself. Honor your yes, your no, and your not yet. Witness without fixing.”\n\n“Return rather than perfect.”\n\n“The common denominator in all of our journeys is that we were children once.”\n\n“Our breath, most powerful technology that we have available to us.”\n\n“We’re more than machines.”\n\n“Instead of me talking about what human connection is or whether we lack it, we’re just gonna do the damn thing.”\n\n“Brilliance will not be enough. Our shiny minds will not be enough. […] What will not also be enough is rigor. […] Strategy will not be enough. […] And another thing that’s not gonna be enough is sacrifice.”\n\n“What will keep us human are stories. Our ability to make meaning. Our capacity to feel, communicate, imagine, discern, love and choose. These capacities are not separate from leadership. They are part of its foundation.”",
+     "text": "“We need practices that help us remain in relationship with ourselves while we are in relationship with the work.”\n\n“Come home to yourself. Honor your yes, your no, and your not yet. Witness without fixing.”\n\n“Return rather than perfect.”\n\n“The common denominator in all of our journeys is that we were children once.”\n\n“Our breath, most powerful technology that we have available to us.”\n\n“We’re more than machines.”\n\n“Instead of me talking about what human connection is or whether we lack it, we’re just gonna do the damn thing.”\n\n“Brilliance will not be enough. Our shiny minds will not be enough. […] What will not also be enough is rigor. […] Strategy will not be enough. […] And another thing that’s not gonna be enough is sacrifice.”\n\n“What will keep us human are stories. Our ability to make meaning. Our capacity to feel, communicate, imagine, discern, love and choose. These capacities are not separate from leadership. They are part of its foundation.”\n\n“I think our main takeaway is, like, we’re tired and take courageous, like, takes energy.”\n“But sometimes also not being courageous takes energy too.”",
      "win": true,
      "title": "Words from the room"
     },
@@ -1619,6 +1619,24 @@
       "/zine/photos/p9/img-3648-jpg.jpg",
       "/zine/photos/p9/img-3649-jpg.jpg"
      ]
+    },
+    {
+     "id": "q-wall",
+     "type": "text",
+     "w": 87,
+     "h": 9,
+     "rot": 0,
+     "z": 26,
+     "font": "Arial",
+     "size": 1.6,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "fill": "#fbf3e1",
+     "text": "From the room, during the mapping (Granola transcript):\n“These projects and work you’re doing don’t have to be big.” “It could be like a class project.” “Or a thing that you do with your friends on Sundays.”",
+     "x": 50,
+     "y": 61.5
     }
    ],
    "bgImg": "/zine/art/bg-rainbow-scribble.jpg?v=4",
@@ -9025,6 +9043,24 @@
      "h": 15.75,
      "rot": 1.9,
      "z": 2
+    },
+    {
+     "id": "q-leorah-room",
+     "type": "text",
+     "w": 72,
+     "h": 20.5,
+     "rot": 0,
+     "z": 26,
+     "font": "Arial",
+     "size": 1.6,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "fill": "#fbf3e1",
+     "text": "From the debate (Granola transcript):\n“And So one thing about therapy that I think is deeply misunderstood is that therapy is an intervention that is supposed to be extremely uncomfortable.”\n“Reddit or, like, Quora or a digital community that you don’t get from AI is a diverse array of opinions, not an amalgamated version of an opinion.”\n“Because I think that if you’re going to a problem with AI and it gives you a solution, you aren’t receiving therapy.”\n“And like, another thing about accessibility is the more you rely on it, on AI for your therapy, and the more you spend time with AI and you come to lean on it, you’re gonna have to start paying for AI.”",
+     "x": 60,
+     "y": 103.75
     }
    ],
    "tags": [
@@ -9354,6 +9390,24 @@
       "/zine/photos/5ix6176/audrey-theory-of-change-slides-sat-16-17-img-3598-jpeg.jpg",
       "/zine/photos/5ix6176/audrey-theory-of-change-slides-sat-16-17-img-3599-jpeg.jpg"
      ]
+    },
+    {
+     "id": "q-audrey-room",
+     "type": "text",
+     "w": 50,
+     "h": 10,
+     "rot": 0,
+     "z": 26,
+     "font": "Arial",
+     "size": 1.5,
+     "color": "#2b2755",
+     "bold": false,
+     "italic": false,
+     "align": "left",
+     "fill": "#fbf3e1",
+     "text": "From the room (Granola transcript):\n“I think, you know, at the moment, AI writes every headline.”\n“Because I feel like sometimes social science people don’t really understand, like, the capabilities of AI currently.”",
+     "x": 28,
+     "y": 97
     }
    ],
    "tags": [
@@ -9712,12 +9766,12 @@
      "id": "ddjaed0",
      "type": "text",
      "x": 50,
-     "y": 22.65,
+     "y": 31.85,
      "w": 80,
-     "h": 7.6,
+     "h": 26,
      "rot": 0,
      "z": 3,
-     "text": "Rhea, narrating mafia, Saturday night (Granola transcript):\n“Great idea to stick 25 young people in a house together.”",
+     "text": "From Saturday night (Granola transcript):\n“And just like, I think if there was more effort into teaching people how to communicate effectively with people that you don’t necessarily agree with all the time, I think that would be slow trickles.”\n“If you’re in that youth space, I think focusing on issues rather than political affiliations can get you so much further in conversation with someone.”\n“If you start with a commonality, like, hey, like the job market is hard.”\n“We like to categorize and like we feel more comfortable in categorization.”\n“I think people are embarrassed because they truly don’t know what they stand for.”\n“Great idea to stick 25 young people in a house together.”\nFrom the one-word check-in:\n“No, because the only reason I’ve been able to bring people together is because of social media.”",
      "font": "Arial",
      "size": 1.8,
      "color": "#5a5484",
@@ -9754,7 +9808,7 @@
      "id": "t7mfkjo",
      "type": "flip",
      "x": 30,
-     "y": 44,
+     "y": 59.8,
      "w": 34,
      "h": 25.9,
      "rot": -0.8,
