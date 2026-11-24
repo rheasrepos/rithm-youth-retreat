@@ -179,7 +179,8 @@
     {
       "id": "t35",
       "text": "Tool review: your opinion of each tool (Granola, Claude, background remover…), would you use it again",
-      "group": "From your idea list"
+      "group": "From your idea list",
+      "done": true
     },
     {
       "id": "t36",
