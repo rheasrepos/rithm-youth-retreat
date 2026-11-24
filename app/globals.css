@@ -910,3 +910,17 @@ html,body{overflow-x:clip}
 .zinefull.autohide .ztools,.zinefull.autohide .zzoom,.zinefull.autohide .zdeep{transition:opacity .3s}
 .zinefull.autohide:not(.awake) .ztools,.zinefull.autohide:not(.awake) .zzoom,.zinefull.autohide:not(.awake) .zdeep.shut{opacity:0;pointer-events:none}
 .zinefull .ztools .zdeep.over{top:auto}
+/* reader buttons: as wide as their words with a little padding, hugging the screen edges so the Go deeper columns get the most room */
+.zinefull .ztools{gap:6px}
+.zinefull .ztools.left{left:8px}
+.zinefull .ztools.right{right:8px}
+.zinefull .zbtn{padding:4px 8px}
+.zinefull.sidetools .ztools.left{align-items:flex-start}
+.zinefull.sidetools .ztools.right{align-items:flex-end}
+.zinefull.sidetools .zbtn{white-space:nowrap}
+.zinefull .zzoom:not(.moved){right:8px}
+/* the full screen button sits on its own in the bottom right corner */
+.zinefull .ztools .zbtn.strong{position:fixed;right:8px;bottom:8px;z-index:33}
+@media (max-width:700px){.zinefull .zzoom:not(.moved){right:auto;left:8px}}
+/* page arrows sit in front of the Go deeper columns so the pages can always be turned */
+.zinefull .turn{z-index:34}
