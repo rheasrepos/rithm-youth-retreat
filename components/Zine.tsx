@@ -597,8 +597,47 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
       {deepShow && <ul>{deep.map((it) => <li key={it.id}><a href={it.link} target="_blank" rel="noopener noreferrer" className={it.ai ? "ai-generated" : undefined} title={it.ai ? AITIP : undefined}>{(it.text ?? "").replace(/[\s↗]+$/u, "")}</a></li>)}</ul>}
     </aside>
   ) : null;
+  // Where the reader's buttons go. If the margins beside the pages are wide (pages limited by the screen's height),
+  // the buttons stack in the margins and the pages use the full height. Otherwise they sit in a row above the pages
+  // (the pages are then limited by the screen's width, so the row costs no page size); --gt is that row's height.
+  const fullRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const el = fullRef.current; if (!el) return;
+    const Z = () => el.querySelector(".zzoom:not(.moved)") as HTMLElement | null;
+    const f = () => {
+      const vw = window.innerWidth, vh = window.innerHeight, z = Z();
+      if (vw <= 700) { el.classList.remove("sidetools"); ["--gt", "--tl", "--tr"].forEach((v) => el.style.removeProperty(v)); if (z) { z.classList.remove("inrow"); z.style.top = z.style.right = ""; } return; }
+      const cs = getComputedStyle(el), gx = parseFloat(cs.getPropertyValue("--gx")) || 40, gy = parseFloat(cs.getPropertyValue("--gy")) || 8;
+      const n = single ? 1 : 2, pw = Math.min((vw - 2 * gx) / n, (vh - 2 * gy) / doc.ratio), side = (vw - n * pw) / 2, useSide = side >= 130;
+      el.classList.toggle("sidetools", useSide); el.classList.remove("autohide"); el.style.setProperty("--side", `${side}px`);
+      const L = el.querySelector(".ztools.left")?.getBoundingClientRect(), R = el.querySelector(".ztools.right")?.getBoundingClientRect();
+      if (!L || !R) return;
+      if (useSide) {
+        el.style.setProperty("--gt", "0px"); el.style.setProperty("--tl", `${L.bottom}px`); el.style.setProperty("--tr", `${R.bottom}px`);
+        if (z) { z.classList.remove("inrow"); z.style.top = z.style.right = ""; }
+        return;
+      }
+      let bottom = Math.max(L.bottom, R.bottom);
+      if (z) {   // the zoom buttons join the row, or go just under it at the right if the row is full
+        z.classList.add("inrow"); const zr = z.getBoundingClientRect(), fits = L.right + 16 + zr.width + 16 <= R.left;
+        z.style.top = `${fits ? R.top : bottom + 6}px`; z.style.right = `${fits ? vw - R.left + 12 : 12}px`;
+        if (!fits) bottom += 6 + zr.height;
+      }
+      // a row above the pages only if there's spare height for it; otherwise it would shrink the pages, so the
+      // buttons float over the top instead and hide while you read (they come back when you move the mouse or tap)
+      const spare = vh - 2 * gy - pw * doc.ratio;
+      if (spare >= bottom + 8) { el.style.setProperty("--gt", `${Math.ceil(bottom + 8)}px`); el.style.setProperty("--tl", `${bottom}px`); el.style.setProperty("--tr", `${bottom}px`); }
+      else { el.classList.add("autohide"); el.style.setProperty("--gt", "0px"); el.style.setProperty("--tl", `${bottom}px`); el.style.setProperty("--tr", `${bottom}px`); }
+    };
+    let idle: ReturnType<typeof setTimeout> | undefined;
+    const wake = () => { el.classList.add("awake"); clearTimeout(idle); idle = setTimeout(() => { if (!el.querySelector(".ztools:hover, .zzoom:hover, .zdeep:not(.shut)")) el.classList.remove("awake"); }, 2500); };
+    el.addEventListener("pointermove", wake); el.addEventListener("pointerdown", wake); el.addEventListener("keydown", wake); wake();
+    f(); const t = setTimeout(f, 300);
+    window.addEventListener("resize", f);
+    return () => { clearTimeout(t); clearTimeout(idle); window.removeEventListener("resize", f); el.removeEventListener("pointermove", wake); el.removeEventListener("pointerdown", wake); el.removeEventListener("keydown", wake); };
+  }, [single, doc.ratio, deep.length, deepWide, deepShow, fs, inside, textOnly, noAnim]);
   return (
-    <section className={`zinefull${textOnly ? " textonly" : ""}${s === 0 && !move ? " closed" : ""}`} data-paper={doc.paper?.texture ?? "grain"} aria-label="The zine" aria-roledescription="book">
+    <section ref={fullRef} className={`zinefull${textOnly ? " textonly" : ""}${s === 0 && !move ? " closed" : ""}`} data-paper={doc.paper?.texture ?? "grain"} aria-label="The zine" aria-roledescription="book">
       <div className="ztools left">
         {inside ? <a className="zbtn home" href="/" aria-label="Back to the site">×</a> : <a className="zbtn" href="/login">CHANGEMAKER NETWORK LOGIN</a>}
         <button type="button" className="zbtn" aria-pressed={textOnly} onClick={toggleText} title={textOnly ? "Bring back the photos and art" : "Hide the photos and art and read only the words"}>{textOnly ? "With art" : "Text only"}</button>

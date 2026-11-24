@@ -896,5 +896,17 @@ html,body{overflow-x:clip}
 .ztools .zdeep.over .zdeephead{padding:6px 11px;background:rgba(255,255,255,.1);border-radius:999px}
 .ztools .zdeep.over ul{position:absolute;top:calc(100% + 6px);left:0;width:min(300px,calc(100vw - 24px));max-height:60vh;background:#2b2755;border:1px solid rgba(243,232,204,.35);border-radius:10px;padding:0 10px 8px;box-shadow:0 6px 24px rgba(0,0,0,.35)}
 /* side margins always wide enough for the zoom control (40px) and the page arrows */
-@media (min-width:521px){.zinefull{--gx:64px}.zzoom:not(.moved){right:8px}}
 @media (min-width:701px){.zzoom:not(.moved){width:48px;box-sizing:border-box}.zzoom button.fit{padding:0 4px;font-size:12px}}
+/* reader buttons: stacked in the side margins when those are wide, so the pages can use the full height */
+.zinefull.sidetools .ztools{flex-direction:column;align-items:stretch;max-width:calc(var(--side) - 24px)}
+.zinefull.sidetools .ztools.right{justify-content:flex-start}
+.zinefull.sidetools .zbtn{white-space:normal;text-align:center}
+.zinefull.sidetools .zdeep{top:calc(var(--tl) + 10px)}
+.zinefull.sidetools .zdeep.r{top:calc(var(--tr) + 10px)}
+.zinefull.sidetools .zzoom:not(.moved){top:calc(var(--tr) + 10px);right:12px}
+.zzoom.inrow{flex-direction:row;width:auto}
+.zzoom.inrow .zgrip{display:none}
+/* no room for a button row without shrinking the pages: the buttons float over the top and fade out while reading */
+.zinefull.autohide .ztools,.zinefull.autohide .zzoom,.zinefull.autohide .zdeep{transition:opacity .3s}
+.zinefull.autohide:not(.awake) .ztools,.zinefull.autohide:not(.awake) .zzoom,.zinefull.autohide:not(.awake) .zdeep.shut{opacity:0;pointer-events:none}
+.zinefull .ztools .zdeep.over{top:auto}
