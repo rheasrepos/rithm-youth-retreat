@@ -890,3 +890,11 @@ html,body{overflow-x:clip}
 /* The zine is printed paper: its pages keep their light-mode colors even when the site is in dark mode
    (otherwise text with no colour of its own picks up the dark theme's tan ink). */
 .zpage{--ink:#000;--muted:#000;--paper:#fbf4e0;--line:#d6c79f;color:#000}
+
+/* Go deeper as a pill in the toolbar row (narrow margins): its list drops down over the page only when opened */
+.ztools .zdeep.over{position:relative;left:auto;top:auto;width:auto;max-height:none;background:none;border:0;padding:0;box-shadow:none}
+.ztools .zdeep.over .zdeephead{padding:6px 11px;background:rgba(255,255,255,.1);border-radius:999px}
+.ztools .zdeep.over ul{position:absolute;top:calc(100% + 6px);left:0;width:min(300px,calc(100vw - 24px));max-height:60vh;background:#2b2755;border:1px solid rgba(243,232,204,.35);border-radius:10px;padding:0 10px 8px;box-shadow:0 6px 24px rgba(0,0,0,.35)}
+/* side margins always wide enough for the zoom control (40px) and the page arrows */
+@media (min-width:521px){.zinefull{--gx:64px}.zzoom:not(.moved){right:8px}}
+@media (min-width:701px){.zzoom:not(.moved){width:48px;box-sizing:border-box}.zzoom button.fit{padding:0 4px;font-size:12px}}

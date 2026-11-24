@@ -590,11 +590,19 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
     f(); window.addEventListener("resize", f); return () => window.removeEventListener("resize", f);
   }, [s, single, zoom, move, big]);
   const deepWide = room >= 240, deepShow = deepOpen ?? deepWide;
+  // when the margins are too narrow for the Go deeper column, it becomes a pill in the toolbar row above the pages, so it never covers them
+  const deepPill = deep.length && !deepWide ? (
+    <aside className={`zdeep over${deepShow ? "" : " shut"}`} aria-label="Go deeper">
+      <button type="button" className="zdeephead" aria-expanded={deepShow} onClick={() => setDeepOpen(!deepShow)} title={deepShow ? "Hide the links" : "Sources and further reading for these pages"}>Go deeper <span>{deep.length}</span></button>
+      {deepShow && <ul>{deep.map((it) => <li key={it.id}><a href={it.link} target="_blank" rel="noopener noreferrer" className={it.ai ? "ai-generated" : undefined} title={it.ai ? AITIP : undefined}>{(it.text ?? "").replace(/[\s↗]+$/u, "")}</a></li>)}</ul>}
+    </aside>
+  ) : null;
   return (
     <section className={`zinefull${textOnly ? " textonly" : ""}${s === 0 && !move ? " closed" : ""}`} data-paper={doc.paper?.texture ?? "grain"} aria-label="The zine" aria-roledescription="book">
       <div className="ztools left">
         {inside ? <a className="zbtn home" href="/" aria-label="Back to the site">×</a> : <a className="zbtn" href="/login">CHANGEMAKER NETWORK LOGIN</a>}
         <button type="button" className="zbtn" aria-pressed={textOnly} onClick={toggleText} title={textOnly ? "Bring back the photos and art" : "Hide the photos and art and read only the words"}>{textOnly ? "With art" : "Text only"}</button>
+        {deepPill}
       </div>
       <div className="ztools right">
         {canFs && <button type="button" className="zbtn strong" aria-pressed={fs} onClick={toggleFs}>{fs ? "EXIT FULL SCREEN" : "FULL SCREEN READER"}</button>}
@@ -627,7 +635,7 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
         const list = (items: ZineItem[]) => <ul>{items.map((it) => <li key={it.id}><a href={it.link} target="_blank" rel="noopener noreferrer" className={it.ai ? "ai-generated" : undefined} title={it.ai ? AITIP : undefined}>{(it.text ?? "").replace(/[\s↗]+$/u, "")}</a></li>)}</ul>;
         const head = (k: number) => <button type="button" className="zdeephead" aria-expanded={deepShow} onClick={() => setDeepOpen(!deepShow)} title={deepShow ? "Hide the links" : "Sources and further reading for this page"}>Go deeper <span>{k}</span></button>;
         if (!deep.length) return null;
-        if (!deepWide) return <aside className={`zdeep over${deepShow ? "" : " shut"}`} aria-label="Go deeper">{head(deep.length)}{deepShow && list(deep)}</aside>;
+        if (!deepWide) return null;   // narrow margins: the pill sits in the toolbar row instead (deepPill)
         const w = { width: `calc(${Math.min(room, 380)}px - var(--gx) - 70px)` };
         return <>
           {deepL.length > 0 && <aside className={`zdeep${deepShow ? "" : " shut"}`} aria-label="Go deeper, left page" style={w}>{head(deepL.length)}{deepShow && list(deepL)}</aside>}
