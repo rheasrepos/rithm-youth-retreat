@@ -8307,7 +8307,7 @@
   },
   {
    "id": "p0ijkpo0",
-   "bg": "#eaf2f5",
+   "bg": "#fcfbf7",
    "items": [
     {
      "id": "xkfhapw",
@@ -8376,7 +8376,7 @@
      "h": 154.55,
      "rot": 0,
      "z": -1,
-     "src": "/zine/art/art-serving-wisdom-left.jpg?v=4"
+     "src": "/zine/art/art-serving-wisdom-left-white.jpg"
     },
     {
      "id": "cut38",
@@ -9221,7 +9221,7 @@
     "pol",
     "tec"
    ],
-   "bgImg": "/zine/art/art-serving-wisdom-right.jpg?v=4",
+   "bgImg": "/zine/art/art-serving-wisdom-right-white.jpg",
    "bgFit": "cover"
   },
   {
