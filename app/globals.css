@@ -924,3 +924,5 @@ html,body{overflow-x:clip}
 @media (max-width:700px){.zinefull .zzoom:not(.moved){right:auto;left:8px}}
 /* page arrows sit in front of the Go deeper columns so the pages can always be turned */
 .zinefull .turn{z-index:34}
+/* …but the buttons and zoom stay above the arrows */
+.zinefull .ztools,.zinefull .zzoom,.zinefull .ztools .zbtn.strong{z-index:36}
