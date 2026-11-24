@@ -814,7 +814,7 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
   /** Puts a quote on the page as a window box, word for word, with where it came from in the title bar. */
   const addQuote = (q: BankQuote, at?: { x: number; y: number }) => {
     const w = 72, size = 2.6, lines = q.t.split("\n").reduce((n, l) => n + Math.max(1, Math.ceil(l.length / 50)), 0);
-    add({ type: "text", win: true, title: q.src.replace(/ \(.*\)$/, ""), w, h: r2(lines * size * 1.18 + 8), text: q.t, font: "Arial", size, color: "#2b2755", bold: false, italic: false, align: "left" }, at);
+    add({ type: "text", win: true, title: q.src.replace(/ \(.*\)$/, ""), w, h: r2(lines * size * 1.18 + 8), text: q.t, font: "Arial", size, color: "#000000", bold: false, italic: false, align: "left" }, at);
   };
   const libSrcs = async (fs: string[]) => { const out: string[] = []; for (const f of fs) { const s = await fromLib(f); if (s) out.push(s); } return out; };
   const flipLib = async (fs: string[]) => {
@@ -1009,8 +1009,8 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
         <div className="tgroup">
           <span className="eyebrow">Add</span>
           <button type="button" className="btn ghost" onClick={() => add({ type: "text", w: 60, h: 14, text: "Text", font: "Arial", size: 5, color: "#1b1037", bold: false, italic: false, align: "left" })}>Text box</button>
-          <button type="button" className="btn ghost" onClick={() => add({ type: "text", win: true, title: "Overheard", w: 64, h: 30, text: "Type what was said here.", font: "Arial", size: 3.6, color: "#2b2755", bold: false, italic: false, align: "left" })}>Window box</button>
-          <button type="button" className="btn ghost" title="Words circling the middle of the box. Double-click it to type, one word per line." onClick={() => add({ type: "orbit", w: 84, h: 70, text: "one\nword\nper\nline", font: "Arial", size: 4.5, color: "#2b2755", bold: true, italic: false, align: "center", speed: 26000 })}>Word orbit</button>
+          <button type="button" className="btn ghost" onClick={() => add({ type: "text", win: true, title: "Overheard", w: 64, h: 30, text: "Type what was said here.", font: "Arial", size: 3.6, color: "#000000", bold: false, italic: false, align: "left" })}>Window box</button>
+          <button type="button" className="btn ghost" title="Words circling the middle of the box. Double-click it to type, one word per line." onClick={() => add({ type: "orbit", w: 84, h: 70, text: "one\nword\nper\nline", font: "Arial", size: 4.5, color: "#000000", bold: true, italic: false, align: "center", speed: 26000 })}>Word orbit</button>
           <select className="btn ghost" aria-label="Add a poem" value="" title="Poems read at the retreat: the scan or screenshot when there is one, otherwise a card linking to the published poem. The list is data/poems.json." onChange={(e) => { const p = (POEMS as Poem[])[Number(e.target.value)]; if (p) add({ type: "poem", poem: p, w: p.src ? 44 : 40, h: p.src ? 66 : 20 }); }}>
             <option value="">Poem…</option>
             {(POEMS as Poem[]).map((p, k) => <option key={k} value={k}>{p.title} ({p.author})</option>)}

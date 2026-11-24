@@ -889,4 +889,4 @@ html,body{overflow-x:clip}
 
 /* The zine is printed paper: its pages keep their light-mode colors even when the site is in dark mode
    (otherwise text with no colour of its own picks up the dark theme's tan ink). */
-.zpage{--ink:#2b2755;--muted:#5a5484;--paper:#fbf4e0;--line:#d6c79f;color:#2b2755}
+.zpage{--ink:#000;--muted:#000;--paper:#fbf4e0;--line:#d6c79f;color:#000}
