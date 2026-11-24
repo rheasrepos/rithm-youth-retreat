@@ -860,3 +860,23 @@ html,body{overflow-x:clip}
 .tile .nm.hand img{max-height:none;object-fit:cover;aspect-ratio:1.6;border:1px solid rgba(0,0,0,.18);box-shadow:2px 3px 0 rgba(0,0,0,.25)}
 .tile.sel .nm.hand img{filter:none}
 .handtitle img{width:auto;max-width:min(520px,100%);max-height:260px;border:1px solid rgba(0,0,0,.18);box-shadow:3px 4px 0 rgba(0,0,0,.25)}
+
+/* retro badges, tags and the domain switcher (Nov 23) */
+.tile .hit,.vb{border-radius:0;border:2px solid #000;border-color:#fff #808080 #808080 #fff;box-shadow:1px 1px 0 rgba(0,0,0,.3);padding:2px 8px}
+.wrow.weak .vb{border:2px solid #000;border-color:#fff #808080 #808080 #fff;background:#c0c0c0;color:#000}
+.tile .hit.match{background:#c0c0c0;color:#000}
+.topnav.domnav{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.topnav.domnav a{background:#c0c0c0;color:#000;border:2px solid #000;border-color:#fff #808080 #808080 #fff;box-shadow:1px 1px 0 rgba(0,0,0,.3);padding:5px 10px;font:700 12px/1.1 Arial,sans-serif;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;opacity:1}
+.topnav.domnav a:hover{background:#d6d6d6}
+.topnav.domnav a[aria-current="page"]{background:var(--ink);color:var(--bg);border-color:#808080 #fff #fff #808080;box-shadow:none}
+.ztags span{border-radius:0;box-shadow:.2cqw .2cqw 0 rgba(0,0,0,.3)}
+
+/* zine: speech bubbles for a dialogue (text with bubble: l or r) */
+.ztext.zbubble{position:relative;overflow:visible;box-sizing:border-box;background:#fff;border:.35cqw solid #2b2755;border-radius:2.4cqw;padding:1.3cqw 1.8cqw;box-shadow:.5cqw .5cqw 0 #2b2755}
+.ztext.zbubble::after{content:"";position:absolute;bottom:-2.2cqw;width:2.6cqw;height:2.6cqw;background:#fff;border:.35cqw solid #2b2755;border-top:0;border-left:0;transform:skewY(35deg) rotate(45deg)}
+.ztext.zbubble.l::after{left:3cqw}
+.ztext.zbubble.r::after{right:3cqw}
+.ztext.zbubble.r{background:#fbf4e0}
+.ztext.zbubble.r::after{background:#fbf4e0}
+.zaudio{position:absolute;left:calc(var(--gx) + 2px);bottom:14px;z-index:32;width:min(300px,calc(100vw - 2 * var(--gx)));height:80px;border:2px solid #000;border-color:#fff #808080 #808080 #fff;box-shadow:2px 2px 0 rgba(0,0,0,.35);background:#c0c0c0}
+@media print{.zaudio{display:none}}

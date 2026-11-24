@@ -45,7 +45,7 @@ export default async function DomainPage({ params }: { params: Promise<{ id: str
         ) : <h2 className="handtitle"><img src={`/domain-cards/${d.id}-card.jpg`} alt={d.name} /></h2>}
         <p className="ddesc"><AI>{d.description}</AI></p>
         <p>{d.stickyCount} sticky notes, grouped into {d.themes.length} concerns · {orgs.length} organizations and {people.length} people in the network.</p>
-        <div className="topnav">{m.domains.map((x) => <Link key={x.id} href={`/domain/${x.id}`} aria-current={x.id === d.id ? "page" : undefined}>{x.name}</Link>)}</div>
+        <div className="topnav domnav">{m.domains.map((x) => <Link key={x.id} href={`/domain/${x.id}`} aria-current={x.id === d.id ? "page" : undefined}>{x.name}</Link>)}</div>
       </div>
 
       <div className="block"><span className="eyebrow">What changemakers wrote, and who&apos;s on it</span>

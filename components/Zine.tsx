@@ -23,9 +23,10 @@ export interface ZineItem {
   ai?: boolean;     // text drafted by AI (Claude, or a summary Granola wrote): readers see the site's dashed underline, and the site-wide switch can blur it
   beat?: number;  // flip: turns every `beat` eighth notes of a shared 6/8 pulse (1 to 6), set from its order on the page
   fill?: string;   // text: a solid box behind plain text so it reads over a picture background
+  bubble?: "l" | "r";   // text: a speech bubble, tail on the left (l) or right (r), for a dialogue
   lock?: boolean;   // pinned in the editor so it can't be picked up by accident; readers see no difference
 }
-export interface ZinePage { id: string; bg: string; items: ZineItem[]; bgImg?: string; bgFit?: "cover" | "contain" | "fill"; tags?: string[]; see?: boolean }   // see: boxes on this page are see-through, so the background (a notebook scan) shows   // tags: the domains this page touches, shown as small chips in its corner   // bgImg: a picture behind everything on the page, scaled to fill it (cover), to show whole (contain), or stretched to the page edges (fill)
+export interface ZinePage { id: string; bg: string; items: ZineItem[]; audio?: string; bgImg?: string; bgFit?: "cover" | "contain" | "fill"; tags?: string[]; see?: boolean }   // see: boxes on this page are see-through, so the background (a notebook scan) shows   // tags: the domains this page touches, shown as small chips in its corner   // bgImg: a picture behind everything on the page, scaled to fill it (cover), to show whole (contain), or stretched to the page edges (fill)
 /** The page's own background: its colour, with its background picture over it if it has one. */
 const pageBg = (p: ZinePage): React.CSSProperties => (p.bgImg ? { backgroundColor: p.bg, backgroundImage: `url("${p.bgImg}")`, backgroundSize: p.bgFit === "fill" ? "100% 100%" : p.bgFit ?? "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat" } : { background: p.bg });
 /** The paper every plain page is printed on: its colour, and whether a scan of a real notebook page is laid over it. */
@@ -266,7 +267,7 @@ function ItemBody({ it }: { it: ZineItem }) {
     // eslint-disable-next-line @next/next/no-img-element
     return <img src={it.src} alt="" draggable={false} decoding="async" style={blend} />;
   }
-  const body = <div className={`ztext${it.ai ? " ai-generated" : ""}`} title={it.ai ? AITIP : undefined} style={{ fontFamily: stack(it.font), fontSize: `${it.size ?? 4}cqw`, color: it.color, fontWeight: it.bold ? 700 : 400, fontStyle: it.italic ? "italic" : "normal", textAlign: it.align, letterSpacing: it.track ? `${it.track}em` : undefined, wordSpacing: it.gap ? `${it.gap}em` : undefined, ...(it.fill ? { background: it.fill, padding: "0.35em 0.55em", boxSizing: "border-box", height: "100%" } : {}) }}>{it.text}{it.link && <span className="zlinkmark"> ↗</span>}</div>;
+  const body = <div className={`ztext${it.ai ? " ai-generated" : ""}${it.bubble ? ` zbubble ${it.bubble}` : ""}`} title={it.ai ? AITIP : undefined} style={{ fontFamily: stack(it.font), fontSize: `${it.size ?? 4}cqw`, color: it.color, fontWeight: it.bold ? 700 : 400, fontStyle: it.italic ? "italic" : "normal", textAlign: it.align, letterSpacing: it.track ? `${it.track}em` : undefined, wordSpacing: it.gap ? `${it.gap}em` : undefined, ...(it.fill ? { background: it.fill, padding: "0.35em 0.55em", boxSizing: "border-box", height: "100%" } : {}) }}>{it.text}{it.link && <span className="zlinkmark"> ↗</span>}</div>;
   return it.link ? <a className="zlink" href={it.link} target="_blank" rel="noopener noreferrer">{body}</a> : body;
 }
 /** A page as readers see it. */
@@ -632,6 +633,10 @@ function Book({ doc, onEdit, gated }: { doc: ZineDoc; onEdit?: () => void; gated
           {deepL.length > 0 && <aside className={`zdeep${deepShow ? "" : " shut"}`} aria-label="Go deeper, left page" style={w}>{head(deepL.length)}{deepShow && list(deepL)}</aside>}
           {deepR.length > 0 && <aside className={`zdeep r${deepShow ? "" : " shut"}`} aria-label="Go deeper, right page" style={w}>{head(deepR.length)}{deepShow && list(deepR)}</aside>}
         </>;
+      })()}
+      {(() => {   // a song for the pages showing (page.audio: a Spotify track link), as a small player in the corner
+        const a = shown.map((pi) => doc.pages[pi]?.audio).find(Boolean); const m = a?.match(/open\.spotify\.com\/(?:intl-[a-z]+\/)?(track|playlist|album)\/([A-Za-z0-9]+)/);
+        return m ? <iframe key={m[2]} className="zaudio" title="Song for this page" src={`https://open.spotify.com/embed/${m[1]}/${m[2]}?utm_source=generator`} allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" /> : null;
       })()}
       <div className={`zzoom${zbar ? " moved" : ""}`} role="group" aria-label="Zoom" style={zbar ? { left: zbar.x, top: zbar.y } : undefined}>
         <button type="button" className="zgrip" aria-label="Move the zoom controls" title="Drag to move · double-click to put back" onPointerDown={zbarDown} onPointerMove={zbarMove} onPointerUp={zbarUp} onPointerCancel={zbarUp} onDoubleClick={zbarReset}>⋮⋮</button>
