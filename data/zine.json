@@ -1038,7 +1038,7 @@
      "text": "The Rithm Project, “What Don’t We Know?”: open questions about AI and relationships (Apr 2026) ↗"
     }
    ],
-   "bgImg": "/zine/art/bg-green-squiggles-white.jpg",
+   "bgImg": "/zine/art/bg-green-squiggles-white.jpg?v=2",
    "bgFit": "fill"
   },
   {
@@ -8028,7 +8028,7 @@
      "fill": "#fbf3e1"
     }
    ],
-   "bgImg": "/zine/art/bg-watercolor-bluegreen-white.jpg",
+   "bgImg": "/zine/art/bg-watercolor-bluegreen-white.jpg?v=2",
    "bgFit": "fill"
   },
   {
@@ -8039,9 +8039,9 @@
      "id": "int-statusquoimg",
      "type": "image",
      "x": 100,
-     "y": 77.27,
-     "w": 199.6,
-     "h": 146.78,
+     "y": 77.275,
+     "w": 200,
+     "h": 154.55,
      "rot": 0,
      "z": 1,
      "src": "/zine/art/art-status-quo-white.jpg",
@@ -8376,7 +8376,7 @@
      "h": 154.55,
      "rot": 0,
      "z": -1,
-     "src": "/zine/art/art-serving-wisdom-left-white-ink.jpg"
+     "src": "/zine/art/art-serving-wisdom-left-white-ink.jpg?v=2"
     },
     {
      "id": "cut38",
@@ -8521,8 +8521,8 @@
   {
    "id": "int-systemchange",
    "bg": "#d4cac6",
-   "bgImg": "/zine/art/art-system-change-white.jpg",
-   "bgFit": "contain",
+   "bgImg": "/zine/art/art-system-change-white.jpg?v=2",
+   "bgFit": "fill",
    "items": [
     {
      "id": "scdraft",
@@ -8732,7 +8732,7 @@
     "tec",
     "wor"
    ],
-   "bgImg": "/zine/art/art-beauty-unrefinement-bright.jpg",
+   "bgImg": "/zine/art/art-beauty-unrefinement-bright.jpg?v=2",
    "bgFit": "fill"
   },
   {
@@ -9221,7 +9221,7 @@
     "pol",
     "tec"
    ],
-   "bgImg": "/zine/art/art-serving-wisdom-right-white-ink.jpg",
+   "bgImg": "/zine/art/art-serving-wisdom-right-white-ink.jpg?v=2",
    "bgFit": "fill"
   },
   {
@@ -9408,12 +9408,12 @@
      "id": "int-inconvenienceimg",
      "type": "image",
      "x": 100,
-     "y": 77.27,
-     "w": 199.17,
+     "y": 77.275,
+     "w": 200,
      "h": 154.55,
      "rot": 0,
      "z": 1,
-     "src": "/zine/art/art-inconvenience-white.jpg",
+     "src": "/zine/art/art-inconvenience-white.jpg?v=2",
      "spread": true
     }
    ]
@@ -9860,7 +9860,7 @@
      "z": 6
     }
    ],
-   "bgImg": "/zine/art/bg-polka-dots-white.jpg",
+   "bgImg": "/zine/art/bg-polka-dots-white.jpg?v=2",
    "bgFit": "fill"
   },
   {
@@ -10160,7 +10160,7 @@
     "com",
     "rel"
    ],
-   "bgImg": "/zine/art/bg-polka-dots-white.jpg",
+   "bgImg": "/zine/art/bg-polka-dots-white.jpg?v=2",
    "bgFit": "fill"
   },
   {
