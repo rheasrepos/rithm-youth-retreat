@@ -6,7 +6,7 @@ import { RouteTint } from "@/components/RouteTint";
 import { AIControls } from "@/components/AIControls";
 
 export const metadata: Metadata = {
-  title: { default: "Rithm Youth Retreat", template: "%s · Rithm Youth Retreat" },
+  title: { default: "The Rithm Project: Youth Portal", template: "%s · The Rithm Project: Youth Portal" },
   description: "What young changemakers wrote at the Rithm retreat, word for word, and who in the network is already working on each concern.",
 };
 
@@ -25,7 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <RouteTint />
         <div className="wrap">
           <nav>
-            <a className="brand" href="https://www.therithmproject.org/" target="_blank" rel="noopener">The Rithm Project</a>
+            <a className="brand" href="https://www.therithmproject.org/" target="_blank" rel="noopener">The Rithm Project: Youth Portal</a>
             <div className="topnav">
               <Link href="/">Changemaker Network</Link>
               <Link href="/wall">Ecosystem Mapping</Link>
