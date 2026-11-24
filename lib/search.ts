@@ -2,7 +2,7 @@ import type { Model } from "./types";
 
 export interface SearchIndex {
   themes: { id: string; domainId: string; domainName: string; label: string; text: string; status: string }[];
-  orgs: { id: string; name: string; body: string; themes: string; dom: string; ppl: string }[];
+  orgs: { id: string; name: string; body: string; themes: string; dom: string; ppl: string; domIds: string[] }[];
 }
 
 export function buildIndex(m: Model): SearchIndex {
@@ -17,6 +17,7 @@ export function buildIndex(m: Model): SearchIndex {
       themes: o.links.map((l) => m.labelOf(l.themeId)).join(" | ").toLowerCase(),
       dom: o.domains.map((d) => m.domainById[d]?.name ?? "").join(" ").toLowerCase(),
       ppl: o.people.map((p) => p.name + " " + p.note).join(" ").toLowerCase(),
+      domIds: o.domains,
     })),
   };
 }

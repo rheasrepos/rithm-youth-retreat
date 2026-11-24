@@ -39,10 +39,10 @@ export default async function DomainPage({ params }: { params: Promise<{ id: str
         <span className="crumb"><Link href="/">Map</Link> · Domain</span>
         {SUMMARIES[d.id] ? (
           <details className="dsum">
-            <summary><h2 className="handtitle"><img src={`/domain-cards/${d.id}.png?v=3`} alt={d.name} /></h2><span className="dsumhint">Tap to see our group&apos;s handwritten summary</span></summary>
+            <summary><h2 className="handtitle"><img src={`/domain-cards/${d.id}-card.jpg`} alt={d.name} /></h2><span className="dsumhint">Tap to see our group&apos;s handwritten summary</span></summary>
             <div className="dsumimgs">{SUMMARIES[d.id].map((f, k) => <a key={f} href={`/domain-summaries/${f}.jpg`} target="_blank" rel="noopener"><img src={`/domain-summaries/${f}.jpg`} alt={`${d.name}: the group's handwritten summary, page ${k + 1}`} loading="lazy" /></a>)}</div>
           </details>
-        ) : <h2 className="handtitle"><img src={`/domain-cards/${d.id}.png?v=3`} alt={d.name} /></h2>}
+        ) : <h2 className="handtitle"><img src={`/domain-cards/${d.id}-card.jpg`} alt={d.name} /></h2>}
         <p className="ddesc"><AI>{d.description}</AI></p>
         <p>{d.stickyCount} sticky notes, grouped into {d.themes.length} concerns · {orgs.length} organizations and {people.length} people in the network.</p>
         <div className="topnav">{m.domains.map((x) => <Link key={x.id} href={`/domain/${x.id}`} aria-current={x.id === d.id ? "page" : undefined}>{x.name}</Link>)}</div>

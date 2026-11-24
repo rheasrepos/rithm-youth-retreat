@@ -5,6 +5,9 @@ import { getModel } from "@/lib/data";
 import { AI } from "@/components/AI";
 import { buildIndex } from "@/lib/search";
 import { EveryoneSection, UntappedSection } from "@/components/MapSections";
+import { FlipTile, TileHit } from "@/components/FlipTile";
+import { ThemeRow } from "@/components/ThemeRow";
+import { OrgCard } from "@/components/OrgCard";
 
 export const revalidate = 3600;
 
@@ -12,12 +15,17 @@ export default async function Home() {
   const m = await getModel();
   const index = buildIndex(m);
   const untapped = m.untapped.none.length + m.untapped.nearby.length;
+  // full search results, rendered here so the search box can show them: each concern with its quoted notes and who's on it,
+  // each organization's card, and everyone in the network (as Nahom's network map did)
+  const themeEls = Object.fromEntries(Object.values(m.themes).map((t) => [t.id, <ThemeRow key={t.id} model={m} t={t} showDomain />]));
+  const orgEls = Object.fromEntries(m.orgs.map((o) => [o.id, <OrgCard key={o.id} model={m} o={o} />]));
+  const peopleRows = m.people.map((p) => ({ name: p.name, orgId: p.org?.id ?? "", orgName: p.orgName, note: p.note, url: p.org?.url ?? "" }));
   return (
     <>
       <header className="hero">
         <h1>Find who&apos;s working on <em className="ul">what you care about<svg viewBox="0 0 300 12" preserveAspectRatio="none" aria-hidden="true"><path d="M3 8 C 60 2, 140 3, 200 6 S 280 9, 297 4" /></svg></em></h1>
         <p className="lede">At the October retreat, young changemakers wrote what worries them on sticky notes across eight parts of life. Every note is quoted here <em>word for word</em>. Next to each one: the organizations in the Rithm network with real, linked work on it, and the problems nobody has picked up yet. It builds on <a href="https://readymag.website/u918716038/6521655/" target="_blank" rel="noopener">Rithm&apos;s existing work ↗</a>.</p>
-        <SearchBox index={index} />
+        <SearchBox index={index} themeEls={themeEls} orgEls={orgEls} people={peopleRows} />
         <div className="legend">
           <span><span className="vb">Verified</span> a named project, report, product or law we could link to</span>
           <span><span className="vb" style={{ background: "transparent", color: "var(--muted)", border: "1px solid var(--line)" }}>Nearby</span> works in the area, but nothing specific to this note</span>
@@ -37,15 +45,22 @@ export default async function Home() {
             const people = orgs.reduce((a, o) => a + o.people.length, 0);
             const open = d.themes.filter((t) => t.status !== "covered").length;
             return (
-              <div className="tile" key={d.id}><div className="inner"><div className="face front">
-                <Link className="open" href={`/domain/${d.id}`}>
-                  <span className="nm hand"><img src={`/domain-cards/${d.id}.png?v=3`} alt={d.name} /></span>
-                  <span className="ct">{d.stickyCount} sticky notes · {orgs.length} organizations · {people} people</span>
-                  {open > 0 && <span className="hit">{open} untapped</span>}
-                </Link>
-                <span className="desc"><AI>{d.description}</AI></span>
-                <ul className="tnotes">{d.themes.map((t) => <li key={t.id}><AI>{t.label}</AI></li>)}</ul>
-              </div></div></div>
+              <FlipTile key={d.id} id={d.id}
+                front={<>
+                  <Link className="open" href={`/domain/${d.id}`}>
+                    <span className="nm hand"><img src={`/domain-cards/${d.id}-card.jpg`} alt={d.name} /></span>
+                    <span className="ct">{d.stickyCount} sticky notes · {orgs.length} organizations · {people} people</span>
+                    {open > 0 && <span className="hit">{open} untapped</span>}
+                    <TileHit id={d.id} />
+                  </Link>
+                  <span className="desc"><AI>{d.description}</AI></span>
+                </>}
+                back={<>
+                  <span className="tk">What they cared about</span>
+                  <ul className="tnotes">{d.themes.map((t) => <li key={t.id}><AI>{t.label}</AI></li>)}</ul>
+                  {d.building.length > 0 && <><span className="tk">Already building</span>
+                  <ul className="tnotes">{d.building.map((s) => <li key={s.id}>“{s.text}”</li>)}</ul></>}
+                </>} />
             );
           })}
         </div>

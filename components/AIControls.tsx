@@ -13,13 +13,22 @@ export function AIControls() {
   }, [hidden]);
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
-    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("ai-in"); io.unobserve(e.target); } }), { threshold: 0.2 });
+    // Watch each text's parent, not the text: the hidden text is clipped to nothing (for the type-on reveal), and Chrome then
+    // never reports it as on screen, so text below the fold stayed invisible.
+    const waiting = new Map<Element, Element[]>();
+    const io = new IntersectionObserver((es) => es.forEach((e) => {
+      if (!e.isIntersecting) return;
+      (waiting.get(e.target) ?? []).forEach((el) => el.classList.add("ai-in"));
+      waiting.delete(e.target); io.unobserve(e.target);
+    }), { threshold: 0 });
     const seen = new WeakSet<Element>();
     const scan = () => document.querySelectorAll(".ai-generated:not(.ai-in), .ai-figure:not(.ai-in)").forEach((el) => {
       if (seen.has(el)) return; seen.add(el);
       const r = el.getBoundingClientRect();
       if (r.top < window.innerHeight && r.bottom > 0) { el.classList.add("ai-in"); return; }   // already on screen: no flash
-      el.classList.add("ai-wait"); io.observe(el);
+      el.classList.add("ai-wait");
+      const box = el.parentElement ?? el;
+      const list = waiting.get(box); if (list) list.push(el); else { waiting.set(box, [el]); io.observe(box); }
     });
     scan();
     const mo = new MutationObserver(scan); mo.observe(document.body, { childList: true, subtree: true });

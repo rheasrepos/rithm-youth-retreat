@@ -8,8 +8,7 @@
   --f-display:Arial, "Helvetica Neue", Helvetica, sans-serif;
   --f-body:Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
-/* One look for everyone: the site no longer switches to a dark version with the computer's setting.
-   A dark version is still available by putting data-theme="dark" on <html>. */
+/* Dark version: follows the computer's setting (see the end of this file), or force it with data-theme="dark" on <html>. */
 :root[data-theme="dark"]{
   --bg:#262249; --paper:#322d5e; --ink:#f3e8cc; --muted:#c3bbdf; --line:#4a447c;
   --pink:#f0a04b; --pink-ink:#262249; --pink-soft:#4b3a52; --sun:#e0a82e; --peach:#9c93cf;
@@ -840,3 +839,24 @@ html,body{overflow-x:clip}
 .face,.ucard{border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
 .orgbtn{border:2px solid #000;border-color:#fff #808080 #808080 #fff;background:#c0c0c0;color:#000}
 .form input,.form select,.form textarea,details.all input,.loginrow input{border-radius:0;border:2px solid #000;border-color:#808080 #fff #fff #808080;background:#fff}
+
+/* domain tiles: flip to the back (concerns + already building); search match badge */
+.tile .face.back .tnotes{margin-bottom:4px}
+.tile .hit.match{background:var(--ink);color:var(--bg)}
+.tile a.flipbtn{text-decoration:none}
+/* Automatic dark mode: follows the computer's setting again (as Nahom's map did); data-theme="light" on <html> opts out */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]),:root:not([data-theme="light"])[data-page]{
+    --bg:#262249; --paper:#322d5e; --ink:#f3e8cc; --muted:#c3bbdf; --line:#4a447c;
+    --pink:#f0a04b; --pink-ink:#262249; --pink-soft:#4b3a52; --sun:#e0a82e; --peach:#9c93cf;
+    --sel:#f3e8cc; --sel-ink:#262249; color-scheme:dark}
+}
+:root[data-theme="dark"][data-page]{
+  --bg:#262249; --paper:#322d5e; --ink:#f3e8cc; --muted:#c3bbdf; --line:#4a447c;
+  --pink:#f0a04b; --pink-ink:#262249; --pink-soft:#4b3a52; --sun:#e0a82e; --peach:#9c93cf; --sel:#f3e8cc; --sel-ink:#262249}
+.tile .ai-wait{opacity:1;clip-path:none}
+
+/* domain tiles: the real index cards, white card and all */
+.tile .nm.hand img{max-height:none;object-fit:cover;aspect-ratio:1.6;border:1px solid rgba(0,0,0,.18);box-shadow:2px 3px 0 rgba(0,0,0,.25)}
+.tile.sel .nm.hand img{filter:none}
+.handtitle img{width:auto;max-width:min(520px,100%);max-height:260px;border:1px solid rgba(0,0,0,.18);box-shadow:3px 4px 0 rgba(0,0,0,.25)}
