@@ -21,7 +21,7 @@ export interface ZineItem {
   link?: string;   // text: a web address; readers can press the text to open it in a new tab
   track?: number; gap?: number;   // text: extra space between letters and between words, in ems
   ai?: boolean;     // text drafted by AI (Claude, or a summary Granola wrote): readers see the site's dashed underline, and the site-wide switch can blur it
-  beat?: number;  // flip: turns every `beat` eighth notes of a shared 6/8 pulse (1 to 6), set from its order on the page
+  beat?: number;  // flip: no longer used; the speed now comes from how many photos the flipbook has (beatFor)
   fill?: string;   // text: a solid box behind plain text so it reads over a picture background
   bubble?: "l" | "r";   // text: a speech bubble, tail on the left (l) or right (r), for a dialogue
   lock?: boolean;   // pinned in the editor so it can't be picked up by accident; readers see no difference
@@ -204,8 +204,11 @@ function ZMap({ it }: { it: ZineItem }) {
 /** Flipbooks keep time together in 6/8: one eighth note is EIGHTH ms (a bar is six of them).
     A flipbook with beat n turns every n eighths, so on a page the first turns on every eighth, the second every other eighth, and so on up to a full bar. */
 const EIGHTH = 500;
-function Flip({ srcs, beat }: { srcs: string[]; beat?: number }) {
-  const n = Math.min(6, Math.max(1, Math.round(beat ?? 1)));
+/** How fast a flipbook turns depends on how many photos it has: big stacks riffle, small ones linger.
+    20+ photos: every eighth (0.5 s) · 10–19: every 2 (1 s) · 5–9: every 3 (1.5 s) · 2–4: once a bar (3 s). */
+const beatFor = (count: number) => (count >= 20 ? 1 : count >= 10 ? 2 : count >= 5 ? 3 : 6);
+function Flip({ srcs }: { srcs: string[]; beat?: number }) {
+  const n = beatFor(srcs.length);
   const at = () => Math.floor(Date.now() / EIGHTH / n) % Math.max(1, srcs.length);
   const [i, setI] = useState(0);
   useEffect(() => {
