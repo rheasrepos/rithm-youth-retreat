@@ -793,9 +793,9 @@ html,body{overflow-x:clip}
 .zdeep li a{white-space:pre-line}
 
 /* zine reader toolbar: grey retro buttons, the same as on rheamad.vercel.app */
-.ztools{position:absolute;top:10px;z-index:31;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.ztools.left{left:12px}
-.ztools.right{right:12px;justify-content:flex-end;max-width:60vw}
+.zinefull .ztools{position:absolute;top:10px;z-index:31;display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding-top:0}
+.zinefull .ztools.left{left:12px}
+.zinefull .ztools.right{right:12px;justify-content:flex-end;max-width:60vw}
 .zbtn{all:unset;box-sizing:border-box;cursor:pointer;background:#c0c0c0;color:#000;border:2px solid #000;border-color:#fff #808080 #808080 #fff;box-shadow:2px 2px 0 rgba(0,0,0,.35);padding:6px 11px;font:700 12px/1.1 Arial,sans-serif;letter-spacing:.03em;white-space:nowrap}
 .zbtn:hover{background:#cfcfcf}
 .zbtn:active,.zbtn[aria-pressed="true"]{border-color:#808080 #fff #fff #808080;box-shadow:none;background:#b5b5b5}
@@ -926,3 +926,11 @@ html,body{overflow-x:clip}
 .zinefull .turn{z-index:34}
 /* …but the buttons and zoom stay above the arrows */
 .zinefull .ztools,.zinefull .zzoom,.zinefull .ztools .zbtn.strong{z-index:36}
+/* zine editor toolbar: compact, and rows with nothing to do (nothing selected) hide themselves */
+.ztools[role="toolbar"]{gap:6px 14px;padding-top:12px}
+.ztools[role="toolbar"] .tgroup{gap:4px}
+.ztools[role="toolbar"] .btn{padding:4px 9px;font-size:13px}
+.ztools[role="toolbar"] select{font-size:13px;padding:4px 10px}
+.ztools[role="toolbar"] .num input{width:60px;font-size:13px;padding:3px 8px}
+.ztools[role="toolbar"] .tgroup:has(button):not(:has(button:not(:disabled))){display:none}
+.ztools[role="toolbar"] p.thint{font-size:12px;line-height:1.35;opacity:.8}
