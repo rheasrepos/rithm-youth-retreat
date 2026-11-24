@@ -582,7 +582,8 @@
      "rot": 0,
      "z": 11,
      "size": 1.45,
-     "text": "Hi I’m Rhea, one of the attendees! This lil digimag was created by me and thus is just one of the 19+ perspectives that created this project. That being said, I hope you take what you find in here as my experience and distillation of the retreat, both as comprehensive, but with an angle. This work is surely biased by my own interests and background and is commentary in some places. If some text was prompted for by me from AI it is underlined as AI/synthetic. If not, it is either a quote or my own writing that could be spellchecked by AI. The primary chatbot I used was Claude and I also used Claude CoWork in building myself a zine editing tool for my specific purposes (which I plan to make open source!). Anyways, yeah feel free to disagree, this little experiment’s purpose is to generate dialogue with the discussion we had together over a few days as a starting point.\n\nRereading is a practice I’ve rediscovered in my college years, partially because university makes you reread texts and interpret them in one million ways and in novel ones, although this practice has been done thousands of times, somehow we always have something novel to say. We have optimized ai to be pretty consistent in its outputs thus far. Let’s not unlearn what it means to interpret what already exists in order to create something new. Let’s remember what novelty means to us, what it meant to us as a kid, the feelings that arise and how those feelings may be used and moved around by the world in ways you don’t understand. I hope that the youth leaders reading this feel like they have, in a sense, re read the retreat through this review, and thus, learn to interpret what we created in new ways. This review is just one way. Explore other parts of this website for more!"
+     "text": "Hi I’m Rhea, one of the attendees! This lil digimag was created by me and thus is just one of the 19+ perspectives that created this project. That being said, I hope you take what you find in here as my experience and distillation of the retreat, both as comprehensive, but with an angle. This work is surely biased by my own interests and background and is commentary in some places. If some text was prompted for by me from AI it is underlined as AI/synthetic. If not, it is either a quote or my own writing that could be spellchecked by AI. The primary chatbot I used was Claude and I also used Claude CoWork in building myself a zine editing tool for my specific purposes (which I plan to make open source!). Anyways, yeah feel free to disagree, this little experiment’s purpose is to generate dialogue with the discussion we had together over a few days as a starting point.\n\nRereading is a practice I’ve rediscovered in my college years, partially because university makes you reread texts and interpret them in one million ways and in novel ones, although this practice has been done thousands of times, somehow we always have something novel to say. We have optimized ai to be pretty consistent in its outputs thus far. Let’s not unlearn what it means to interpret what already exists in order to create something new. Let’s remember what novelty means to us, what it meant to us as a kid, the feelings that arise and how those feelings may be used and moved around by the world in ways you don’t understand. I hope that the youth leaders reading this feel like they have, in a sense, re read the retreat through this review, and thus, learn to interpret what we created in new ways. This review is just one way. Explore other parts of this website for more!",
+     "color": "#2b2755"
     },
     {
      "id": "gd-portraits",
@@ -8299,7 +8300,8 @@
      "rot": 0,
      "z": 21,
      "size": 1.2,
-     "text": "Asked only to “take notes” on the raw ecosystem-mapping transcript, Claude wrote:\n• Floor talk: fear of initiating friendships; dating-app culture; third spaces down, data centers up; chatbots vs. human support (neutral and instant vs. data privacy).\n• Share-outs: Relationships, School & Learning, Culture & Art, Physical Spaces. Nothing recorded for Community, Workplace, Tech or Policy.\nUnprompted, it also pulled in people’s personal shares from the floor, which our handwritten summaries left out."
+     "text": "Asked only to “take notes” on the raw ecosystem-mapping transcript, Claude wrote:\n• Floor talk: fear of initiating friendships; dating-app culture; third spaces down, data centers up; chatbots vs. human support (neutral and instant vs. data privacy).\n• Share-outs: Relationships, School & Learning, Culture & Art, Physical Spaces. Nothing recorded for Community, Workplace, Tech or Policy.\nUnprompted, it also pulled in people’s personal shares from the floor, which our handwritten summaries left out.",
+     "color": "#2b2755"
     }
    ]
   },
@@ -8534,7 +8536,8 @@
      "rot": 0,
      "z": 5,
      "size": 2,
-     "text": "Workshops were about wanting system change and thinking about how to do that while tapping into our local communities. What can we do in our daily lives, as a practice, to make system change feel easier? Is it less data center use on your personal laptop? Is it telling human stories effectively? Is it about facilitation and mediation in your digital and physical communities? For students that are searching for answers, in a field with so few, what can we provide them with? How can we distill what we know into a network of knowledge from experience rather than the knowledge of a large language model? How do we make ourselves MORE helpful than a chatbot, given our diverse yet curated (believing that human connection is at risk) perspectives on ai?"
+     "text": "Workshops were about wanting system change and thinking about how to do that while tapping into our local communities. What can we do in our daily lives, as a practice, to make system change feel easier? Is it less data center use on your personal laptop? Is it telling human stories effectively? Is it about facilitation and mediation in your digital and physical communities? For students that are searching for answers, in a field with so few, what can we provide them with? How can we distill what we know into a network of knowledge from experience rather than the knowledge of a large language model? How do we make ourselves MORE helpful than a chatbot, given our diverse yet curated (believing that human connection is at risk) perspectives on ai?",
+     "color": "#2b2755"
     },
     {
      "id": "fr-scdraft-0",
@@ -8867,7 +8870,8 @@
      "rot": 0,
      "z": 3,
      "size": 1.54,
-     "text": "“My question is, why is AI the next intervention?”\n\n“Is it good to use personal experiences in a debate?”\n\n“Should I use AI or should I not?”"
+     "text": "“My question is, why is AI the next intervention?”\n\n“Is it good to use personal experiences in a debate?”\n\n“Should I use AI or should I not?”",
+     "color": "#2b2755"
     },
     {
      "id": "fllfom4eg",
@@ -9186,7 +9190,8 @@
      "rot": 0,
      "z": 3,
      "size": 1.88,
-     "text": "“Wouldn’t that be a super common-sense piece of legislation, to mandate reporting for any incidents that happen as a result of AI companies?”\n\n“From a really well-informed perspective on the inside, how do you navigate the weight of those headlines? And understanding what is reality versus what is just strategic media?”\n\n“How could you get more people to care about that?”\n\n“Is that related to self-replication?” (on rogue agents)"
+     "text": "“Wouldn’t that be a super common-sense piece of legislation, to mandate reporting for any incidents that happen as a result of AI companies?”\n\n“From a really well-informed perspective on the inside, how do you navigate the weight of those headlines? And understanding what is reality versus what is just strategic media?”\n\n“How could you get more people to care about that?”\n\n“Is that related to self-replication?” (on rogue agents)",
+     "color": "#2b2755"
     },
     {
      "id": "eevth0p",
@@ -9359,7 +9364,8 @@
      "rot": 0,
      "z": 3,
      "size": 2.1,
-     "text": "“But as a researcher, would you phrase it that way?”\n\n“With the AI overviews, before it just used to give you the information, but now they typically end in a question, like, do you want me to follow up more? Do you want me to research this more?” / “Why would they do that?”\n\n“Are you simply bringing it up in the workshop to tell people that this is something that exists, or what are your thoughts around those online publications?”\n\n“Who’s your target audience?” · “So what do you hope that they would take away from your workshops?” · “Would you be opposed to expanding it to more workshops?”"
+     "text": "“But as a researcher, would you phrase it that way?”\n\n“With the AI overviews, before it just used to give you the information, but now they typically end in a question, like, do you want me to follow up more? Do you want me to research this more?” / “Why would they do that?”\n\n“Are you simply bringing it up in the workshop to tell people that this is something that exists, or what are your thoughts around those online publications?”\n\n“Who’s your target audience?” · “So what do you hope that they would take away from your workshops?” · “Would you be opposed to expanding it to more workshops?”",
+     "color": "#2b2755"
     },
     {
      "id": "flcarvv5w",
@@ -9590,7 +9596,8 @@
      "z": 21,
      "size": 2.2,
      "text": "Kash: “Whose opinion sways you the most? That’s always really interesting to find out. […] Then where does your line of comfort [go]?”\n\nFrom the room: “Something that’s really important about human connection is that there is discomfort and tension involved. […] That friction also is important because it’s kind of like a consequence of maybe not listening well enough.”",
-     "fill": "#fbf3e1"
+     "fill": "#fbf3e1",
+     "color": "#2b2755"
     },
     {
      "id": "fllwau1ak",

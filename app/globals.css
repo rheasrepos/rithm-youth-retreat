@@ -886,3 +886,7 @@ html,body{overflow-x:clip}
 /* zoom control: below the toolbar row; on phones, along the bottom so it doesn't sit on the page */
 .zzoom{top:calc(var(--gt, 54px) + 30px)}
 @media (max-width:700px){.zzoom:not(.moved){top:auto;bottom:12px;flex-direction:row}.zzoom:not(.moved) .zgrip{display:none}}
+
+/* The zine is printed paper: its pages keep their light-mode colors even when the site is in dark mode
+   (otherwise text with no colour of its own picks up the dark theme's tan ink). */
+.zpage{--ink:#2b2755;--muted:#5a5484;--paper:#fbf4e0;--line:#d6c79f;color:#2b2755}
