@@ -257,8 +257,11 @@ footer p{margin:0;max-width:none}
 /* One page is --pw wide. The area is as wide as the pages showing (--span, set every frame while the strip moves);
    the arrows hang off its sides, so they sit beside the cover when it's closed and beside the spread when open. */
 .zinefull{--gx:clamp(34px, 4vw, 56px);--gy:8px}
-.zarea{--pw:min(calc((100vw - 2 * var(--gx)) / 2), calc((100dvh - 2 * var(--gy)) / var(--ratio)));position:relative;width:calc(var(--pw) * var(--span, 1));height:calc(var(--pw) * var(--ratio))}
-.zarea.single{--pw:min(calc(100vw - 2 * var(--gx)), calc((100dvh - 2 * var(--gy)) / var(--ratio)))}
+/* keep the toolbar row above the pages: --gt is the strip it takes at the top */
+.zinefull{--gt:60px;padding-top:var(--gt);box-sizing:border-box}
+@media (max-width:700px){.zinefull{--gt:96px}}
+.zarea{--pw:min(calc((100vw - 2 * var(--gx)) / 2), calc((100dvh - var(--gt, 0px) - 2 * var(--gy)) / var(--ratio)));position:relative;width:calc(var(--pw) * var(--span, 1));height:calc(var(--pw) * var(--ratio))}
+.zarea.single{--pw:min(calc(100vw - 2 * var(--gx)), calc((100dvh - var(--gt, 0px) - 2 * var(--gy)) / var(--ratio)))}
 .strip{position:absolute;inset:0;perspective:calc(var(--pw) * 5);perspective-origin:50% 45%;transform-style:preserve-3d}
 .slice{position:absolute;top:0;height:100%;overflow:hidden;transform-origin:0 50%;backface-visibility:hidden}
 .slice .sheet{position:absolute;top:0;bottom:0;width:var(--pw);background:#f6f1e7}
@@ -771,7 +774,7 @@ html,body{overflow-x:clip}
 
 /* zine reader: "Go deeper" — the further-reading and source links for the pages showing, in the margin beside the zine */
 .zinefull .zitem.deep{display:none}
-.zdeep{position:absolute;left:calc(var(--gx) + 2px);top:60px;z-index:30;max-height:calc(100% - 76px);display:flex;flex-direction:column;font:400 12.5px/1.35 Arial,sans-serif;color:rgba(243,232,204,.92)}
+.zdeep{position:absolute;left:calc(var(--gx) + 2px);top:calc(var(--gt, 54px) + 8px);z-index:30;max-height:calc(100% - 76px);display:flex;flex-direction:column;font:400 12.5px/1.35 Arial,sans-serif;color:rgba(243,232,204,.92)}
 .zdeep.over{width:min(270px,calc(100vw - 2 * var(--gx)))}
 .zdeep.over:not(.shut){background:#2b2755;border:1px solid rgba(243,232,204,.35);border-radius:10px;padding:0 10px 8px;box-shadow:0 6px 24px rgba(0,0,0,.35)}
 .zdeephead{all:unset;box-sizing:border-box;cursor:pointer;align-self:flex-start;font:700 12px/1 Arial,sans-serif;letter-spacing:.09em;text-transform:uppercase;color:#f0b63c;padding:8px 0;display:flex;align-items:center;gap:8px}
@@ -784,7 +787,7 @@ html,body{overflow-x:clip}
 .zdeep a::after{content:" \2197";color:#f0b63c}
 .zdeep a:hover{color:#fff;text-decoration:underline}
 @media print{.zdeep{display:none}}
-.zdeep.over{top:6px;left:170px}
+.zdeep.over{top:calc(var(--gt, 54px) + 8px);left:170px}
 .zcorner.home.login ~ .zdeep.over{left:255px}
 .zdeep a.ai-generated{cursor:pointer}
 .zdeep li a{white-space:pre-line}
@@ -805,9 +808,9 @@ html,body{overflow-x:clip}
 .zzoom button{border-radius:0}
 .zzoom button.fit{background:#2b2755;color:#fff;border-radius:0}
 .zzoom button:hover:not(:disabled){background:#d6d6d6}
-.zdeep{top:56px}
+.zdeep{top:calc(var(--gt, 54px) + 8px)}
 .zdeep.r{left:auto;right:calc(var(--gx) + 58px)}
-.zdeep.over{top:52px;left:12px}
+.zdeep.over{top:calc(var(--gt, 54px) + 8px);left:12px}
 
 /* team: small LinkedIn button on a Polaroid */
 .teamgrid li{position:relative}
@@ -880,3 +883,6 @@ html,body{overflow-x:clip}
 .ztext.zbubble.r::after{background:#fbf4e0}
 .zaudio{position:absolute;left:calc(var(--gx) + 2px);bottom:14px;z-index:32;width:min(300px,calc(100vw - 2 * var(--gx)));height:80px;border:2px solid #000;border-color:#fff #808080 #808080 #fff;box-shadow:2px 2px 0 rgba(0,0,0,.35);background:#c0c0c0}
 @media print{.zaudio{display:none}}
+/* zoom control: below the toolbar row; on phones, along the bottom so it doesn't sit on the page */
+.zzoom{top:calc(var(--gt, 54px) + 30px)}
+@media (max-width:700px){.zzoom:not(.moved){top:auto;bottom:12px;flex-direction:row}.zzoom:not(.moved) .zgrip{display:none}}
