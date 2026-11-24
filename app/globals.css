@@ -934,3 +934,13 @@ html,body{overflow-x:clip}
 .ztools[role="toolbar"] .num input{width:60px;font-size:13px;padding:3px 8px}
 .ztools[role="toolbar"] .tgroup:has(button):not(:has(button:not(:disabled))){display:none}
 .ztools[role="toolbar"] p.thint{font-size:12px;line-height:1.35;opacity:.8}
+
+/* Dark mode: lighten dark text that sits on the dark background (Nov 24) */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .wckey,:root:not([data-theme="light"]) .wchint,:root:not([data-theme="light"]) .wcshare,:root:not([data-theme="light"]) .wchead p{color:var(--muted)}
+  :root:not([data-theme="light"]) .wcopts{color:var(--ink)}
+  :root:not([data-theme="light"]) .ztagpick button:not([aria-pressed="true"]){color:color-mix(in srgb,var(--t) 40%,#f3e8cc);border-color:color-mix(in srgb,var(--t) 60%,#f3e8cc);opacity:.85}
+}
+:root[data-theme="dark"] .wckey,:root[data-theme="dark"] .wchint,:root[data-theme="dark"] .wcshare,:root[data-theme="dark"] .wchead p{color:var(--muted)}
+:root[data-theme="dark"] .wcopts{color:var(--ink)}
+:root[data-theme="dark"] .ztagpick button:not([aria-pressed="true"]){color:color-mix(in srgb,var(--t) 40%,#f3e8cc);border-color:color-mix(in srgb,var(--t) 60%,#f3e8cc);opacity:.85}
