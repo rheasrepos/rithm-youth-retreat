@@ -9,7 +9,8 @@ export interface ZineItem {
   x: number; y: number; w: number; h: number; rot: number; z: number;
   src?: string; text?: string; font?: string; size?: number; color?: string; bold?: boolean; italic?: boolean; align?: "left" | "center" | "right";
   srcs?: string[]; speed?: number;   // flip: a set of photos shown one after another, like a flipbook; speed is milliseconds per photo
-  win?: boolean; title?: string; term?: boolean;   // term: draw it as a macOS Terminal window (monospace, traffic lights); title is the window title      // text: draw it as a little retro window with a title bar
+  win?: boolean; title?: string; term?: boolean; url?: boolean;   // url: draw it as a browser address bar (square corners)
+    // term: draw it as a macOS Terminal window (monospace, traffic lights); title is the window title      // text: draw it as a little retro window with a title bar
   // pile: one domain's sticky notes around its index card. Places are shares of the box (0 to 1). Readers can press a note to read it.
   card?: { src: string; x: number; y: number; w: number; rot: number }; notes?: { id: string; src: string; x: number; y: number; w: number; rot: number; z: number; text: string; dom?: string; m?: [number, number]; sim?: number[] }[];
   // map: every sticky note in one box, which readers can regroup. x, y are where the note lay on the rug; m is its place on the map of meaning; sim is how close it is to each domain's name (same order as words).
@@ -249,6 +250,14 @@ function ItemBody({ it }: { it: ZineItem }) {
       <div className="zterm">
         <div className="ztermbar"><i /><i /><i /><span>{it.title || "user — -zsh"}</span></div>
         <div className={`ztermtext${it.ai ? " ai-generated" : ""}`} title={it.ai ? AITIP : undefined} style={{ fontSize: `${it.size ?? 2}cqw`, textAlign: it.align }}>{it.text}</div>
+      </div>
+    );
+  }
+  if (it.type === "text" && it.url) {
+    return (
+      <div className="zurl">
+        <span className="zurlnav" aria-hidden="true"><b>←</b><b>→</b><b>↻</b></span>
+        <div className="zurlfield"><svg className="zurllock" viewBox="0 0 10 12" aria-hidden="true"><rect x="1" y="5" width="8" height="6.5" fill="currentColor"/><path d="M3 5V3.5a2 2 0 0 1 4 0V5" fill="none" stroke="currentColor" strokeWidth="1.4"/></svg><div className={`zurltext${it.ai ? " ai-generated" : ""}`} title={it.ai ? AITIP : undefined} style={{ fontFamily: stack(it.font), fontSize: `${it.size ?? 3.6}cqw`, color: it.color, fontWeight: it.bold ? 700 : 400, fontStyle: it.italic ? "italic" : "normal", textAlign: it.align }}>{it.text}</div></div>
       </div>
     );
   }
@@ -1060,6 +1069,7 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
           <span className="eyebrow">Add</span>
           <button type="button" className="btn ghost" onClick={() => add({ type: "text", w: 60, h: 14, text: "Text", font: "Arial", size: 5, color: "#1b1037", bold: false, italic: false, align: "left" })}>Text box</button>
           <button type="button" className="btn ghost" onClick={() => add({ type: "text", win: true, title: "Overheard", w: 64, h: 30, text: "Type what was said here.", font: "Arial", size: 3.6, color: "#000000", bold: false, italic: false, align: "left" })}>Window box</button>
+          <button type="button" className="btn ghost" title="A browser address bar: use it for a page's question" onClick={() => add({ type: "text", url: true, w: 80, h: 9, text: "Type the page's question here", font: "Arial", size: 3.6, color: "#000000", bold: false, italic: false, align: "left" })}>URL box</button>
           <button type="button" className="btn ghost" title="Words circling the middle of the box. Double-click it to type, one word per line." onClick={() => add({ type: "orbit", w: 84, h: 70, text: "one\nword\nper\nline", font: "Arial", size: 4.5, color: "#000000", bold: true, italic: false, align: "center", speed: 26000 })}>Word orbit</button>
           <select className="btn ghost" aria-label="Add a poem" value="" title="Poems read at the retreat: the scan or screenshot when there is one, otherwise a card linking to the published poem. The list is data/poems.json." onChange={(e) => { const p = (POEMS as Poem[])[Number(e.target.value)]; if (p) add({ type: "poem", poem: p, w: p.src ? 44 : 40, h: p.src ? 66 : 20 }); }}>
             <option value="">Poem…</option>
@@ -1085,9 +1095,10 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
               <button type="button" className="btn ghost" aria-pressed={!!cur.italic} onClick={() => edit(cur.id, { italic: !cur.italic })}><i>I</i></button>
               <select aria-label="Alignment" value={cur.align} onChange={(e) => edit(cur.id, { align: e.target.value as ZineItem["align"] })}><option value="left">Left</option><option value="center">Centre</option><option value="right">Right</option></select>
               <label className="swatch">Colour <input type="color" value={cur.color ?? "#000000"} onChange={(e) => patch(cur.id, { color: e.target.value })} /></label>
-              {cur.type === "text" && <button type="button" className="btn ghost" aria-pressed={!!cur.win} onClick={() => edit(cur.id, { win: !cur.win, term: false })}>Window</button>}
-              {cur.type === "text" && !cur.win && !cur.term && <button type="button" className="btn ghost" aria-pressed={!!cur.fill} title="Solid box behind the text" onClick={() => edit(cur.id, { fill: cur.fill ? undefined : "#fbf3e1" })}>Box</button>}
-              {cur.type === "text" && <button type="button" className="btn ghost" aria-pressed={!!cur.term} title="Draw this text as a Mac Terminal window" onClick={() => edit(cur.id, { term: !cur.term, win: false })}>Terminal</button>}
+              {cur.type === "text" && <button type="button" className="btn ghost" aria-pressed={!!cur.win} onClick={() => edit(cur.id, { win: !cur.win, term: false, url: false })}>Window</button>}
+              {cur.type === "text" && <button type="button" className="btn ghost" aria-pressed={!!cur.url} title="Draw this text as a browser address bar" onClick={() => edit(cur.id, { url: !cur.url, win: false, term: false, fill: undefined })}>URL bar</button>}
+              {cur.type === "text" && !cur.win && !cur.term && !cur.url && <button type="button" className="btn ghost" aria-pressed={!!cur.fill} title="Solid box behind the text" onClick={() => edit(cur.id, { fill: cur.fill ? undefined : "#fbf3e1" })}>Box</button>}
+              {cur.type === "text" && <button type="button" className="btn ghost" aria-pressed={!!cur.term} title="Draw this text as a Mac Terminal window" onClick={() => edit(cur.id, { term: !cur.term, win: false, url: false })}>Terminal</button>}
               <button type="button" className="btn ghost" aria-pressed={!!cur.ai} title="Mark this text as written by AI: readers see a dashed underline, like the rest of the site" onClick={() => edit(cur.id, { ai: !cur.ai })}>AI-written</button>
               {cur.type === "text" && <label className="swatch">Link <input type="url" className="wintitle" value={cur.link ?? ""} placeholder="https://…" onChange={(e) => patch(cur.id, { link: e.target.value || undefined })} /></label>}
               {(cur.win || cur.term) && <label className="swatch">Title <input type="text" className="wintitle" value={cur.title ?? ""} placeholder="Overheard" onChange={(e) => patch(cur.id, { title: e.target.value })} /></label>}
@@ -1198,7 +1209,10 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
                   {page.items.map((it) => (
                     <div key={it.id} className={`zitem ${it.type}${it.lock ? " locked" : ""}${typing === it.id ? " typing" : ""}`} style={itemStyle(it, doc.ratio)}
                       onPointerDown={(e) => beginMove(e, it)} onDoubleClick={() => { if (it.type === "text" || it.type === "orbit") { keep(); setTyping(it.id); setSel([it.id]); } }}>
-                      {(it.type === "text" || it.type === "orbit") && typing === it.id ? (it.win ? (
+                      {(it.type === "text" || it.type === "orbit") && typing === it.id ? (it.url ? (
+                        // an address bar being typed in
+                        <div className="zurl"><span className="zurlnav" aria-hidden="true"><b>←</b><b>→</b><b>↻</b></span><div className="zurlfield"><svg className="zurllock" viewBox="0 0 10 12" aria-hidden="true"><rect x="1" y="5" width="8" height="6.5" fill="currentColor"/><path d="M3 5V3.5a2 2 0 0 1 4 0V5" fill="none" stroke="currentColor" strokeWidth="1.4"/></svg><textarea className="zurltext" autoFocus value={it.text ?? ""} onChange={(e) => patch(it.id, { text: e.target.value })} onBlur={() => setTyping(null)} onPointerDown={(e) => e.stopPropagation()} style={{ ...textStyle(it), background: "transparent" }} /></div></div>
+                      ) : it.win ? (
                         // a window box being typed in: its title bar is editable too
                         <div className="zwin" onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node)) setTyping(null); }}>
                           <div className="zwinbar"><input className="zwintitle" value={it.title ?? ""} placeholder="Title" aria-label="Window title" onChange={(e) => patch(it.id, { title: e.target.value })} onPointerDown={(e) => e.stopPropagation()} /><i /><i /><i /></div>

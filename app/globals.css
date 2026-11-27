@@ -944,3 +944,12 @@ html,body{overflow-x:clip}
 :root[data-theme="dark"] .wckey,:root[data-theme="dark"] .wchint,:root[data-theme="dark"] .wcshare,:root[data-theme="dark"] .wchead p{color:var(--muted)}
 :root[data-theme="dark"] .wcopts{color:var(--ink)}
 :root[data-theme="dark"] .ztagpick button:not([aria-pressed="true"]){color:color-mix(in srgb,var(--t) 40%,#f3e8cc);border-color:color-mix(in srgb,var(--t) 60%,#f3e8cc);opacity:.85}
+
+/* URL box: a page title drawn as a browser address bar, square corners (Nov 27) */
+.zurl{width:100%;height:100%;box-sizing:border-box;display:flex;align-items:stretch;gap:1cqw;padding:.7cqw;background:#e4e4e4;border:.15cqw solid #8c8c8c;border-radius:0;color:#000}
+.zurlnav{flex:none;display:flex;align-items:center;gap:1.1cqw;padding:0 .3cqw;font:400 2.2cqw/1 Arial,sans-serif;color:#5a5a5a}
+.zurlnav b{font-weight:400}
+.zurlfield{flex:1;min-width:0;display:flex;align-items:center;gap:1cqw;background:#fff;border:.15cqw solid #a0a0a0;border-radius:0;padding:.3cqw 1.2cqw;overflow:hidden}
+.zurllock{flex:none;width:1.5cqw;height:1.8cqw;color:#6a6a6a}
+.zurltext{flex:1;min-width:0;line-height:1.15;white-space:pre-wrap;overflow-wrap:anywhere}
+textarea.zurltext{border:0;outline:0;resize:none;height:100%;padding:0;margin:0}
