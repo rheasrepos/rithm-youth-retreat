@@ -38,6 +38,7 @@ export interface ZineDoc { ratio: number; pages: ZinePage[]; paper?: Paper; stor
 
 const FONTS = ["Arial", "Space Grotesk", "Hanken Grotesk", "Courier New", "Impact", "Georgia"];
 const stack = (f?: string) => `"${f ?? "Arial"}", ${f === "Georgia" || f === "Playfair Display" ? "serif" : f === "Courier New" ? "monospace" : f === "Bradley Hand" ? "cursive" : "Arial, sans-serif"}`;
+const URLFONT = '"Google Sans", Arial, sans-serif';   // every URL box title uses Google Sans
 const uid = () => Math.random().toString(36).slice(2, 9);
 const AITIP = "Drafted with AI (Claude, or Granola's summary). Check it against the sources.";
 const r2 = (n: number) => Math.round(n * 100) / 100;
@@ -257,7 +258,7 @@ function ItemBody({ it }: { it: ZineItem }) {
     return (
       <div className="zurl">
         <span className="zurlnav" aria-hidden="true"><b>↻</b></span>
-        <div className="zurlfield"><svg className="zurllock" viewBox="0 0 10 12" aria-hidden="true"><rect x="1" y="5" width="8" height="6.5" fill="currentColor"/><path d="M3 5V3.5a2 2 0 0 1 4 0V5" fill="none" stroke="currentColor" strokeWidth="1.4"/></svg><div className={`zurltext${it.ai ? " ai-generated" : ""}`} title={it.ai ? AITIP : undefined} style={{ fontFamily: stack(it.font), fontSize: `${it.size ?? 3.6}cqw`, color: it.color, fontWeight: it.bold ? 700 : 400, fontStyle: it.italic ? "italic" : "normal", textAlign: it.align }}>{it.text}</div></div>
+        <div className="zurlfield"><svg className="zurllock" viewBox="0 0 10 12" aria-hidden="true"><rect x="1" y="5" width="8" height="6.5" fill="currentColor"/><path d="M3 5V3.5a2 2 0 0 1 4 0V5" fill="none" stroke="currentColor" strokeWidth="1.4"/></svg><div className={`zurltext${it.ai ? " ai-generated" : ""}`} title={it.ai ? AITIP : undefined} style={{ fontFamily: URLFONT, fontSize: `${it.size ?? 3.6}cqw`, color: it.color, fontWeight: it.bold ? 700 : 400, fontStyle: it.italic ? "italic" : "normal", textAlign: it.align }}>{it.text}</div></div>
       </div>
     );
   }
@@ -1211,7 +1212,7 @@ function Editor({ doc, setDoc, done }: { doc: ZineDoc; setDoc: React.Dispatch<Re
                       onPointerDown={(e) => beginMove(e, it)} onDoubleClick={() => { if (it.type === "text" || it.type === "orbit") { keep(); setTyping(it.id); setSel([it.id]); } }}>
                       {(it.type === "text" || it.type === "orbit") && typing === it.id ? (it.url ? (
                         // an address bar being typed in
-                        <div className="zurl"><span className="zurlnav" aria-hidden="true"><b>↻</b></span><div className="zurlfield"><svg className="zurllock" viewBox="0 0 10 12" aria-hidden="true"><rect x="1" y="5" width="8" height="6.5" fill="currentColor"/><path d="M3 5V3.5a2 2 0 0 1 4 0V5" fill="none" stroke="currentColor" strokeWidth="1.4"/></svg><textarea className="zurltext" autoFocus value={it.text ?? ""} onChange={(e) => patch(it.id, { text: e.target.value })} onBlur={() => setTyping(null)} onPointerDown={(e) => e.stopPropagation()} style={{ ...textStyle(it), background: "transparent" }} /></div></div>
+                        <div className="zurl"><span className="zurlnav" aria-hidden="true"><b>↻</b></span><div className="zurlfield"><svg className="zurllock" viewBox="0 0 10 12" aria-hidden="true"><rect x="1" y="5" width="8" height="6.5" fill="currentColor"/><path d="M3 5V3.5a2 2 0 0 1 4 0V5" fill="none" stroke="currentColor" strokeWidth="1.4"/></svg><textarea className="zurltext" autoFocus value={it.text ?? ""} onChange={(e) => patch(it.id, { text: e.target.value })} onBlur={() => setTyping(null)} onPointerDown={(e) => e.stopPropagation()} style={{ ...textStyle(it), fontFamily: URLFONT, background: "transparent" }} /></div></div>
                       ) : it.win ? (
                         // a window box being typed in: its title bar is editable too
                         <div className="zwin" onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node)) setTyping(null); }}>
